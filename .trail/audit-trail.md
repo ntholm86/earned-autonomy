@@ -229,3 +229,77 @@ The Foundations section placement (between principles and skills) creates a natu
 ### Actions taken
 
 - Updated `index.html` with lineage additions
+
+---
+
+## 2026-05-26 — session-005 — improve-iter-4 — Monokai dark colour scheme
+
+**Slug:** improve-iter-4-monokai
+**Skills run:** Intent, Improve (iteration 4), Trail
+
+### Intent
+
+Operator: "The website needs a better color scheme with some better contrasts. Perhaps use the monokai theme colors? Understand my intent. Trail everything. Use the improve skill."
+
+Interpretation: the current cream palette (#f9f9f7 bg, #6b6b67 muted) has muted body text at ~4.6:1 on the page background — borderline WCAG AA — and reads as generic. The operator named Monokai as the aesthetic direction. Monokai is fundamentally dark; the directional signal is "go dark, not just richer contrast in the light theme." The page is aimed partly at developers and technical evaluators — a dark developer theme fits both the audience and the brand better than notebook beige.
+
+**Rejected interpretation:** keep the light theme and bump contrast ratios only. This would ignore the explicit Monokai reference and produce a trivial change.
+
+### Examine
+
+- *Purpose:* Vision says "warm and accessible." Monokai's #272822 bg has a warm olive undertone — not cold black. This preserves warmth while going dark. Aligned.
+- *Inconsistency:* Three places used `color: #fff` hardcoded against `var(--accent)`. On the old dark teal (#2e5f5f), white was acceptable. On Monokai cyan (#66d9e8), white gives only 1.6:1 — a WCAG failure. Required fixing.
+- *Contrast at each tier:*
+  - --ink (#f8f8f2) / --bg (#272822): ~14:1 ✓
+  - --muted (#a89983) / --bg (#272822): ~5.5:1 ✓ (passes AA normal text)
+  - --accent (#66d9e8) / --bg (#272822): ~9:1 ✓
+  - --muted / --card-bg (#32332b): ~4.8:1 ✓
+
+### Challenge the first read
+
+Could this be a light theme with Monokai accent colors only? Technically yes. But the core contrast complaint would remain partially unaddressed, and the page would look inconsistent — Monokai yellows and cyans are designed for dark backgrounds. Full dark is the coherent choice.
+
+Could there be a structural problem (wrong design entirely)? No — the layout, typography, and content are validated. This is a colour-only iteration.
+
+### Decision and prediction
+
+**Change:** Replace the entire `:root` token block (7 semantic colour variables) with Monokai dark equivalents. Fix 3 `color: #fff` instances on accent backgrounds. Update `box-shadow` rgba to use the new accent.
+
+**Prediction:**
+- Will happen: all text passes WCAG AA. Page renders identically in structure. The dark palette makes the developer-credibility read stronger.
+- Will not happen: any layout, typography, or content change. Fully reversible with a single token swap.
+
+### Act
+
+Changes made:
+1. `:root` — replaced all 7 colour tokens with Monokai dark system (comments inline noting contrast ratios)
+2. `.hero-cta` — changed `color: #fff` to `color: var(--bg)` (dark text on cyan, `font-weight: 500 → 600`)
+3. `.skill-card:hover` — updated box-shadow rgba from old accent (46,95,95, 0.07) to new accent (102,217,232, 0.12)
+4. `.evidence-num` — changed `color: #fff` to `color: var(--bg)`
+
+### Reflect
+
+**Current model of the target:** The page has converged structurally — content, layout, and intellectual lineage are stable. The remaining open questions are presentational (visual check) and operational (deploy). This iteration is the last design-system change before a browser pass.
+
+**Blind spot:** Box-shadows elsewhere may now look different (more glow-like in dark mode due to lighter accent colour). Not examined exhaustively. A visual check will catch this.
+
+**Imagined expert pushback:** "A dark-only site excludes users who prefer light mode for accessibility reasons. A `prefers-color-scheme` media query would be more correct." Valid — but deferred intentionally. The operator asked for Monokai; adding a dual-theme system is scope expansion. Flag for a future iteration.
+
+**Macro reflection triggers:**
+- *Recurring finding-class:* not fired — each iteration so far targeted a different concern (content, time-claim, lineage, colour).
+- *About to declare silence:* not fired — change was made.
+- *Contradicts prior [!REALIZATION]:* not fired — "~5 minutes" realization and lineage decisions are unaffected by a colour change.
+- *Operator explicitly asked:* not fired.
+
+### Candidate next moves
+
+1. **Browser visual check** — first render of the dark theme before anything else; the only way to confirm the colour system works end-to-end.
+2. **`prefers-color-scheme` media query** — add a light-theme fallback for accessibility-first environments; ranks second because it's additive and non-urgent.
+3. **Add `.gitignore` + `README.md`, push to remote / enable GitHub Pages** — operational closure; nothing is publicly accessible yet.
+
+### Actions taken
+
+- Updated `:root` colour tokens in `index.html` (7 variables → Monokai dark)
+- Fixed 3 WCAG failures (`color: #fff` on cyan accent backgrounds)
+- Updated box-shadow rgba to match new accent
+- Committed all changes
