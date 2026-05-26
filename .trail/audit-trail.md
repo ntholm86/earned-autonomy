@@ -626,3 +626,48 @@ The operator's response to Q3 was the most important signal of this Vision run. 
 
 - Updated .trail/vision.md: removed demonstration artifact framing, updated audience section to primary/secondary, updated structure to 2-section (no proof), added "What success looks like" section, updated What is rejected, updated colour system (--muted now #44403c), updated What is still open
 - Appended this trail entry
+
+---
+
+## 2026-05-26 — session-010 — retro-001 — arc read
+
+**Slug:** retro-001-arc-read
+**Skills run:** Retrospect, Trail
+**Target:** pea-website / index.html + .trail/
+
+### Scope statement
+
+Read the full arc (9 sessions, 11 Improve iterations) and determine: is the loop about to converge on the right thing? Where has attention been concentrated? What has been consistently avoided? What does the target need next versus what the loop has been doing?
+
+### Freshness check
+
+No 	ools/record.py in this repo — no derived artifact pipeline exists. Arc-claims read directly from udit-trail.md + ision.md.
+- [ ] python tools/record.py history --write — NOT AVAILABLE
+- [ ] python tools/record.py learning --write — NOT AVAILABLE
+- Gate: PASS (direct trail read; no stale derived artifacts)
+
+### Arc-claims
+
+1. **The loop has been optimizing the frame, not the painting.** 6 of 9 sessions targeted visual/presentational concerns. The primary constraint per Vision is copy and instant clarity. The loop has systematically found lower-leverage changes while the highest-leverage problem (copy) sits untouched.
+
+2. **The hero copy is 9 sessions old and was written before the audience was understood.** Session-2 predicted a copy-refinement pass was needed. That prediction has not been acted on in 9 sessions. The copy was written when the audience was "both equally"; the audience is now "non-technical reader primary." The copy is stale by construction.
+
+3. **A vision-level reversal occurred without a [!REVERSAL] trail entry.** Session-1 Vision required self-referential proof. Iter-8 removed it. No individual trail entry marks this as a reversal. The Vision run (session-9) caught it retrospectively.
+
+4. **Browser visual check has been listed as highest priority in 8 consecutive sessions and never done.** This is a reliable signal that it is not actually the highest priority. It is not blocking publication. The copy problem is.
+
+5. **The Monokai reversal (sessions 5?8) was the only resolved major reversal, and it was resolved cleanly.** The architecture investment (session-7) made the reversal a 2-edit operation. Architecture payoff confirmed within the same sequence.
+
+6. **Chen et al. 2025 and the browser visual check are the two longest-standing open items** (7+ sessions each). Neither is blocking publication. Both should be resolved or explicitly closed.
+
+### [!REALIZATION]
+
+The loop is not broken — it is biased toward safe, verifiable work (CSS, architecture, links) at the expense of high-leverage, harder-to-verify work (copy). Visual changes can be confirmed by inspection. Copy quality requires testing against an actual cold reader. The loop defaults to what it can verify.
+
+The Vision run was the necessary corrective. It forced the arc-level look that individual Improve iterations had been deferring.
+
+### Actions taken
+
+- Read full udit-trail.md + ision.md as single arc document
+- Wrote .trail/retrospect.md — 6 arc-claims, next-run directives, operational rules, loop-effectiveness notes
+- Appended this trail entry
