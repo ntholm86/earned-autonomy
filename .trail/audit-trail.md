@@ -157,3 +157,75 @@ Trail entries from session-002 left as-is per append-only rule. The correction i
 - Updated time claim in `index.html` (3 instances)
 - Updated time claim in `.trail/vision.md` (2 instances)
 - Committed `index.html`, `.trail/vision.md`, `.trail/audit-trail.md`
+
+---
+
+## 2026-05-26 — session-004 — improve-iter-3 — intellectual lineage
+
+**Slug:** improve-iter-3-lineage
+**Skills run:** Intent, Vision (partial — Q1 only), Improve (iteration 3), Trail
+**Target:** pea-website / index.html
+
+### Intent
+
+Operator: "We also need to mention the principles/theories/methodologies in play outside PEA like socratic method etc. And we need to link to valid sources of those. Run the vision skill."
+
+Interpretation: the page currently presents PEA as if it emerged from nowhere. Adding intellectual lineage makes it harder to dismiss as invented vocabulary — and demonstrates that each principle synthesizes serious prior work from distinct traditions. The operator confirmed BOTH inline origins (under each principle) AND a dedicated foundations section.
+
+### Vision run
+
+One question asked:
+- Q1: Inline (root chips per principle) vs. dedicated section vs. both?
+- Answer: BOTH
+
+### Examine — what was missing
+
+Two distinct gaps:
+1. **Purpose gap:** No lineage signal anywhere. A technical reader can't tell if Auftragstaktik, Kaizen, or the Lee & See calibration model are in play.
+2. **Empirical gap:** The three LLM research papers (Turpin, Huang, Chen) that prove *why* structural constraints are necessary are not visible. They are what makes PEA necessary, not just interesting.
+
+### URLs sourced and verified
+
+All links traced to explicit citations in source documents (PRINCIPLES.md, skills README, CITATION.cff):
+- Auftragstaktik: https://en.wikipedia.org/wiki/Commander%27s_intent ✓
+- Toyota Kata: https://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238 ✓ (cited in skills README)
+- Socratic Method: https://plato.stanford.edu/entries/socrates/ ✓ (cited in skills README)
+- Meaningful Human Control: https://en.wikipedia.org/wiki/Meaningful_human_control ✓
+- Kaizen: https://en.wikipedia.org/wiki/Kaizen ✓
+- Delphi Method: https://en.wikipedia.org/wiki/Delphi_method ✓
+- Turpin et al. arXiv:2305.04388 — verified live ✓
+- Huang et al. arXiv:2310.01798 — cited in skills README, verified live ✓
+- Lee & See 2004 — cited by name only, no URL (no stable free link found; cited as plain text chip)
+- Chen et al. 2025 — cited by name only, no URL (arXiv ID not confirmed; not linked to avoid broken reference)
+
+### Decision and prediction
+
+**Change:** Add intellectual lineage — inline root chips under each principle + new Foundations section between principles and skills.
+
+**Prediction:** Page now answers "where does this come from?" for a skeptical reader. The empirical basis column establishes that PEA is a structural *response* to documented LLM failures, not an aspirational framework.
+
+### Act
+
+Changes applied in one multi_replace operation:
+- CSS: added `.principle-roots`, `.root-chip`, `.foundations-grid`, `.foundations-col`, `.foundation-item`, `.foundation-link`, `.foundation-source`, `.foundation-note`
+- Nav: added Foundations link (#foundations)
+- P1 (Commander's Intent): root chips — Auftragstaktik, Toyota Kata, Socratic Method
+- P2 (Observable Autonomy): root chips — Meaningful Human Control, Trust Calibration (Lee & See, 2004, unlinked)
+- P3 (Convergence Is Silence): root chips — Kaizen, Delphi Method, Cross-validation
+- New section `#foundations`: two columns — Conceptual traditions (5 items) + Empirical basis (3 papers)
+
+### Reflect
+
+The Chen et al. 2025 paper is cited by name without a link. This is honest — the arXiv ID was not confirmed — and preferable to a bad link. If the URL is confirmed later, it can be added in iteration 4.
+
+The Foundations section placement (between principles and skills) creates a natural narrative arc: *here are the principles → here is where they come from and why they're necessary → here is how they're implemented*.
+
+### Candidate next moves
+
+1. Verify and add Chen et al. 2025 arXiv link when ID is confirmed
+2. Visual check in browser — first render pass
+3. Add `.gitignore` + `README.md` before pushing to remote
+
+### Actions taken
+
+- Updated `index.html` with lineage additions

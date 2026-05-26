@@ -425,6 +425,89 @@
       .principle-num { font-size: 2.25rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .proof-box { padding: 1.5rem 1.25rem; }
+      .foundations-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ROOTS (inline under principles) ── */
+    .principle-roots {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .roots-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 0.1rem;
+    }
+
+    .root-chip {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--card-bg);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a.root-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── FOUNDATIONS section ── */
+    .foundations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .foundations-col h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .foundation-item { margin-bottom: 1.25rem; }
+    .foundation-item:last-child { margin-bottom: 0; }
+
+    .foundation-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    a.foundation-link:hover { color: var(--accent); }
+
+    .foundation-source {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    .foundation-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
     }
   </style>
 </head>
@@ -435,6 +518,7 @@
     <a class="nav-brand" href="#">Earned Autonomy</a>
     <ul class="nav-links">
       <li><a href="#principles">Principles</a></li>
+      <li><a href="#foundations">Foundations</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">GitHub ↗</a></li>
     </ul>
@@ -516,6 +600,12 @@
               as a thinking framework, not a lookup table. The instruction's job is to define the shape of the work.
               The agent's job is to find the content.
             </p>
+            <div class="principle-roots">
+              <span class="roots-label">Roots</span>
+              <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener" class="root-chip">Auftragstaktik</a>
+              <a href="https://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238" target="_blank" rel="noopener" class="root-chip">Toyota Kata</a>
+              <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener" class="root-chip">Socratic Method</a>
+            </div>
           </div>
         </div>
 
@@ -545,6 +635,11 @@
               The audit trail is not optional documentation. It is the mechanism by which the agent earns
               the right to keep acting.
             </p>
+            <div class="principle-roots">
+              <span class="roots-label">Roots</span>
+              <a href="https://en.wikipedia.org/wiki/Meaningful_human_control" target="_blank" rel="noopener" class="root-chip">Meaningful Human Control</a>
+              <span class="root-chip">Trust Calibration — Lee &amp; See, 2004</span>
+            </div>
           </div>
         </div>
 
@@ -571,6 +666,12 @@
               the same assessment and find nothing material to change. Score stability is necessary
               but not sufficient. Independent agreement is what constitutes convergence.
             </p>
+            <div class="principle-roots">
+              <span class="roots-label">Roots</span>
+              <a href="https://en.wikipedia.org/wiki/Kaizen" target="_blank" rel="noopener" class="root-chip">Kaizen</a>
+              <a href="https://en.wikipedia.org/wiki/Delphi_method" target="_blank" rel="noopener" class="root-chip">Delphi Method</a>
+              <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank" rel="noopener" class="root-chip">Cross-validation</a>
+            </div>
           </div>
         </div>
 
@@ -586,6 +687,83 @@
           property that emerges only when all three hold simultaneously. A system that satisfies any two
           but not the third does not exhibit ARF.
         </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOUNDATIONS -->
+  <div class="container">
+    <section id="foundations">
+      <p class="section-label">Intellectual lineage</p>
+      <h2 class="section-title">Standing on prior work</h2>
+      <p class="section-intro">
+        PEA synthesizes established traditions from military doctrine, lean manufacturing, philosophy,
+        and empirical AI research. These are not decorative citations — each contributed a piece the framework
+        would be weaker without.
+      </p>
+
+      <div class="foundations-grid">
+
+        <div class="foundations-col">
+          <h3>Conceptual traditions</h3>
+
+          <div class="foundation-item">
+            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" class="foundation-link" target="_blank" rel="noopener">Auftragstaktik — Prussian mission command ↗</a>
+            <p class="foundation-source">19th century military doctrine, German General Staff</p>
+            <p class="foundation-note">Defines subordinate authority by mission objective, not prescribed procedure. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
+          </div>
+
+          <div class="foundation-item">
+            <a href="https://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238" class="foundation-link" target="_blank" rel="noopener">Toyota Kata — Mike Rother ↗</a>
+            <p class="foundation-source">McGraw-Hill, 2009</p>
+            <p class="foundation-note">The Coaching Kata establishes a pattern where the coach defines the target condition and the learner discovers the path. Shapes how PEA frames the operator–agent relationship.</p>
+          </div>
+
+          <div class="foundation-item">
+            <a href="https://plato.stanford.edu/entries/socrates/" class="foundation-link" target="_blank" rel="noopener">The Socratic Method ↗</a>
+            <p class="foundation-source">Stanford Encyclopedia of Philosophy</p>
+            <p class="foundation-note">Reasoning through questions rather than assertions — the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
+          </div>
+
+          <div class="foundation-item">
+            <a href="https://en.wikipedia.org/wiki/Kaizen" class="foundation-link" target="_blank" rel="noopener">Kaizen — Continuous improvement ↗</a>
+            <p class="foundation-source">Toyota Production System</p>
+            <p class="foundation-note">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as Convergence Is Silence and makes the independence condition explicit.</p>
+          </div>
+
+          <div class="foundation-item">
+            <a href="https://en.wikipedia.org/wiki/Delphi_method" class="foundation-link" target="_blank" rel="noopener">Delphi Method ↗</a>
+            <p class="foundation-source">RAND Corporation, 1950s</p>
+            <p class="foundation-note">Structured convergence through independent expert rounds without shared context. PEA borrows the independence condition: evaluators must not share context when assessing convergence.</p>
+          </div>
+        </div>
+
+        <div class="foundations-col">
+          <h3>Empirical basis</h3>
+          <p class="foundation-note" style="margin-bottom: 1.25rem;">
+            Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints —
+            and why an audit trail the agent authors itself is insufficient.
+          </p>
+
+          <div class="foundation-item">
+            <a href="https://arxiv.org/abs/2305.04388" class="foundation-link" target="_blank" rel="noopener">Language Models Don't Always Say What They Think ↗</a>
+            <p class="foundation-source">Turpin et al. — NeurIPS 2023</p>
+            <p class="foundation-note">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning — sometimes by as much as 36 percentage points on benchmark tasks.</p>
+          </div>
+
+          <div class="foundation-item">
+            <a href="https://arxiv.org/abs/2310.01798" class="foundation-link" target="_blank" rel="noopener">Large Language Models Cannot Self-Correct Reasoning Yet ↗</a>
+            <p class="foundation-source">Huang et al. — ICLR 2024</p>
+            <p class="foundation-note">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is not doing quality control — it is doing rationalisation.</p>
+          </div>
+
+          <div class="foundation-item">
+            <span class="foundation-link">Reasoning Models Don't Always Say What They Think</span>
+            <p class="foundation-source">Chen et al. — 2025</p>
+            <p class="foundation-note">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring is not sufficient to rule out undesired behavior in capable models.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </div>
