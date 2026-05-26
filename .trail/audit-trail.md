@@ -576,3 +576,53 @@ Is adding illustrations scope expansion that violates YAGNI? No â€” the operator
 - Removed all 13 HTML inline styles
 - Added 3 SVG principle icons
 - Committed all changes
+---
+
+## 2026-05-26 — session-009 — vision-run-2 — audience and clarity reorientation
+
+**Slug:** vision-run-2-audience-clarity
+**Skills run:** Vision, Trail
+**Target:** pea-website / index.html + .trail/vision.md
+
+### Note on untrailed iterations
+
+iter-8 (remove proof section), iter-9 (skill card links), iter-10 (density), iter-11 (typography) were committed in this session but not individually trailed. The commit messages serve as their record. This Vision run covers the intent behind all four.
+
+### Signal gathered
+
+- .trail/vision.md — current stated destination (read before run)
+- .trail/audit-trail.md — full session history
+- Current conversation — 11 iterations of operator decisions post-session-007
+
+### Sourced inferences and questions
+
+| # | Inference | Evidence citation | Question asked | Response |
+|---|---|---|---|---|
+| 1 | The "demonstration artifact" framing in vision.md is obsolete — the operator removed the proof section (iter-8) at their own initiative | iter-8 commit: "Section claimed ~5 minutes / single session — false after 8 iterations. Audience is non-technical readers; .trail/audit-trail.md reference is developer-only noise." This directly contradicts vision.md's "The page is also a demonstration artifact" requirement. | "The vision says this page must include self-referential proof. You removed that section because it was false and audience-wrong. Has the vision shifted: is the demonstration now meant to live in the trail rather than on the page?" | **"Yes the vision has shifted the website no longer serves as proof"** |
+| 2 | The non-technical reader has become the primary design constraint, displacing the "both equally" answer from session-001 | Every operator decision since session-007 has resolved in favor of the non-technical reader: removed developer-facing proof section (iter-8), requested density for general-audience scannability (iter-10), requested UX/color psychology research framed as "easily understandable" (iter-11) | "Has the audience weighting shifted? Session-001 said 'both equally' — but your decisions since have consistently optimized for the non-technical reader." | **"Yea maybe it has shifted a little towards non-technical"** |
+| 3 | The page is not ready to publish — something is blocking it, possibly copy quality or visual clarity | Push to GitHub Pages listed as open in every trail entry since session-008. Recent requests are refinements (density, typography, links) not structural changes — the kind of work that happens when a thing is nearly but not quite done. | "Is there something specific you want to nail down before publishing — or is the page genuinely ready?" | **"I am reading the text and looking at the website and thinking 'its not finished' because the text is not good enough... I dont instantly get the point of all of it and the problem it solves without reading through all the text. I dont get instant clarity."** |
+
+### What the agent now believes
+
+The page's primary failure is **instant clarity**. A non-technical reader arriving cold must understand what PEA is and what problem it solves within 3 seconds — without reading. Currently they cannot. The hero leads with pain (the problem, at length) before relief. The design relies on text being read rather than structure being seen.
+
+Publishing is blocked by this failure. The copy and visual hierarchy are the primary open problem.
+
+### What was rejected
+
+- Self-referential proof section in any form — explicitly confirmed dropped
+- "Both audiences equally" as a design constraint — non-technical reader is now primary (with technical evaluator as secondary beneficiary, not design constraint)
+
+### What is still open
+
+- How to restructure the hero to lead with the answer, not the problem setup
+- What visual changes create instant hierarchy without reading — bold summary statement, fewer words before the key idea, stronger visual signalling of the three principles
+
+### [!REALIZATION]
+
+The operator's response to Q3 was the most important signal of this Vision run. The page has been code-complete for several iterations but the *content* hasn't been reexamined since the early sessions when "built in about 5 minutes" was the central claim. Removing that claim (iter-8) created a hole: the proof section carried a lot of the page's narrative momentum. What's left is technically correct but no longer structured for instant comprehension. The next work is copy, not CSS.
+
+### Actions taken
+
+- Updated .trail/vision.md: removed demonstration artifact framing, updated audience section to primary/secondary, updated structure to 2-section (no proof), added "What success looks like" section, updated What is rejected, updated colour system (--muted now #44403c), updated What is still open
+- Appended this trail entry

@@ -10,33 +10,40 @@ A single-page public website that is the credible intellectual face of the Princ
 
 It is not a product page. It is not a personal portfolio. It is an intellectual position made accessible.
 
-**The page is also a demonstration artifact.** This website was built using the PEA skills suite — Vision, Intent, Trail — and that fact is surfaced on the page itself. The build process (this session, with a committed trail) becomes part of the product. "Built in about 5 minutes using these skills" is operational credibility: the same logic as the suite running on itself 200+ times. The page doesn't just describe the skills — it *is* evidence they work.
+**The demonstration lives in the trail, not on the page.** The build history, Vision dialogues, and Improve iterations are committed to `.trail/` and verifiable against the git log. That is Observable Autonomy working as designed. The page itself serves its audience — it does not explain its own construction.
 
 ---
 
 ## Reader
 
-**Dual audience — both must be served:**
-- Someone who stumbled here from GitHub, Zenodo, or a search: needs to understand from scratch what the problem is, why it matters, and what PEA offers.
-- Someone who has been sent here with context already: needs confirmation that the work is serious and a clear map to go deeper.
+**Primary: the non-technical reader arriving cold** — someone thinking seriously about AI delegation who has no prior PEA context. This is the design constraint. If they don't get the point without reading every paragraph, the page has failed.
 
-The page must work for both without talking down to the informed reader or losing the uninformed one.
+**Secondary: the informed reader** — someone sent here with context, or a technical evaluator arriving from GitHub/Zenodo. They get value from the depth of the content but do not constrain design decisions.
+
+The shift from "both equally" (session-001 Vision) was confirmed in the 2026-05-26 Vision run.
 
 ---
 
 ## Structure
 
-Three sections, in this order:
+Two content sections (no self-referential proof section):
 
 1. **The Principles** — Commander's Intent, Observable Autonomy, Convergence Is Silence. Not as a bullet list of definitions. As an explanation of *what problem each principle solves* and *why that problem matters* for anyone delegating real work to an AI. This is the intellectual core.
 
-2. **The Skillset** — The six skills (Intent, Vision, Trail, Improve, Retrospect, Probe) as the concrete implementation of those principles. Show what they do and why they hang together. Not a feature matrix — a coherent picture of how the principles become practice.
-
-3. **Self-referential proof** — A closing section (or integrated note) that states: this page was built using the skills suite, in about 5 minutes, with a committed audit trail. Link to the trail or the build session as evidence. The page itself is a field case.
+2. **The Skillset** — The six skills (Intent, Vision, Trail, Improve, Retrospect, Probe) as the concrete implementation of those principles. Not a feature matrix — a coherent picture of how the principles become practice.
 
 The harness protocol is out of scope for now.
 
 The two content sections are **not framed as a connected stack**. The principles stand on their own. The skills are their enactment — but a reader who only understands the principles has gotten value.
+
+## What success looks like
+
+A non-technical reader arriving cold should:
+- Understand **what PEA is and what problem it solves** within 3 seconds — without reading
+- Get the **point** of the three principles within 30 seconds — by scanning, not reading
+- Feel that the work is **serious and credible**, not promotional
+
+The current page fails this test. The hero leads with pain (the problem, at length) before the relief. The design relies on the text being read rather than the structure being seen. This is the primary open problem.
 
 ---
 
@@ -56,26 +63,28 @@ Epistemic register: honest and direct. Not promotional. Claims are grounded. The
 - Promotional or sales-page tone
 - Connecting principles → skills → harness as a single technical stack narrative
 - Any harness protocol content (deferred)
+- Self-referential proof section in any form (removed iter-8; the demonstration lives in the trail)
+- "Both audiences equally" as a design constraint (non-technical reader is now primary)
 
 ---
 
-## Colour system (settled — session-007/008)
+## Colour system (settled — session-007/008, updated iter-11)
 
-**Light, not dark.** The Monokai dark palette (iter-4 through iter-6) was explicitly rejected: too dark, not easy to read, not professional enough for the dual audience.
+**Light, not dark.** The Monokai dark palette (iter-4 through iter-6) was explicitly rejected.
 
-**Palette:** warm white + deep teal.
-- `--bg: #fafaf8` — warm white, slightly off pure white
-- `--ink: #1c1c1e` — near-black, ~17:1 contrast on bg
-- `--muted: #57534e` — warm stone grey, ~6.4:1 contrast
-- `--accent: #155e75` — deep teal, ~7.2:1 contrast; distinctive, credible, bridges technical and non-technical audiences
+**Palette:**
+- `--bg: #fafaf8` — warm white
+- `--ink: #1c1c1e` — near-black, ~17:1 contrast
+- `--muted: #44403c` — warm stone grey, ~8:1 contrast (darkened from #57534e in iter-11)
+- `--rule: #e7e5e4` — warm stone border
+- `--accent: #155e75` — deep teal, ~7.2:1 contrast; bridges technical and non-technical audiences
+- `--accent-lt: #f0fdfa` — pale teal tint (also used for inline code backgrounds)
 - `--card-bg: #f5f5f3` — slightly elevated surface
-
-**Rationale confirmed by operator:** deep teal was chosen over forest green and warm amber because it reads credible and distinctive for the dual audience (non-technical thinkers + technical evaluators) without defaulting to corporate blue.
 
 ---
 
 ## What is still open
 
-- Browser visual check — first render of the light theme
-- `prefers-color-scheme` dark fallback — deferred; dark was rejected, not deferred
-- Push to remote / GitHub Pages — not yet public
+- **Copy and visual hierarchy** — primary open problem. The hero leads with pain before relief. The design relies on text being read, not structure being seen. A non-technical reader does not get instant clarity. This is what is blocking publication.
+- Browser visual check — first real render of the light theme still not done
+- Push to remote / GitHub Pages — blocked by the copy/clarity problem above
