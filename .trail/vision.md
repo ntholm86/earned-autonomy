@@ -10,6 +10,8 @@ A single-page public website that is the credible intellectual face of the Princ
 
 It is not a product page. It is not a personal portfolio. It is an intellectual position made accessible.
 
+**The page is also a demonstration artifact.** This website was built using the PEA skills suite — Vision, Intent, Trail — and that fact is surfaced on the page itself. The build process (this session, with a committed trail) becomes part of the product. "Built in about 5 minutes using these skills" is operational credibility: the same logic as the suite running on itself 200+ times. The page doesn't just describe the skills — it *is* evidence they work.
+
 ---
 
 ## Reader
@@ -24,15 +26,17 @@ The page must work for both without talking down to the informed reader or losin
 
 ## Structure
 
-Two sections, in this order:
+Three sections, in this order:
 
 1. **The Principles** — Commander's Intent, Observable Autonomy, Convergence Is Silence. Not as a bullet list of definitions. As an explanation of *what problem each principle solves* and *why that problem matters* for anyone delegating real work to an AI. This is the intellectual core.
 
 2. **The Skillset** — The six skills (Intent, Vision, Trail, Improve, Retrospect, Probe) as the concrete implementation of those principles. Show what they do and why they hang together. Not a feature matrix — a coherent picture of how the principles become practice.
 
+3. **Self-referential proof** — A closing section (or integrated note) that states: this page was built using the skills suite, in about 5 minutes, with a committed audit trail. Link to the trail or the build session as evidence. The page itself is a field case.
+
 The harness protocol is out of scope for now.
 
-The two sections are **not framed as a connected stack**. The principles stand on their own. The skills are their enactment — but a reader who only understands the principles has gotten value.
+The two content sections are **not framed as a connected stack**. The principles stand on their own. The skills are their enactment — but a reader who only understands the principles has gotten value.
 
 ---
 

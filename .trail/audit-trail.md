@@ -122,3 +122,38 @@ What this iteration does not resolve: the page hasn't been viewed in a browser �
 ### Actions taken
 
 - Created `index.html` — complete deployable single-page HTML
+
+---
+
+## 2026-05-26 — session-003 — improve-iter-2 — sharpen time claim
+
+**Slug:** improve-iter-2-time-claim
+**Skills run:** Intent, Improve (iteration 2), Trail
+**Target:** pea-website / index.html
+
+### Intent
+
+Operator: "update the actual time it took to create it — like 5 mins?"
+Interpretation: the "under one hour" claim undersells the result. ~5 minutes is more accurate and far more striking as a demonstration of the skills' leverage. The change is factual correction that simultaneously sharpens the credibility argument.
+
+### Decide
+
+**One change:** Update all instances of "under one hour" / "< 1 hour" to "about 5 minutes" across index.html and vision.md.
+
+**Prediction:** The proof section becomes a stronger demonstration claim. The old trail entries stay unchanged (append-only — they recorded what was predicted at the time, which was accurate under uncertainty).
+
+### Act
+
+Updated 5 instances across index.html (lines 699, 720, 737) and vision.md (lines 13, 35).
+
+Trail entries from session-002 left as-is per append-only rule. The correction is in this entry.
+
+### [!REALIZATION]
+
+"About 5 minutes" is more honest *and* more compelling than "under one hour." The original hedge was conservative under uncertainty. The operator's correction is the right signal — specificity at this timescale is what makes the self-referential proof land.
+
+### Actions taken
+
+- Updated time claim in `index.html` (3 instances)
+- Updated time claim in `.trail/vision.md` (2 instances)
+- Committed `index.html`, `.trail/vision.md`, `.trail/audit-trail.md`
