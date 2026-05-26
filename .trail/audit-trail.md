@@ -671,3 +671,80 @@ The Vision run was the necessary corrective. It forced the arc-level look that i
 - Read full udit-trail.md + ision.md as single arc document
 - Wrote .trail/retrospect.md — 6 arc-claims, next-run directives, operational rules, loop-effectiveness notes
 - Appended this trail entry
+
+---
+
+## 2026-05-26 -- session-011 -- improve-iter-12 -- hero copy rewrite
+
+**Slug:** improve-iter-12-hero-copy
+**Skills run:** Improve (iteration 12), Trail
+**Target:** pea-website / index.html
+
+### Interpretation of the ask
+
+Operator: "lets do that / use the improve skill" -- "that" refers to the retrospect conclusion: copy rewrite for 3-second non-technical clarity. Destination: a cold non-technical reader understands what PEA is and what problem it solves within 3 seconds, without reading.
+
+### Lenses applied
+
+**Purpose:** The current hero fails the 3-second scan test. The answer (what PEA is) is at position 5 of 7 hero elements. A cold reader sees: question h1 -> problem -> stances box -> re-asked question -> answer -> brief summary -> CTA. The answer arrives too late.
+
+**Inconsistency:** Vision says non-technical reader is primary and 3-second clarity is the success criterion. The hero structure was built when the audience was "both equally" and the page was a "demonstration artifact." Both of those constraints have since been dropped. The hero copy never caught up.
+
+**Waste:** hero-answer paragraph re-asks the question that was just asked in the h1, without adding content. Second hero-problem paragraph ("That question has an answer. Three architectural principles.") -- carries the actual answer, buried at position 6. Both were waste once the h1 became declarative.
+
+### Challenge first read
+
+Is there a structural problem beyond the order? No -- the content is correct. The intellectual lineage, principles explanation, and skills section are well-structured. The problem is precisely and only the order of elements in the hero.
+
+Would keeping the question h1 but adding an answer-first element work? Weaker -- the h1 is the highest-attention element on the page. Starting with a question primes the reader to look for an answer rather than presenting one. The h1 must carry the answer.
+
+### [!DECISION] One change: hero copy rewrite
+
+Restructure the hero to answer-first. New structure:
+1. h1: declarative answer ("A framework for safely delegating real work to AI -- while remaining accountable for what gets done.")
+2. hero-problem (repurposed as answer summary): "Three architectural principles. Any model. Any stack. No tool prescriptions -- the structural answer to the gap..."
+3. stances box: now elaboration (gains opening line "Two responses to this gap are common. Neither is adequate.")
+4. CTA directly
+
+Removed: hero-answer paragraph (redundant once h1 is declarative). Removed: second hero-problem ("That question has an answer...") -- content distilled into new hero-problem. Removed: dead .hero-answer CSS rule.
+
+**Prediction:** After this change, the h1 + first paragraph together deliver the complete answer within 3 seconds: "a framework for safely delegating real work to AI / three architectural principles / any model / any stack." Stances box serves engaged readers as elaboration. Nothing in principles, foundations, or skills changes. The 23-line deletion (5 elements -> 2) produces no layout regression because the elements were vertically stacked with no layout dependencies.
+
+### Act
+
+Changes made:
+- h1 text changed (question -> declarative statement)
+- hero-problem paragraph 1 replaced with answer-first summary
+- hero-stances box: opening paragraph added ("Two responses to this gap are common. Neither is adequate.")
+- hero-answer paragraph removed
+- hero-problem paragraph 2 removed
+- .hero-answer CSS rule removed (dead code)
+
+**Prediction evaluation:** Holds. Old elements gone (verified: 0 matches for hero-answer, old h1 text, old stances intro). New h1 and answer paragraph present at lines 546 and 549. 4 insertions, 19 deletions -- net -15 lines, consistent with removing 2 paragraphs.
+
+### Reflect
+
+**Current model of the target:** The page now has two layers: (1) instant clarity layer -- h1 + first paragraph (3 seconds), (2) elaboration layer -- stances box, principles, foundations, skills. The architecture is correct. The remaining question is whether the h1 and first paragraph together are strong enough -- "A framework for safely delegating..." is accurate but may still be abstract to a non-technical reader who doesn't immediately connect "delegating real work to AI" to their own experience.
+
+**Blind spot:** This run did not test the copy against an actual cold reader. The 3-second scan test is a structural prediction, not an empirical measurement. It is possible that "delegating real work to AI" is still too abstract for the target audience. A reader who uses AI casually may not identify with "delegation" framing.
+
+**Imagined expert pushback:** "The stances box still requires reading to parse -- it's three paragraphs with strong tags. A true scan-first design would surface the three principles visually above the fold rather than letting them appear only in the section below." Valid -- the next natural move is to surface the principle names visually in the hero itself (e.g., as a 3-item visual row before the CTA). But that's iter-13, not this one.
+
+**Macro reflection triggers:**
+- *Recurring finding-class:* not fired -- this is a unique class (copy restructure, first in the arc).
+- *About to declare silence:* not fired -- change was made.
+- *Contradicts prior [!REALIZATION]:* not fired -- consistent with session-009 [!REALIZATION] ("next work is copy, not CSS").
+- *Operator explicitly asked:* fired -- "lets do that" refers directly to the retrospect's identified primary work.
+
+### Candidate next moves
+
+1. **Surface the three principle names visually in the hero** -- the stances box explains the problem but the hero still doesn't name PEA's answer visually. A 3-item row ("Commander's Intent / Observable Autonomy / Convergence Is Silence") between the hero-problem and the CTA would let a scanner grasp the structure in one glance without reading the principles section. Ranks first because it closes the remaining gap in the 3-second scan test.
+2. **Fix the dead "See below" reference in evidence item 3** -- the skills section still says "Built in a single session -- about 5 minutes -- ... See below." "See below" referenced the now-deleted proof section. Should be removed or replaced. Ranks second because it's a factual error, not a clarity problem.
+3. **Open the browser and view the page** -- descoped as a blocking gate (per retro-001), but still unverified. Worth doing once before publication.
+
+### Actions taken
+
+- Rewrote hero copy (h1 + 2 paragraphs removed, 1 new paragraph written, stances box opening added)
+- Removed dead .hero-answer CSS rule
+- Committed index.html
+- Appended this trail entry
