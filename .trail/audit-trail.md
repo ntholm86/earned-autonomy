@@ -407,3 +407,97 @@ Changes made to `index.html`:
 - Expanded foundation section from single to dual links for all 5 conceptual traditions
 - Amazon link fully removed (both root chip and foundation section)
 - Appended this trail entry (session-006)
+
+---
+
+## 2026-05-26 — session-007 — improve-iter-6 — CSS architecture + illustrations
+
+**Slug:** improve-iter-6-css-arch-illustrations
+**Skills run:** Intent, Improve (iteration 6), Trail
+**Target:** pea-website / index.html
+
+### Intent
+
+Operator: "I dont want to have any inline styles — at all. only use the css styles — and make sure the css definition is CLEAN KISS and DRY and YAGNI — use variables so everything is easily managable. What other nice things can we do? Maybe add some illustrations."
+
+Interpretation: two requests in one. (1) Structural discipline: the page had accumulated 13 inline `style="..."` attributes across six sessions of iterative editing — each one was a local fix that bypassed the CSS layer. The operator is calling out technical debt at its root. (2) Expressive layer: "maybe add some illustrations" is an invitation to think about what visual additions would genuinely improve the page, not a firm requirement. The right answer is illustrations that carry semantic meaning, not decorative shapes.
+
+### Examine
+
+**Inline style inventory (13 instances):**
+- ARF callout div + 3 child `<p>` elements (4 instances) — applied in iteration 2, never extracted
+- Foundation intro note (1 instance) — left when margin-bottom was needed as a one-off
+- Three `<code>` elements in skill cards (3 instances) — `font-size` + `font-family` hardcoded on every code element
+- Evidence row div (1 instance) — overriding the `.evidence-row` CSS rule with a different value
+- Evidence label `<p>` (1 instance) — full label style re-specified inline
+- Proof trail note `<p>` (1 instance) — three properties inline
+- Proof section `<code>` (1 instance) — same as skills cards but slightly different formatting
+- Footer license link `<a>` (1 instance) — `color: var(--muted)` inline
+
+**DRY issues in CSS:**
+- Transition timing `0.15s` hardcoded in 5 separate transition declarations
+- `border-radius` values scattered: `3px`, `4px`, `5px`, `6px`, `8px` — five distinct values with no governing system
+- Empty rule `.principle-body {}` — dead code
+
+**Illustration opportunity:**
+The principles section is the most text-dense section. The three principles have strong geometric metaphors:
+- Commander's Intent → a flag/mission marker (destination, not route)
+- Observable Autonomy → a chain of linked nodes (the audit trail)
+- Convergence Is Silence → three lines meeting at a point (independent evaluators agreeing)
+
+All three map cleanly to simple monoline SVG at 28×28px in `var(--accent)` cyan on the dark background. The skill cards were considered but rejected — the `.skill-problem` / `.skill-name` pattern already creates strong visual rhythm; adding icons there would clutter, not clarify.
+
+### Challenge first read
+
+Could the inline styles be removed without a broader CSS refactor? Yes, but that would be the minimum interpretation of the ask. "KISS, DRY, YAGNI, variables" points at the whole CSS architecture, not just the 13 HTML lines. The correct scope is both.
+
+Is adding illustrations scope expansion that violates YAGNI? No — the operator asked for it explicitly ("What other nice things can we do? Maybe add some illustrations"). YAGNI means don't add things nobody asked for; the operator asked.
+
+### Decision and prediction
+
+**Changes:**
+1. **`:root` additions** — `--ease: 0.15s`, `--radius: 8px`, `--radius-sm: 4px`
+2. **CSS rule updates** — all `transition: X 0.15s` → `transition: X var(--ease)`; all card/chip `border-radius` → `var(--radius)` / `var(--radius-sm)`; `.evidence-row` margin fixed in CSS (was being overridden by inline); empty `.principle-body {}` rule removed
+3. **New CSS classes** — `.arf-callout`, `.arf-label`, `.arf-title`, `.arf-text`, `.evidence-label`, `.proof-trail-note`, `.principle-icon`; `code` base rule; `.foundations-col > .foundation-note` targeted selector; `.footer-license a` rule
+4. **HTML** — all 13 inline styles removed, replaced with proper classes
+5. **SVG icons** — three `<svg class="principle-icon">` elements added above each principle name: flag (P1), chain (P2), converging lines (P3)
+
+**Prediction:** Zero inline styles. One `0.15s` value in the entire file (the variable definition). Zero hardcoded `border-radius` values except `50%` (the circular evidence number badge). The principles section gains visual anchors without disrupting the layout.
+
+### Act
+
+- Added `--ease`, `--radius`, `--radius-sm` to `:root`
+- Removed empty `.principle-body {}` rule
+- Updated 5 transition declarations to `var(--ease)`
+- Updated 6 `border-radius` declarations to `var(--radius)` or `var(--radius-sm)` (standardized 3px/4px/5px/6px/8px → two variables)
+- Fixed `.evidence-row` CSS margin to `3rem` (was `2.5rem`, being overridden by inline)
+- Added 12 new CSS rules covering all formerly-inline-styled elements
+- Removed all 13 inline `style="..."` attributes
+- Added three inline SVG icons to principle blocks
+
+**Verification:** `grep style="` → 0 matches. `grep 0.15s` → 1 match (`:root` variable). `grep border-radius: [0-9]` → 1 match (`50%` circle).
+
+### Reflect
+
+**[!REALIZATION]:** The 13 inline styles were not random — they all came from the same root cause: each session fixed a local visual need without asking "does a CSS class exist for this?" The correct discipline is: never write `style="..."` in the HTML body; if the property doesn't have a CSS class, create one. This session enforces that discipline structurally.
+
+**What this iteration does not resolve:**
+- `prefers-color-scheme` light fallback — still deferred
+- Browser visual check — still needed; the SVG icons in particular should be visually verified
+- Push to remote / GitHub Pages — still not public
+
+### Candidate next moves
+
+1. **Browser visual check** — open in browser, confirm SVG icons render correctly at the principle scale, verify no layout regression
+2. **`prefers-color-scheme` media query** — light theme fallback for accessibility
+3. **Push to remote + GitHub Pages** — operational closure
+
+### Actions taken
+
+- Refactored `:root` with 3 new architecture variables
+- Updated all 5 transition declarations to `var(--ease)`
+- Updated all hardcoded card/chip border-radius to `var(--radius)` / `var(--radius-sm)`
+- Added 12 new CSS rules; removed 1 dead rule
+- Removed all 13 HTML inline styles
+- Added 3 SVG principle icons
+- Committed all changes

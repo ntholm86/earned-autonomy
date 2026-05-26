@@ -22,6 +22,9 @@
       --font:      -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       --mono:      'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
       --max:       760px;
+      --ease:      0.15s;     /* Universal transition timing */
+      --radius:    8px;       /* Card / callout corner radius */
+      --radius-sm: 4px;       /* Chip / button corner radius */
     }
 
     html { font-size: 17px; scroll-behavior: smooth; }
@@ -66,7 +69,7 @@
       font-size: 0.85rem;
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.15s;
+      transition: color var(--ease);
     }
 
     .nav-links a:hover { color: var(--accent); }
@@ -113,7 +116,7 @@
       background: var(--card-bg);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--accent);
-      border-radius: 6px;
+      border-radius: var(--radius);
       padding: 1.25rem 1.5rem;
       margin: 2rem 0;
       display: flex;
@@ -146,10 +149,10 @@
       background: var(--accent);
       color: var(--bg);
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: var(--radius-sm);
       font-size: 0.9rem;
       font-weight: 600;
-      transition: opacity 0.15s;
+      transition: opacity var(--ease);
     }
 
     .hero-cta:hover { opacity: 0.88; }
@@ -202,8 +205,6 @@
       padding-top: 0.15rem;
     }
 
-    .principle-body {}
-
     .principle-name {
       font-size: 1.2rem;
       font-weight: 700;
@@ -246,9 +247,9 @@
     .skill-card {
       background: var(--card-bg);
       border: 1px solid var(--rule);
-      border-radius: 8px;
+      border-radius: var(--radius);
       padding: 1.4rem 1.5rem;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color var(--ease), box-shadow var(--ease);
     }
 
     .skill-card:hover {
@@ -282,7 +283,7 @@
     .proof-box {
       background: var(--accent-lt);
       border: 1px solid var(--accent);
-      border-radius: 8px;
+      border-radius: var(--radius);
       padding: 2rem 2.25rem;
     }
 
@@ -321,7 +322,7 @@
       border: 1px solid var(--accent);
       color: var(--accent);
       padding: 0.25rem 0.65rem;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
     }
 
     /* ── EVIDENCE ── */
@@ -329,7 +330,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 2.5rem;
+      margin-top: 3rem;
     }
 
     .evidence-item {
@@ -396,10 +397,10 @@
       font-size: 0.83rem;
       padding: 0.35rem 0.85rem;
       border: 1px solid var(--rule);
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       color: var(--muted);
       text-decoration: none;
-      transition: border-color 0.15s, color 0.15s;
+      transition: border-color var(--ease), color var(--ease);
     }
 
     .footer-link:hover {
@@ -454,11 +455,11 @@
       font-size: 0.78rem;
       padding: 0.2rem 0.6rem;
       border: 1px solid var(--rule);
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
       color: var(--muted);
       text-decoration: none;
       background: var(--card-bg);
-      transition: border-color 0.15s, color 0.15s;
+      transition: border-color var(--ease), color var(--ease);
     }
 
     a.root-chip:hover {
@@ -510,6 +511,68 @@
       font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.55;
+    }
+
+    /* ── DIRECT FOUNDATION INTRO ── */
+    .foundations-col > .foundation-note { margin-bottom: 1.25rem; }
+
+    /* ── FOOTER LICENSE LINK ── */
+    .footer-license a { color: var(--muted); }
+
+    /* ── CODE INLINE ── */
+    code {
+      font-size: 0.83rem;
+      font-family: var(--mono);
+    }
+
+    /* ── ARF CALLOUT ── */
+    .arf-callout {
+      margin-top: 3.5rem;
+      padding: 1.5rem 1.75rem;
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+    }
+    .arf-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .arf-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .arf-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── EVIDENCE LABEL ── */
+    .evidence-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── PROOF TRAIL NOTE ── */
+    .proof-trail-note {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── PRINCIPLE ICON ── */
+    .principle-icon {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.85rem;
     }
   </style>
 </head>
@@ -583,6 +646,10 @@
         <div class="principle">
           <div class="principle-num">01</div>
           <div class="principle-body">
+            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <line x1="5" y1="3" x2="5" y2="25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M5 3 L22 9 L5 15" fill="currentColor" opacity="0.85"/>
+            </svg>
             <div class="principle-name">Commander's Intent</div>
             <span class="principle-tagline">Define the destination. Never prescribe the route.</span>
             <p class="principle-problem">The problem it solves</p>
@@ -615,6 +682,13 @@
         <div class="principle">
           <div class="principle-num">02</div>
           <div class="principle-body">
+            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <circle cx="5" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
+              <line x1="8.5" y1="14" x2="11" y2="14" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="14" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
+              <line x1="17" y1="14" x2="19.5" y2="14" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="23" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
+            </svg>
             <div class="principle-name">Observable Autonomy</div>
             <span class="principle-tagline">The degree of autonomy a system deserves is bounded by the degree of transparency it provides.</span>
             <p class="principle-problem">The problem it solves</p>
@@ -649,6 +723,12 @@
         <div class="principle">
           <div class="principle-num">03</div>
           <div class="principle-body">
+            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <line x1="4" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <line x1="14" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <line x1="24" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="14" cy="22" r="2.5" fill="currentColor"/>
+            </svg>
             <div class="principle-name">Convergence Is Silence</div>
             <span class="principle-tagline">The system has converged when diverse independent evaluators find nothing left to change — not when a score stops moving.</span>
             <p class="principle-problem">The problem it solves</p>
@@ -680,10 +760,10 @@
       </div>
 
       <!-- ARF callout -->
-      <div style="margin-top: 3.5rem; padding: 1.5rem 1.75rem; background: var(--card-bg); border: 1px solid var(--rule); border-radius: 8px;">
-        <p style="font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">Emergent property</p>
-        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Autonomous Reasoning Fidelity (ARF)</p>
-        <p style="font-size: 0.9rem; color: var(--muted);">
+      <div class="arf-callout">
+        <p class="arf-label">Emergent property</p>
+        <p class="arf-title">Autonomous Reasoning Fidelity (ARF)</p>
+        <p class="arf-text">
           ARF is the external signal that the agent is genuinely reasoning about the situation — and that the
           reasoning is visible enough for observers to judge. It is not a fourth principle. It is the measurable
           property that emerges only when all three hold simultaneously. A system that satisfies any two
@@ -747,7 +827,7 @@
 
         <div class="foundations-col">
           <h3>Empirical basis</h3>
-          <p class="foundation-note" style="margin-bottom: 1.25rem;">
+          <p class="foundation-note">
             Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints —
             and why an audit trail the agent authors itself is insufficient.
           </p>
@@ -806,7 +886,7 @@
             Surfaces the agent's in-progress guesses about where the operator is heading — as
             falsifiable questions the operator can confirm, correct, or reject. Closes the gap between
             what has been written down and what the operator actually means. Produces
-            <code style="font-size:0.83rem; font-family: var(--mono);">.trail/vision.md</code>.
+            <code>.trail/vision.md</code>.
           </p>
         </div>
 
@@ -815,7 +895,7 @@
           <div class="skill-name">Trail</div>
           <p class="skill-desc">
             Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is
-            appended to an append-only <code style="font-size:0.83rem; font-family: var(--mono);">.trail/audit-trail.md</code>.
+            appended to an append-only <code>.trail/audit-trail.md</code>.
             Captured as the work happens — not reconstructed afterward. If it isn't logged, it didn't happen.
           </p>
         </div>
@@ -838,7 +918,7 @@
             Reads the entire trail history as a single document and forms arc-level claims: what is
             the target becoming, where has the loop's attention been, is that where the real weight lies?
             Surfaces what no individual iteration would reveal. Produces
-            <code style="font-size:0.83rem; font-family: var(--mono);">.trail/retrospect.md</code>.
+            <code>.trail/retrospect.md</code>.
           </p>
         </div>
 
@@ -855,8 +935,8 @@
       </div>
 
       <!-- Evidence row -->
-      <div class="evidence-row" style="margin-top: 3rem;">
-        <p style="font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem;">Field evidence</p>
+      <div class="evidence-row">
+        <p class="evidence-label">Field evidence</p>
 
         <div class="evidence-item">
           <div class="evidence-num">1</div>
@@ -924,9 +1004,9 @@
         </div>
       </div>
 
-      <p style="margin-top: 1.75rem; font-size: 0.9rem; color: var(--muted);">
+      <p class="proof-trail-note">
         The audit trail for this build is in
-        <code style="font-size: 0.83rem; font-family: var(--mono);">.trail/audit-trail.md</code>
+        <code>.trail/audit-trail.md</code>
         in this repository — readable by anyone, verifiable against the commit history.
         That is what Observable Autonomy looks like in practice.
       </p>
@@ -957,7 +1037,7 @@
         </div>
       </div>
       <p class="footer-license">
-        Framework and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color: var(--muted);">CC BY-SA 4.0</a>.
+        Framework and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
         Skills suite: MIT.
       </p>
     </footer>
