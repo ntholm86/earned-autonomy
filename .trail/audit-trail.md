@@ -877,3 +877,43 @@ The loop has now addressed all three layers: (1) page structure/CSS (sessions 1-
 - Linked Chen et al. 2025 with verified arXiv ID
 - Committed index.html
 - Appended both trail entries (iter-13 and iter-14)
+
+---
+## Session: improve-iter-15-copy-clarity
+
+**Date:** 2026-05-26
+**Slug:** iter-15 — copy clarity pass
+
+### Interpretation
+Operator asked for a comprehensive "audit as a human" of all text on the page to make it more understandable for non-technical readers. Intent: every section should be readable cold by someone without a software or AI background.
+
+### Examination
+Read the entire page cold as a non-technical first-time visitor. Identified 9 passages where jargon, dense register, or convoluted structure would stop a non-technical reader:
+1. Principles intro — "architectural constraints", "agent or instruction set", convoluted last sentence
+2. P1 body para 3 — "unused imports, dead code, unreachable branches" (developer jargon)
+3. P2 body para 2 — "observability" (monitoring/ops term, used twice)
+4. P3 body para 1 — "Iterative improvement loops", "N runs", "artifact"
+5. P3 body para 2 — "converge on its own blind spots", "artifact's quality", "structurally untrustworthy"
+6. P3 body para 3 — "exit condition", "nothing material to change", "constitutes convergence"
+7. Skills intro — "Memory Model", "session resets and model swaps"
+8. Foundations intro — "PEA synthesizes" (acronym first use in body, unexpanded)
+9. Vision skill card — "falsifiable questions"
+10. Improve skill card — "read the full memory layer"
+11. Retrospect skill card — "can't see its own arc", "arc-level claims"
+
+### [!DECISION] One comprehensive copy clarity pass
+All 11 changes are the same class: vocabulary register ? non-technical reader accessible. Meaning preserved in every case. No structural changes, no new CSS. Committed as a single iter-15.
+
+### Actions
+- Applied 9 multi-replace operations to index.html (covering all 11 passages)
+- Committed: f1d5a2e "iter-15: copy clarity pass — de-jargon all sections for non-technical readers"
+
+### Prediction
+The page now passes a cold non-technical reader audit at every text layer. Any reader who understands why they might want to safely delegate work to AI can now follow all three principle explanations, the skills section, and the foundations section without hitting specialist vocabulary.
+
+### Reflection
+P3 (Convergence Is Silence) was the most technically dense section — "N runs", "artifact", "exit condition", "constitutes convergence" — all removed. The new text preserves the three logical moves (early declaration, single-evaluator failure mode, correct test) while using ordinary language throughout.
+
+**Candidate next moves:**
+1. Convergence / publication readiness check — all retro-001 items now addressed; natural question is whether the page is ready to push
+2. Push to GitHub Pages — the site is static, zero dependencies; trivial to deploy
