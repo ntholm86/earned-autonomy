@@ -579,8 +579,9 @@
       <p class="section-label">The Framework</p>
       <h2 class="section-title">Three Principles</h2>
       <p class="section-intro">
-        These are not guidelines. They are architectural constraints. An agent or instruction set that violates
-        them is broken — not "non-compliant." Each principle separates one role the agent must not play on its own behalf.
+        These are not guidelines or best practices — they are requirements. Any AI setup that ignores them
+        doesn't have a compliance issue; it has a design flaw. Each principle names something the AI
+        must never be allowed to decide on its own.
       </p>
 
       <div class="principles-list">
@@ -607,10 +608,9 @@
               The agent discovers the method.
             </p>
             <p>
-              In practice this means asking the agent "what here doesn't earn its existence?" rather than
-              "check for unused imports, dead code, and unreachable branches." It means providing vocabulary
-              as a thinking framework, not a lookup table. The instruction's job is to define the shape of the work.
-              The agent's job is to find the content.
+              In practice this means giving the AI a goal — “what here doesn’t earn its existence?” — rather than
+              a checklist of specific things to look for. It means providing vocabulary as a thinking framework,
+              not a lookup table. The instruction defines the shape of the work. The agent finds the content.
             </p>
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
@@ -640,10 +640,10 @@
               They are not. They are causally linked.
             </p>
             <p>
-              Autonomy without observability is not delegation — it is abdication. And observability requires more
-              than the existence of a record: the record must be captured <em>as the work happens</em>, not composed
-              after it, and it must be one the agent cannot revise once the outcome is known. Otherwise the
-              record is just a story the agent tells about itself.
+              Autonomy without a transparent record is not delegation — it is abdication. And transparency
+              requires more than a record simply existing: it must be captured <em>as the work happens</em> —
+              not written up afterward — and it must be one the agent cannot revise once the outcome is known.
+              Otherwise the record is just a story the agent tells about itself.
             </p>
             <p>
               More visibility → more trust → more autonomy earned.<br>
@@ -676,20 +676,19 @@
             <span class="principle-tagline">Converged when independent evaluators find nothing left to change.</span>
             <p class="principle-problem">The problem it solves</p>
             <p>
-              Iterative improvement loops declare convergence too early. The typical criterion — "the score
-              stabilized across N runs" — measures the wrong signal. A score can stabilize while the system
-              is still churning: each run removes something and adds something, the metric stays flat,
-              but the artifact never stops changing.
+              AI improvement cycles tend to declare completion too early. The usual test — "the score stopped
+              going up" — measures the wrong thing. A score can plateau while the work is still unstable:
+              each pass changes something, the number stays flat, but the output never actually settles.
             </p>
             <p>
-              Worse: a single evaluator can converge on its own blind spots, producing a stable score that
-              reflects the evaluator's limitations, not the artifact's quality. Self-assessment is structurally
-              untrustworthy — the agent cannot be the sole judge of its own work.
+              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes —
+              not because the work is done, but because the evaluator has stopped seeing what it can't see.
+              An AI that evaluates its own output is not doing quality control — it is rationalising.
             </p>
             <p>
-              The correct exit condition requires <em>diverse, independent evaluators</em> to arrive at
-              the same assessment and find nothing material to change. Score stability is necessary
-              but not sufficient. Independent agreement is what constitutes convergence.
+              The correct test: ask <em>diverse, independent evaluators</em> — each without knowing what the
+              others found — to assess the work. When they all find nothing left to change, the work is done.
+              Score stability is necessary but not sufficient. Independent agreement is what counts.
             </p>
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
@@ -722,9 +721,9 @@
       <p class="section-label">Intellectual lineage</p>
       <h2 class="section-title">Standing on prior work</h2>
       <p class="section-intro">
-        PEA synthesizes established traditions from military doctrine, lean manufacturing, philosophy,
-        and empirical AI research. These are not decorative citations — each contributed a piece the framework
-        would be weaker without.
+        This framework synthesizes established traditions from military doctrine, lean manufacturing, philosophy,
+        and empirical AI research. These are not decorative citations — each one contributed something
+        the framework would be weaker without.
       </p>
 
       <div class="foundations-grid">
@@ -804,9 +803,9 @@
       <p class="section-label">The Implementation</p>
       <h2 class="section-title">Six Skills</h2>
       <p class="section-intro">
-        These six skills implement the three principles as a practical reasoning layer for AI agents.
-        Together they form a persistent Memory Model — context that survives session resets and model swaps,
-        so the next agent picks up exactly where the last one left off.
+        These six skills put the three principles into practice. Together they give any AI agent a
+        persistent record of decisions, context, and history — so each session builds on the last,
+        regardless of which model you’re using.
       </p>
 
       <div class="skills-grid">
@@ -826,8 +825,8 @@
           <div class="skill-problem">The agent doesn't know your vision — because it lives in your head</div>
           <div class="skill-name">Vision</div>
           <p class="skill-desc">
-            Surfaces the agent's in-progress guesses about where the operator is heading — as
-            falsifiable questions the operator can confirm, correct, or reject. Closes the gap between
+            Surfaces the agent’s working assumptions about where the operator is heading — as
+            specific questions the operator can confirm, correct, or reject. Closes the gap between
             what has been written down and what the operator actually means. Produces
             <code>.trail/vision.md</code>.
           </p>
@@ -847,7 +846,7 @@
           <div class="skill-problem">The agent makes superficial, undisciplined edits</div>
           <div class="skill-name">Improve</div>
           <p class="skill-desc">
-            The workhorse of the suite. Each iteration: read the full memory layer, examine the target,
+            The workhorse of the suite. Each iteration: read all prior context and history, examine the target,
             challenge the first instinct, make exactly one highest-leverage change, predict the outcome,
             verify it, reflect. Reads vision and trail before every run — never wastes an iteration on
             something already tried.
@@ -855,12 +854,12 @@
         </a>
 
         <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent can't see its own arc</div>
+          <div class="skill-problem">The agent can’t see patterns across its own work</div>
           <div class="skill-name">Retrospect</div>
           <p class="skill-desc">
-            Reads the entire trail history as a single document and forms arc-level claims: what is
-            the target becoming, where has the loop's attention been, is that where the real weight lies?
-            Surfaces what no individual iteration would reveal. Produces
+            Steps back and reads the entire work history as a single document: what direction is the work
+            heading, where has attention been concentrated, is that actually where the weight lies?
+            Surfaces what no individual session would reveal. Produces
             <code>.trail/retrospect.md</code>.
           </p>
         </a>
