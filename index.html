@@ -13,7 +13,7 @@
       /* contrast verified: ink/bg ~17:1, muted/bg ~6.4:1, accent/bg ~7.2:1 */
       --bg:        #fafaf8;   /* Warm white */
       --ink:       #1c1c1e;   /* Near-black — primary text */
-      --muted:     #57534e;   /* Warm stone grey — body copy — WCAG AA */
+      --muted:     #44403c;   /* Warm stone grey — body copy — ~8:1 contrast */
       --rule:      #e7e5e4;   /* Warm stone border / dividers */
       --accent:    #155e75;   /* Deep teal — interactive & labels */
       --accent-lt: #f0fdfa;   /* Pale teal tint — callout surfaces */
@@ -206,7 +206,7 @@
     }
 
     .principle-name {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--ink);
       margin-bottom: 0.2rem;
@@ -480,8 +480,12 @@
 
     /* ── CODE INLINE ── */
     code {
-      font-size: 0.83rem;
+      font-size: 0.82em;
       font-family: var(--mono);
+      background: var(--accent-lt);
+      color: var(--accent);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
     }
 
     /* ── ARF CALLOUT ── */
