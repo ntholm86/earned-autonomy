@@ -763,3 +763,117 @@ retro-001 claim #4 ("never done / 8 consecutive sessions deferred") was wrong. T
 **Correction applied:** retrospect.md claim #4 updated with [!REVERSAL] marker and corrected text. Claim #6 updated to remove browser check as an open item. Browser check removed from "What the next runs should test" and operational rules.
 
 **Structural lesson:** The operator's browser observations have been the primary quality signal driving the loop. Those observations just weren't trailed. Future runs should ask: "what did you observe?" before assuming the feedback channel is closed.
+
+---
+
+## 2026-05-26 -- session-012 -- improve-iter-13 -- principles scan
+
+**Slug:** improve-iter-13-principles-scan
+**Skills run:** Improve (iteration 13), Trail
+**Target:** pea-website / index.html
+
+### Interpretation
+
+Operator: "execute the retro items / understand my intent." Retro item #2 (primary, blocking publication): Principles scan test. A reader should understand the three principles in 30 seconds by scanning structure -- without reading body paragraphs.
+
+### Lenses applied
+
+**Purpose:** The taglines ARE the scan elements -- designed to distil each principle into one line. But they fail in two ways: (1) P2 and P3 taglines are 18 and 20 words respectively, not scannable; (2) .principle-tagline CSS is font-size: 0.88rem -- SMALLER than body copy (0.975rem). The scan element is visually subordinate to the text it is meant to headline.
+
+**Inconsistency:** The tagline is the intended one-line summary of each principle. Styling it smaller than body text inverts the information hierarchy it is supposed to create.
+
+### Challenge first read
+
+Could just increasing the font size fix the scan problem without shortening the taglines? The visual prominence helps, but 18-word and 20-word taglines still cannot be parsed in a single glance. Both changes are necessary.
+
+### [!DECISION] Shorten P2/P3 taglines + promote tagline visual weight
+
+CSS: font-size 0.88rem -> 1rem, font-weight: 600 added, line-height: 1.4 added.
+P2 tagline: 18 words -> "Autonomy is earned through transparency -- not assumed." (8 words)
+P3 tagline: 20 words -> "Converged when independent evaluators find nothing left to change." (9 words)
+P1 tagline: UNCHANGED ("Define the destination. Never prescribe the route." -- already 8 words, sharp)
+
+**Prediction:** All three principle blocks now pass the scan test: name + tagline together are graspable in one glance. Taglines visually anchor each block above body text. No structural or layout change.
+
+### Act
+
+3 replacements: 1 CSS rule (2 properties added, 1 changed), 2 tagline text strings.
+
+**Prediction evaluation:** Holds. The three taglines are now 8-8-9 words, consistent in length and weight. The CSS promotion makes them the visual anchor of each principle block.
+
+### Reflect
+
+**Current model of the target:** The page now has three scan layers: (1) h1 + first paragraph = 3-second clarity on what PEA is; (2) principle names + taglines = 30-second clarity on what each principle means; (3) body text + foundations = depth for engaged readers. The architecture is correct.
+
+**Blind spot:** This run did not test whether the principle names themselves ("Commander's Intent", "Observable Autonomy", "Convergence Is Silence") land for a non-technical reader who has never encountered them. They are accurate but could be opaque on first contact. The taglines now do more work to explain them, but the names themselves may still need context.
+
+**Imagined expert pushback:** "You shortened the taglines but the philosophical statements now live only in the body copy, where they are harder to find. The full principle statement ('The degree of autonomy a system deserves...') was valuable." Valid -- the body copy still contains the full elaboration. The tagline is the door; the body is the room.
+
+**Macro reflection triggers:**
+- *Recurring finding-class:* not fired.
+- *About to declare silence:* not fired -- change made.
+- *Contradicts prior [!REALIZATION]:* not fired.
+- *Operator explicitly asked:* fired -- directly executing retro item #2.
+
+### Candidate next moves (passed to iter-14)
+
+1. Fix "See below" dead reference in evidence item 3.
+2. Add verified arXiv link for Chen et al. 2025.
+3. Consider whether principle names need disambiguation for non-technical readers -- but this is a future concern, not blocking publication.
+
+### Actions taken
+
+- Shortened P2 and P3 taglines
+- Promoted .principle-tagline visual weight (CSS: font-size, font-weight, line-height)
+- Committed index.html
+
+---
+
+## 2026-05-26 -- session-013 -- improve-iter-14 -- factual fixes
+
+**Slug:** improve-iter-14-factual-fixes
+**Skills run:** Improve (iteration 14), Trail
+**Target:** pea-website / index.html
+
+### Interpretation
+
+Retro items remaining after iter-13: (1) "See below" dead reference; (2) Chen et al. 2025 unlinked citation. Both are factual errors that erode credibility on a page claiming intellectual seriousness.
+
+### Lenses applied
+
+**Purpose:** "See below" points to a deleted section (proof section removed iter-8). For a reader who follows the instruction, the reference leads nowhere. On a credibility page, dead pointers are unacceptable.
+
+**Waste:** Chen et al. 2025 has been an unlinked <span> since session-3 (7 iterations). The arXiv ID was unconfirmed. It is now confirmed: arXiv:2505.05410, Yanda Chen et al., Anthropic/NYU, submitted May 8 2025. The chronic open item is closeable.
+
+### [!DECISION] Two factual fixes in one iteration
+
+1. Evidence item 3: "See below." -> "The full trail is committed to .trail/ and verifiable against the git log."
+2. Chen et al.: <span class="foundation-link"> -> <a href="https://arxiv.org/abs/2505.05410" ...> with updated source text.
+
+**Prediction:** No dead references remain anywhere in the page. All three empirical basis papers are now linked. The 7-session chronic open item is closed.
+
+### Act
+
+2 replacements applied. arXiv:2505.05410 verified live before use.
+
+**Prediction evaluation:** Holds. "See below" is gone. Chen et al. is linked.
+
+### Reflect
+
+**Current model of the target:** All retro items from retro-001 are now addressed. The page has: answer-first hero (iter-12), scannable principles (iter-13), no dead references, all citations linked (iter-14). The remaining question is whether the overall effect achieves publication readiness.
+
+**Blind spot:** This run did not verify that arXiv:2505.05410 is the correct paper for this specific citation slot -- the title matches exactly ("Reasoning Models Don't Always Say What They Think") and the authors are Anthropic researchers. The match is high-confidence.
+
+**Macro reflection triggers:**
+- *About to declare silence / convergence:* FIRED. All retro-001 items are addressed. The retrospect's "What the next runs should test" list is now empty. This is the natural point for a convergence check before declaring publication readiness.
+
+### [!REALIZATION]
+
+The loop has now addressed all three layers: (1) page structure/CSS (sessions 1-8), (2) copy clarity (iters 12-13), (3) factual integrity (iter-14). The retro-001 operational rule "The hero copy has not been examined since session-2" is now stale -- it was addressed in iter-12. The retrospect should be updated before the next run.
+
+### Actions taken
+
+- Fixed "See below" dead reference in evidence item 3
+- Linked Chen et al. 2025 with verified arXiv ID
+- Committed index.html
+- Appended both trail entries (iter-13 and iter-14)

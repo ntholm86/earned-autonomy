@@ -44,7 +44,7 @@ Appears as a "Candidate next move" in every session from session-3 onward. Not b
 - **The trail's "Candidate next moves" section has low predictive validity for what actually happens next.** The operator-gate consistently redirects. Record candidate moves but treat them as weak signal — not as a commitment.
 - **In this shell environment: use `Select-String` not `grep`; use `Add-Content` not `>>` for append operations on trail files.**
 - **Section removal is a `[!REVERSAL]`-class event when the removed section was a vision requirement.** Mark it explicitly.
-- **The hero copy has not been examined since session-2.** Any future session that touches presentation without examining copy is misallocating attention.
+- **All retro-001 items addressed as of iter-14.** Hero copy (iter-12), principles scan (iter-13), dead references + Chen et al. link (iter-14). Next convergence check warranted before declaring publication readiness.
 
 ---
 
