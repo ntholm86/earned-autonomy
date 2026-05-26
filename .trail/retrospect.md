@@ -15,14 +15,14 @@ Session-2 wrote the hero and explicitly predicted "will need at least one copy-r
 **3. A vision-level reversal (proof section removal) occurred without a `[!REVERSAL]` trail entry.**
 Session-1 Vision explicitly required self-referential proof as a core structural element. Iter-8 removed it because it was false and audience-wrong. This is the most significant single change in the arc — a core vision constraint overturned — and it has no `[!REVERSAL]` marker in any individual trail entry. It was caught only because the Vision skill was run. Future arc-reads should treat structural section removal as a `[!REVERSAL]`-class event.
 
-**4. The browser visual check has been listed as highest priority for 8 consecutive sessions and never done.**
-This is not a failure — it is a reliable signal: the operator-gate consistently finds something else more valuable. The check is a reflexive placeholder, not an actual gate. It is not blocking publication. The copy problem is.
+**4. ~~The browser visual check was never done.~~ — [!REVERSAL] retro-001 was wrong.**
+The operator has been doing the browser visual check informally throughout the arc — it just was never trailed. It was the implicit feedback mechanism driving the majority of visual iterations: session-8 (light theme), iter-10 (density), iter-11 (typography), and all operator-initiated copy requests originated from the operator seeing the page in a browser. The check was continuous and unlogged, not deferred. The trail treated absence of a trail entry as absence of the activity — a known failure mode.
 
 **5. The Monokai reversal (sessions 5→8) was the only major resolved reversal, and it was resolved cleanly.**
 The CSS architecture investment in session-7 (semantic `:root` variables, zero inline styles) made a full palette reversal a 2-edit operation. This is the clearest concrete payoff in the arc: an architectural investment made a likely reversal cheap. The architecture is now settled and does not need revisiting.
 
-**6. Two items have been open for 7+ sessions without resolution: Chen et al. 2025 and the browser visual check.**
-Both appear as "Candidate next moves" in every session from session-3 onward. Neither is blocking publication. The loop keeps listing them — this is noise, not signal. They should be resolved or explicitly descoped.
+**6. One item has been open for 7+ sessions without resolution: Chen et al. 2025.**
+Appears as a "Candidate next move" in every session from session-3 onward. Not blocking publication. Should be resolved or explicitly closed — a paper citation with no link is either permanently unlinked or has a findable arXiv ID. The browser visual check is removed from this list — see claim #4.
 
 ---
 
@@ -34,7 +34,6 @@ Both appear as "Candidate next moves" in every session from session-3 onward. Ne
 
 **Secondary (deferred, not blocking):**
 3. **Chen et al. 2025** — either find and add the arXiv ID, or explicitly mark the citation as permanently unlinked text. 7 sessions of "open" with no action taken means it should be closed one way or the other.
-4. **Browser visual check** — do it once, then close the item permanently. It has been deferred so many times that it is now likely the lowest-information-value action available.
 
 ---
 

@@ -748,3 +748,18 @@ Changes made:
 - Removed dead .hero-answer CSS rule
 - Committed index.html
 - Appended this trail entry
+
+---
+
+## 2026-05-26 -- correction -- retro-001 claim #4
+
+**Slug:** retro-001-correction-browser-check
+**Type:** [!REVERSAL] on retro-001 arc-claim #4
+
+Operator clarified: the browser visual check has been done continuously throughout the arc -- informally, never trailed. It was the implicit feedback mechanism driving most of the visual iterations. Session-8 (light theme), iter-10 (density), iter-11 (typography), and the copy requests all originated from the operator viewing the page in a browser.
+
+retro-001 claim #4 ("never done / 8 consecutive sessions deferred") was wrong. The trail treated absence of a trail entry as absence of the activity. This is a known confabulation risk -- the trail is append-only evidence of what was recorded, not a complete record of what happened.
+
+**Correction applied:** retrospect.md claim #4 updated with [!REVERSAL] marker and corrected text. Claim #6 updated to remove browser check as an open item. Browser check removed from "What the next runs should test" and operational rules.
+
+**Structural lesson:** The operator's browser observations have been the primary quality signal driving the loop. Those observations just weren't trailed. Future runs should ask: "what did you observe?" before assuming the feedback channel is closed.
