@@ -410,6 +410,81 @@ Changes made to `index.html`:
 
 ---
 
+## 2026-05-26 — session-008 — improve-iter-7 — light theme
+
+**Slug:** improve-iter-7-light-theme
+**Skills run:** Intent, Vision (Q1+Q2 dialogue), Improve (iteration 7), Trail
+**Target:** pea-website / index.html
+
+### Intent
+
+Operator: "I don't like the color theme. Understand my intent. Use the vision skill."
+Then: "Yes its too dark. and its not easy to read. we need something that looks more professional and is easily skimmable. you should explore other color themes."
+Then: "deep teal, forest green, warm amber sounds good."
+Then: "Yes - use the improve skill."
+
+Interpretation: the Monokai dark palette was wrong for the dual audience this page targets. The Vision dialogue confirmed: (1) dark-as-paradigm is the problem, not just the specific Monokai colors; (2) the "warm and accessible" tone in vision.md was contradicted by the code-editor aesthetic; (3) deep teal was the right accent for bridging technical credibility and intellectual accessibility.
+
+### Vision dialogue summary
+
+| Q | Inference | Response |
+|---|---|---|
+| Q1: Is the problem that it's dark at all, or Monokai specifically? | Inference: dark-as-paradigm, not just palette | "Yes its too dark" — dark paradigm confirmed wrong |
+| Q2: Should accent read analytical (slate blue/navy) or intellectual-humanistic (deep teal/forest green/warm amber)? | Inference: PEA bridges military/philosophy/lean — unusual intellectual territory that shouldn't default to corporate blue | "deep teal, forest green, warm amber sounds good" — confirmed humanistic direction |
+
+**Final proposal confirmed:** warm white (#fafaf8) + deep teal (#155e75). Deep teal chosen over forest green/amber because it best serves the dual audience without corporate-blue genericness.
+
+### Examine
+
+The CSS architecture from iter-6 was specifically built to make this change a two-line operation. Every color in the page is behind a semantic variable in `:root`. The only hardcoded color outside `:root` was the `box-shadow` rgba in `.skill-card:hover` (old Monokai cyan: `rgba(102, 217, 232, 0.12)`).
+
+### Challenge first read
+
+Add `prefers-color-scheme` dark fallback? No — dark was rejected, not deferred. A dark fallback would give back exactly what the operator rejected. YAGNI.
+
+### Decision and prediction
+
+**One change:** Replace 7 color tokens in `:root` + update box-shadow rgba. Everything else adapts via `var()` references.
+
+**Contrast verified before commit:**
+- ink (#1c1c1e) / bg (#fafaf8): ~17:1 ✓
+- muted (#57534e) / bg (#fafaf8): ~6.4:1 ✓
+- accent (#155e75) / bg (#fafaf8): ~7.2:1 ✓
+
+**Prediction:** Zero Monokai values remain anywhere in the file. The page reads professional, warm, legible. The SVG principle icons (currently rendered in `currentColor` which inherits `--accent`) will appear in deep teal on warm white — should look significantly better than cyan on dark.
+
+### Act
+
+- Replaced all 7 color tokens in `:root` (Monokai dark → warm white + deep teal)
+- Updated `.skill-card:hover` box-shadow from `rgba(102, 217, 232, 0.12)` to `rgba(21, 94, 117, 0.12)`
+- Verification: `grep` for all 8 old Monokai hex values → 0 matches
+
+### Reflect
+
+**[!REALIZATION]:** The iter-6 CSS architecture refactor (semantic variables, no inline styles) reduced what could have been a large cross-file change to exactly 2 edits. This is the concrete payoff of KISS/DRY — the architecture makes correctness tractable. A page that had inline `color: #66d9e8` scattered across the HTML would have required 20+ edits to re-theme.
+
+**Residual gap:** Browser visual check is still outstanding. The light theme has never been seen in a browser. First render needed before any further design work.
+
+### Updated vision.md
+
+Added "Colour system (settled)" section recording the rejected dark paradigm and the confirmed warm-white + deep teal system.
+
+### Candidate next moves
+
+1. **Browser visual check** — open in browser; first render of the light theme
+2. **Typography pass** — now that the palette is settled, evaluate whether the font sizes, line heights, and spacing feel right in the light register
+3. **Push to remote / GitHub Pages** — operational closure
+
+### Actions taken
+
+- Replaced `:root` color tokens (7 values)
+- Updated box-shadow rgba (1 value)
+- Committed index.html
+- Updated .trail/vision.md with settled colour system
+- Appended this trail entry
+
+---
+
 ## 2026-05-26 — session-007 — improve-iter-6 — CSS architecture + illustrations
 
 **Slug:** improve-iter-6-css-arch-illustrations

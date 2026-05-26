@@ -59,9 +59,23 @@ Epistemic register: honest and direct. Not promotional. Claims are grounded. The
 
 ---
 
+## Colour system (settled — session-007/008)
+
+**Light, not dark.** The Monokai dark palette (iter-4 through iter-6) was explicitly rejected: too dark, not easy to read, not professional enough for the dual audience.
+
+**Palette:** warm white + deep teal.
+- `--bg: #fafaf8` — warm white, slightly off pure white
+- `--ink: #1c1c1e` — near-black, ~17:1 contrast on bg
+- `--muted: #57534e` — warm stone grey, ~6.4:1 contrast
+- `--accent: #155e75` — deep teal, ~7.2:1 contrast; distinctive, credible, bridges technical and non-technical audiences
+- `--card-bg: #f5f5f3` — slightly elevated surface
+
+**Rationale confirmed by operator:** deep teal was chosen over forest green and warm amber because it reads credible and distinctive for the dual audience (non-technical thinkers + technical evaluators) without defaulting to corporate blue.
+
+---
+
 ## What is still open
 
-- Whether and how Nils is named / credited on the page (prominent byline vs. footer attribution)
-- Call to action: what does the page point to? (GitHub repos, Zenodo DOI, contact?)
-- Visual / design direction
-- Whether there is a short "60-second digest" hook before the two sections, or whether the sections open cold
+- Browser visual check — first render of the light theme
+- `prefers-color-scheme` dark fallback — deferred; dark was rejected, not deferred
+- Push to remote / GitHub Pages — not yet public
