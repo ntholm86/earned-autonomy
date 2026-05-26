@@ -9,16 +9,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Monokai dark colour system — iter-4 */
-      /* contrast verified: ink/bg ~14:1, muted/bg ~5.5:1, accent/bg ~9:1 */
-      --bg:        #272822;   /* Monokai editor background */
-      --ink:       #f8f8f2;   /* Monokai foreground — primary text */
-      --muted:     #a89983;   /* Warm grey — body copy — passes WCAG AA */
-      --rule:      #45463e;   /* Monokai gutter tint — borders / dividers */
-      --accent:    #66d9e8;   /* Monokai cyan — interactive & labels */
-      --accent-lt: #1a2e32;   /* Deep teal — accent-tinted surfaces */
-      --num:       #3a3b30;   /* Near-invisible oversized decorative numbers */
-      --card-bg:   #32332b;   /* Elevated surface — cards / stances */
+      /* Light — warm white + deep teal — iter-7 */
+      /* contrast verified: ink/bg ~17:1, muted/bg ~6.4:1, accent/bg ~7.2:1 */
+      --bg:        #fafaf8;   /* Warm white */
+      --ink:       #1c1c1e;   /* Near-black — primary text */
+      --muted:     #57534e;   /* Warm stone grey — body copy — WCAG AA */
+      --rule:      #e7e5e4;   /* Warm stone border / dividers */
+      --accent:    #155e75;   /* Deep teal — interactive & labels */
+      --accent-lt: #f0fdfa;   /* Pale teal tint — callout surfaces */
+      --num:       #e7e5e4;   /* Near-invisible oversized decorative numbers */
+      --card-bg:   #f5f5f3;   /* Slightly elevated surface — cards */
       --font:      -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       --mono:      'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
       --max:       760px;
@@ -254,7 +254,7 @@
 
     .skill-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 2px 14px rgba(102, 217, 232, 0.12);
+      box-shadow: 0 2px 14px rgba(21, 94, 117, 0.12);
     }
 
     .skill-name {
