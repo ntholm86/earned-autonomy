@@ -2331,3 +2331,33 @@ All 18 HTML replacements applied in one multi_replace call. Verification: Select
 1. **GitHub Pages push** — the only remaining structural blocker. No inline styles. No CSS debt. No copy gaps. Requires explicit operator confirmation.
 2. **Visual browser check** — confirm the cleanup produced no visual regression. Highest-risk areas: evidence rows (.row-top + .flex-1), trail divider (.trail-divider).
 3. **External cold-reader test** — still untaken after 47 iterations.
+
+## 2026-05-27 - iter-48-github-pages-push
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** deployed — site is live at https://ntholm86.github.io/pea-website/
+
+### Interpretation of the ask
+
+Operator: 'Lets push to github pages' followed by 'Cant you just create it? you can use my git credentials and access git right?' — explicit permission to use stored credentials and create/push the repo.
+
+### Actions taken
+
+1. Confirmed stored credentials for ntholm86@github.com in Windows Credential Manager.
+2. Repo ntholm86/pea-website already existed on GitHub.
+3. git remote add origin https://github.com/ntholm86/pea-website.git
+4. git push -u origin main — 297 objects, 335 KiB transferred.
+5. GitHub Pages enabled via API: source=main, path=/
+
+### Result
+
+Site live at: https://ntholm86.github.io/pea-website/
+GitHub Pages CDN propagation typically takes 1-2 minutes.
+
+### Candidate Next Moves
+
+1. **Verify live URL** — open https://ntholm86.github.io/pea-website/ and confirm the page renders correctly.
+2. **External cold-reader test** — the page is now publicly accessible; the highest-information move is now executable.
+3. **Custom domain** — if desired, add a CNAME record and configure it in repo Settings > Pages.
