@@ -683,22 +683,22 @@
       <h1>A framework for safely delegating real work to AI — while remaining accountable for what gets done.</h1>
 
       <p class="hero-problem">
-        Three architectural principles. Any model. Any stack. No tool prescriptions —
-        the structural answer to the gap between AI capability and human accountability.
+        Three principles that apply regardless of which AI model or tools you’re using.
+        They address the gap between AI capability and human accountability.
       </p>
 
       <div class="hero-stances">
-        <p><strong>Two responses to this gap are common. Neither is adequate.</strong></p>
+        <p><strong>Two responses to this gap are common. Both break down.</strong></p>
         <p>
           <strong>"I'll just review everything."</strong>
-          You can't — not at the rate AI produces it, not deeply enough to catch what matters.
-          This works until it doesn't, and when it breaks, you start rubber-stamping.
+          That holds for a while. Then review gets faster than actual thought, and approvals
+          become automatic. The reviewing is still happening; the checking is not.
         </p>
         <p>
           <strong>"The model is good enough, I'll trust the outputs."</strong>
-          Sometimes. But "good enough" is not a stable property of the model. It's a property of
-          <em>this model, on this task, this day, with this framing.</em>
-          You won't know which runs were wrong until it's already downstream.
+          Sometimes. But "good enough" isn't a fixed property — it depends on which model,
+          which task, which day, how the prompt was framed.
+          <em>You won't know which outputs were wrong until they've already been used.</em>
         </p>
       </div>
 
@@ -714,8 +714,8 @@
       <p class="section-label">The Framework</p>
       <h2 class="section-title">Three Principles</h2>
       <p class="section-intro">
-        These are not guidelines or best practices — they are requirements. Any AI setup that ignores them
-        doesn't have a compliance issue; it has a design flaw. Each principle names something the AI
+        These are requirements. An AI setup that ignores them has a design problem — the flaw is
+        in how the system was built, not in how it is being used. Each one names something the AI
         must never be allowed to decide on its own.
       </p>
 
@@ -781,13 +781,12 @@
               Otherwise the record is just a story the agent tells about itself.
             </p>
             <p>
-              More visibility → more trust → more autonomy earned.<br>
-              Less visibility → trust decays → autonomy must be constrained.<br>
-              Zero visibility → zero trust → autonomy must be revoked, regardless of competence.
+              More visibility builds trust, and more trust earns more autonomy. Less visibility
+              erodes both. No visibility at all means no basis for trust — regardless of how
+              capable the agent actually is.
             </p>
             <p>
-              The audit trail is not optional documentation. It is the mechanism by which the agent earns
-              the right to keep acting.
+              The audit trail is the mechanism by which the agent earns the right to keep acting.
             </p>
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
@@ -818,12 +817,12 @@
             <p>
               Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes —
               not because the work is done, but because the evaluator has stopped seeing what it can't see.
-              An AI that evaluates its own output is not doing quality control — it is rationalising.
+              An AI that evaluates its own output is rationalising, not doing quality control.
             </p>
             <p>
               The correct test: ask <em>diverse, independent evaluators</em> — each without knowing what the
               others found — to assess the work. When they all find nothing left to change, the work is done.
-              Score stability is necessary but not sufficient. Independent agreement is what counts.
+              A stable score matters, but it is not the test. The test is whether independent evaluators agree.
             </p>
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
@@ -841,10 +840,9 @@
         <p class="arf-label">Emergent property</p>
         <p class="arf-title">Autonomous Reasoning Fidelity (ARF)</p>
         <p class="arf-text">
-          ARF is the external signal that the agent is genuinely reasoning about the situation — and that the
-          reasoning is visible enough for observers to judge. It is not a fourth principle. It is the measurable
-          property that emerges only when all three hold simultaneously. A system that satisfies any two
-          but not the third does not exhibit ARF.
+          ARF is what all three principles produce together: the observable signal that the agent is genuinely
+          reasoning, and that the reasoning is visible enough for outside observers to judge. It only shows
+          up when all three principles hold — weaken any one of them, and it disappears.
         </p>
       </div>
     </section>
@@ -856,9 +854,9 @@
       <p class="section-label">Intellectual lineage</p>
       <h2 class="section-title">Standing on prior work</h2>
       <p class="section-intro">
-        This framework synthesizes established traditions from military doctrine, lean manufacturing, philosophy,
-        and empirical AI research. These are not decorative citations — each one contributed something
-        the framework would be weaker without.
+        This framework draws from established traditions in military doctrine, lean manufacturing, philosophy,
+        and empirical AI research. Each one contributed something the framework would genuinely be weaker
+        without.
       </p>
 
       <div class="foundations-grid">
@@ -972,8 +970,8 @@
           <div class="skill-name">Trail</div>
           <p class="skill-desc">
             Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is
-            appended to an append-only <code>.trail/audit-trail.md</code>.
-            Captured as the work happens — not reconstructed afterward. If it isn't logged, it didn't happen.
+            appended to <code>.trail/audit-trail.md</code> as the work happens — not reconstructed
+            afterward. Work that is not logged cannot be audited.
           </p>
         </a>
 
@@ -1126,10 +1124,9 @@
       <p class="footer-statement">
         I built this because I had this problem: how to safely delegate real work to AI —
         while remaining accountable for what gets done. What I kept running into were two failure
-        modes on either side of that gap: reviewing everything until I started rubber-stamping,
-        or trusting the outputs until a wrong run appeared downstream. The framework is the
-        structural answer I built for myself. An action that cannot be audited is broken.
-        Not risky. Broken.
+        modes: reviewing everything until I was approving outputs I hadn’t really checked, or
+        trusting the model until I found that a run was wrong after it had already been used.
+        The framework is the answer I built for myself. An action that cannot be audited is broken.
       </p>
       <p class="footer-license">
         Framework and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
