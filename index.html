@@ -528,6 +528,20 @@
     }
 
     /* ── TRAIL SECTION ── */
+    .trail-scroll {
+      max-height: 540px;
+      overflow-y: auto;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 0 1.5rem 1rem;
+      margin-top: 1.5rem;
+      scroll-behavior: smooth;
+    }
+
+    .trail-scroll::-webkit-scrollbar { width: 6px; }
+    .trail-scroll::-webkit-scrollbar-track { background: var(--card-bg); }
+    .trail-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+
     .trail-entry {
       background: var(--card-bg);
       border: 1px solid var(--rule);
@@ -1044,47 +1058,107 @@
       <p class="section-label">Observable Autonomy</p>
       <h2 class="section-title">The trail, verbatim</h2>
       <p class="section-intro">
-        Every session that built this framework produced a public audit trail.
+        Three excerpts from the skills suite's own audit trail - the loop running on itself.
+        Each one is a small change. Read them for the reasoning, not the diff.
+        Scroll for more.
       </p>
 
-      <div class="trail-entry">
-        <p class="trail-entry-date">2026-04-23</p>
-        <p class="trail-entry-headline">v3 self-target and v2 retirement</p>
-        <div class="trail-entry-meta">
-          target: skills repo (this repo, v3 live tree)<br>
-          operator: maintainer (Nils Holmager)<br>
-          agent: Claude (Anthropic, tool-call ID prefix <code>toolu_vrtx_*</code>)<br>
-          skill: improve (operating on its own suite)<br>
-          outcome: minor changes (drift markers + retirement notice); no structural changes
+      <div class="trail-scroll">
+
+        <!-- Entry 1: one-word change -->
+        <div class="trail-entry">
+          <p class="trail-entry-date">2026-04-30 · readme-stopped-to-converged</p>
+          <p class="trail-entry-headline">One word: "stopped" to "converged"</p>
+          <div class="trail-entry-meta">
+            target: autonomous-agent-skills<br>
+            agent: Claude Sonnet 4.6 (Anthropic / GitHub Copilot)<br>
+            skill: improve + intent<br>
+            outcome: one word changed in README opening paragraph
+          </div>
+
+          <p class="trail-section-label">Decision</p>
+          <p>
+            <span class="trail-marker">[!DECISION]</span> Change "stopped" to "converged" in the
+            opening paragraph. One word. The opening is the first statement any reader or agent encounters
+            about what the loop does. If it encodes the wrong mental model of convergence
+            (permanent cessation vs. point-in-time state), that model propagates into how the agent
+            understands the stopping condition.
+          </p>
+
+          <p class="trail-section-label">Reflection</p>
+          <p>
+            The loop is converging. This session has been primarily README editorial work - the skills
+            themselves are unchanged. This run's finding was small but precise: one word that misstated
+            the central concept. That is what late-stage convergence looks like - the large structural
+            changes happened in prior sessions; what remains is semantic precision.
+          </p>
         </div>
 
-        <p class="trail-section-label">Interpretation of the ask</p>
-        <p>
-          Operator asked two things: “should we then target the skills suite on itself now in this new version?”
-          and “retire the old scoreboard of version 1 and 2?” I interpreted the first as a request to actually
-          run <code>improve</code> on v3 - to genuinely examine what was just shipped.
-        </p>
-        <div class="trail-caveat">
-          The same-session caveat matters: this run is by the same agent that built v3, in the same
-          conversation. It cannot count toward the convergence chain (Principle 3 requires fresh sessions
-          and distinct evaluator families). It is recorded as a self-targeting integrity check.
+        <!-- Entry 2: catching what the prompt didn't ask about -->
+        <div class="trail-entry">
+          <p class="trail-entry-date">2026-04-23 · v3-clean-root-waste</p>
+          <p class="trail-entry-headline">Finding what the prompt never mentioned</p>
+          <div class="trail-entry-meta">
+            target: skills repo (v3 live tree)<br>
+            agent: GitHub Copilot<br>
+            skill: improve<br>
+            outcome: file debris removed; convergence chain reset to 0
+          </div>
+
+          <p class="trail-section-label">Examination</p>
+          <p>
+            Files left behind in the repo root from the v2-to-v3 migration. Not what the operator
+            asked about. The asked-for examination was the skills themselves; the debris was visible only
+            on the way to the actual target.
+          </p>
+
+          <p class="trail-section-label">Reflection</p>
+          <p>
+            <span class="trail-marker">[!REALIZATION]</span> A pattern-matching evaluator executing
+            the operator's prompt literally would have ignored the file debris, appended an
+            <code>outcome: silence</code> entry, and falsely advanced the convergence loop. By strictly
+            following Principle 1 (interpreting the mission destination over the prescribed route),
+            the <code>improve</code> skill proved the loop can catch genuine workspace drift without
+            human steering. The nascent convergence chain resets to 0.
+          </p>
         </div>
 
-        <p class="trail-section-label">Examination</p>
-        <ul class="trail-findings">
-          <li><strong>Inconsistency.</strong> PRINCIPLES.md is a copy of the manifesto file but had no version stamp - silent drift surface. Real finding.</li>
-          <li><strong>Overburden.</strong> None visible. Two skills, one trail file, two scripts. The footprint is small enough that no component is asked to do too much.</li>
-          <li><strong>Waste.</strong> None visible in v3 itself. Tier 1 rubric, orchestrator skill, redundant trail files, and PowerShell scripts all removed in the redesign.</li>
-        </ul>
+        <!-- Entry 3: pattern recognition across sessions -->
+        <div class="trail-entry">
+          <p class="trail-entry-date">2026-04-23 · v3-changelog-splice-repair</p>
+          <p class="trail-entry-headline">626 lines of dead content, and a pattern</p>
+          <div class="trail-entry-meta">
+            target: skills repo (v3 live tree)<br>
+            agent: Claude Sonnet 4.6 (Anthropic, via GitHub Copilot)<br>
+            skill: improve<br>
+            outcome: CHANGELOG.md 651 lines → 25 lines (626 lines removed)
+          </div>
 
-        <p class="trail-section-label">Decision</p>
-        <p><span class="trail-marker">[!DECISION]</span> Make three small changes…</p>
+          <p class="trail-section-label">Decision</p>
+          <p>
+            <span class="trail-marker">[!DECISION]</span> Remove the spliced v2 content from
+            CHANGELOG.md. Eliminates 626 lines of genuine waste, resolves a direct contradiction
+            (a redirect pointer alongside the inline content it was supposed to replace), and is safe to
+            execute without operator confirmation - the change is reversible with one git command.
+          </p>
 
-        <p class="trail-truncated">- excerpt from a 6,045-line trail -</p>
-        <a class="trail-view-link"
-           href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
-           target="_blank" rel="noopener">View full trail on GitHub ↗</a>
+          <p class="trail-section-label">Reflection</p>
+          <p>
+            <span class="trail-marker">[!REALIZATION]</span> The same splice class has now appeared
+            twice in the live tree - PRINCIPLES.md (caught earlier by GPT-5.4) and CHANGELOG.md
+            (caught here). This is a pattern, not a one-off accident. The migration that moved v2
+            content to archive/ did not uniformly clean the live files. The convergence chain resets
+            to 0 - a real change was made. The first silence run must come from a fresh session and a
+            distinct evaluator family after this commit.
+          </p>
+        </div>
+
+        <p class="trail-truncated">- three excerpts from a 6,045-line trail across 130+ sessions -</p>
       </div>
+
+      <a class="trail-view-link"
+         href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
+         target="_blank" rel="noopener">View full trail on GitHub ↗</a>
     </section>
   </div>
 
