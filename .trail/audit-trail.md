@@ -1795,3 +1795,47 @@ Three major design corrections in seven iterations signals that the design syste
 2. **Update vision.md with a sensory/emotional destination for the design.** The design has been corrected twice in two iterations. The operator has clear opinions on what's wrong but vision.md does not capture what "right" feels like. One paragraph from the operator would make all future design runs faster.
 3. **Check nav logo colour.** The nav `<a class="label">Earned Autonomy</a>` is now coral (because `.label` is coral). Is coral appropriate for the logo mark, or should it be `--ink` (neutral authority)? Nav labels were previously also accent-coloured, but the logo may want to be distinct from section-header labels.
 
+
+## 2026-05-27 - iter-39-vision-run-design-direction
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Vision
+**outcome:** changed — vision.md updated: dark theme confirmed, emotional register articulated, open problems restated
+
+### Signal gathered
+
+Sources read:
+- `.trail/vision.md` — 2026-05-26 vintage; stale on colour section ("Light, not dark") and "What is still open"
+- `.trail/audit-trail.md` — iter-34 through iter-38 (design arc: Kaikaku CSS, dark theme, semantic colour system)
+
+Five inferences formed before asking:
+1. **Factual contradiction:** vision.md says "Light, not dark"; live page dark since iter-36; operator never updated vision.md.
+2. **Direction:** design is moving toward serious developer-tooling aesthetic, not "warm paper."
+3. **Constraint (hard):** colours must carry semantic work — operator will reject decorative-only colour decisions.
+4. **Implicit question:** "what should a first-time reader feel?" — named in iter-38 macro-Hansei as the unsettled design question.
+5. **Priority:** publication not ready; operator running Vision to ground direction, not to reset.
+
+### Three questions, three answers
+
+| Question | Inference | Operator answer |
+|---|---|---|
+| Q1: Is dark the settled direction? | vision.md is stale — dark live since iter-36 without reversal | **Yes, dark is settled** |
+| Q2: What should a first-time reader feel in 3 seconds? | Emotional register not named in vision.md | **Recognition + intrigue — "this is what they've been looking for, to safely delegate work to AI"** |
+| Q3: What is still blocking publication? | iter-35 through iter-38 may have resolved prior blockers | **Not ready — visual, contextual, and copy clarity all unsatisfying; does not give the instant feeling of solving the hard problem** |
+
+### Actions taken
+
+Updated `.trail/vision.md`:
+1. Header: added "Updated 2026-05-27" note
+2. **"What success looks like"** — replaced "serious and credible" as primary register with "recognition + intrigue" emotional destination; added operator-confirmed verbatim; preserved credibility as secondary constraint
+3. **"Colour system"** — section heading revised from "settled — session-007/008" to "revised — iter-36, confirmed 2026-05-27"; replaced entire light palette block with current dark canvas palette and semantic type-role table; preserved historical note about the [!REVERSAL]
+4. **"What is still open"** — replaced stale "light theme visual check" with current open problems: clarity across all three dimensions not achieved, visual verification not done on dark theme, publication blocked
+
+### Reflection
+
+The Vision run resolved a contradiction open since iter-36: vision.md said light, the live page was dark, no update had been made. It also named the emotional destination that was implicit in three design corrections but never written: **recognition + intrigue**. "This is what I've been looking for to safely delegate work to AI" is more specific than "serious and credible" and gives a testable criterion — any design or copy decision can now be evaluated against whether it increases the probability that a non-technical reader feels *found* in the first three seconds.
+
+**What this changes for future iterations:** the hero copy and visual hierarchy are the primary next targets. The structural diagnosis is clear: hook must name the reader's problem and promise relief before any framework language appears. That is a copy-first problem, not a design-system problem.
+
+**Named blind spot:** "recognition + intrigue" is operator-stated intent, not reader-validated. The page has not been shown to a non-technical reader to confirm the signal lands.
