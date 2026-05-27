@@ -1039,3 +1039,47 @@ CSS .trail-scroll added in prior step (max-height 540px, custom scrollbar matchi
 The three entries are deliberately uneven in scope: one word, one un-prompted action, one large deletion. The unevenness is the point - it shows the loop scales from semantic precision to structural waste removal without changing its discipline. The scrollbar is a non-shouting affordance: 6px wide, --rule color, only visible on hover via webkit defaults.
 
 Commit: 371eb94
+
+---
+
+## 2026-05-27 · iter-28 · memory-model-section
+
+target: pea-website (index.html)
+operator: Nils Holmager
+agent: GitHub Copilot (Claude)
+skill: improve
+outcome: new Memory Model section added before the existing trail section; introduces .trail/ as the agent memory layer with a visual directory tree and per-file roles
+delta: index.html +138 / -4; one new section (id="memory"), one CSS block for .memory-tree and .memory-files, trail-section title and intro reworded to flow from the new section
+commit: a57ff2d
+
+### Interpretation of the ask
+
+The operator pointed out two things in one breath: (1) the audit trail is not just a log, it is the agent's context/memory model, and that idea is central enough to deserve its own section rather than being implicit inside the "trail, verbatim" section; (2) the .trail/ folder structure should be shown as a visual directory tree because a tree makes the model instantly understandable in a way prose cannot. Intent: promote the memory model to first-class status on the page, and make the four-file structure concrete and visual before showing example entries.
+
+### Examination
+
+The page had a single trail section that jumped straight to verbatim entries without explaining what .trail/ is, what files live in it, or what each one does. A first-time reader saw three long entries and had to infer the model. The Improve skill's own SKILL.md is explicit: vision -> retrospect -> learning -> audit-trail, with a hierarchy (vision wins over retrospect; trail wins over retrospect). That hierarchy was nowhere on the page.
+
+Lenses applied:
+- **Purpose.** Page goal is to make the framework understandable to people who haven't read the manifesto. The memory model is a load-bearing concept and was missing.
+- **Overburden.** The single trail section was being asked to do two jobs - explain the memory model AND show examples. Splitting relieves both.
+
+### Decision
+
+[!DECISION] Add a new section id="memory" between the existing skills section and the trail section. Content: section label "Memory Model", title "The .trail/ folder is the memory", a monospace directory tree using box-drawing characters with each filename highlighted, a definition-list-style grid explaining each file's role using a "where you're going / where you are / what you've learned / the path you walked" framing, and a closing paragraph on the disagreement-resolution hierarchy.
+
+Rename the existing trail section title from "The trail, verbatim" to "What an audit-trail.md entry looks like" and reword its intro to reference the new memory section. This makes the two sections read as a continuous arc: model first, then examples.
+
+### Action
+
+1. Added .memory-tree, .memory-files, .memory-file, .memory-file-name, .memory-file-role CSS just before .trail-scroll.
+2. Inserted the new <section id="memory"> container before the existing <section id="trail">.
+3. Rewrote the trail section title and intro to flow from the memory section.
+4. git commit -> a57ff2d.
+
+### Reflection
+
+The page now teaches the memory model before showing examples of it, which is the correct order. A visitor sees the directory tree first - four files, named, with one-line roles - and can hold the whole model in their head in about ten seconds. The verbatim entries that follow then read as concrete instances of audit-trail.md rather than as the entire trail concept.
+
+What this run did not do: add a learning.md file to pea-website's own .trail/ (it has vision, retrospect, audit-trail only). That is a separate question - whether this repo's loop is mature enough to warrant generating learning.md, or whether the existing three files are sufficient given the page is approaching convergence. Flagged for a future run.
+
