@@ -421,11 +421,11 @@
             <p class="label label-muted">The problem it solves</p>
             <p>
               Give an AI a checklist and the checklist becomes its ceiling. It finds what the checklist
-              describes and misses what the author never thought to list - which is usually what matters.
+              describes and misses what the author never thought to list.
             </p>
             <p>
               The alternative: hand it a <em>mission</em>. Tell it what to achieve and why; let it decide
-              how based on what it actually finds. The human defines the objective. The agent finds the method.
+              how based on what it finds. The human defines the objective. The agent finds the method.
             </p>
             <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
               <span class="label label-muted" style="margin: 0;">Roots</span>
@@ -510,7 +510,7 @@
         <p class="label">Emergent property</p>
         <h3>Autonomous Reasoning Fidelity (ARF)</h3>
         <p>
-          ARF is the observable signal that the agent is actually reasoning - and that the reasoning
+          ARF is the observable signal that the agent is reasoning - and that the reasoning
           is visible enough to be judged from outside. It appears only when all three principles hold.
           Weaken one and it disappears.
         </p>
@@ -525,7 +525,6 @@
       <h2>Standing on prior work</h2>
       <p>
         Drawn from military doctrine, lean manufacturing, philosophy, and empirical AI research.
-        Each contributed something the framework would be weaker without.
       </p>
 
       <div class="grid-2" style="margin-top: var(--gap-md);">
@@ -591,7 +590,7 @@
           <div class="stack">
             <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener">Reasoning Models Don't Always Say What They Think &#8599;</a>
             <p class="micro italic">Chen et al. - arXiv:2505.05410, May 2025</p>
-            <p class="small">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring is not sufficient to rule out undesired behavior in capable models.</p>
+            <p class="small">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring cannot rule out undesired behavior in capable models.</p>
           </div>
         </div>
 
@@ -615,8 +614,7 @@
           <p class="label">The agent interpreted the prompt literally and missed the intent</p>
           <h3>Intent</h3>
           <p class="small">
-            Forces the agent to state its interpretation of the task before acting. Named after
-            Commander's Intent (Auftragstaktik). An early warning system for misaligned assumptions.
+            Forces the agent to state its interpretation of the task before acting. Catches wrong interpretations before work begins.
           </p>
         </a>
 
@@ -625,8 +623,7 @@
           <h3>Vision</h3>
           <p class="small">
             Surfaces the agent's assumptions about where the operator is heading - as specific
-            questions to confirm, correct, or reject. Closes the gap between what was written down
-            and what was meant. Produces <code>.trail/vision.md</code>.
+            questions to confirm, correct, or reject. Produces <code>.trail/vision.md</code>.
           </p>
         </a>
 
@@ -654,7 +651,7 @@
           <h3>Retrospect</h3>
           <p class="small">
             Reads the entire work history as one document: where is the work heading, where has
-            attention gone, is that where the weight actually lies? Surfaces what no single session
+            attention gone, is that where the weight lies? Surfaces what no single session
             would reveal. Produces <code>.trail/retrospect.md</code>.
           </p>
         </a>
@@ -809,9 +806,6 @@
     <section id="quickstart">
       <p class="label">Get Started</p>
       <h2>Three commands</h2>
-      <p>
-        Step 1 runs in your terminal. Steps 2 and 3 are chat commands to the agent.
-      </p>
 
       <ol class="quickstart-list">
         <li>
