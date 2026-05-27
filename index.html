@@ -527,6 +527,74 @@
       margin-bottom: 0.85rem;
     }
 
+    /* ── MEMORY MODEL SECTION ── */
+    .memory-tree {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      color: var(--ink);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .memory-tree .tree-comment {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .memory-tree .tree-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .memory-files {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .memory-file {
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 1.25rem;
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    .memory-file:first-child { border-top: none; padding-top: 0; }
+
+    .memory-file-name {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .memory-file-role {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .memory-file-role strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .memory-file {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+      }
+    }
+
     /* ── TRAIL SECTION ── */
     .trail-scroll {
       max-height: 540px;
@@ -1052,15 +1120,81 @@
     </section>
   </div>
 
+  <!-- MEMORY MODEL -->
+  <div class="container">
+    <section id="memory">
+      <p class="section-label">Memory Model</p>
+      <h2 class="section-title">The .trail/ folder is the memory</h2>
+      <p class="section-intro">
+        An agent without memory repeats yesterday's mistakes and forgets yesterday's decisions.
+        The skills suite gives every repository a four-file memory layer that lives in
+        <code>.trail/</code> at the repo root. Each Improve run reads it before acting and
+        extends it after. This is what makes the loop cumulative instead of amnesiac.
+      </p>
+
+      <pre class="memory-tree" aria-label="trail folder structure"><span class="tree-name">.trail/</span>           <span class="tree-comment"># lives in the root of the repo being worked on</span>
+├── <span class="tree-name">vision.md</span>       <span class="tree-comment"># the destination (operator-held, never written by skills)</span>
+├── <span class="tree-name">retrospect.md</span>   <span class="tree-comment"># current location + active operational rules (rewritten each Retrospect run)</span>
+├── <span class="tree-name">learning.md</span>     <span class="tree-comment"># compact extract of every [!REALIZATION] and [!REVERSAL] across the trail (generated)</span>
+└── <span class="tree-name">audit-trail.md</span>  <span class="tree-comment"># the path - append-only history of every session</span></pre>
+
+      <div class="memory-files">
+        <div class="memory-file">
+          <div class="memory-file-name">vision.md</div>
+          <div class="memory-file-role">
+            <strong>Where you're going.</strong> The operator-held destination. What the target is
+            for, the constraints that hold across all runs, the hard problem the work is chipping
+            at. Stable. No skill ever writes to it - only humans do.
+          </div>
+        </div>
+        <div class="memory-file">
+          <div class="memory-file-name">retrospect.md</div>
+          <div class="memory-file-role">
+            <strong>Where you are.</strong> The current arc-level orientation derived from reading
+            the whole trail as one document. Contains the active operational rules the agent must
+            obey this run. Rewritten each time the Retrospect skill runs.
+          </div>
+        </div>
+        <div class="memory-file">
+          <div class="memory-file-name">learning.md</div>
+          <div class="memory-file-role">
+            <strong>What you've learned.</strong> A generated, chronological extract of every
+            <code>[!REALIZATION]</code> and <code>[!REVERSAL]</code> marker in the trail. The
+            compact form of the loop's accumulated insight - read this before reaching for the
+            full history.
+          </div>
+        </div>
+        <div class="memory-file">
+          <div class="memory-file-name">audit-trail.md</div>
+          <div class="memory-file-role">
+            <strong>The path you walked.</strong> Append-only. Every session writes one entry
+            containing its interpretation of the ask, its examination, decisions, actions, and
+            reflection. This is the evidence layer - everything else in <code>.trail/</code> is
+            derived from it.
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:0.9rem; color:var(--muted); margin-top:1.5rem; line-height:1.6;">
+        The hierarchy resolves disagreements: if <code>vision.md</code> and
+        <code>retrospect.md</code> disagree, vision wins (the operator holds the destination). If
+        <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
+        trail is the evidence). Memory without a hierarchy is just noise.
+      </p>
+    </section>
+  </div>
+
   <!-- TRAIL -->
   <div class="container">
     <section id="trail">
       <p class="section-label">Observable Autonomy</p>
-      <h2 class="section-title">The trail, verbatim</h2>
+      <h2 class="section-title">What an audit-trail.md entry looks like</h2>
       <p class="section-intro">
-        Three entries from the skills suite's own audit trail - the loop running on itself.
-        Verbatim excerpts. Each one shows the agent's reasoning end to end: how it read the ask,
-        what it looked at, what it decided, and what it concluded after the fact. Scroll for more.
+        Three entries from the skills suite's own <code>audit-trail.md</code> - the loop running
+        on itself. Verbatim excerpts. Each one shows the agent's reasoning end to end: how it
+        read the ask, what it looked at, what it decided, and what it concluded after the fact.
+        This is the raw material every other file in <code>.trail/</code> is derived from. Scroll
+        for more.
       </p>
 
       <div class="trail-scroll">
