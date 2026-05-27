@@ -767,16 +767,14 @@
               <circle cx="23" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
             </svg>
             <div class="principle-name">Observable Autonomy</div>
-            <span class="principle-tagline">Autonomy is earned through transparency — not assumed.</span>
+            <span class="principle-tagline">Autonomy is earned through transparency.</span>
             <p class="principle-problem">The problem it solves</p>
             <p>
               Autonomy and transparency are usually treated as parallel concerns — independent checkboxes.
               They are not. They are causally linked.
             </p>
             <p>
-              Autonomy without a transparent record is not delegation — it is abdication. And transparency
-              requires more than a record simply existing: it must be captured <em>as the work happens</em> —
-              not written up afterward — and it must be one the agent cannot revise once the outcome is known.
+              Autonomy without a transparent record is abdication. Transparency requires more than a record simply existing: it must be captured <em>as the work happens</em>, and it must be one the agent cannot revise once the outcome is known.
               Otherwise the record is just a story the agent tells about itself.
             </p>
             <p>
@@ -814,14 +812,13 @@
               each pass changes something, the number stays flat, but the output never actually settles.
             </p>
             <p>
-              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes —
-              not because the work is done, but because the evaluator has stopped seeing what it can't see.
-              An AI that evaluates its own output is rationalising, not doing quality control.
+              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes while the work is still incomplete — the evaluator has stopped seeing what it can't see.
+              An AI that evaluates its own output is rationalising.
             </p>
             <p>
               The correct test: ask <em>diverse, independent evaluators</em> — each without knowing what the
               others found — to assess the work. When they all find nothing left to change, the work is done.
-              A stable score matters, but it is not the test. The test is whether independent evaluators agree.
+              A stable score matters. The test is whether independent evaluators agree.
             </p>
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
@@ -867,7 +864,7 @@
             <a href="https://en.wikipedia.org/wiki/Auftragstaktik" class="foundation-link" target="_blank" rel="noopener">Auftragstaktik — Prussian mission command ↗</a>
             <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" class="foundation-link" target="_blank" rel="noopener">Commander's Intent — US military adaptation ↗</a>
             <p class="foundation-source">19th century military doctrine, German General Staff</p>
-            <p class="foundation-note">Defines subordinate authority by mission objective, not prescribed procedure. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
+            <p class="foundation-note">Defines subordinate authority by mission objective. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
           </div>
 
           <div class="foundation-item">
@@ -915,7 +912,7 @@
           <div class="foundation-item">
             <a href="https://arxiv.org/abs/2310.01798" class="foundation-link" target="_blank" rel="noopener">Large Language Models Cannot Self-Correct Reasoning Yet ↗</a>
             <p class="foundation-source">Huang et al. — ICLR 2024</p>
-            <p class="foundation-note">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is not doing quality control — it is doing rationalisation.</p>
+            <p class="foundation-note">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
           </div>
 
           <div class="foundation-item">
@@ -943,7 +940,7 @@
       <div class="skills-grid">
 
         <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent did what you wrote, not what you meant</div>
+          <div class="skill-problem">The agent interpreted the prompt literally and missed the intent</div>
           <div class="skill-name">Intent</div>
           <p class="skill-desc">
             Forces the agent to explicitly state its interpretation of the task before acting.
@@ -1001,7 +998,7 @@
           <p class="skill-desc">
             Constructs a novelty probe — a pair of cases that look similar but differ in a material way —
             to test whether the agent's response diverges where it should. Measures Autonomous Reasoning
-            Fidelity directly. Used for validation, not daily development.
+            Fidelity directly. Used for validation runs.
           </p>
         </a>
 
@@ -1068,8 +1065,7 @@
         <p>
           Operator asked two things: “should we then target the skills suite on itself now in this new version?”
           and “retire the old scoreboard of version 1 and 2?” I interpreted the first as a request to actually
-          run <code>improve</code> on v3 in good faith — not to perform a ceremony to generate a trail entry,
-          but to honestly examine what was just shipped.
+          run <code>improve</code> on v3 — to genuinely examine what was just shipped.
         </p>
         <div class="trail-caveat">
           The same-session caveat matters: this run is by the same agent that built v3, in the same
