@@ -1655,3 +1655,74 @@ Static read of the diff. git diff --stat confirms +36 / -11 - inside prediction.
 4. **Audit remaining hardcoded colours.** Scrollbar background uses --card-bg and --rule - both are now dark-system tokens, so they should be fine, but unverified. The .code-block border-left uses --accent correctly. No other hardcoded colour values remain in the diff window I worked in.
 5. **Run Probe on the new palette claim.** The colour-psychology mapping (warm=ideas / cool=practice) is asserted, not tested. A probe pair - "would a reader actually associate coral with authority over teal?" - could surface whether the mapping is real or invented. Lower priority than visual verification but a legitimate validation move.
 
+
+---
+
+## 2026-05-27 - iter-37-footer-de-ai-followup
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Opus 4.7)
+**skill:** improve + intent + de-ai (newly created during this iteration)
+**outcome:** footer prose corrected; new `de-ai` skill created upstream in the operator's skill suite.
+
+### Interpretation of the ask
+
+Operator verbatim: *""I kept hitting two failure modes" also sounds very ai like. we need to get this into the DEAI skill. understand my intent"*
+
+Two artifacts requested:
+
+1. **Fix this instance.** The footer paragraph still carried an AI-tell that iter-35 missed - "I kept hitting two failure modes: reviewing everything... or trusting the model..." The pattern is **meta-framing**: labelling the structure of a sentence ("I kept hitting two failure modes") before delivering the actual content (the two stories). Real speech does not narrate its own structure. The fix is to drop the meta-frame and let each story stand on its own subject.
+
+2. **Codify the pattern upstream.** The deeper ask: "understand my intent" - the operator does not want to keep catching the same patterns by hand. The agent's de-AI behaviour has been muscle memory, rediscovered each session. Make it a permanent skill so future fresh-session agents can apply the lens systematically.
+
+### Examination
+
+Footer paragraph (pre-iter-37):
+
+> I kept hitting two failure modes - reviewing everything until I was approving outputs I hadn't really checked, or trusting the model until I found a run was wrong after it had already been used. This framework is the answer I built for myself.
+
+The meta-frame ("I kept hitting two failure modes:") is followed by a list that already names the two modes through their content. The frame is redundant scaffolding. The closing sentence ("This framework is the answer I built for myself") is a corporate sentence-stamp ("this X is the answer to Y") - a tell from catalogue pattern #9.
+
+### Decision
+
+[!DECISION] Two-artifact iteration.
+
+**Artifact 1:** Footer rewrite. Replace the meta-framed list with two subject-driven sentences ("When I reviewed everything... When I trusted the model..."). Replace the sentence-stamp closer with the action-oriented "So I built this. An action that cannot be audited is broken."
+
+**Artifact 2:** Create `c:\\Users\\admin\\.copilot\\skills\\de-ai\\SKILL.md` in the operator's skill suite. Catalogue twelve AI-prose patterns harvested from iter-22 onwards. Document the work as a finishing-pass lens, not a search-and-replace dictionary. Add explicit non-application to verbatim records (trail entries, transcripts, operator-authored prose).
+
+Recorded separately in the skill suite's own trail (commit 42e94bf).
+
+### Action and Outcome
+
+Footer edit committed as 7f698e8: 4 insertions, 4 deletions. Diff is local to the closing paragraph; no other prose touched in this iteration.
+
+Skill creation committed in the upstream skill suite repo (separate git history): commit 42e94bf, single file `de-ai/SKILL.md` plus the skill suite's own audit-trail entry and regenerated derived artifacts.
+
+### Reflection
+
+**Falsifiable claim.** *The footer now reads as written, not generated. A reader scanning the closing paragraph at normal speed will not pause to notice the prose itself; they will absorb the content.* Falsifiable in two ways: (a) operator can read it cold and report whether the pause is still there; (b) a future Probe pair (one reader sees the iter-35 version, one sees the iter-37 version, asked to rate "this reads like a real person wrote it") would settle the empirical claim.
+
+**Named blind spot.** The agent did not audit the rest of the page for other instances of meta-framing. The footer is one location; there are likely others. A full body sweep using the new catalogue is a candidate next move.
+
+**Imagined-reader pushback.** "The new footer drops the explicit framing - readers might miss the parallel structure (review-everything vs. trust-everything)." Counter-claim: the parallel structure is *more* visible without the meta-frame, because the two "When I..." sentences now match each other syntactically. The frame was hiding the parallel by stating it.
+
+**[!REALIZATION]** *Iter-35 missed the meta-frame because the agent was applying de-AI as muscle memory, not as a catalogued lens.* The pattern survived because it had no named home. Codifying the catalogue upstream is the structural fix. This is the **third consecutive iteration that touched prose tells** (iter-29 hedging audit, iter-35 simplification, iter-37 meta-frame). Three out of last seven is approaching pattern density - worth a Retrospect.
+
+**Across-trail trigger evaluation:**
+- *Recurring finding-class:* FIRED. Three prose-tell iterations in seven. The finding class is "AI-prose tells survive across iterations because the agent has no codified pattern catalogue." This iteration is the structural response (upstream skill creation), not just another instance fix.
+- *About to declare silence:* not fired.
+- *Contradicts prior [!REALIZATION]:* not fired.
+- *Operator explicitly asked:* FIRED. Operator directly asked to codify the lesson upstream.
+
+**Across-trail macro-Hansei** *(recurring-finding-class triggered)*:
+
+The pea-website has been a teaching surface for the operator's skill suite. iter-22, 26, 29, 31, 35, 37 all surfaced prose-related lessons. The website itself was the visible work; the catalogue forming behind it was the durable work. Iter-37 is the first time that durable work was hoisted into a permanent skill - the inflection point where "the agent keeps doing this for me" became "the agent has a tool to do this." Worth tracking: does iter-38+ stop surfacing new prose tells (because they get caught by the codified skill), or do new tells appear that the catalogue does not name?
+
+### Candidate Next Moves
+
+1. **Run de-ai (the newly codified skill) as a full-body sweep on index.html.** Highest-information move. The catalogue is fresh; index.html has been edited many times by an agent that did not have the catalogue. Likely contains residual instances of patterns #1-12 that have never been caught.
+2. **Visual verification of the iter-36 dark theme.** Still outstanding from iter-36. The footer change does not unblock this - it remains the largest gap in recent iterations.
+3. **Decide on vision.md update.** iter-36 introduced a dark palette that contradicts vision.md's "Light, not dark" position. Operator action required - the agent does not write to vision.md.
+4. **Cross-reference de-ai from improve/SKILL.md in the skill suite.** So future Improve runs discover de-ai without operator prompting. Listed in the skill suite trail entry as a next move there too.
+
