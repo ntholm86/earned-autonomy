@@ -940,3 +940,26 @@ The page now demonstrates Observable Autonomy rather than merely asserting it. T
 1. Author voice — still the open gap; one paragraph from Nils would complete the credibility picture
 2. ARF operationalisation or rename
 3. Publication / push to GitHub Pages
+
+---
+## Session: improve-iter-17-author-voice
+
+**Date:** 2026-05-27
+**Slug:** iter-17 — author voice
+
+### Interpretation
+Operator directed "proceed with author voice" following the prior assessment that gave author authority signal 3/10. Intent: add a first-person statement that answers "who are you and why did you build this."
+
+### Constraint respected
+Memory rule: never invent author content. All five sentences in the statement are sourced directly from authored material already on the page or in manifesto/README.md — specifically, the hero stances (rubber-stamping, wrong run downstream) and the README core claim ("broken, not risky"). Zero inference beyond the minimum personal stance ("I built this because I kept watching...").
+
+### [!DECISION] Footer statement — full-width row below name/links, above license
+Placement: a new paragraph between footer-inner and footer-license. Keeps the two-column name+links layout intact. The paragraph appears as a full-width authored statement below the structural footer chrome.
+
+### Prediction
+Author authority signal: 3/10 ? 6/10. The paragraph is brief, specific, and uses the author's own framing already on the page. A first-time reader now knows: (1) this came from observed failure, (2) the claim is structural not behavioral, (3) the author has a firm position. What it doesn't do: give biographical detail or describe a specific project. That remains the ceiling.
+
+### Candidate next moves
+1. Verify in browser — check footer layout at desktop and mobile widths
+2. ARF callout — rename or make measurable (remains an open liability)
+3. Publication readiness check — all 3 original assessment gaps now addressed to varying degrees
