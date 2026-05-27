@@ -169,6 +169,16 @@
     .center { text-align: center; }
     .max-prose { max-width: 600px; }
 
+    /* === Spacing & flex utilities === */
+    .mt-md  { margin-top: var(--gap-md); }
+    .mt-lg  { margin-top: var(--gap-lg); }
+    .my-md  { margin: var(--gap-md) 0; }
+    .row-top { align-items: flex-start; }
+    .flex-1  { flex: 1; }
+    .row-ruled    { padding-top: var(--gap-xs); border-top: 1px solid var(--rule); }
+    .label-inline { margin: 0; }
+    .trail-divider { padding-top: var(--gap-sm); margin-top: var(--gap-sm); border-top: 1px solid var(--rule); }
+
     /* === Mono accent === */
     .mono { font-family: var(--mono); color: var(--amber); font-weight: var(--weight-medium); }
     code {
@@ -376,7 +386,7 @@
         Three principles that close that gap — for any model, any toolset.
       </p>
 
-      <div class="card card-accent stack" style="margin: var(--gap-md) 0;">
+      <div class="card card-accent stack my-md">
         <p><strong>Two responses to this gap are common. Both break down.</strong></p>
         <p>
           <strong>"I'll just review everything."</strong>
@@ -410,7 +420,7 @@
         Skip any and the setup is structurally broken, not poorly tuned.
       </p>
 
-      <div class="stack-lg" style="margin-top: var(--gap-md);">
+      <div class="stack-lg mt-md">
 
         <!-- Principle 1 -->
         <div class="principle">
@@ -431,8 +441,8 @@
               The alternative: hand it a <em>mission</em>. Tell it what to achieve and why; let it decide
               how based on what it finds. The human defines the objective. The agent finds the method.
             </p>
-            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
-              <span class="label label-muted" style="margin: 0;">Roots</span>
+            <div class="row row-ruled">
+              <span class="label label-muted label-inline">Roots</span>
               <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" class="chip">Auftragstaktik</a>
               <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" class="chip">Toyota Kata</a>
               <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" class="chip">Socratic Method</a>
@@ -465,8 +475,8 @@
               More visibility earns more autonomy. No visibility earns none. The audit trail is how
               the agent earns the right to keep acting.
             </p>
-            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
-              <span class="label label-muted" style="margin: 0;">Roots</span>
+            <div class="row row-ruled">
+              <span class="label label-muted label-inline">Roots</span>
               <a href="https://doi.org/10.3389/frobt.2018.00015" target="_blank" rel="noopener" class="chip">Meaningful Human Control</a>
               <span class="chip">Trust Calibration - Lee &amp; See, 2004</span>
             </div>
@@ -498,8 +508,8 @@
               The real test: ask <em>diverse, independent evaluators</em>, each blind to the others.
               When they all find nothing left to change, the work is done.
             </p>
-            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
-              <span class="label label-muted" style="margin: 0;">Roots</span>
+            <div class="row row-ruled">
+              <span class="label label-muted label-inline">Roots</span>
               <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" class="chip">Kaizen</a>
               <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" class="chip">Delphi Method</a>
               <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank" rel="noopener" class="chip">Cross-validation</a>
@@ -510,7 +520,7 @@
       </div>
 
       <!-- ARF callout -->
-      <div class="card" style="margin-top: var(--gap-lg);">
+      <div class="card mt-lg">
         <p class="label">Emergent property</p>
         <h3>Autonomous Reasoning Fidelity (ARF)</h3>
         <p>
@@ -531,7 +541,7 @@
         Drawn from military doctrine, lean manufacturing, philosophy, and empirical AI research.
       </p>
 
-      <div class="grid-2" style="margin-top: var(--gap-md);">
+      <div class="grid-2 mt-md">
 
         <div class="stack-md">
           <p class="label label-muted label-bordered">Conceptual traditions</p>
@@ -612,7 +622,7 @@
         memory across sessions - so each run builds on the last.
       </p>
 
-      <div class="grid-auto" style="margin-top: var(--gap-md);">
+      <div class="grid-auto mt-md">
 
         <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
           <p class="label">The agent interpreted the prompt literally and missed the intent</p>
@@ -673,12 +683,12 @@
       </div>
 
       <!-- Evidence -->
-      <div class="stack" style="margin-top: var(--gap-lg);">
+      <div class="stack mt-lg">
         <p class="label label-muted">Field evidence</p>
 
-        <div class="row" style="align-items: flex-start;">
+        <div class="row row-top">
           <div class="numeral-circle">1</div>
-          <p class="small" style="flex: 1;">
+          <p class="small flex-1">
             <strong>200+ self-improvement iterations.</strong> The skills suite ran on itself over two hundred times.
             Along the way, it autonomously decided to rewrite itself from scratch - twice. Convergence was declared
             only when three independent evaluators from distinct model families (Anthropic, xAI/Grok, Google/Gemini)
@@ -686,18 +696,18 @@
           </p>
         </div>
 
-        <div class="row" style="align-items: flex-start;">
+        <div class="row row-top">
           <div class="numeral-circle">2</div>
-          <p class="small" style="flex: 1;">
+          <p class="small flex-1">
             <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant
             cloud system with multiple microservices and automated CI/CD. A large T-shirt-size scope was
             completed in three days. The trail exists but cannot be published - it is employer-owned.
           </p>
         </div>
 
-        <div class="row" style="align-items: flex-start;">
+        <div class="row row-top">
           <div class="numeral-circle">3</div>
-          <p class="small" style="flex: 1;">
+          <p class="small flex-1">
             <strong>This page.</strong> Built in a single session - about 5 minutes - using Vision, Intent, Trail, and Improve.
             The full trail is committed to <code>.trail/</code> and verifiable against the git log.
           </p>
@@ -737,7 +747,7 @@
         <code>transcripts/</code> - append-only, never edited after the fact.
       </p>
 
-      <div class="stack" style="margin-top: var(--gap-md);">
+      <div class="stack mt-md">
         <div class="memory-row">
           <div class="mono small">vision.md</div>
           <div class="small">
@@ -796,7 +806,7 @@
         </div>
       </div>
 
-      <p style="margin-top: var(--gap-md);">
+      <p class="mt-md">
         The hierarchy resolves disagreements: if <code>vision.md</code> and
         <code>retrospect.md</code> disagree, vision wins (the operator holds the destination). If
         <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
@@ -832,7 +842,7 @@
         </li>
       </ol>
 
-      <p style="margin-top: var(--gap-md);">
+      <p class="mt-md">
         A new entry appears in <code>.trail/audit-trail.md</code>. That is the loop, end to end.
         <br>
         <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md"
@@ -1065,10 +1075,10 @@
           </p>
         </div>
 
-        <p class="micro italic center" style="padding-top: var(--gap-sm); margin-top: var(--gap-sm); border-top: 1px solid var(--rule);">- three entries from a 6,000+ line trail spanning 130+ sessions -</p>
+        <p class="micro italic center trail-divider">- three entries from a 6,000+ line trail spanning 130+ sessions -</p>
       </div>
 
-      <a class="chip chip-lg" style="margin-top: var(--gap-md);"
+      <a class="chip chip-lg mt-md"
          href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
          target="_blank" rel="noopener">View full trail on GitHub &#8599;</a>
     </section>
@@ -1089,7 +1099,7 @@
           <a class="chip" href="https://orcid.org/0009-0009-7157-9084" target="_blank" rel="noopener">ORCID &#8599;</a>
         </div>
       </div>
-      <p class="small max-prose" style="margin-top: var(--gap-md);">
+      <p class="small max-prose mt-md">
         I built this because I had this problem: how to safely delegate real work to AI while
         remaining accountable for what gets done. When I reviewed everything, review got faster
         than thought and approvals went automatic. When I trusted the model, I found out runs
