@@ -2168,3 +2168,56 @@ After: .row wrapping .btn (Zenodo) + .chip.chip-lg (href=#principles, 'See the t
 1. **Add 'Get Started' to the nav** — remaining action-clarity sub-gap.
 2. **GitHub Pages push** — no structural blockers remain.
 3. **External cold-reader test** — still untaken after 44 iterations.
+
+## 2026-05-27 - iter-45-get-started-nav
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — 'Get started' nav link added pointing to #quickstart
+**commit:** d925e3d
+
+### Interpretation of the ask
+
+Underspecified continuation. Ranked #1 from iter-44 candidate next moves was 'Add Get Started to nav.' Sourced directly from the action-clarity improvement thread opened in iter-43 (cold audit, scored 5/10).
+
+### Examination
+
+**Purpose.** Vision primary reader: non-technical, arriving cold. Hero now has two CTAs (iter-44). The reader who scans the nav before scrolling sees: Principles | Foundations | Skills | Trail | GitHub - no action destination visible. Adding 'Get started' shifts the page's register from intellectual-reference to usable-framework.
+
+**Inconsistency.** 7 sections exist; 5 in nav. Omitted: #memory and #quickstart. The #quickstart section has its own label 'Get Started' — it self-describes as the action entry point. The nav didn't reflect this.
+
+**Inconsistency 2.** #memory is also missing from the nav — the nav silently skips a full section. Not fixed here: #memory is technical depth, not a primary action destination. Adding both in one iteration would be overcrowding.
+
+**Challenge.** Is the nav gap a primary or secondary reader problem? Secondary readers (technical evaluators from GitHub) are more likely to nav-scan. But the nav is also the page's mental map. A nav without 'Get started' reads as reference-only. Adding it signals: this is a framework you can use.
+
+**Overburden.** Mobile at 540px: 6 items before GitHub ↗. Not tested.
+
+### [!DECISION] Add 'Get started' nav item before GitHub ↗
+
+Before: Principles | Foundations | Skills | Trail | GitHub ↗
+After: Principles | Foundations | Skills | Trail | Get started | GitHub ↗
+
+No CSS changes. Existing nav a styling applies.
+
+**Pre-commit prediction:** Nav now surfaces an action destination for scanning readers. Page reads as usable framework. Blind spot: mobile crowding untested at 375px with 6 items.
+
+### Reflection
+
+**Model claim.** The action-clarity thread (opened iter-43, 5/10) is now substantially closed: the hero has a primary CTA (Zenodo), a secondary in-page CTA (principles), and the nav now offers a direct path to Quickstart. The remaining open items are structural-readiness (GitHub Pages push) and reader-testing (cold reader still untaken).
+
+**Blind spot.** Mobile nav behavior with 6 items + GitHub ↗ is untested. The responsive rule reduces gap to --gap-sm but does not stack items. On 375px viewport, overflow is plausible.
+
+**Imagined pushback.** 'Get started is at position 5 of 6 nav items — after Trail. A new visitor scanning the nav may not reach it before deciding to scroll.' Valid. Trail is a showcase section relevant to technical evaluators. Quickstart is the action destination. Swapping their order (Skills | Get started | Trail) would put action before demonstration. Deferred — order change is a separate iteration.
+
+**Across-trail reflection:**
+- Recurring finding-class: not fired — this is nav/action work.
+- About to declare silence: not fired — a change was made.
+- Contradicts prior [!REALIZATION]: not fired.
+- Operator explicitly asked: not fired.
+
+### Candidate Next Moves
+
+1. **GitHub Pages push** — no structural blockers remain; all primary action-clarity gaps are closed. Terminal readiness test. Requires explicit operator confirmation.
+2. **Nav order: swap Trail and Get started** — 'Skills | Get started | Trail' puts action before demonstration for the scanning reader. Small change, separate iteration.
+3. **Mobile nav test** — 6 items may overflow on 375px. Visual check before GitHub Pages push.
