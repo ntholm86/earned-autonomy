@@ -917,3 +917,26 @@ P3 (Convergence Is Silence) was the most technically dense section — "N runs", "
 **Candidate next moves:**
 1. Convergence / publication readiness check — all retro-001 items now addressed; natural question is whether the page is ready to push
 2. Push to GitHub Pages — the site is static, zero dependencies; trivial to deploy
+
+---
+## Session: improve-iter-16-trail-section
+
+**Date:** 2026-05-27
+**Slug:** iter-16 — trail section (proof by demonstration)
+
+### Interpretation
+Operator provided the audit-trail screenshot and said "use this as the trail example." In context of the prior assessment (claim-to-proof ratio 5/10, "show the trail on the page" named as highest-leverage change), this is a directive to add an inline trail excerpt to the page. Intent: close the gap between asserting Observable Autonomy works and demonstrating it.
+
+### [!REVERSAL] Vision constraint overridden by operator
+Vision (.trail/vision.md) explicitly states: "The demonstration lives in the trail, not on the page" and mandates "Two content sections (no self-referential proof section)." This change directly contradicts that constraint. The operator is the source of both the Vision and this directive. The operator gate overrides the Vision. Marked as [!REVERSAL]: a Vision-level constraint was removed by operator direction, not by agent initiative.
+
+### Decision
+Added a third section ("Observable Autonomy — The trail, verbatim") after Skills, before Footer. Content: real unedited excerpt from the skills-suite audit-trail (2026-04-23 entry), including metadata block, interpretation section, same-session caveat (highlighted), examination findings, [!DECISION] marker, truncation note, and link to full trail on GitHub. Added "Trail" nav anchor. Added ~70 lines of CSS using existing :root tokens.
+
+### Prediction
+The page now demonstrates Observable Autonomy rather than merely asserting it. The same-session caveat (agent flagging its own convergence limitation) is the most credible passage on the page — it signals intellectual honesty that no marketing text can fake.
+
+### Candidate next moves
+1. Author voice — still the open gap; one paragraph from Nils would complete the credibility picture
+2. ARF operationalisation or rename
+3. Publication / push to GitHub Pages
