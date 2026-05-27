@@ -9,15 +9,31 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Colour */
-      --bg:        #fafaf8;
-      --ink:       #1c1c1e;
-      --muted:     #44403c;
-      --rule:      #e7e5e4;
-      --accent:    #155e75;
-      --accent-lt: #f0fdfa;
-      --num:       #e7e5e4;
-      --card-bg:   #f5f5f3;
+      /* Colour — calm dark canvas, syntax-highlighting inspired */
+      /* Background tiers */
+      --bg:        #1e2030;   /* deep navy-charcoal */
+      --bg-elev:   #252a3a;   /* one tier up — cards, code blocks */
+
+      /* Text tiers */
+      --ink:       #e4e7ec;   /* off-white body (~12:1 on --bg) */
+      --muted:     #a8b1c2;   /* soft slate (~7:1) */
+      --rule:      #2f3548;   /* subtle border */
+      --num:       #2f3548;   /* recessive numerals — intentionally low contrast */
+
+      /* Accent palette — each section overrides --accent below */
+      /* Warm hues = ideas. Cool hues = practice. */
+      --coral:     #f48a8a;   /* Hero + Principles  — authoritative claims */
+      --amber:     #e7c97a;   /* Foundations         — intellectual heritage */
+      --teal:      #7fd1c5;   /* Skills + Quickstart — practical implementation */
+      --lavender:  #c4a7e7;   /* Memory              — reflective layer */
+      --sage:      #a3d6a7;   /* Trail               — evidence, convergence */
+
+      /* Default --accent — overridden per section. */
+      --accent:    var(--coral);
+      /* --accent-lt tracks --accent via color-mix; used for inline-code tint, marker bg. */
+      --accent-lt: color-mix(in srgb, var(--accent) 18%, var(--bg));
+
+      --card-bg:   var(--bg-elev);
 
       /* Fonts */
       --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -51,6 +67,15 @@
       --radius-sm: 4px;
       --ease:      0.15s;
     }
+
+    /* === Section-scoped accent === */
+    /* Each section overrides --accent; every descendant token (labels, links,    */
+    /* card-accent border, code colour, numeral circles, icons) tracks it.       */
+    #top, #principles      { --accent: var(--coral); }
+    #foundations           { --accent: var(--amber); }
+    #skills, #quickstart   { --accent: var(--teal); }
+    #memory                { --accent: var(--lavender); }
+    #trail                 { --accent: var(--sage); }
 
     /* === Base === */
     html { font-size: 17px; scroll-behavior: smooth; }
@@ -110,7 +135,7 @@
     }
     .card-accent { border-left: 3px solid var(--accent); }
     a.card { display: block; color: inherit; text-decoration: none; transition: border-color var(--ease), box-shadow var(--ease); }
-    a.card:hover { border-color: var(--accent); box-shadow: 0 2px 14px rgba(21,94,117,0.12); text-decoration: none; }
+    a.card:hover { border-color: var(--accent); box-shadow: 0 2px 14px color-mix(in srgb, var(--accent) 22%, transparent); text-decoration: none; }
 
     /* === Chips & buttons === */
     .chip {
@@ -138,7 +163,7 @@
       color: var(--bg);
       border-radius: var(--radius-sm);
       font-size: var(--text-small);
-      font-weight: var(--weight-medium);
+      font-weight: var(--weight-bold);
       text-decoration: none;
       transition: opacity var(--ease);
     }
