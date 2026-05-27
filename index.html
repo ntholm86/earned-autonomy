@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Principles of Earned Autonomy</title>
-  <meta name="description" content="A framework for safely delegating real work to autonomous AI agents — and remaining the accountable party for what gets done.">
+  <meta name="description" content="A framework for safely delegating real work to autonomous AI agents - and remaining the accountable party for what gets done.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Light — warm white + deep teal — iter-7 */
+      /* Light - warm white + deep teal - iter-7 */
       /* contrast verified: ink/bg ~17:1, muted/bg ~6.4:1, accent/bg ~7.2:1 */
       --bg:        #fafaf8;   /* Warm white */
-      --ink:       #1c1c1e;   /* Near-black — primary text */
-      --muted:     #44403c;   /* Warm stone grey — body copy — ~8:1 contrast */
+      --ink:       #1c1c1e;   /* Near-black - primary text */
+      --muted:     #44403c;   /* Warm stone grey - body copy - ~8:1 contrast */
       --rule:      #e7e5e4;   /* Warm stone border / dividers */
-      --accent:    #155e75;   /* Deep teal — interactive & labels */
-      --accent-lt: #f0fdfa;   /* Pale teal tint — callout surfaces */
+      --accent:    #155e75;   /* Deep teal - interactive & labels */
+      --accent-lt: #f0fdfa;   /* Pale teal tint - callout surfaces */
       --num:       #e7e5e4;   /* Near-invisible oversized decorative numbers */
-      --card-bg:   #f5f5f3;   /* Slightly elevated surface — cards */
+      --card-bg:   #f5f5f3;   /* Slightly elevated surface - cards */
       --font:      -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       --mono:      'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
       --max:       760px;
@@ -680,7 +680,7 @@
   <div class="container">
     <section class="hero" id="top">
       <p class="hero-eyebrow">Principles of Earned Autonomy</p>
-      <h1>A framework for safely delegating real work to AI — while remaining accountable for what gets done.</h1>
+      <h1>A framework for safely delegating real work to AI - while remaining accountable for what gets done.</h1>
 
       <p class="hero-problem">
         Three principles that apply to any AI model or toolset.
@@ -696,7 +696,7 @@
         </p>
         <p>
           <strong>"The model is good enough, I'll trust the outputs."</strong>
-          Sometimes. But "good enough" isn't a fixed property — it depends on which model,
+          Sometimes. But "good enough" isn't a fixed property - it depends on which model,
           which task, which day, how the prompt was framed.
           <em>You won't know which outputs were wrong until they've already been used.</em>
         </p>
@@ -734,15 +734,15 @@
             <p>
               Give an AI agent a checklist and it executes the checklist. Its ceiling is the checklist.
               It finds what the checklist described and misses everything else. It cannot adapt to a situation
-              the instruction author never anticipated — and those are precisely the situations that matter most.
+              the instruction author never anticipated - and those are precisely the situations that matter most.
             </p>
             <p>
-              The alternative: the agent receives a <em>mission</em> — what must be achieved and why —
+              The alternative: the agent receives a <em>mission</em> - what must be achieved and why -
               and determines how, based on what it actually encounters. The human defines the objective.
               The agent discovers the method.
             </p>
             <p>
-              In practice this means giving the AI a goal — “what here doesn’t earn its existence?” — rather than
+              In practice this means giving the AI a goal - “what here doesn’t earn its existence?” - rather than
               a checklist of specific things to look for. It means providing vocabulary as a thinking framework,
               not a lookup table. The instruction defines the shape of the work. The agent finds the content.
             </p>
@@ -770,7 +770,7 @@
             <span class="principle-tagline">Autonomy is earned through transparency.</span>
             <p class="principle-problem">The problem it solves</p>
             <p>
-              Autonomy and transparency are usually treated as parallel concerns — independent checkboxes.
+              Autonomy and transparency are usually treated as parallel concerns - independent checkboxes.
               They are causally linked.
             </p>
             <p>
@@ -787,7 +787,7 @@
             <div class="principle-roots">
               <span class="roots-label">Roots</span>
               <a href="https://doi.org/10.3389/frobt.2018.00015" target="_blank" rel="noopener" class="root-chip">Meaningful Human Control</a>
-              <span class="root-chip">Trust Calibration — Lee &amp; See, 2004</span>
+              <span class="root-chip">Trust Calibration - Lee &amp; See, 2004</span>
             </div>
           </div>
         </div>
@@ -806,17 +806,17 @@
             <span class="principle-tagline">Converged when independent evaluators find nothing left to change.</span>
             <p class="principle-problem">The problem it solves</p>
             <p>
-              AI improvement cycles tend to declare completion too early. The usual test — "the score stopped
-              going up" — measures the wrong thing. A score can plateau while the work is still unstable:
+              AI improvement cycles tend to declare completion too early. The usual test - "the score stopped
+              going up" - measures the wrong thing. A score can plateau while the work is still unstable:
               each pass changes something, the number stays flat, but the output never settles.
             </p>
             <p>
-              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes while the work is still incomplete — the evaluator has stopped seeing what it can't see.
+              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes while the work is still incomplete - the evaluator has stopped seeing what it can't see.
               An AI that evaluates its own output is rationalising.
             </p>
             <p>
-              The correct test: ask <em>diverse, independent evaluators</em> — each without knowing what the
-              others found — to assess the work. When they all find nothing left to change, the work is done.
+              The correct test: ask <em>diverse, independent evaluators</em> - each without knowing what the
+              others found - to assess the work. When they all find nothing left to change, the work is done.
               A stable score matters. The test is whether independent evaluators agree.
             </p>
             <div class="principle-roots">
@@ -837,7 +837,7 @@
         <p class="arf-text">
           ARF is what all three principles produce together: the observable signal that the agent is
           reasoning, and that the reasoning is visible enough for outside observers to judge. It only shows
-          up when all three principles hold — weaken any one of them, and it disappears.
+          up when all three principles hold - weaken any one of them, and it disappears.
         </p>
       </div>
     </section>
@@ -860,36 +860,36 @@
           <h3>Conceptual traditions</h3>
 
           <div class="foundation-item">
-            <a href="https://en.wikipedia.org/wiki/Auftragstaktik" class="foundation-link" target="_blank" rel="noopener">Auftragstaktik — Prussian mission command ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" class="foundation-link" target="_blank" rel="noopener">Commander's Intent — US military adaptation ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Auftragstaktik" class="foundation-link" target="_blank" rel="noopener">Auftragstaktik - Prussian mission command ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" class="foundation-link" target="_blank" rel="noopener">Commander's Intent - US military adaptation ↗</a>
             <p class="foundation-source">19th century military doctrine, German General Staff</p>
             <p class="foundation-note">Defines subordinate authority by mission objective. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
           </div>
 
           <div class="foundation-item">
-            <a href="https://en.wikipedia.org/wiki/Toyota_kata" class="foundation-link" target="_blank" rel="noopener">Toyota Kata — Mike Rother ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Toyota_kata" class="foundation-link" target="_blank" rel="noopener">Toyota Kata - Mike Rother ↗</a>
             <a href="https://lean.org/lexicon-terms/kaizen/" class="foundation-link" target="_blank" rel="noopener">Lean Enterprise Institute: Kaizen and the Coaching Kata ↗</a>
             <p class="foundation-source">McGraw-Hill, 2009</p>
             <p class="foundation-note">The Coaching Kata establishes a pattern where the coach defines the target condition and the learner discovers the path. Shapes how PEA frames the operator–agent relationship.</p>
           </div>
 
           <div class="foundation-item">
-            <a href="https://plato.stanford.edu/entries/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates — Stanford Encyclopedia of Philosophy ↗</a>
-            <a href="https://iep.utm.edu/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates — Internet Encyclopedia of Philosophy ↗</a>
+            <a href="https://plato.stanford.edu/entries/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates - Stanford Encyclopedia of Philosophy ↗</a>
+            <a href="https://iep.utm.edu/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates - Internet Encyclopedia of Philosophy ↗</a>
             <p class="foundation-source">Stanford Encyclopedia of Philosophy · Internet Encyclopedia of Philosophy</p>
-            <p class="foundation-note">Reasoning through questions rather than assertions — the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
+            <p class="foundation-note">Reasoning through questions rather than assertions - the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
           </div>
 
           <div class="foundation-item">
-            <a href="https://lean.org/lexicon-terms/kaizen/" class="foundation-link" target="_blank" rel="noopener">Kaizen — Lean Enterprise Institute ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Kaizen" class="foundation-link" target="_blank" rel="noopener">Kaizen — Wikipedia ↗</a>
+            <a href="https://lean.org/lexicon-terms/kaizen/" class="foundation-link" target="_blank" rel="noopener">Kaizen - Lean Enterprise Institute ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Kaizen" class="foundation-link" target="_blank" rel="noopener">Kaizen - Wikipedia ↗</a>
             <p class="foundation-source">Toyota Production System · Lean Enterprise Institute</p>
             <p class="foundation-note">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as Convergence Is Silence and makes the independence condition explicit.</p>
           </div>
 
           <div class="foundation-item">
-            <a href="https://www.rand.org/topics/delphi-method.html" class="foundation-link" target="_blank" rel="noopener">Delphi Method — RAND Corporation (originators) ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Delphi_method" class="foundation-link" target="_blank" rel="noopener">Delphi Method — Wikipedia ↗</a>
+            <a href="https://www.rand.org/topics/delphi-method.html" class="foundation-link" target="_blank" rel="noopener">Delphi Method - RAND Corporation (originators) ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Delphi_method" class="foundation-link" target="_blank" rel="noopener">Delphi Method - Wikipedia ↗</a>
             <p class="foundation-source">RAND Corporation, 1950s</p>
             <p class="foundation-note">Structured convergence through independent expert rounds without shared context. PEA borrows the independence condition: evaluators must not share context when assessing convergence.</p>
           </div>
@@ -898,25 +898,25 @@
         <div class="foundations-col">
           <h3>Empirical basis</h3>
           <p class="foundation-note">
-            Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints —
+            Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints -
             and why an audit trail the agent authors itself is insufficient.
           </p>
 
           <div class="foundation-item">
             <a href="https://arxiv.org/abs/2305.04388" class="foundation-link" target="_blank" rel="noopener">Language Models Don't Always Say What They Think ↗</a>
-            <p class="foundation-source">Turpin et al. — NeurIPS 2023</p>
-            <p class="foundation-note">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning — sometimes by as much as 36 percentage points on benchmark tasks.</p>
+            <p class="foundation-source">Turpin et al. - NeurIPS 2023</p>
+            <p class="foundation-note">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning - sometimes by as much as 36 percentage points on benchmark tasks.</p>
           </div>
 
           <div class="foundation-item">
             <a href="https://arxiv.org/abs/2310.01798" class="foundation-link" target="_blank" rel="noopener">Large Language Models Cannot Self-Correct Reasoning Yet ↗</a>
-            <p class="foundation-source">Huang et al. — ICLR 2024</p>
+            <p class="foundation-source">Huang et al. - ICLR 2024</p>
             <p class="foundation-note">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
           </div>
 
           <div class="foundation-item">
             <a href="https://arxiv.org/abs/2505.05410" class="foundation-link" target="_blank" rel="noopener">Reasoning Models Don't Always Say What They Think ↗</a>
-            <p class="foundation-source">Chen et al. — arXiv:2505.05410, May 2025</p>
+            <p class="foundation-source">Chen et al. - arXiv:2505.05410, May 2025</p>
             <p class="foundation-note">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring is not sufficient to rule out undesired behavior in capable models.</p>
           </div>
         </div>
@@ -932,7 +932,7 @@
       <h2 class="section-title">Six Skills</h2>
       <p class="section-intro">
         These six skills put the three principles into practice. Together they give any AI agent a
-        persistent record of decisions, context, and history — so each session builds on the last.
+        persistent record of decisions, context, and history - so each session builds on the last.
       </p>
 
       <div class="skills-grid">
@@ -942,17 +942,17 @@
           <div class="skill-name">Intent</div>
           <p class="skill-desc">
             Forces the agent to explicitly state its interpretation of the task before acting.
-            Named after Commander's Intent — Auftragstaktik — the doctrine of defining the mission
+            Named after Commander's Intent - Auftragstaktik - the doctrine of defining the mission
             objective so subordinates can adapt when conditions change. An early warning system
             for misaligned assumptions.
           </p>
         </a>
 
         <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/vision/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent doesn't know your vision — because it lives in your head</div>
+          <div class="skill-problem">The agent doesn't know your vision - because it lives in your head</div>
           <div class="skill-name">Vision</div>
           <p class="skill-desc">
-            Surfaces the agent’s working assumptions about where the operator is heading — as
+            Surfaces the agent’s working assumptions about where the operator is heading - as
             specific questions the operator can confirm, correct, or reject. Closes the gap between
             what has been written down and what the operator actually means. Produces
             <code>.trail/vision.md</code>.
@@ -974,7 +974,7 @@
           <p class="skill-desc">
             The workhorse of the suite. Each iteration: read all prior context and history, examine the target,
             challenge the first instinct, make exactly one highest-leverage change, predict the outcome,
-            verify it, reflect. Reads vision and trail before every run — never wastes an iteration on
+            verify it, reflect. Reads vision and trail before every run - never wastes an iteration on
             something already tried.
           </p>
         </a>
@@ -994,7 +994,7 @@
           <div class="skill-problem">You can't tell if the agent is reasoning or pattern-matching</div>
           <div class="skill-name">Probe</div>
           <p class="skill-desc">
-            Constructs a novelty probe — a pair of cases that look similar but differ in a material way —
+            Constructs a novelty probe - a pair of cases that look similar but differ in a material way -
             to test whether the agent's response diverges where it should. Measures Autonomous Reasoning
             Fidelity directly. Used for validation runs.
           </p>
@@ -1010,7 +1010,7 @@
           <div class="evidence-num">1</div>
           <p class="evidence-text">
             <strong>200+ self-improvement iterations.</strong> The skills suite ran on itself over two hundred times.
-            Along the way, it autonomously decided to rewrite itself from scratch — twice. Convergence was declared
+            Along the way, it autonomously decided to rewrite itself from scratch - twice. Convergence was declared
             only when three independent evaluators from distinct model families (Anthropic, xAI/Grok, Google/Gemini)
             each ran the loop and found nothing left to change.
           </p>
@@ -1029,7 +1029,7 @@
         <div class="evidence-item">
           <div class="evidence-num">3</div>
           <p class="evidence-text">
-            <strong>This page.</strong> Built in a single session — about 5 minutes — using Vision, Intent, Trail, and Improve.
+            <strong>This page.</strong> Built in a single session - about 5 minutes - using Vision, Intent, Trail, and Improve.
             The full trail is committed to <code>.trail/</code> and verifiable against the git log.
           </p>
         </div>
@@ -1062,7 +1062,7 @@
         <p>
           Operator asked two things: “should we then target the skills suite on itself now in this new version?”
           and “retire the old scoreboard of version 1 and 2?” I interpreted the first as a request to actually
-          run <code>improve</code> on v3 — to genuinely examine what was just shipped.
+          run <code>improve</code> on v3 - to genuinely examine what was just shipped.
         </p>
         <div class="trail-caveat">
           The same-session caveat matters: this run is by the same agent that built v3, in the same
@@ -1072,7 +1072,7 @@
 
         <p class="trail-section-label">Examination</p>
         <ul class="trail-findings">
-          <li><strong>Inconsistency.</strong> PRINCIPLES.md is a copy of the manifesto file but had no version stamp — silent drift surface. Real finding.</li>
+          <li><strong>Inconsistency.</strong> PRINCIPLES.md is a copy of the manifesto file but had no version stamp - silent drift surface. Real finding.</li>
           <li><strong>Overburden.</strong> None visible. Two skills, one trail file, two scripts. The footprint is small enough that no component is asked to do too much.</li>
           <li><strong>Waste.</strong> None visible in v3 itself. Tier 1 rubric, orchestrator skill, redundant trail files, and PowerShell scripts all removed in the redesign.</li>
         </ul>
@@ -1080,7 +1080,7 @@
         <p class="trail-section-label">Decision</p>
         <p><span class="trail-marker">[!DECISION]</span> Make three small changes…</p>
 
-        <p class="trail-truncated">— excerpt from a 6,045-line trail —</p>
+        <p class="trail-truncated">- excerpt from a 6,045-line trail -</p>
         <a class="trail-view-link"
            href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
            target="_blank" rel="noopener">View full trail on GitHub ↗</a>
@@ -1094,7 +1094,7 @@
       <div class="footer-inner">
         <div class="footer-author">
           <strong>Nils Wendelboe Holmager</strong>
-          Author — Principles of Earned Autonomy · April 2026
+          Author - Principles of Earned Autonomy · April 2026
         </div>
         <div class="footer-links">
           <a class="footer-link" href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">
@@ -1112,7 +1112,7 @@
         </div>
       </div>
       <p class="footer-statement">
-        I built this because I had this problem: how to safely delegate real work to AI —
+        I built this because I had this problem: how to safely delegate real work to AI -
         while remaining accountable for what gets done. What I kept running into were two failure
         modes: reviewing everything until I was approving outputs I hadn’t really checked, or
         trusting the model until I found that a run was wrong after it had already been used.
