@@ -2583,3 +2583,45 @@ Blind spot: "when direction feels unclear" for Vision may not land — a cold re
 1. Cold-reader test — unchanged from iter-52 ranking. Still the highest-information move.
 2. "Delegate to AI. Own the work." placement — Vision iter-51 phrase, page is now stable.
 3. Vision trigger copy — "when direction feels unclear" may need sharpening.
+
+## 2026-05-27 - iter-54-hero-skills-first-copy
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Improve + Intent
+**outcome:** changed — hero paragraph and meta description updated to skills-first framing
+
+### Interpretation
+
+Operator: "please continue - understand my intent." Underspecified. Applied sourced hunch from trail: iter-52 moved Skills above Principles but left "Three principles that close that gap" in the hero paragraph and meta description — the only remaining principles-first framing in the primary scroll path. That is the highest-leverage remaining mismatch.
+
+### Decision
+
+[!DECISION] Two string replacements: hero paragraph + meta description. Both "Three principles" → "Six skills." Meta description updated to: "...Six skills that close that gap — for any model, any toolset." No structural or CSS changes.
+
+Pre-commit prediction: No "Three principles" framing remains in the primary reader path. Hero and meta description are consistent with the skills-first scroll order.
+
+### Verify — prediction held
+
+Searched for "Three principles" after edit: zero matches in primary reader path — CONFIRMED.
+Meta description: updated — CONFIRMED.
+Hero paragraph: updated — CONFIRMED.
+No structural changes, no CSS changes — CONFIRMED.
+
+### Reflection
+
+[!REALIZATION] The iter-52 structural reorder was correctly executed but left two copy fragments pointing back to the old frame. This is the expected failure mode after large structural changes: the structure updates, the copy lags. The lag was caught in one subsequent iteration (this run), which is within normal improvement cadence.
+
+Blind spot: the "Principles of Earned Autonomy" label in the hero still references "Principles" — but that is the framework name (matching the Zenodo DOI and repo name), not a description of the section content. Correct as-is.
+
+**Macro reflection triggers:**
+- Recurring finding-class: not fired
+- About to declare silence: not fired
+- Contradicts prior [!REALIZATION]: not fired
+- Operator explicitly asked: not fired
+
+### Candidate Next Moves
+
+1. Cold-reader test — still the highest-information move. The page is now structurally and copy-consistent.
+2. "Delegate to AI. Own the work." placement — Vision iter-51 phrase. Now that the hero is settled, the remaining open placement is: section label, nav tagline, or footer. Not meta description (used "Six skills" instead — stronger for SEO).
+3. Probe — check whether the agent distinguishes the skills-first reader journey from the old principles-first one.
