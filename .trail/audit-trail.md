@@ -2127,3 +2127,44 @@ Prediction: Primary reader has an in-page "keep going" affordance at the moment 
 1. **Add "Get Started" to the nav** — still unaddressed; the nav path to Quickstart is the remaining action-clarity sub-gap.
 2. **GitHub Pages push** — no structural blockers remain. Terminal readiness test.
 3. **External cold-reader test** — the highest-information move; still untaken after 44 iterations.
+
+## 2026-05-27 - iter-44-hero-secondary-cta
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — hero secondary CTA added; .row wraps both buttons; in-page path to #principles
+**commit:** bf24f1c
+
+### Interpretation of the ask
+
+Underspecified continuation. Sourced from iter-43 candidate next moves: action clarity was lowest score (5/10). Secondary in-page CTA in the hero is higher leverage than a nav item — catches the reader at the decision point, not the recovery path.
+
+### Examination
+
+**Purpose.** Vision primary test: recognition + intrigue in first 3 seconds. Recognition is strong (h1). Intrigue requires a path forward. Current hero had one button going to Zenodo (academic paper). Non-technical reader who just felt recognition had no explicit in-page next step. Subhead promises three principles; no button linked to them.
+
+**Inconsistency.** Subhead: 'Three principles that close that gap.' Only CTA: 'Read the framework' -> DOI. The thing the subhead promises had no button.
+
+**Waste.** .chip.chip-lg and .row already exist. No new CSS needed.
+
+### [!DECISION] Wrap hero button in .row, add .chip.chip-lg link to #principles
+
+Before: single .btn linking to Zenodo.
+After: .row wrapping .btn (Zenodo) + .chip.chip-lg (href=#principles, 'See the three principles v').
+
+**Pre-commit prediction:** Primary reader has in-page discovery path at moment of recognition. .btn reads primary (solid teal); .chip.chip-lg reads secondary (transparent, border). No inline styles, no CSS changes.
+
+### Reflection
+
+**Model claim.** The page now has two clear paths from the hero: off-site credibility (Zenodo) and in-page discovery (principles). This closes the primary action-clarity gap. Remaining sub-problem: Quickstart not in nav.
+
+**Blind spot.** 'See the three principles' assumes the reader wants principles first. A reader who wants to install might prefer 'Get started' pointing to #quickstart. Not tested.
+
+**Across-trail reflection:** no triggers fired.
+
+### Candidate Next Moves
+
+1. **Add 'Get Started' to the nav** — remaining action-clarity sub-gap.
+2. **GitHub Pages push** — no structural blockers remain.
+3. **External cold-reader test** — still untaken after 44 iterations.
