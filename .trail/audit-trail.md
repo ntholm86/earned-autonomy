@@ -2361,3 +2361,30 @@ GitHub Pages CDN propagation typically takes 1-2 minutes.
 1. **Verify live URL** — open https://ntholm86.github.io/pea-website/ and confirm the page renders correctly.
 2. **External cold-reader test** — the page is now publicly accessible; the highest-information move is now executable.
 3. **Custom domain** — if desired, add a CNAME record and configure it in repo Settings > Pages.
+
+## 2026-05-27 - iter-49-repo-rename
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**outcome:** repo renamed — site now live at https://ntholm86.github.io/earned-autonomy/
+
+### Interpretation of the ask
+
+Operator: 'pea-website means nothing to outsiders — the url needs to be informative and simple, it explains the principles and the skills.'
+Intent: the public URL must communicate the project to a cold reader. pea-website is an internal artifact name, not a signal. earned-autonomy is the subject of the project and is legible at a glance.
+
+### Actions taken
+
+1. GitHub API PATCH /repos/ntholm86/pea-website with { name: 'earned-autonomy' }
+2. git remote set-url origin https://github.com/ntholm86/earned-autonomy.git
+3. GitHub automatically redirects https://ntholm86.github.io/pea-website/ to the new URL.
+
+### Result
+
+New URL: https://ntholm86.github.io/earned-autonomy/
+GitHub: https://github.com/ntholm86/earned-autonomy
+
+### Candidate Next Moves
+
+1. **Custom domain** — earnedautonomy.dev or similar removes the github.io/username entirely. Buy domain, add CNAME file to repo, configure in Settings > Pages.
+2. **Update any shared links** — the old URL redirects but shared copies should be updated.
