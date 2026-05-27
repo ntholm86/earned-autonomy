@@ -1058,9 +1058,9 @@
       <p class="section-label">Observable Autonomy</p>
       <h2 class="section-title">The trail, verbatim</h2>
       <p class="section-intro">
-        Three excerpts from the skills suite's own audit trail - the loop running on itself.
-        Each one is a small change. Read them for the reasoning, not the diff.
-        Scroll for more.
+        Three entries from the skills suite's own audit trail - the loop running on itself.
+        Verbatim excerpts. Each one shows the agent's reasoning end to end: how it read the ask,
+        what it looked at, what it decided, and what it concluded after the fact. Scroll for more.
       </p>
 
       <div class="trail-scroll">
@@ -1071,26 +1071,69 @@
           <p class="trail-entry-headline">One word: "stopped" to "converged"</p>
           <div class="trail-entry-meta">
             target: autonomous-agent-skills<br>
+            operator: ntholm86<br>
             agent: Claude Sonnet 4.6 (Anthropic / GitHub Copilot)<br>
             skill: improve + intent<br>
-            outcome: one word changed in README opening paragraph
+            outcome: changed - "stopped" to "converged" in README opening paragraph<br>
+            delta: one word change; README opening now consistent with PRINCIPLES.md definition
           </div>
+
+          <p class="trail-section-label">Interpretation of the ask</p>
+          <p>
+            Run the full Improve loop on the repo using the operator's convergence-loop prompt
+            as the initial brief. Intent: find the highest-leverage remaining change that makes
+            the skills more effective on any arbitrary codebase, or declare convergence if nothing
+            remains. Constraints: generic first, no test infrastructure, human-readable, one
+            change per run.
+          </p>
+
+          <p class="trail-section-label">Examination</p>
+          <p>
+            <strong>Inconsistency lens.</strong> The opening paragraph read "It stopped when three
+            independent evaluators from distinct model families found nothing left to change." The
+            Evidence section reads "That is the convergence baseline at v3.1.0 (2026-04-24)" and
+            the Reference section shows the project at v3.6.0 - six releases after the claimed
+            "stop." The word "stopped" implies permanent cessation. PRINCIPLES.md defines
+            convergence as evaluators finding nothing to change at a point in time, not as the
+            project ending. The opening misstated what convergence means. The Evidence section
+            used the correct framing ("convergence baseline"); the opening did not.
+          </p>
+          <p>
+            <strong>Challenge.</strong> Considered whether a structural gap in Probe's connection
+            to the convergence protocol was higher leverage - but Probe already states "convergence
+            (Principle 3) is the meta-measurement." Considered whether first-run / no-trail clarity
+            in Intent was a real gap - but Trail's initialization instruction and any competent
+            agent bridges it. The "stopped" inconsistency is the one place where the opening
+            actively misstates the core concept the entire suite is built on. That is the highest
+            leverage finding.
+          </p>
 
           <p class="trail-section-label">Decision</p>
           <p>
             <span class="trail-marker">[!DECISION]</span> Change "stopped" to "converged" in the
-            opening paragraph. One word. The opening is the first statement any reader or agent encounters
-            about what the loop does. If it encodes the wrong mental model of convergence
-            (permanent cessation vs. point-in-time state), that model propagates into how the agent
-            understands the stopping condition.
+            opening paragraph. One word. The opening is the first statement any reader or agent
+            encounters about what the loop does. If it encodes the wrong mental model of
+            convergence (permanent cessation vs. point-in-time state), that model propagates into
+            how the agent understands the stopping condition. Alternatives ranked: (1) this change -
+            highest leverage per word changed; (2) add first-run guidance to Intent - addresses a
+            minor edge case; (3) declare convergence - premature given the identified inconsistency.
+          </p>
+
+          <p class="trail-section-label">Action</p>
+          <p>
+            Changed <code>"It stopped when three independent evaluators"</code> to
+            <code>"It converged when three independent evaluators"</code> in the opening paragraph
+            of README.md. verify.py passes after change.
           </p>
 
           <p class="trail-section-label">Reflection</p>
           <p>
-            The loop is converging. This session has been primarily README editorial work - the skills
-            themselves are unchanged. This run's finding was small but precise: one word that misstated
-            the central concept. That is what late-stage convergence looks like - the large structural
-            changes happened in prior sessions; what remains is semantic precision.
+            The loop is converging. This session has been primarily README editorial work - the
+            skills themselves are unchanged. The remaining gap is whether a new convergence run
+            (with a different model family) agrees. This run's finding was small but precise: one
+            word that misstated the central concept. That is what late-stage convergence looks
+            like - the large structural changes happened in prior sessions; what remains is
+            semantic precision.
           </p>
         </div>
 
@@ -1100,26 +1143,65 @@
           <p class="trail-entry-headline">Finding what the prompt never mentioned</p>
           <div class="trail-entry-meta">
             target: skills repo (v3 live tree)<br>
-            agent: GitHub Copilot<br>
+            operator: maintainer<br>
+            agent: Gemini 3.1 Pro (Preview)<br>
             skill: improve<br>
-            outcome: file debris removed; convergence chain reset to 0
+            outcome: v2 artifacts removed from live tree; chain reset<br>
+            delta: v3-redesign branch
           </div>
+
+          <p class="trail-section-label">Interpretation of the ask</p>
+          <p>
+            The operator asked me to act as the first fresh evaluator in the 3/3 convergence
+            cycle for the newly shipped v3-redesign. My instruction was to read the governing
+            principles (<code>PRINCIPLES.md</code>) and the new improvement skill
+            (<code>improve/SKILL.md</code>), and run an honest <code>improve</code> loop against
+            the live tree. If I found nothing, I was to record "silence" (chain position 1/3).
+          </p>
+          <p>
+            I interpreted this using Commander's Intent: my job is not to rubber-stamp the chain,
+            but to genuinely inspect the payload. If the v3 artifact still carries waste, I must
+            remove it, resetting the chain.
+          </p>
 
           <p class="trail-section-label">Examination</p>
           <p>
-            Files left behind in the repo root from the v2-to-v3 migration. Not what the operator
-            asked about. The asked-for examination was the skills themselves; the debris was visible only
-            on the way to the actual target.
+            <strong>Waste.</strong> While inspecting the live tree root, I found
+            <code>SCORECARD.md</code> (11.5 KB) and <code>metrics.ps1</code> (35.6 KB). Both are
+            v2 artifacts.
+          </p>
+          <p>
+            <strong>Inconsistency.</strong> <code>REDESIGN.md</code> explicitly lists
+            <code>SCORECARD.md</code> and the <code>.ps1</code> scripts under "What v3 removes"
+            (stating they are kept under <code>archive/v2/</code>).
+            <code>archive/v2/RETIRED.md</code> confirms they are retired. The live tree held
+            redundant tracking copies of these files alongside the archived ones.
+          </p>
+
+          <p class="trail-section-label">Decision</p>
+          <p>
+            <span class="trail-marker">[!DECISION]</span> I must fail the convergence check
+            (i.e., not declare silence) because actionable waste and inconsistency were found. I
+            will remove the duplicate retired v2 files from the root to align the repository tree
+            with the declared v3 architecture.
+          </p>
+
+          <p class="trail-section-label">Action</p>
+          <p>
+            Executed <code>git rm SCORECARD.md metrics.ps1</code> effectively purging them from
+            the live root. Verified their counterparts are securely preserved in
+            <code>archive/v2/</code>. Verified <code>tools/verify.py</code> passes without errors.
           </p>
 
           <p class="trail-section-label">Reflection</p>
           <p>
-            <span class="trail-marker">[!REALIZATION]</span> A pattern-matching evaluator executing
-            the operator's prompt literally would have ignored the file debris, appended an
-            <code>outcome: silence</code> entry, and falsely advanced the convergence loop. By strictly
-            following Principle 1 (interpreting the mission destination over the prescribed route),
-            the <code>improve</code> skill proved the loop can catch genuine workspace drift without
-            human steering. The nascent convergence chain resets to 0.
+            <span class="trail-marker">[!REALIZATION]</span> A pattern-matching evaluator
+            executing the operator's prompt literally would have ignored the file debris,
+            appended an <code>outcome: silence</code> entry, and falsely advanced the convergence
+            loop. By strictly following Principle 1 (interpreting the mission destination over the
+            prescribed route scenario), the <code>improve</code> skill proved the loop can catch
+            genuine workspace drift without human steering. The nascent convergence chain resets
+            to 0.
           </p>
         </div>
 
@@ -1129,31 +1211,71 @@
           <p class="trail-entry-headline">626 lines of dead content, and a pattern</p>
           <div class="trail-entry-meta">
             target: skills repo (v3 live tree)<br>
+            operator: user<br>
             agent: Claude Sonnet 4.6 (Anthropic, via GitHub Copilot)<br>
             skill: improve<br>
-            outcome: CHANGELOG.md 651 lines → 25 lines (626 lines removed)
+            outcome: CHANGELOG.md de-spliced; 626 lines of v2 body removed from live file<br>
+            delta: CHANGELOG.md 651 lines → 25 lines
           </div>
+
+          <p class="trail-section-label">Examination</p>
+          <p>
+            Three lenses applied to the full v3 live tree:
+          </p>
+          <p>
+            <strong>Inconsistency.</strong> CHANGELOG.md contained two <code># Changelog</code> H1
+            headings. The v3 section ends with the redirect pointer "For history prior to v3, see
+            archive/v2/CHANGELOG.md" and then immediately begins a second <code># Changelog</code>
+            heading followed by the complete v2 changelog body. The redirect pointer and the
+            inline content directly contradict each other: the file says "go here for history" and
+            then also provides that history in the same file.
+          </p>
+          <p>
+            <strong>Waste.</strong> The 626-line v2 body is a verbatim duplicate of
+            <code>archive/v2/CHANGELOG.md</code>. No information is lost by removing it; the
+            redirect pointer survives.
+          </p>
+          <p>
+            This is the same splice-pattern class found and fixed by GPT-5.4 in PRINCIPLES.md
+            (<code>v3-principles-copy-repair</code>). The verifier did not catch it because
+            CHANGELOG.md is not in <code>REQUIRED_FILES</code>; verify.py's H1-duplicate check only
+            covers required live-tree docs, not changelog metadata.
+          </p>
 
           <p class="trail-section-label">Decision</p>
           <p>
             <span class="trail-marker">[!DECISION]</span> Remove the spliced v2 content from
-            CHANGELOG.md. Eliminates 626 lines of genuine waste, resolves a direct contradiction
-            (a redirect pointer alongside the inline content it was supposed to replace), and is safe to
-            execute without operator confirmation - the change is reversible with one git command.
+            CHANGELOG.md. Single highest-leverage finding: eliminates 626 lines of genuine waste,
+            resolves a direct contradiction (redirect pointer vs. inline content), and is safe to
+            execute without operator confirmation. The change is reversible
+            (<code>git checkout CHANGELOG.md</code>) and leaves <code>python tools/verify.py</code>
+            passing.
+          </p>
+
+          <p class="trail-section-label">Action</p>
+          <p>
+            Truncated CHANGELOG.md at the splice boundary: kept the v3 section (lines 1-25
+            including the redirect pointer), removed the appended v2 body (626 lines). Done with a
+            Python inline command that located the exact splice marker and wrote back only the v3
+            content with UTF-8 encoding preserved.
+          </p>
+          <p>
+            Verification: <code>python tools/verify.py</code> - <code>OK - trail integrity checks
+            pass</code>, both before and after the change.
           </p>
 
           <p class="trail-section-label">Reflection</p>
           <p>
-            <span class="trail-marker">[!REALIZATION]</span> The same splice class has now appeared
-            twice in the live tree - PRINCIPLES.md (caught earlier by GPT-5.4) and CHANGELOG.md
+            <span class="trail-marker">[!REALIZATION]</span> The same splice class has now
+            appeared twice in the live tree - PRINCIPLES.md (caught by GPT-5.4) and CHANGELOG.md
             (caught here). This is a pattern, not a one-off accident. The migration that moved v2
-            content to archive/ did not uniformly clean the live files. The convergence chain resets
-            to 0 - a real change was made. The first silence run must come from a fresh session and a
-            distinct evaluator family after this commit.
+            content to archive/v2/ did not uniformly clean the live files. The convergence chain
+            resets to 0 - a real change was made. The first silence run must come from a fresh
+            session and a distinct evaluator family after this commit.
           </p>
         </div>
 
-        <p class="trail-truncated">- three excerpts from a 6,045-line trail across 130+ sessions -</p>
+        <p class="trail-truncated">- three entries from a 6,000+ line trail spanning 130+ sessions -</p>
       </div>
 
       <a class="trail-view-link"
