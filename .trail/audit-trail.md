@@ -2266,3 +2266,68 @@ No CSS changes. One-line reorder.
 1. **GitHub Pages push** — no structural blockers remain. All action-clarity gaps closed. Requires explicit operator confirmation.
 2. **External cold-reader test** — the highest-information move still untaken after 46 iterations.
 3. **Inline style cleanup** — multiple legacy style='' attributes throughout the page violate the operational rule. A targeted pass would close the hygiene gap.
+
+## 2026-05-27 - iter-47-inline-style-cleanup
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — 24 inline style violations eliminated; 8 utility CSS classes added
+**commit:** 8f0188f
+
+### Interpretation of the ask
+
+Operator: 'Yes please work on cleaning it all up.' Direct confirmation of candidate #3 from iter-46: inline style cleanup. Retrospect.md active operational rule: 'Never add inline style='' attributes. They accumulate silently and require dedicated cleanup. If a CSS class doesn''t exist, create one.'
+
+### Examination
+
+Full enumeration via Select-String: 24 violations across 8 distinct patterns. All legacy pre-rule violations — none introduced since the rule was codified.
+
+**Patterns found:**
+- margin: var(--gap-md) 0  (1x) — stances card
+- margin-top: var(--gap-md)  (10x) — various containers and paragraphs
+- margin-top: var(--gap-lg)  (2x) — ARF callout, evidence stack
+- padding-top + border-top  (3x) — P1/P2/P3 roots rows
+- margin: 0  (3x) — Roots label span inside row
+- align-items: flex-start  (3x) — evidence numeral rows
+- flex: 1  (3x) — evidence paragraphs
+- padding-top + margin-top + border-top  (1x) — trail section divider caption
+
+### [!DECISION] Add utility classes, replace all 24 violations
+
+New classes added:
+- .mt-md  { margin-top: var(--gap-md); }
+- .mt-lg  { margin-top: var(--gap-lg); }
+- .my-md  { margin: var(--gap-md) 0; }
+- .row-top { align-items: flex-start; }
+- .flex-1  { flex: 1; }
+- .row-ruled  { padding-top: var(--gap-xs); border-top: 1px solid var(--rule); }
+- .label-inline { margin: 0; }
+- .trail-divider { padding-top: var(--gap-sm); margin-top: var(--gap-sm); border-top: 1px solid var(--rule); }
+
+All 18 HTML replacements applied in one multi_replace call. Verification: Select-String for style='' returned no output.
+
+**Pre-commit prediction:** Zero inline styles remain. All CSS changes go through :root tokens. No visual change — classes replicate the same computed values that the inline styles produced.
+**Prediction held:** verified — 0 remaining violations.
+
+### Reflection
+
+**Model claim.** The page is now in full compliance with the CSS architecture rule: all styling goes through the class system, every reversal is a 2-edit operation. This closes the longest-standing structural debt in the codebase — the operational rule was codified at retro-002 but the legacy violations predated it.
+
+**[!REALIZATION]** The cleanup revealed 8 recurring patterns, not arbitrary one-offs. The most frequent (margin-top: var(--gap-md), 10 occurrences) and the evidence row pattern (align-items: flex-start + flex: 1, 3 occurrences each) suggest the original build did not have utility classes for common spacing and flex needs. The iter-34 Kaikaku addressed component classes; it left spacing utilities out. This pass fills that gap.
+
+**Blind spot.** Visual behavior not browser-checked. The classes replicate the same computed values as the inline styles, so no visual regression is expected — but the evidence row flex behavior (.row-top + .flex-1) and the trail divider three-property composite are the highest-risk areas.
+
+**Imagined pushback.** '.mt-md and .mt-lg are functional CSS utility classes — they describe how something looks, not what it is. Semantic CSS would use context-aware selectors instead.' Valid ideological point. Counter: the iter-34 Kaikaku explicitly chose utility classes for the layout layer. Spacing utilities are consistent with that decision and maintain the 2-edit reversal property.
+
+**Across-trail reflection:**
+- Recurring finding-class: FIRED — this run was triggered by a recurring structural deficit (inline styles). The deficit was known since retro-002 but deferred across 10+ iterations. Pattern: structural hygiene rules codified in retrospect.md accumulate as debt until an operator-triggered cleanup pass. This is the first time a cleanup was operator-initiated from the candidates list rather than agent-declared.
+- About to declare silence: not fired — a large change was made.
+- Contradicts prior [!REALIZATION]: not fired.
+- Operator explicitly asked: FIRED — 'Yes please work on cleaning it all up.'
+
+### Candidate Next Moves
+
+1. **GitHub Pages push** — the only remaining structural blocker. No inline styles. No CSS debt. No copy gaps. Requires explicit operator confirmation.
+2. **Visual browser check** — confirm the cleanup produced no visual regression. Highest-risk areas: evidence rows (.row-top + .flex-1), trail divider (.trail-divider).
+3. **External cold-reader test** — still untaken after 47 iterations.
