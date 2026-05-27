@@ -23,8 +23,26 @@
       --mono:      'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
       --max:       760px;
       --ease:      0.15s;     /* Universal transition timing */
+
+      /* Type scale - 5 stops, semantic - iter-33 */
+      --text-micro:   0.78rem;
+      --text-small:   0.9rem;
+      --text-body:    1rem;
+      --text-title:   clamp(1.5rem, 4vw, 2rem);
+      --text-display: clamp(2rem, 5vw, 2.75rem);
+
+      /* Weight scale - 3 stops */
+      --weight-regular: 400;
+      --weight-medium:  600;
+      --weight-bold:    700;
+
+      /* Letter-spacing - 2 stops + default 0 */
+      --track-tight: -0.02em;
+      --track-wide:   0.08em;
+
+      /* Radius - 2 stops */
       --radius:    8px;       /* Card / callout corner radius */
-      --radius-sm: 4px;       /* Chip / button corner radius */
+      --radius-sm: 4px;       /* Chip / button / inline corner radius */
     }
 
     html { font-size: 17px; scroll-behavior: smooth; }
@@ -51,9 +69,9 @@
     }
 
     .nav-brand {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--accent);
       text-decoration: none;
@@ -66,7 +84,7 @@
     }
 
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: var(--text-small);
       color: var(--muted);
       text-decoration: none;
       transition: color var(--ease);
@@ -88,25 +106,25 @@
     .hero { padding: 3.5rem 0 2.75rem; }
 
     .hero-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 700;
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
       line-height: 1.2;
-      letter-spacing: -0.02em;
+      letter-spacing: var(--track-tight);
       margin-bottom: 1rem;
       color: var(--ink);
     }
 
     .hero-problem {
-      font-size: 1.05rem;
+      font-size: var(--text-body);
       color: var(--muted);
       margin-bottom: 1.25rem;
       max-width: 640px;
@@ -125,13 +143,13 @@
     }
 
     .hero-stances p {
-      font-size: 0.95rem;
+      font-size: var(--text-body);
       color: var(--muted);
     }
 
     .hero-stances strong {
       color: var(--ink);
-      font-weight: 600;
+      font-weight: var(--weight-medium);
     }
 
     .hero-cta {
@@ -144,8 +162,8 @@
       color: var(--bg);
       text-decoration: none;
       border-radius: var(--radius-sm);
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
       transition: opacity var(--ease);
     }
 
@@ -153,24 +171,24 @@
 
     /* ── SECTION TITLES ── */
     .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
 
     .section-title {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: var(--text-title);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--track-tight);
       line-height: 1.25;
       margin-bottom: 1rem;
     }
 
     .section-intro {
-      font-size: 1rem;
+      font-size: var(--text-body);
       color: var(--muted);
       max-width: 600px;
       margin-bottom: 1.75rem;
@@ -191,8 +209,8 @@
     }
 
     .principle-num {
-      font-size: 3rem;
-      font-weight: 800;
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
       line-height: 1;
       color: var(--num);
       font-variant-numeric: tabular-nums;
@@ -200,15 +218,15 @@
     }
 
     .principle-name {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: var(--text-title);
+      font-weight: var(--weight-bold);
       color: var(--ink);
       margin-bottom: 0.2rem;
     }
 
     .principle-tagline {
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: var(--text-body);
+      font-weight: var(--weight-medium);
       font-family: var(--mono);
       color: var(--accent);
       margin-bottom: 1rem;
@@ -217,16 +235,16 @@
     }
 
     .principle-problem {
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: var(--track-wide);
       color: var(--muted);
       margin-bottom: 0.5rem;
     }
 
     .principle-body p {
-      font-size: 0.975rem;
+      font-size: var(--text-body);
       color: var(--muted);
       margin-bottom: 0.75rem;
     }
@@ -260,23 +278,23 @@
     }
 
     .skill-name {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: var(--text-body);
+      font-weight: var(--weight-bold);
       color: var(--ink);
       margin-bottom: 0.35rem;
     }
 
     .skill-problem {
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: var(--track-wide);
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
 
     .skill-desc {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
       line-height: 1.6;
     }
@@ -302,8 +320,8 @@
       border-radius: 50%;
       background: var(--accent);
       color: var(--bg);
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-bold);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -311,7 +329,7 @@
     }
 
     .evidence-text {
-      font-size: 0.92rem;
+      font-size: var(--text-small);
       color: var(--muted);
     }
 
@@ -332,14 +350,14 @@
     }
 
     .footer-author {
-      font-size: 0.88rem;
+      font-size: var(--text-small);
       color: var(--muted);
     }
 
     .footer-author strong {
       display: block;
       color: var(--ink);
-      font-weight: 600;
+      font-weight: var(--weight-medium);
       margin-bottom: 0.25rem;
     }
 
@@ -350,7 +368,7 @@
     }
 
     .footer-link {
-      font-size: 0.83rem;
+      font-size: var(--text-small);
       padding: 0.35rem 0.85rem;
       border: 1px solid var(--rule);
       border-radius: var(--radius-sm);
@@ -365,7 +383,7 @@
     }
 
     .footer-license {
-      font-size: 0.78rem;
+      font-size: var(--text-micro);
       color: var(--muted);
       margin-top: 2rem;
       padding-top: 1.5rem;
@@ -381,7 +399,7 @@
       section { padding: 2rem 0; }
       .hero { padding: 2.5rem 0 2rem; }
       .principle { grid-template-columns: 2.75rem 1fr; gap: 0 1.25rem; }
-      .principle-num { font-size: 2.25rem; }
+      .principle-num { font-size: var(--text-display); }
       .skills-grid { grid-template-columns: 1fr; }
       .foundations-grid { grid-template-columns: 1fr; }
     }
@@ -398,16 +416,16 @@
     }
 
     .roots-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--muted);
       margin-right: 0.1rem;
     }
 
     .root-chip {
-      font-size: 0.78rem;
+      font-size: var(--text-micro);
       padding: 0.2rem 0.6rem;
       border: 1px solid var(--rule);
       border-radius: var(--radius-sm);
@@ -431,10 +449,10 @@
     }
 
     .foundations-col h3 {
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-bold);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: var(--track-wide);
       color: var(--muted);
       margin-bottom: 1.25rem;
       padding-bottom: 0.5rem;
@@ -445,8 +463,8 @@
     .foundation-item:last-child { margin-bottom: 0; }
 
     .foundation-link {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
       color: var(--ink);
       text-decoration: none;
       display: block;
@@ -456,14 +474,14 @@
     a.foundation-link:hover { color: var(--accent); }
 
     .foundation-source {
-      font-size: 0.78rem;
+      font-size: var(--text-micro);
       color: var(--muted);
       font-style: italic;
       margin-bottom: 0.25rem;
     }
 
     .foundation-note {
-      font-size: 0.85rem;
+      font-size: var(--text-small);
       color: var(--muted);
       line-height: 1.55;
     }
@@ -474,6 +492,15 @@
     /* ── FOOTER LICENSE LINK ── */
     .footer-license a { color: var(--muted); }
 
+    /* ── MEMORY PROSE (paragraphs above/below memory file list) ── */
+    .memory-prose {
+      font-size: var(--text-small);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .memory-prose-before { margin-top: -0.5rem; margin-bottom: 1.5rem; }
+    .memory-prose-after  { margin-top: 1.5rem; }
+
     /* ── CODE INLINE ── */
     code {
       font-size: 0.82em;
@@ -481,7 +508,7 @@
       background: var(--accent-lt);
       color: var(--accent);
       padding: 0.1em 0.35em;
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
     }
 
     /* ── ARF CALLOUT ── */
@@ -493,28 +520,28 @@
       border-radius: var(--radius);
     }
     .arf-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
     .arf-title {
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: var(--text-body);
+      font-weight: var(--weight-medium);
       margin-bottom: 0.5rem;
     }
     .arf-text {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
     }
 
     /* ── EVIDENCE LABEL ── */
     .evidence-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.25rem;
@@ -530,7 +557,7 @@
     /* ── MEMORY MODEL SECTION ── */
     .memory-tree {
       font-family: var(--mono);
-      font-size: 0.85rem;
+      font-size: var(--text-small);
       line-height: 1.7;
       background: var(--card-bg);
       border: 1px solid var(--rule);
@@ -545,12 +572,12 @@
 
     .memory-tree .tree-comment {
       color: var(--muted);
-      font-weight: 400;
+      font-weight: var(--weight-regular);
     }
 
     .memory-tree .tree-name {
       color: var(--accent);
-      font-weight: 600;
+      font-weight: var(--weight-medium);
     }
 
     .memory-files {
@@ -572,20 +599,20 @@
 
     .memory-file-name {
       font-family: var(--mono);
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
       color: var(--accent);
     }
 
     .memory-file-role {
-      font-size: 0.95rem;
+      font-size: var(--text-body);
       color: var(--muted);
       line-height: 1.55;
     }
 
     .memory-file-role strong {
       color: var(--ink);
-      font-weight: 600;
+      font-weight: var(--weight-medium);
     }
 
     @media (max-width: 600px) {
@@ -616,16 +643,16 @@
     .quickstart-list li::before {
       counter-increment: qs;
       content: counter(qs);
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
       color: var(--num);
       line-height: 1;
       font-variant-numeric: tabular-nums;
     }
 
     .quickstart-step-title {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: var(--text-body);
+      font-weight: var(--weight-bold);
       color: var(--ink);
       margin: 0 0 0.5rem 0;
     }
@@ -633,7 +660,7 @@
     .quickstart-code {
       display: block;
       font-family: var(--mono);
-      font-size: 0.88rem;
+      font-size: var(--text-small);
       background: var(--card-bg);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--accent);
@@ -645,7 +672,7 @@
     }
 
     .quickstart-after {
-      font-size: 0.95rem;
+      font-size: var(--text-body);
       color: var(--muted);
       line-height: 1.65;
       margin-top: 2rem;
@@ -669,7 +696,7 @@
 
     .trail-scroll::-webkit-scrollbar { width: 6px; }
     .trail-scroll::-webkit-scrollbar-track { background: var(--card-bg); }
-    .trail-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+    .trail-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: var(--radius-sm); }
 
     .trail-entry {
       background: var(--card-bg);
@@ -681,21 +708,21 @@
     }
 
     .trail-entry-date {
-      font-size: 0.8rem;
+      font-size: var(--text-micro);
       font-family: var(--mono);
       color: var(--accent);
       margin-bottom: 0.2rem;
     }
 
     .trail-entry-headline {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: var(--text-body);
+      font-weight: var(--weight-bold);
       color: var(--ink);
       margin-bottom: 1rem;
     }
 
     .trail-entry-meta {
-      font-size: 0.8rem;
+      font-size: var(--text-micro);
       font-family: var(--mono);
       color: var(--muted);
       line-height: 1.8;
@@ -705,9 +732,9 @@
     }
 
     .trail-section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
       color: var(--accent);
       margin-top: 1rem;
@@ -715,14 +742,14 @@
     }
 
     .trail-entry > p {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
       margin-bottom: 0.55rem;
       line-height: 1.6;
     }
 
     .trail-caveat {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
       line-height: 1.6;
       background: var(--accent-lt);
@@ -741,7 +768,7 @@
     }
 
     .trail-findings li {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
       line-height: 1.55;
       padding-left: 1.1rem;
@@ -753,7 +780,7 @@
       position: absolute;
       left: 0.1rem;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: var(--weight-bold);
     }
 
     .trail-findings strong { color: var(--ink); }
@@ -761,15 +788,15 @@
     .trail-marker {
       font-family: var(--mono);
       font-size: 0.82em;
-      font-weight: 700;
+      font-weight: var(--weight-bold);
       color: var(--accent);
       background: var(--accent-lt);
       padding: 0.1em 0.4em;
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
     }
 
     .trail-truncated {
-      font-size: 0.78rem;
+      font-size: var(--text-micro);
       color: var(--muted);
       font-style: italic;
       margin-top: 1rem;
@@ -781,7 +808,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: 0.84rem;
+      font-size: var(--text-small);
       color: var(--accent);
       text-decoration: none;
       margin-top: 0.75rem;
@@ -795,7 +822,7 @@
 
     /* ── AUTHOR STATEMENT ── */
     .footer-statement {
-      font-size: 0.9rem;
+      font-size: var(--text-small);
       color: var(--muted);
       line-height: 1.65;
       max-width: 600px;
@@ -1204,7 +1231,7 @@
 └── <span class="tree-name">transcripts/</span>       <span class="tree-comment"># optional: verbatim transcript exports when the harness supports it</span>
     └── <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span></pre>
 
-      <p style="font-size:0.9rem; color:var(--muted); margin-top:-0.5rem; margin-bottom:1.5rem; line-height:1.6;">
+      <p class="memory-prose memory-prose-before">
         Three tiers. <strong>Operator layer:</strong> <code>vision.md</code> - never written by
         any skill. <strong>Synthesis layer:</strong> <code>retrospect.md</code>,
         <code>learning.md</code>, <code>history.md</code> - rewritten or regenerated each run, all
@@ -1277,7 +1304,7 @@
         </div>
       </div>
 
-      <p style="font-size:0.9rem; color:var(--muted); margin-top:1.5rem; line-height:1.6;">
+      <p class="memory-prose memory-prose-after">
         The hierarchy resolves disagreements: if <code>vision.md</code> and
         <code>retrospect.md</code> disagree, vision wins (the operator holds the destination). If
         <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
