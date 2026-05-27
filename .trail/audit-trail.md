@@ -975,3 +975,28 @@ The iter-17 draft wrote 'I kept watching the same two failure modes' — implying 
 
 ### [!REALIZATION] The h1 and the author voice are now in dialogue
 The page opens with the problem as a framework description. The footer closes with the same phrase as personal experience. This is a structural payoff that wasn't visible until the author corrected the voice.
+
+---
+## Session: improve-iter-18-de-ai-prose
+
+**Date:** 2026-05-27
+**Slug:** iter-18 — remove AI-text fingerprints
+
+### Patterns removed (12 instances across the full page)
+1. Staccato noun-list: 'Any model. Any stack. No tool prescriptions' -> prose sentence
+2. Hero stances 'Both break down' replacing 'Neither is adequate'
+3. 'rubber-stamping' metaphor -> 'approvals become automatic / checking is not'
+4. 'downstream' metaphor -> 'already been used'
+5. Negation-first: 'not guidelines -- they are requirements' -> 'These are requirements'
+6. Negation-first: 'not a stable property' -> 'not a fixed property'
+7. Arrow chains (More visibility -> trust -> autonomy x3) -> prose paragraph
+8. Negation-first: 'not optional documentation' -> removed (direct statement)
+9. Negation-order: 'not doing quality control -- it is rationalising' -> flipped
+10. 'necessary but not sufficient' academic formula -> plain sentence
+11. ARF callout: 'not a fourth principle' / 'any two but not the third' -> plain explanation
+12. 'not decorative citations' -> removed, statement stands directly
+13. Trail skill: 'If it isn't logged, it didn't happen' fragment -> prose
+14. Author voice: 'rubber-stamping' + 'downstream' + 'Not risky. Broken.' -> plain sentences
+
+### [!REALIZATION] AI fingerprints are structural patterns, not word choices
+Metaphors, negation-first, staccato, and dramatic short-sentence emphasis are detectable patterns independent of vocabulary. Fixing vocabulary alone misses the deeper tells.
