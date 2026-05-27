@@ -1291,3 +1291,69 @@ This is what the layered memory model is for. Vision (architectural commitment),
 - Operator's answer to the priority question.
 - After answer: write the updated tokens into the existing :root block, replace all ad-hoc values, kill the 2 inline styles, update vision.md's "Colour system" section to "Design system" with the full token set, append iter-33 trail entry.
 
+
+---
+
+## 2026-05-27 . iter-33 . css-design-tokens-typography
+
+target: pea-website (index.html design system)
+operator: Nils Holmager
+agent: GitHub Copilot (Claude)
+skill: improve
+outcome: typography tokenised - 22 ad-hoc font-sizes -> 5 semantic tokens; 4 weights -> 3; 5 letter-spacings -> 2; stray 3px radius -> --radius-sm; 2 inline style="" attributes promoted to .memory-prose class; 0 literal values remain except 0.82em (relative inline code) and 17px (html root base) and 50% (the circle)
+delta: 2 files changed, 127 insertions(+), 100 deletions(-) - one of which was an orphaned content/image.png removal swept in by git add -A
+
+### Interpretation of the ask
+
+The operator gave a vision-skill run in the prior turn (iter-32) surfacing one priority question (semantic-name shape + 5 vs 6 type stops). The operator's response was "decide yourself based on my track" plus "use the improve skill to implement". The track-reading they implicitly asked me to do: iter-31 collapsed quickstart from 4 cards to 3 lines; iter-29 enforced canonical 7-item structure; iter-25 swept em dashes; iter-11 tokenised colour with 2-edit reversal payoff. All four point at the same operator bias: tighter, semantic, no decoration that does not earn its place. So: 5 type stops not 6, semantic names matching --bg/--ink/--rule, full token surface in one pass. Then improve-discipline split: typography this iter, spacing next iter (layout risk warrants its own verifiable change).
+
+### Lenses applied
+
+- *Purpose:* vision.md claims "all CSS changes go through :root tokens" - true for colour, not yet true for typography/weight/tracking/radius. The destination is consistency across all visual dimensions. Gap identified.
+- *Inconsistency:* 22 unique font-size values (0.72/0.78/0.8/0.82/0.83/0.84/0.85/0.88/0.9/0.92/0.95/0.975/1/1.05/1.4/2/2.25/3 rem + 17px + 2 clamp wrappers). 5 letter-spacings. No principled reason for the cluster around 0.83-0.92rem - it is accumulated drift across iterations, not designed scale.
+- *Waste:* the inline style="" attributes I added in iter-28 and iter-29 carried duplicate font-size + colour + line-height declarations - the exact failure mode retrospect.md's active rule prohibits.
+
+### Challenge the first read
+
+The first read said "tokenise everything in one iter - colour + typography + spacing + radius + line-height". The challenge: spacing replacement requires careful per-property regex (margin/padding/gap context vs width/height/clamp internals) and produces a visible layout shift; bundling it with typography would obscure which token set caused which visual change if a reversal is needed. Split is the disciplined call. Line-height tokens are out of scope - operator did not flag and current usage (1.2/1.25/1.55/1.6/1.65/1.7/1.8) is too small a set to call chaos.
+
+### Decision
+
+[!DECISION] Incremental change. iter-33 = typography + weight + tracking + radius. iter-34 (deferred, candidate next move #1) = spacing.
+
+### Prediction (pre-commit)
+
+I will replace ~140 literal values across the <style> block with token references. I expect: principle-num downsizes from 3rem/weight-800 to clamp(2-2.75rem)/weight-700 - slightly less dominant; principle-name upsizes from 1.4rem to clamp(1.5-2rem) - slightly more prominent; uppercase labels' tracking unifies at 0.08em (nav-brand was 0.04em, becomes wider; hero-eyebrow was 0.1em, becomes tighter). I expect no layout shift, no broken selectors, no scrollbar regression (3px thumb now var(--radius-sm)=4px - 1px difference, imperceptible). I expect the .memory-prose class to render identically to the inline styles it replaces. I do NOT expect any HTML structure change other than removing 2 style="" attributes.
+
+### Action and verification
+
+1. Extended :root with --text-{micro,small,body,title,display}, --weight-{regular,medium,bold}, --track-{tight,wide}. Existing --radius/--radius-sm preserved.
+2. Added .memory-prose / .memory-prose-before / .memory-prose-after CSS class. Replaced both inline style="" attributes with class references.
+3. Ran PowerShell regex substitution pass over the file mapping each old literal to its token. Mapping table preserved in the iter-33 commit diff for audit.
+4. Verification: post-pass grep shows zero remaining font-size literals except {0.82em, 17px} (both deliberate); zero font-weight literals; zero letter-spacing literals; zero border-radius literals except 50% (circle); zero inline style="" attributes.
+
+Prediction held. No regressions detected from grep. Browser visual check deferred to operator (named in blind spot).
+
+[!REVERSAL] Within-iteration scope broadening: `git add -A` swept a pre-existing deletion of `content/image.png` into the iter-33 commit. The file was orphaned (no grep hits anywhere in the repo) so the deletion is correct, but it was not in my stated scope. Lesson: when working in a repo with possible operator-side pending changes, use `git add <specific-files>` not `-A`. Recording this rather than silently passing it off.
+
+### Reflection (per step 6a)
+
+*Model of the target as a falsifiable claim:* pea-website's design system is now structurally complete across colour + typography + weight + tracking + radius. The only remaining ad-hoc visual dimension is spacing (margin/padding/gap). After iter-34 closes that gap, the page should be visually reconfigurable by editing ~20 :root tokens with zero downstream edits - matching the 2-edit reversal property retrospect.md claim #5 named as the architecture's payoff.
+
+*Blind spot:* I did not run the page in a browser. The collapse of letter-spacings from 5 values (-0.02, 0.04, 0.06, 0.08, 0.1 em) to 2 values (-0.02, 0.08 em) is the riskiest change visually - 0.04em was deliberately subtle for short uppercase labels (nav-brand), and 0.08em may now feel over-spaced; conversely 0.1em was deliberately wider for hero-eyebrow and now feels tighter. Operator visual check needed.
+
+*Imagined-reader pushback:* a typographer would object that "principle-name at 1.4rem -> clamp(1.5rem, 4vw, 2rem)" places principle-name in the same size token as section-title (.section-title also uses --text-title). Differentiation now relies entirely on weight (both 700) and surrounding spacing. If section-title and principle-name appear adjacent on the page without other distinguishing context, hierarchy may flatten. This is a real risk and would justify reverting to 6 type stops if operator flags it visually.
+
+### Reflection (per step 6b - across-trail evaluation)
+
+- *Recurring finding-class:* not fired. Last 4 iters were content/structure (iter-28 memory model, iter-29 canonical fix, iter-30 quickstart, iter-31 simplify). iter-33 is the first CSS-architecture iter since iter-11. Pattern is healthy variety not stuck-in-a-corner.
+- *About to declare silence:* not fired - substantive change made.
+- *Contradicts prior [!REALIZATION]:* not fired - iter-33 extends iter-7's tokenisation architecture rather than contradicting it.
+- *Operator explicitly asked:* not fired.
+
+### Candidate Next Moves
+
+1. **iter-34: spacing tokens.** The last remaining ad-hoc visual dimension. Same pattern as iter-33 but more layout risk; deserves its own iter so a reversal can target spacing without unwinding typography. Top-ranked.
+2. **Browser visual check.** Verify principle-num/principle-name hierarchy still reads after the size+weight collapse; verify uppercase labels look right at unified 0.08em tracking. Cheaper than iter-34 and de-risks it.
+3. **Update vision.md and retrospect.md.** Promote vision.md's "Colour system (settled)" section to "Design system" with the full token surface; restate retrospect.md operational rule "all CSS changes go through :root tokens" as now-demonstrably-true for typography too. Documentation lag; not blocking but worth doing before the arc forgets.
+
