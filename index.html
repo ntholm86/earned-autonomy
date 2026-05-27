@@ -595,6 +595,78 @@
       }
     }
 
+    /* ── QUICKSTART SECTION ── */
+    .quickstart-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .quickstart-step {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quickstart-step-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .quickstart-step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .quickstart-step-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+
+    .quickstart-code {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.85rem;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: auto;
+    }
+
+    .quickstart-code + .quickstart-code { margin-top: 0.4rem; }
+
+    .quickstart-done {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 0.6rem;
+    }
+
+    .quickstart-footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     /* ── TRAIL SECTION ── */
     .trail-scroll {
       max-height: 540px;
@@ -1221,6 +1293,79 @@
         <code>retrospect.md</code> disagree, vision wins (the operator holds the destination). If
         <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
         trail is the evidence). Memory without a hierarchy is just noise.
+      </p>
+    </section>
+  </div>
+
+  <!-- QUICKSTART -->
+  <div class="container">
+    <section id="quickstart">
+      <p class="section-label">Get Started</p>
+      <h2 class="section-title">One real run in ten minutes</h2>
+      <p class="section-intro">
+        The fastest path to one successful loop in your own repo. The goal is one usable
+        <code>.trail/audit-trail.md</code> entry, end to end, in under ten minutes.
+      </p>
+
+      <div class="quickstart-steps">
+
+        <div class="quickstart-step">
+          <p class="quickstart-step-num">Step 1 · 1 min</p>
+          <p class="quickstart-step-title">Install the skills</p>
+          <p class="quickstart-step-body">
+            Clone the skills suite and run the installer from its root. Drops the six skill
+            folders into <code>~/.copilot/skills/</code> for any agent that reads them.
+          </p>
+          <code class="quickstart-code">bash install.sh     # macOS / Linux</code>
+          <code class="quickstart-code">pwsh install.ps1    # Windows</code>
+        </div>
+
+        <div class="quickstart-step">
+          <p class="quickstart-step-num">Step 2 · 3 min</p>
+          <p class="quickstart-step-title">Capture the destination</p>
+          <p class="quickstart-step-body">
+            In your target repo, ask the agent to run Vision. Answer briefly - one or two
+            sentences per question is enough. Writes <code>.trail/vision.md</code>.
+          </p>
+          <code class="quickstart-code">/vision capture the destination for this repo</code>
+          <p class="quickstart-done">Done when: <code>.trail/vision.md</code> exists and you wouldn't rewrite it from scratch tomorrow.</p>
+        </div>
+
+        <div class="quickstart-step">
+          <p class="quickstart-step-num">Step 3 · 4 min</p>
+          <p class="quickstart-step-title">Run one Improve iteration</p>
+          <p class="quickstart-step-body">
+            Pick one small, verifiable thing. The agent narrates intent, predicts an outcome,
+            makes one change, verifies, and appends a trail entry.
+          </p>
+          <code class="quickstart-code">/improve remove unused imports across src/ and verify nothing breaks</code>
+          <p class="quickstart-done">Done when: <code>.trail/audit-trail.md</code> has a new entry with <code>outcome:</code> and <code>delta:</code>.</p>
+        </div>
+
+        <div class="quickstart-step">
+          <p class="quickstart-step-num">Step 4 · 1 min</p>
+          <p class="quickstart-step-title">Confirm the evidence</p>
+          <p class="quickstart-step-body">
+            Open three things and skim. If all three are present, the loop ran successfully end
+            to end.
+          </p>
+          <code class="quickstart-code">.trail/vision.md</code>
+          <code class="quickstart-code">.trail/audit-trail.md</code>
+          <code class="quickstart-code">git diff   # the change itself</code>
+        </div>
+
+      </div>
+
+      <p class="quickstart-footer">
+        Optional next step: install the commit hook
+        (<code>harness/tools/install-hooks.sh</code> or <code>.ps1</code>) to reject commits that
+        touch substantive files without a matching trail entry. That is how trail discipline stops
+        being a habit and becomes structural.
+        <br><br>
+        Full quickstart with troubleshooting:
+        <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md"
+           target="_blank" rel="noopener"
+           style="color: var(--accent); text-decoration: underline;">QUICKSTART.md ↗</a>
       </p>
     </section>
   </div>
