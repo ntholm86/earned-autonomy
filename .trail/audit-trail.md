@@ -2388,3 +2388,47 @@ GitHub: https://github.com/ntholm86/earned-autonomy
 
 1. **Custom domain** — earnedautonomy.dev or similar removes the github.io/username entirely. Buy domain, add CNAME file to repo, configure in Settings > Pages.
 2. **Update any shared links** — the old URL redirects but shared copies should be updated.
+
+## 2026-05-27 - iter-50-title-deai-pass
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + de-ai
+**outcome:** changed — title shorter; de-ai skill extended with pattern 13
+
+### Interpretation of the ask
+
+Operator: title too long, 'the hard part' sounds AI-generated, 'accountable for what gets done' is too many words — use 'accountable for the work.' Find similar patterns in the page and add to de-ai skill.
+Intent: strip one specific difficulty-announcement frame from the title; codify the pattern so future passes catch it automatically.
+
+### Examination
+
+**De-AI lens on the title:**
+'The hard part is staying accountable for what gets done' = two problems:
+1. 'The hard part is' — difficulty-announcement stamp. Announces importance/difficulty before stating the claim. Pattern not yet in de-ai catalogue.
+2. 'accountable for what gets done' — 5-word inflation of a 3-word claim. Operator specified the fix.
+
+**Scan of remaining page prose:** Mostly clean after prior iterations. No additional difficulty-announcement frames found. Footer text at line 1104 contained 'accountable for what gets done' — same fix applied.
+
+### Decision
+
+[!DECISION] Three changes:
+1. h1 title: 'The hard part is staying accountable for what gets done' → 'Stay accountable for the work.' (17 words → 12; imperative is stronger than gerund)
+2. Meta description: same replacement
+3. Footer: 'remaining accountable for what gets done' → 'remaining accountable for the work'
+De-AI skill: add pattern 13 (difficulty-announcement frames). Update count from 12 → 13.
+
+### Actions taken
+
+1. multi_replace_string_in_file: 3 locations in index.html
+2. de-ai/SKILL.md: inserted pattern 13 before '## The work'; updated count references
+3. git add index.html; commit 36030a8; pushed to earned-autonomy main
+4. Trail entry appended; .trail/audit-trail.md committed
+
+### [!REALIZATION]
+
+'The hard part is X', 'The tricky part is X', 'The real challenge is X' — these are a distinct AI-tell family not covered by the existing 12 patterns. They pre-announce difficulty rather than stating the difficult claim. Added as pattern 13: Difficulty-announcement frames.
+
+### Reflection
+
+The title is now 12 words vs 17. Two complete sentences: setup + imperative. The difficulty frame is gone. The de-ai skill now catches the class of phrases that caused it.
