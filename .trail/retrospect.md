@@ -1,59 +1,84 @@
-# retrospect.md — pea-website
+﻿# retrospect.md — pea-website
 
-_Last updated: 2026-05-26 (run: retro-001)_
+_Last updated: 2026-05-27 (run: retro-002)_
+
+---
+
+## Freshness check
+
+No `tools/record.py` exists in this repo — no derived artifact pipeline. `history.md` and `learning.md` are not present. Arc-claims derived directly from full read of `.trail/audit-trail.md` (1798 lines, sessions 001–039) and `.trail/vision.md` (post iter-39 update).
+
+- `python tools/record.py history --write` — NOT AVAILABLE
+- `python tools/record.py learning --write` — NOT AVAILABLE
+- Gate: PASS (direct trail read; no stale derived artifacts to refresh)
 
 ---
 
 ## Current claims
 
-**1. The loop has been optimizing the frame, not the painting.**
-6 of 9 logged sessions targeted color, CSS, layout, links, or spacing. The primary constraint — per the Vision run — is copy and visual hierarchy for instant non-technical comprehension. The loop has been systematically finding lower-leverage changes while the highest-leverage problem (copy) sits untouched.
+**1. The design system has been rebuilt three times without an emotional destination — and all three were genuine improvements anyway.**
 
-**2. The hero copy is 9 sessions old and was written before the audience was fully understood.**
-Session-2 wrote the hero and explicitly predicted "will need at least one copy-refinement pass." That prediction is now 9 sessions old. The session-1 Vision dialogue established the audience as "both equally." Session-9 confirmed the primary reader is now the non-technical reader arriving cold. The copy was not written with that constraint in mind. It is stale by construction, not by neglect.
+iter-7 (inline style removal), iter-33/34 (typography tokens + Kaikaku CSS), iter-36/38 (dark theme + semantic type colours). Each produced a clean, falsifiable diff and each closed a real gap. But none was grounded in what the page should make the reader *feel*. The emotional destination — "recognition + intrigue, I've been looking for this to safely delegate work to AI" — was named for the first time in iter-39. This means every prior design decision was made against structural criteria (contrast ratios, semantic clarity, token architecture) while the emotional register was implicit. The three rebuilds were necessary. A fourth should not be needed: the architecture is sound, the palette is confirmed, and the destination is now in vision.md.
 
-**3. A vision-level reversal (proof section removal) occurred without a `[!REVERSAL]` trail entry.**
-Session-1 Vision explicitly required self-referential proof as a core structural element. Iter-8 removed it because it was false and audience-wrong. This is the most significant single change in the arc — a core vision constraint overturned — and it has no `[!REVERSAL]` marker in any individual trail entry. It was caught only because the Vision skill was run. Future arc-reads should treat structural section removal as a `[!REVERSAL]`-class event.
+**2. retro-001's "copy is the primary problem" was correct but incomplete — the copy problem has since been split in two, and one half remains open.**
 
-**4. ~~The browser visual check was never done.~~ — [!REVERSAL] retro-001 was wrong.**
-The operator has been doing the browser visual check informally throughout the arc — it just was never trailed. It was the implicit feedback mechanism driving the majority of visual iterations: session-8 (light theme), iter-10 (density), iter-11 (typography), and all operator-initiated copy requests originated from the operator seeing the page in a browser. The check was continuous and unlogged, not deferred. The trail treated absence of a trail entry as absence of the activity — a known failure mode.
+retro-001 named structural clarity as the gap: hero leads with pain before relief, structure relies on text being read. iter-12–15 addressed this: answer-first hero, scannable taglines, de-jargon, three prose passes. The structural clarity problem is closed. What remains is *emotional* clarity: the reader should feel *found* in three seconds, not just informed. This is harder to verify from inside the loop — it requires a reader who has the problem. The loop has not tested the page against an actual non-technical reader at any point in 39 iterations.
 
-**5. The Monokai reversal (sessions 5→8) was the only major resolved reversal, and it was resolved cleanly.**
-The CSS architecture investment in session-7 (semantic `:root` variables, zero inline styles) made a full palette reversal a 2-edit operation. This is the clearest concrete payoff in the arc: an architectural investment made a likely reversal cheap. The architecture is now settled and does not need revisiting.
+**3. The CSS architecture investment (iter-7, iter-33, iter-34) is the most structurally stable part of the page and should not be touched.**
 
-**6. One item has been open for 7+ sessions without resolution: Chen et al. 2025.**
-Appears as a "Candidate next move" in every session from session-3 onward. Not blocking publication. Should be resolved or explicitly closed — a paper citation with no link is either permanently unlinked or has a findable arXiv ID. The browser visual check is removed from this list — see claim #4.
+iter-7 made the palette reversal a 2-edit operation. iter-34's Kaikaku reduced CSS from ~800 to 327 lines and class names from ~50 to ~20. iter-38's semantic colour system required only 15 targeted swaps. The token architecture has paid off at every reversal point. No structural debt remains. Future agents should work within this system, not against it.
+
+**4. vision.md drifted for 24 iterations between iter-36 and iter-39 — Vision runs are the only mechanism that catches this, and they only run when the operator asks.**
+
+Iter-36 flagged the dark/light contradiction with `[!REVERSAL]`. Vision.md was not updated. 24 iterations passed. During that window, any fresh agent reading vision.md would have treated dark as a drift to correct. Improve does not check vision consistency; Vision runs do. Vision should be triggered periodically, not only when the operator asks — specifically: if two consecutive design runs feel like correction rather than refinement, trigger Vision before the third.
+
+**5. The operator's visual reactions have been the primary quality signal throughout, but almost none are in the trail.**
+
+Retro-001 wrongly claimed the browser check had "never been done." The operator corrected that it was done continuously and informally. The dark theme, the colour corrections, all three design rebuilds were operator-initiated from visual inspection. The trail captures what the agent did; it does not capture what the operator saw. This makes arc-level visual quality claims structurally incomplete.
+
+**6. The page is approaching its final structural state. The single remaining open problem is the hero's emotional register.**
+
+All sections exist and are stable. The design system is settled. The copy has been de-AI'd three times. The only gap named in iter-39 Vision is that the hero doesn't make the reader feel *found*. This is a targeted change, not a systemic one.
+
+**7. Three Vision-level reversals occurred in the arc; each was operator-initiated and correct. The pattern is: operator overrides stale Vision constraints correctly, but the agent delays updating vision.md.**
+
+Proof section removed (iter-8), light to dark (iter-36), trail section as evidence added back (iter-16). All three were right calls. All three created vision.md drift that persisted until a Vision run corrected it. The agent's job is to flag the contradiction and update vision.md in the same iteration or the immediately following Vision run — not 24 iterations later.
 
 ---
 
 ## What the next runs should test
 
 **Primary (blocking publication):**
-1. **Hero restructure** — does the first screen achieve 3-second clarity for a non-technical reader? Specifically: can a reader who sees only the h1, subtitle, and any bold/visual anchors — without reading body copy — understand what PEA is and what problem it solves? If not, the hero needs to lead with the answer, not the problem setup.
-2. **Principles scan test** — can a reader understand the three principles in 30 seconds by scanning structure (headings, icons, bold text) without reading body copy? If not, the visual hierarchy is doing too little work.
 
-**Secondary (deferred, not blocking):**
-3. **Chen et al. 2025** — either find and add the arXiv ID, or explicitly mark the citation as permanently unlinked text. 7 sessions of "open" with no action taken means it should be closed one way or the other.
+1. **Hero emotional register.** The h1 reads: "A framework for safely delegating real work to AI — while remaining accountable for what gets done." Accurate, but may read as a description rather than a recognition. The target (vision.md, iter-39): the reader feels "I've been looking for this." Test: does the first screen make a non-technical reader who has been frustrated with AI delegation think "this is for me" — before reading any body copy? If not, the h1 and opening line need to move from description to recognition.
+
+2. **Visual verification of the dark theme.** The entire dark canvas + five-hue semantic colour system has never been browser-checked. Contrast ratios for `--sage (#a3d6a7)` and `--lavender (#c4a7e7)` on `--bg (#1e2030)` are estimated, not measured. `.numeral-circle` (white text on sage) and `em` text (lavender on dark bg) are highest-risk. Mobile viewport untested.
+
+3. **Push to GitHub Pages.** The terminal readiness test. The site is static, zero dependencies, deployment is trivial. After the hero and visual check are done, there is no remaining blocker.
+
+**Secondary (informational, not blocking):**
+
+4. **External cold-reader test.** The page has never been shown to an actual non-technical reader. Every quality assessment has been agent-generated or operator-confirmed. A single cold read by someone who fits the primary reader profile is the highest-information move available that the loop has never taken.
 
 ---
 
 ## Active operational rules
 
-- **Never add inline `style=""` attributes.** They accumulate silently across sessions and require a dedicated clean-up iteration. If a CSS class doesn't exist for the property, create one.
-- **All CSS changes go through `:root` tokens.** Proven by the Monokai→light reversal: full palette swap in 2 edits. The system works. Keep it.
-- **The trail's "Candidate next moves" section has low predictive validity for what actually happens next.** The operator-gate consistently redirects. Record candidate moves but treat them as weak signal — not as a commitment.
-- **In this shell environment: use `Select-String` not `grep`; use `Add-Content` not `>>` for append operations on trail files.**
-- **Section removal is a `[!REVERSAL]`-class event when the removed section was a vision requirement.** Mark it explicitly.
-- **All retro-001 items addressed as of iter-14.** Hero copy (iter-12), principles scan (iter-13), dead references + Chen et al. link (iter-14). Next convergence check warranted before declaring publication readiness.
+- **Never add inline `style=""` attributes.** They accumulate silently and require dedicated cleanup. If a CSS class doesn't exist, create one.
+- **All CSS changes go through `:root` tokens.** The 2-edit reversal property is the architecture's payoff. Maintain it.
+- **Before inventing a new CSS class, verify no existing class already serves the role.** The iter-34 Kaikaku collapsed 50 bespoke classes to 20 generic ones. Accreting bespoke classes is the failure mode that makes future Kaikaku necessary.
+- **`git add <explicit paths>` — never `git add -A`.** Iter-33 swept an unintended deletion via `-A`.
+- **Append trail files with `Add-Content -Encoding UTF8`. Never `Set-Content`, never `>` redirection.** Iter-37 produced 124 mojibake em-dashes via a `Set-Content`/`Get-Content -Raw` round-trip. Even targeted in-place edits using `Set-Content` corrupt UTF-8 multi-byte sequences in PowerShell 5.1.
+- **vision.md updates must be timely.** When a `[!REVERSAL]` fires, vision.md should be updated in the same iteration or the immediately following Vision run. A 24-iteration drift (iter-36 to iter-39) is too long.
+- **Trigger Vision when two consecutive design-direction corrections occur.** Iter-34 (Kaikaku), iter-36 (dark theme), iter-38 (colour semantics) were three consecutive large corrections. A Vision run after the second would have named the emotional destination before the third.
 
 ---
 
 ## Loop-effectiveness notes
 
-The loop has been finding genuine work, but work of the wrong kind for this stage. The visual and architectural improvements (sessions 4–11) are real and compounding: the CSS is clean, the architecture is solid, the intellectual lineage is present. These were necessary. But they were not sufficient, and the loop consistently found another visual lever to pull rather than examining copy.
+The loop has been effective at structural work and ineffective at emotional work. Structural changes (CSS tokens, class taxonomies, link credibility) produce verifiable diffs. Emotional register changes require testing against a reader who has the problem.
 
-The structural bias is explicable: visual changes are concrete, testable, and reversible. Copy changes require judgment about what a non-technical reader understands — they are harder to evaluate without user feedback. The loop defaults to visual work partly because it can verify visual work. It cannot easily verify whether copy achieves instant clarity without testing against an actual cold reader.
+The page has been structurally sound since iter-34. The remaining gap is in a dimension the loop cannot self-verify. The next highest-leverage move is external validation: a cold reader, or a GitHub Pages push that exposes the page to real traffic.
 
-The Vision run functioned as the corrective: it forced an arc-level look that the individual Improve iterations had been deferring. The run's primary output — "the text is not good enough, I don't get instant clarity" — names a failure that had been present in the target for 9 sessions.
+**Retro-001's core claim held across 29 more iterations:** "The loop is biased toward safe, verifiable work at the expense of high-leverage, harder-to-verify work." The form of that bias has shifted — in retro-001 it was CSS over copy; now it is copy over emotional register. The same structural dynamic, one level up.
 
-**The loop is not broken. It is biased toward safe, verifiable work at the expense of high-leverage, harder-to-verify work.** The next run should be guided by the question: "What would a cold non-technical reader experience in the first 5 seconds?" — not by any CSS property or link.

@@ -1839,3 +1839,34 @@ The Vision run resolved a contradiction open since iter-36: vision.md said light
 **What this changes for future iterations:** the hero copy and visual hierarchy are the primary next targets. The structural diagnosis is clear: hook must name the reader's problem and promise relief before any framework language appears. That is a copy-first problem, not a design-system problem.
 
 **Named blind spot:** "recognition + intrigue" is operator-stated intent, not reader-validated. The page has not been shown to a non-technical reader to confirm the signal lands.
+
+## 2026-05-27 - retro-002-arc-read
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Retrospect
+**outcome:** changed — retrospect.md replaced with full arc-read from sessions 001–039
+
+### Scope statement
+
+Read the full arc (39 iterations, sessions 001–039, 1798 trail lines) and determine: what is the page becoming? Where has the loop's attention been? Is the loop looking at the parts of the target that carry real weight?
+
+### Freshness check
+
+No `tools/record.py` in this repo. No `history.md` or `learning.md`. Arc-claims read directly from `audit-trail.md` and `vision.md` (post iter-39 update). Gate: PASS.
+
+### Arc-claims (summary)
+
+1. **Design system rebuilt three times without an emotional destination.** All three rebuilds were genuine improvements. A fourth should not be needed: architecture sound, palette confirmed, destination now in vision.md.
+2. **retro-001's copy problem was correct but incomplete.** Structural clarity is closed (iter-12–15). Emotional recognition remains open — the reader should feel *found*, not just informed.
+3. **CSS architecture is the most stable part of the page.** Token system has paid off at every reversal point. No structural debt.
+4. **vision.md drifted 24 iterations.** Vision runs are the only mechanism that catches this, and they only run when the operator asks. Rule added: trigger Vision after two consecutive design corrections.
+5. **Operator visual reactions are primary quality signal, but mostly untrailed.** Structural gap; not solvable.
+6. **Page is approaching final structural state.** Single remaining problem: hero emotional register.
+7. **Three Vision-level reversals, all operator-correct, all delayed in vision.md update.** Pattern identified.
+
+### Actions taken
+
+- Read full `audit-trail.md` (sessions 001–039) and `vision.md`
+- Replaced `.trail/retrospect.md` with retro-002 (7 arc-claims, 4 next-run tests, 7 operational rules)
+- Appended this trail entry
