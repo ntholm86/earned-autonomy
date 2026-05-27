@@ -2475,3 +2475,78 @@ No tools/record.py in this repo. Arc-claims read directly from audit-trail.md (2
 ### Reflection
 
 The page has been a principles-first artifact since session-001. That was the right starting point — the framework had to be explained before the skills could be positioned as its enactment. Now the operator is making the practical judgment that developers discover the tools before the framework. The structural reorder does not discard the principles; it repositions them as the intellectual grounding you reach after deciding the tools are worth using. That is a different reader journey — and the operator's read of their audience is the right guide here, not the arc's prior assumptions.
+
+## 2026-05-27 - iter-52-skills-first-structural-reorder
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Improve (v3.9.2) + Intent
+**outcome:** changed — skills-first structural reorder implemented
+
+### Interpretation of the ask
+
+Operator invoked Improve + Intent together. The session context was unambiguous: retro-003 committed at 58e22c6, vision.md open, trail entry just written. The ask resolves to: execute the iter-52 structural reorder defined by vision.md iter-51. The destination is the skills-first inversion. No alternative interpretation was available.
+
+### Examination
+
+**Purpose lens.** The page was Principles-first for 50 iterations. Vision iter-51 reversed that. This iteration closes the gap between the declared direction and the artifact. The entire examination is already encoded in retro-003 — reading the full arc was done there. This run's job is execution.
+
+**Inconsistency lens.** Six inconsistencies resolved: (1) section order, (2) nav order, (3) hero CTA, (4) skill card order, (5) Improve visual weight, (6) Principles framing.
+
+### Challenge
+
+Could I argue the reorder is wrong? No — it is a vision constraint (operational rule 8, retro-003). Could I do only part of it? No — a partial reorder would leave the page in a worse hybrid state than either the old or new structure. All four sub-changes are logically one operation.
+
+### Decision
+
+[!DECISION] Execute the full structural reorder as one atomic iteration. All four sub-changes are interdependent: reordering sections without updating nav creates broken navigation; expanding Improve without moving it above Principles still buries the key skill. Split execution would leave the page in an intermediate broken state.
+
+**Pre-commit prediction:** Section order will be top → skills → principles → foundations → memory → quickstart → trail. Nav will read Skills | Principles | Foundations | Get started | Trail. Hero CTA will link to #skills. Improve section will be ~2× depth with loop + lineage + evidence. Principles will open with "Why the skills work" label. No CSS changes.
+
+### Action
+
+1. Nav: swapped order to Skills | Principles | Foundations | Get started | Trail
+2. Hero CTA: changed href to #skills, text to "See the six skills"
+3. Skills section: moved above Principles; rebuilt with new structure:
+   - Trail card (first)
+   - Intent card (second)
+   - Improve expanded subsection: 6-step loop (numeral-circles), Kaizen/Toyota Kata lineage, evidence (200+ iterations / enterprise / this page) — all consolidated here
+   - Vision, Retrospect, Probe cards (trailing grid)
+4. Principles section: label changed to "Why the skills work"; intro reframed as structural constraints
+5. Old skills block removed from post-foundations position
+6. Verified: section order correct, file intact (1168 lines, was 1117)
+
+### Verify — prediction held
+
+- Section order: top → skills → principles → foundations → memory → quickstart → trail — CONFIRMED
+- Nav: Skills | Principles | Foundations | Get started | Trail — CONFIRMED
+- Hero CTA: href=#skills, text "See the six skills" — CONFIRMED
+- Improve: expanded full-width card with grid-2 (loop + lineage) + trail-divider (evidence) — CONFIRMED
+- Principles label: "Why the skills work" — CONFIRMED
+- CSS: zero changes — CONFIRMED
+
+### Reflection
+
+**Model of the target:** The page is no longer a framework explanation with skills as implementation. It is a tool-first artifact where the framework provides intellectual grounding. This is the first time the scroll order matches the reader journey the operator has described from the beginning.
+
+**Blind spot:** The cold-reader test is still the highest-information move. This run can confirm the HTML is structurally correct but cannot confirm whether a cold reader actually lands on Trail or Intent and feels recognition within 3 seconds. That question only has one answer and it does not come from the loop.
+
+**Informed-reader pushback:** The "This page" evidence item was updated (removed "in a single session — about 5 minutes") because the page is now 52 Improve iterations old. That single-session claim was accurate in session-001 but is misleading now. Removed silently — should have been a named [!REVERSAL] rather than a quiet edit.
+
+[!REVERSAL] "This page. Built in a single session - about 5 minutes" — the claim was true in session-001 but is no longer accurate at 52+ iterations. Removed from the Evidence item in the Improve section. The full build history is in the trail; the page doesn't need to misrepresent it.
+
+[!REALIZATION] The structural inversion is now complete. The page's scroll order matches the operator-stated reader journey for the first time. The next question the loop cannot answer is the cold-reader test: does the reader feel recognition within 3 seconds of landing on the Trail or Intent card? Execute after this commit.
+
+**Macro reflection triggers:**
+- Recurring finding-class: not fired — this is a structural inversion, not a class of recurring small fixes
+- About to declare silence: not fired — change made
+- Contradicts prior [!REALIZATION]: not fired — aligns with retro-003 arc-claims
+- Operator explicitly asked: not fired
+
+### Candidate Next Moves
+
+1. **Cold-reader test** — the page is live and structurally settled. This is the only quality signal the loop cannot generate itself. Share with someone who has no PEA context; observe where they land and whether they feel recognition or confusion within the first scroll.
+
+2. **"Delegate to AI. Own the work." placement** — Vision iter-51 named this 6-word phrase as a candidate for hero subtitle, section label, or meta description. Page is now structurally stable; deciding where it lives is the next content-level move.
+
+3. **Memory section audit** — The Memory section is detailed and technically accurate, but it was written under the principles-first structure. With skills now the entry point, the memory section's positioning after skills may feel abrupt. Worth one pass to check the transition.

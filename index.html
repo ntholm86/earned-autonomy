@@ -367,9 +367,9 @@
   <nav>
     <a class="label" href="#">Earned Autonomy</a>
     <ul>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#principles">Principles</a></li>
       <li><a href="#foundations">Foundations</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#quickstart">Get started</a></li>
       <li><a href="#trail">Trail</a></li>
       <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">GitHub &#8599;</a></li>
@@ -405,19 +405,173 @@
         <a class="btn" href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">
           Read the framework &#8599;
         </a>
-        <a class="chip chip-lg" href="#principles">See the three principles &#8595;</a>
+        <a class="chip chip-lg" href="#skills">See the six skills &#8595;</a>
       </div>
+    </section>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="container">
+    <section id="skills">
+      <p class="label">The Skills</p>
+      <h2>Six Skills</h2>
+      <p>
+        Six skills put the three principles into practice. Together they give the agent
+        memory across sessions - so each run builds on the last.
+      </p>
+
+      <div class="grid-auto mt-md">
+
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The work is unauditable</p>
+          <h3>Trail</h3>
+          <p class="small">
+            Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is
+            appended to <code>.trail/audit-trail.md</code> as the work happens. Work that is not logged cannot be audited.
+          </p>
+        </a>
+
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent interpreted the prompt literally and missed the intent</p>
+          <h3>Intent</h3>
+          <p class="small">
+            Forces the agent to state its interpretation of the task before acting. Catches wrong interpretations before work begins.
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Improve — expanded subsection -->
+      <div class="card card-accent mt-md">
+        <p class="label">The agent makes superficial, undisciplined edits</p>
+        <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener">Improve &#8599;</a></h3>
+        <p class="small">
+          The workhorse. One iteration: one change. Every step is written to the trail before the next begins.
+        </p>
+
+        <div class="grid-2 mt-md">
+
+          <div class="stack">
+            <p class="label label-muted">The loop</p>
+            <div class="stack">
+              <div class="row row-top">
+                <div class="numeral-circle">1</div>
+                <p class="small flex-1">Read <code>vision.md</code>, <code>retrospect.md</code>, trail</p>
+              </div>
+              <div class="row row-top">
+                <div class="numeral-circle">2</div>
+                <p class="small flex-1">Examine the target</p>
+              </div>
+              <div class="row row-top">
+                <div class="numeral-circle">3</div>
+                <p class="small flex-1">Challenge the first instinct</p>
+              </div>
+              <div class="row row-top">
+                <div class="numeral-circle">4</div>
+                <p class="small flex-1">Decide on one change — predict the outcome</p>
+              </div>
+              <div class="row row-top">
+                <div class="numeral-circle">5</div>
+                <p class="small flex-1">Make the change and verify</p>
+              </div>
+              <div class="row row-top">
+                <div class="numeral-circle">6</div>
+                <p class="small flex-1">Reflect and write the trail entry</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <p class="label label-muted">Lineage</p>
+            <p class="small">
+              Started as a direct implementation of Toyota Kata's coaching loop — the coach
+              defines the target condition; the learner discovers the path.
+            </p>
+            <p class="small">
+              v2 split the loop into three separate skills: Kaizen (incremental), Kaikaku
+              (structural redesign), and Hansei (reflection). v3 unified them: the agent reads
+              the situation and picks the mode.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="trail-divider mt-md">
+          <p class="label label-muted">Evidence</p>
+          <div class="stack mt-md">
+            <div class="row row-top">
+              <div class="numeral-circle">1</div>
+              <p class="small flex-1">
+                <strong>200+ self-improvement iterations.</strong> The skills suite ran on itself over two hundred times.
+                Along the way, it autonomously decided to rewrite itself from scratch — twice. Convergence was declared
+                only when three independent evaluators from distinct model families (Anthropic, xAI/Grok, Google/Gemini)
+                each ran the loop and found nothing left to change.
+              </p>
+            </div>
+            <div class="row row-top">
+              <div class="numeral-circle">2</div>
+              <p class="small flex-1">
+                <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant
+                cloud system with multiple microservices and automated CI/CD. A large T-shirt-size scope was
+                completed in three days. The trail exists but cannot be published - it is employer-owned.
+              </p>
+            </div>
+            <div class="row row-top">
+              <div class="numeral-circle">3</div>
+              <p class="small flex-1">
+                <strong>This page.</strong> Built using Vision, Intent, Trail, and Improve.
+                The full trail is committed to <code>.trail/</code> and verifiable against the git log.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid-auto mt-md">
+
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/vision/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent doesn't know your vision - because it lives in your head</p>
+          <h3>Vision</h3>
+          <p class="small">
+            Surfaces the agent's assumptions about where the operator is heading - as specific
+            questions to confirm, correct, or reject. Produces <code>.trail/vision.md</code>.
+          </p>
+        </a>
+
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent can't see patterns across its own work</p>
+          <h3>Retrospect</h3>
+          <p class="small">
+            Reads the entire work history as one document: where is the work heading, where has
+            attention gone, is that where the weight lies? Surfaces what no single session
+            would reveal. Produces <code>.trail/retrospect.md</code>.
+          </p>
+        </a>
+
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">You can't tell if the agent is reasoning or pattern-matching</p>
+          <h3>Probe</h3>
+          <p class="small">
+            Builds a pair of cases that look similar but differ in one material way, then tests
+            whether the agent's response diverges where it should. Directly measures Autonomous
+            Reasoning Fidelity.
+          </p>
+        </a>
+
+      </div>
+
     </section>
   </div>
 
   <!-- PRINCIPLES -->
   <div class="container">
     <section id="principles">
-      <p class="label">The Framework</p>
+      <p class="label">Why the skills work</p>
       <h2>Three Principles</h2>
       <p>
-        Each one names a decision an AI must never make on its own.
-        Skip any and the setup is structurally broken, not poorly tuned.
+        The skills are built on three structural constraints — not rules, not guidelines.
+        Each one closes a gap that good intentions and careful prompting cannot close.
       </p>
 
       <div class="stack-lg mt-md">
@@ -612,110 +766,7 @@
     </section>
   </div>
 
-  <!-- SKILLS -->
-  <div class="container">
-    <section id="skills">
-      <p class="label">The Implementation</p>
-      <h2>Six Skills</h2>
-      <p>
-        Six skills put the three principles into practice. Together they give the agent
-        memory across sessions - so each run builds on the last.
-      </p>
 
-      <div class="grid-auto mt-md">
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">The agent interpreted the prompt literally and missed the intent</p>
-          <h3>Intent</h3>
-          <p class="small">
-            Forces the agent to state its interpretation of the task before acting. Catches wrong interpretations before work begins.
-          </p>
-        </a>
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/vision/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">The agent doesn't know your vision - because it lives in your head</p>
-          <h3>Vision</h3>
-          <p class="small">
-            Surfaces the agent's assumptions about where the operator is heading - as specific
-            questions to confirm, correct, or reject. Produces <code>.trail/vision.md</code>.
-          </p>
-        </a>
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">The work is unauditable</p>
-          <h3>Trail</h3>
-          <p class="small">
-            Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is
-            appended to <code>.trail/audit-trail.md</code> as the work happens. Work that is not logged cannot be audited.
-          </p>
-        </a>
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">The agent makes superficial, undisciplined edits</p>
-          <h3>Improve</h3>
-          <p class="small">
-            The workhorse. Each iteration: read the trail, examine the target, challenge the first
-            instinct, make one highest-leverage change, predict the outcome, verify, reflect. Always
-            reads vision and trail first - so it never repeats a failed move.
-          </p>
-        </a>
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">The agent can't see patterns across its own work</p>
-          <h3>Retrospect</h3>
-          <p class="small">
-            Reads the entire work history as one document: where is the work heading, where has
-            attention gone, is that where the weight lies? Surfaces what no single session
-            would reveal. Produces <code>.trail/retrospect.md</code>.
-          </p>
-        </a>
-
-        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener">
-          <p class="label">You can't tell if the agent is reasoning or pattern-matching</p>
-          <h3>Probe</h3>
-          <p class="small">
-            Builds a pair of cases that look similar but differ in one material way, then tests
-            whether the agent's response diverges where it should. Directly measures Autonomous
-            Reasoning Fidelity.
-          </p>
-        </a>
-
-      </div>
-
-      <!-- Evidence -->
-      <div class="stack mt-lg">
-        <p class="label label-muted">Field evidence</p>
-
-        <div class="row row-top">
-          <div class="numeral-circle">1</div>
-          <p class="small flex-1">
-            <strong>200+ self-improvement iterations.</strong> The skills suite ran on itself over two hundred times.
-            Along the way, it autonomously decided to rewrite itself from scratch - twice. Convergence was declared
-            only when three independent evaluators from distinct model families (Anthropic, xAI/Grok, Google/Gemini)
-            each ran the loop and found nothing left to change.
-          </p>
-        </div>
-
-        <div class="row row-top">
-          <div class="numeral-circle">2</div>
-          <p class="small flex-1">
-            <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant
-            cloud system with multiple microservices and automated CI/CD. A large T-shirt-size scope was
-            completed in three days. The trail exists but cannot be published - it is employer-owned.
-          </p>
-        </div>
-
-        <div class="row row-top">
-          <div class="numeral-circle">3</div>
-          <p class="small flex-1">
-            <strong>This page.</strong> Built in a single session - about 5 minutes - using Vision, Intent, Trail, and Improve.
-            The full trail is committed to <code>.trail/</code> and verifiable against the git log.
-          </p>
-        </div>
-
-      </div>
-    </section>
-  </div>
 
   <!-- MEMORY MODEL -->
   <div class="container">
