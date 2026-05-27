@@ -1980,3 +1980,82 @@ No new tell-patterns surfaced that would expand the catalogue. The `actually`-as
 
 **Candidate next moves:**
 1. GitHub Pages push — the only remaining blocker from retro-002.
+
+## 2026-05-27 - iter-43-cold-audit-p3-tagline
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — P3 tagline rewritten from passive technical definition to active conditional
+**commit:** 2e44616
+
+### Interpretation of the ask
+
+Operator: "read, audit and review and rate the entire site with fresh eyes, cold session. Decide yourself what metrics to measure. Use the improve skill. understand my intent."
+
+"Fresh eyes, cold session" is the key modifier. After 42 iterations of accumulated context, the operator wants a genuinely external evaluation — what does a stranger see? The ask implies: derive metrics from the target's own success criteria (not prior metrics), give an honest rating, and then act on the highest-leverage finding.
+
+A wrong interpretation: running another polish pass. The goal is audit-first, then act.
+
+### Examination
+
+**Metrics derived from vision.md success criteria:**
+
+| Metric | Score | Rationale |
+|---|---|---|
+| 3-second clarity | 8/10 | h1 + subhead land the problem + solution type immediately |
+| 30-second scan | 6/10 | P1/P2 taglines clear; P3 ("Converged when...") opaque |
+| Recognition | 9/10 | h1 directly addresses reader's situation; stances card highly relatable |
+| Intrigue | 6/10 | P3 tagline drops the thread that P1/P2 established |
+| Credibility | 9/10 | Citations, trail entries, DOI, ORCID, production evidence — all present |
+| Action clarity | 5/10 | Quickstart not in nav; CTA links to Zenodo academic paper |
+| Overall | 7.2/10 | Strong foundation; P3 and action path are the weak points |
+
+**Purpose lens.** The page largely achieves its goal. Hero recognition is strong. Credibility is excellent. The two gaps that score below 7: the P3 tagline and the action path.
+
+**Inconsistency lens.** The three principle taglines are meant to be scannable summaries:
+- P1: "Define the destination. Never prescribe the route." — active imperative. Clear.
+- P2: "Autonomy is earned through transparency." — declarative. Clear.
+- P3: "Converged when independent evaluators find nothing left to change." — passive, uses "Converged" as a technical term requiring PEA vocabulary. The register break is stark.
+
+A cold reader scanning all three will feel the inconsistency at P3 even if they can't name it. P1 and P2 invite understanding immediately; P3 reads like an extract from inside the framework, not a sentence that opens it up.
+
+### Challenge
+
+Is action clarity a bigger gap than the P3 tagline? Possibly — 5/10 vs 6/10. But action clarity (Quickstart not in nav, CTA to Zenodo) is structural; retrospect.md flags the CSS/structure as stable and high-risk to change. The P3 tagline is a single text change with zero structural risk and directly addresses the 30-second scan metric, which is one of the three primary vision success criteria.
+
+Is the structure fundamentally wrong? No. The page layout is appropriate for the goal. No redesign case.
+
+### [!DECISION] Rewrite P3 tagline
+
+Before: `Converged when independent evaluators find nothing left to change.`
+After:  `Not done until independent evaluators find nothing to change.`
+
+Rationale: "Converged when" describes a technical state using PEA vocabulary. "Not done until" starts from the reader's assumption (you think you're done) and states the real condition. Active vs. passive. The three taglines now share a consistent register — P1 and P3 are active; P2 is declarative. All three are immediately parseable without prior PEA knowledge.
+
+Alternatives ranked:
+1. This change — highest leverage for scan clarity, one text change, zero structural risk.
+2. Add "Get Started" to nav — addresses action-clarity gap (5/10) but is structural.
+3. Add secondary in-page CTA in hero — medium leverage, requires a second button element.
+
+Pre-commit prediction: P3 tagline becomes immediately parseable on a cold scan. Three taglines become consistent in register. No structural change, no CSS change, no other text affected.
+
+### Reflection
+
+**Model claim:** The page is near its ceiling for agent-improvable quality. The remaining gaps (action clarity, P3 tagline) were both in the 5-6/10 range — above average but below the 8+ that h1 recognition and credibility achieve. After this change, the next-lowest score is action clarity (5/10), which is a structural/navigation problem, not a copy problem.
+
+**Blind spot:** This audit is still agent-generated. A cold non-technical reader would either confirm the recognition claim (h1 is strong) or reveal that "staying accountable for what gets done" doesn't resonate for their specific version of the problem. That test has not been run in 43 iterations.
+
+**Imagined knowledgeable reader pushback:** "The P3 tagline change is fine but you missed that the stances card in the hero delays the principles. A reader who just felt recognition from the h1 wants to see the three principles immediately, not a re-elaboration of the problem." Valid. But moving the stances card is structural and outside the single-change discipline.
+
+**Across-trail reflection:**
+- Recurring finding-class: not fired — this is the first cold audit; prior recent entries were copy edits (de-ai, hero, ARF cross-ref).
+- About to declare silence: not fired — a change was made.
+- Contradicts prior [!REALIZATION]: not fired — checked, no contradiction.
+- Operator explicitly asked: not fired (the ask was for Improve, not retrospect).
+
+### Candidate Next Moves
+
+1. **Add "Get Started" to the nav** — lowest-scoring metric (action clarity, 5/10). One `<li>` addition pointing to `#quickstart`. Low structural risk.
+2. **External cold-reader test** — highest-information move available. The loop has never tested the h1 recognition claim against an actual non-technical reader. One cold read would confirm or refute.
+3. **GitHub Pages push** — no remaining structural blockers. Terminal readiness test.
