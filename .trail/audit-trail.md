@@ -1136,3 +1136,48 @@ Lesson for the loop: when summarizing a documented structure, the source of trut
 
 [!REALIZATION] The three-tier framing (operator / synthesis / evidence) was not in any single skill - it emerged from looking at all seven items at once and noticing the natural grouping (who writes, who derives, who appends). This is the kind of synthesis the page can offer that no individual skill document does. Future iterations should look for more cross-skill synthesis like this rather than just mirroring individual skills.
 
+
+---
+
+## 2026-05-27 · iter-30 · quickstart-section
+
+target: pea-website (index.html)
+operator: Nils Holmager
+agent: GitHub Copilot (Claude)
+skill: improve
+outcome: new Get Started section added between Memory Model and Trail; four-step quickstart adapted from skills-suite QUICKSTART.md with code blocks and per-step time estimates
+delta: index.html +145 / -0
+commit: 4b8a327
+
+### Interpretation of the ask
+
+The operator asked "do we have a section that explains how to quickly get started using the skills?" The honest answer was no - the page explained what the skills are, what they create (memory model), and what successful output looks like (trail entries), but never bridged from "I understand this" to "I can try this." Intent: add the missing bridge using the canonical source (skills suite QUICKSTART.md) rather than reinventing a quickstart.
+
+### Examination
+
+Read the skills suite QUICKSTART.md - tight 4-step structure: install (1 min), vision (3 min), improve (4 min), confirm (1 min), totalling 10 minutes. Each step has a clear "done when" gate. That structure is teachable and already proven; the page just needed to surface it.
+
+Reader flow gap analysis: Principles -> Foundations -> Skills -> Memory Model -> [GAP] -> Trail entries -> Footer. After Memory Model the reader knows what files will appear in their repo. The natural next thought is "okay, how do I make that happen?" The page silently skipped that beat and jumped to "here are some entries I made earlier." Trail entries are evidence, not invitation.
+
+### Decision
+
+[!DECISION] Insert a new section id="quickstart" between Memory Model and Trail. Four-card grid (one per step), each card containing: step number + time, title, one-sentence body, monospace code block(s), and a "done when" gate. Closing paragraph with optional commit-hook step and a link to the full QUICKSTART.md on GitHub.
+
+Placement rationale: AFTER Memory Model (reader now knows what gets created) and BEFORE Trail (reader sees real entries as proof that following the quickstart produces evidence like this). Reader path becomes: understand the model -> learn to use it -> see what your output will look like.
+
+### Action
+
+1. Added CSS for .quickstart-steps (grid), .quickstart-step (card), .quickstart-step-num, .quickstart-step-title, .quickstart-step-body, .quickstart-code (monospace block), .quickstart-done (italic gate), .quickstart-footer.
+2. Inserted <section id="quickstart"> with the 4-step card grid.
+3. Each step has time, title, body, code block(s), and a "Done when:" gate matching the skills suite QUICKSTART.md gates.
+4. Footer paragraph mentions the optional install-hooks step and links to the full QUICKSTART.md on GitHub for troubleshooting.
+5. git commit -> 4b8a327.
+
+### Reflection
+
+The page now answers the implicit "now what?" the previous version left hanging. The 4-card grid keeps each step independently scannable - a reader can skim the four cards in 15 seconds and see the total commitment is 10 minutes, which is the actual point: this is something you can try right now, not a research project.
+
+What this run did not do: write a quickstart from scratch. The skills suite QUICKSTART.md is the source of truth; the page distills it but does not replace it. If the quickstart changes there, this section needs to be updated to match - that drift risk is the price of denormalization. Mitigation: the footer links to the canonical version, so a reader who needs current detail can always reach it.
+
+[!REALIZATION] The page's natural reading order is now a complete arc: principle -> mechanism (skills) -> what gets created (memory) -> how to use it (quickstart) -> what success looks like (trail). The trail section, which used to sit awkwardly after Memory Model, now has a clear role: it is the "after" picture for what the quickstart produces. Before this run, that section was floating. The new quickstart anchored it.
+
