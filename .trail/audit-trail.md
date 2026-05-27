@@ -1870,3 +1870,57 @@ No `tools/record.py` in this repo. No `history.md` or `learning.md`. Arc-claims 
 - Read full `audit-trail.md` (sessions 001–039) and `vision.md`
 - Replaced `.trail/retrospect.md` with retro-002 (7 arc-claims, 4 next-run tests, 7 operational rules)
 - Appended this trail entry
+
+## 2026-05-27 - iter-40-hero-copy-recognition
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve
+**outcome:** changed — h1 rewritten from product description to reader recognition; subhead rewritten from list to relief; meta description updated to match
+**commit:** 5a39c87
+
+### Interpretation of the ask
+
+Operator verbatim: "browser visual check is done. Please do the hero copy. use the improve skill."
+
+Two signals: (1) visual check done — retro-002 item 2 closed; (2) hero copy — retro-002 item 1, the single remaining blocker. Emotional target from vision.md (iter-39): reader should feel "recognition + intrigue — I've been looking for this to safely delegate work to AI." The current h1 was a product description ("A framework for..."). The fix is to move from description to recognition.
+
+### Examination
+
+**Purpose lens.** Vision.md states: the primary reader has been trying to safely delegate real work to AI, finds it hard to trust, and should feel "this names the thing I've been struggling with." The current h1 asked the reader to evaluate a product from the outside. Recognition requires the h1 to address the reader's *situation*, not describe a product.
+
+**Inconsistency lens.** The footer voice (iter-17b) says: "I built this because I had this problem: how to safely delegate real work to AI while remaining accountable for what gets done." The h1 and footer are meant to be in dialogue — hero as the reader's situation, footer as the author's. The old h1 was a description; the footer is a confession. The new h1 is an address ("You're delegating..."), which puts the reader and author in the same situation before the author claims to have solved it.
+
+### Challenge the first read
+
+Considered moving the stances card above the h1 so the recognition content comes first. Rejected: breaks the label → h1 → elaboration hierarchy. Better to make the h1 itself carry the recognition. The stances card then reads as elaboration/evidence of the named difficulty, not as introduction to it.
+
+Considered a more diagnostic h1 ("The gap between 'AI helps with tasks' and 'I've safely delegated real work to AI' has a structure to it"). Stronger intrigue, but too abstract for a cold non-technical reader. The direct address ("You're delegating...") is the higher-recognition form.
+
+### [!DECISION] Two text changes: h1 and subhead; meta description updated to match
+
+**h1 before:** `A framework for safely delegating real work to AI - while remaining accountable for what gets done.`
+**h1 after:** `You're delegating real work to AI. The hard part is staying accountable for what gets done.`
+
+**Subhead before:** `Three principles. They apply to any AI model and any toolset.`
+**Subhead after:** `Three principles that close that gap — for any model, any toolset.`
+
+**Meta description updated** to match: search engine result now shows the recognition frame rather than the framework description.
+
+### Pre-commit prediction
+
+The first screen makes a non-technical reader think "yes, that's my situation" before encountering any framework language. "Three principles that close that gap" arrives as relief — reader already has the problem named, now wants the answer. Stances card functions as proof that the problem is real and common, not as introduction to the topic. Footer dialogue reinforced: author had the same problem.
+
+Net delta: 6 insertions, 6 deletions. No structural or CSS change.
+
+### Reflection
+
+The old h1 and the new h1 contain almost the same information. The difference is the subject: "A framework" (product) vs. "You're delegating" (reader's situation). That shift in subject is the recognition move. The reader goes from "what is this?" to "that's me." The subhead change is smaller — it connects the three principles to the gap named in the h1, so "Three principles that close that gap" reads as the answer to the problem just named rather than as a product spec.
+
+**Falsifiable claim:** A non-technical reader who has been trying to safely delegate real work to AI should, on reading the new h1 and subhead, feel that the page is for them — without reading any body copy.
+
+**Named blind spot:** This is still unvalidated against an actual cold reader. The arc has now gone 40 iterations without external validation. The remaining blockers (retro-002) are now: visual check done (confirmed by operator this session), hero copy (this iter). The page is ready for GitHub Pages push.
+
+**Candidate next moves:**
+1. Push to GitHub Pages — the terminal readiness test; no remaining structural blockers.
+2. External cold-reader test — highest-information move available; confirms or refutes the recognition claim.
