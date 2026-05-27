@@ -526,6 +526,129 @@
       display: block;
       margin-bottom: 0.85rem;
     }
+
+    /* ── TRAIL SECTION ── */
+    .trail-entry {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .trail-entry-date {
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .trail-entry-headline {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .trail-entry-meta {
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      color: var(--muted);
+      line-height: 1.8;
+      padding-bottom: 0.9rem;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .trail-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .trail-entry > p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+      line-height: 1.6;
+    }
+
+    .trail-caveat {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      background: var(--accent-lt);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1rem;
+      margin: 0.5rem 0 0.6rem;
+    }
+
+    .trail-findings {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .trail-findings li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .trail-findings li::before {
+      content: "·";
+      position: absolute;
+      left: 0.1rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .trail-findings strong { color: var(--ink); }
+
+    .trail-marker {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-lt);
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+    }
+
+    .trail-truncated {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .trail-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.84rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 0.75rem;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.9rem;
+      transition: border-color var(--ease), color var(--ease);
+    }
+
+    .trail-view-link:hover { border-color: var(--accent); }
   </style>
 </head>
 <body>
@@ -537,6 +660,7 @@
       <li><a href="#principles">Principles</a></li>
       <li><a href="#foundations">Foundations</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#trail">Trail</a></li>
       <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">GitHub ↗</a></li>
     </ul>
   </nav>
@@ -908,6 +1032,59 @@
           </p>
         </div>
 
+      </div>
+    </section>
+  </div>
+
+  <!-- TRAIL -->
+  <div class="container">
+    <section id="trail">
+      <p class="section-label">Observable Autonomy</p>
+      <h2 class="section-title">The trail, verbatim</h2>
+      <p class="section-intro">
+        Every session that built this framework produced a public audit trail. The excerpt below is
+        real — the agent's reasoning logged as it happened, not summarised after.
+      </p>
+
+      <div class="trail-entry">
+        <p class="trail-entry-date">2026-04-23</p>
+        <p class="trail-entry-headline">v3 self-target and v2 retirement</p>
+        <div class="trail-entry-meta">
+          target: skills repo (this repo, v3 live tree)<br>
+          operator: maintainer (Nils Holmager)<br>
+          agent: Claude (Anthropic, tool-call ID prefix <code>toolu_vrtx_*</code>)<br>
+          skill: improve (operating on its own suite)<br>
+          outcome: minor changes (drift markers + retirement notice); no structural changes
+        </div>
+
+        <p class="trail-section-label">Interpretation of the ask</p>
+        <p>
+          Operator asked two things: “should we then target the skills suite on itself now in this new version?”
+          and “retire the old scoreboard of version 1 and 2?” I interpreted the first as a request to actually
+          run <code>improve</code> on v3 in good faith — not to perform a ceremony to generate a trail entry,
+          but to honestly examine what was just shipped.
+        </p>
+        <div class="trail-caveat">
+          The same-session caveat matters: this run is by the same agent that built v3, in the same
+          conversation. It cannot count toward the convergence chain (Principle 3 requires fresh sessions
+          and distinct evaluator families). It is recorded as a self-targeting integrity check, not an
+          independent evaluation.
+        </div>
+
+        <p class="trail-section-label">Examination</p>
+        <ul class="trail-findings">
+          <li><strong>Inconsistency.</strong> PRINCIPLES.md is a copy of the manifesto file but had no version stamp — silent drift surface. Real finding.</li>
+          <li><strong>Overburden.</strong> None visible. Two skills, one trail file, two scripts. The footprint is small enough that no component is asked to do too much.</li>
+          <li><strong>Waste.</strong> None visible in v3 itself. Tier 1 rubric, orchestrator skill, redundant trail files, and PowerShell scripts all removed in the redesign.</li>
+        </ul>
+
+        <p class="trail-section-label">Decision</p>
+        <p><span class="trail-marker">[!DECISION]</span> Make three small changes…</p>
+
+        <p class="trail-truncated">— excerpt from a 6,045-line trail —</p>
+        <a class="trail-view-link"
+           href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
+           target="_blank" rel="noopener">View full trail on GitHub ↗</a>
       </div>
     </section>
   </div>
