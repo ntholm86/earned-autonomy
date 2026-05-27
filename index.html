@@ -20,18 +20,17 @@
       --rule:      #2f3548;   /* subtle border */
       --num:       #2f3548;   /* recessive numerals — intentionally low contrast */
 
-      /* Accent palette — each section overrides --accent below */
-      /* Warm hues = ideas. Cool hues = practice. */
-      --coral:     #f48a8a;   /* Hero + Principles  — authoritative claims */
-      --amber:     #e7c97a;   /* Foundations         — intellectual heritage */
-      --teal:      #7fd1c5;   /* Skills + Quickstart — practical implementation */
-      --lavender:  #c4a7e7;   /* Memory              — reflective layer */
-      --sage:      #a3d6a7;   /* Trail               — evidence, convergence */
+      /* Semantic colour roles — type determines colour, not section geography */
+      /* coral=announcement · amber=technical · teal=action · sage=evidence · lavender=emphasis */
+      --coral:     #f48a8a;   /* labels, trail markers   — structural announcements */
+      --amber:     #e7c97a;   /* code, filenames          — technical identifiers */
+      --teal:      #7fd1c5;   /* links, buttons, icons    — action / navigation */
+      --lavender:  #c4a7e7;   /* em emphasis              — conceptual highlights */
+      --sage:      #a3d6a7;   /* evidence borders, circles — verified claims */
 
-      /* Default --accent — overridden per section. */
-      --accent:    var(--coral);
-      /* --accent-lt tracks --accent via color-mix; used for inline-code tint, marker bg. */
-      --accent-lt: color-mix(in srgb, var(--accent) 18%, var(--bg));
+      /* Derived tints */
+      --amber-lt:  color-mix(in srgb, var(--amber) 18%, var(--bg));
+      --coral-lt:  color-mix(in srgb, var(--coral) 18%, var(--bg));
 
       --card-bg:   var(--bg-elev);
 
@@ -68,14 +67,7 @@
       --ease:      0.15s;
     }
 
-    /* === Section-scoped accent === */
-    /* Each section overrides --accent; every descendant token (labels, links,    */
-    /* card-accent border, code colour, numeral circles, icons) tracks it.       */
-    #top, #principles      { --accent: var(--coral); }
-    #foundations           { --accent: var(--amber); }
-    #skills, #quickstart   { --accent: var(--teal); }
-    #memory                { --accent: var(--lavender); }
-    #trail                 { --accent: var(--sage); }
+    /* === Semantic colour roles — type-driven, consistent across all sections === */
 
     /* === Base === */
     html { font-size: 17px; scroll-behavior: smooth; }
@@ -94,7 +86,8 @@
     p  { margin-bottom: var(--gap-xs); }
     p:last-child { margin-bottom: 0; }
     strong { color: var(--ink); font-weight: var(--weight-medium); }
-    a  { color: var(--accent); text-decoration: none; transition: color var(--ease); }
+    em { color: var(--lavender); }
+    a  { color: var(--teal); text-decoration: none; transition: color var(--ease); }
     a:hover { text-decoration: underline; }
     ul, ol { list-style: none; }
 
@@ -116,7 +109,7 @@
       font-weight: var(--weight-medium);
       text-transform: uppercase;
       letter-spacing: var(--track-wide);
-      color: var(--accent);
+      color: var(--coral);
       margin-bottom: var(--gap-xs);
     }
     .label-muted { color: var(--muted); }
@@ -133,9 +126,9 @@
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
     }
-    .card-accent { border-left: 3px solid var(--accent); }
+    .card-accent { border-left: 3px solid var(--sage); }
     a.card { display: block; color: inherit; text-decoration: none; transition: border-color var(--ease), box-shadow var(--ease); }
-    a.card:hover { border-color: var(--accent); box-shadow: 0 2px 14px color-mix(in srgb, var(--accent) 22%, transparent); text-decoration: none; }
+    a.card:hover { border-color: var(--teal); box-shadow: 0 2px 14px color-mix(in srgb, var(--teal) 22%, transparent); text-decoration: none; }
 
     /* === Chips & buttons === */
     .chip {
@@ -151,7 +144,7 @@
       transition: border-color var(--ease), color var(--ease);
     }
     a.chip { text-decoration: none; }
-    a.chip:hover { border-color: var(--accent); color: var(--accent); }
+    a.chip:hover { border-color: var(--teal); color: var(--teal); }
     .chip-lg { padding: 0.35rem 0.85rem; font-size: var(--text-small); background: transparent; }
 
     .btn {
@@ -159,7 +152,7 @@
       align-items: center;
       gap: var(--gap-xs);
       padding: var(--gap-xs) var(--gap-sm);
-      background: var(--accent);
+      background: var(--teal);
       color: var(--bg);
       border-radius: var(--radius-sm);
       font-size: var(--text-small);
@@ -177,12 +170,12 @@
     .max-prose { max-width: 600px; }
 
     /* === Mono accent === */
-    .mono { font-family: var(--mono); color: var(--accent); font-weight: var(--weight-medium); }
+    .mono { font-family: var(--mono); color: var(--amber); font-weight: var(--weight-medium); }
     code {
       font-family: var(--mono);
       font-size: 0.82em;
-      color: var(--accent);
-      background: var(--accent-lt);
+      color: var(--amber);
+      background: var(--amber-lt);
       padding: 0.1em 0.35em;
       border-radius: var(--radius-sm);
     }
@@ -192,7 +185,7 @@
       font-size: var(--text-small);
       background: var(--card-bg);
       border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--amber);
       border-radius: var(--radius-sm);
       padding: var(--gap-xs) var(--gap-sm);
       color: var(--ink);
@@ -215,7 +208,7 @@
     nav .label { margin-bottom: 0; }
     nav ul { display: flex; gap: var(--gap-md); }
     nav ul a { font-size: var(--text-small); color: var(--muted); }
-    nav ul a:hover { color: var(--accent); text-decoration: none; }
+    nav ul a:hover { color: var(--teal); text-decoration: none; }
 
     /* === Principle layout === */
     .principle {
@@ -231,7 +224,7 @@
       color: var(--num);
       font-variant-numeric: tabular-nums;
     }
-    .icon { color: var(--accent); display: block; margin-bottom: var(--gap-xs); }
+    .icon { color: var(--teal); display: block; margin-bottom: var(--gap-xs); }
 
     /* === Evidence numeral circle === */
     .numeral-circle {
@@ -239,7 +232,7 @@
       width: 1.75rem;
       height: 1.75rem;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--sage);
       color: var(--bg);
       font-size: var(--text-micro);
       font-weight: var(--weight-bold);
@@ -255,7 +248,7 @@
       line-height: 1.7;
       background: var(--card-bg);
       border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--amber);
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
       color: var(--ink);
@@ -264,7 +257,7 @@
       margin: var(--gap-md) 0;
     }
     .memory-tree .tree-comment { color: var(--muted); font-weight: var(--weight-regular); }
-    .memory-tree .tree-name    { color: var(--accent); font-weight: var(--weight-medium); }
+    .memory-tree .tree-name    { color: var(--amber); font-weight: var(--weight-medium); }
     .memory-row {
       display: grid;
       grid-template-columns: 11rem 1fr;
@@ -326,8 +319,8 @@
       font-family: var(--mono);
       font-size: 0.82em;
       font-weight: var(--weight-bold);
-      color: var(--accent);
-      background: var(--accent-lt);
+      color: var(--coral);
+      background: var(--coral-lt);
       padding: 0.1em 0.4em;
       border-radius: var(--radius-sm);
     }
