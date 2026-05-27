@@ -870,32 +870,56 @@
   <div class="container">
     <section id="quickstart">
       <p class="label">Get Started</p>
-      <h2>Three commands</h2>
+      <h2>Copy the files, start the loop</h2>
+      <p>
+        Download the six skill files from the
+        <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener">skills repository &#8599;</a>
+        and place them in your agent's skills folder
+        (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
+      </p>
 
-      <ol class="quickstart-list">
-        <li>
-          <div>
-            <h3>Install the skills</h3>
-            <code class="code-block">bash install.sh        # or:  pwsh install.ps1</code>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Capture the destination</h3>
-            <code class="code-block">/vision</code>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Run one improvement</h3>
-            <code class="code-block">/improve &lt;one small concrete task&gt;</code>
-          </div>
-        </li>
-      </ol>
+      <div class="stack mt-md">
+        <p class="label label-muted label-bordered">When to invoke each skill</p>
+
+        <div class="memory-row">
+          <div class="mono small">Trail</div>
+          <div class="small"><strong>Every session.</strong> Append what was decided and why.
+            Produces: <code>audit-trail.md</code> entry.</div>
+        </div>
+
+        <div class="memory-row">
+          <div class="mono small">Intent</div>
+          <div class="small"><strong>Before any task.</strong> The agent states its interpretation before acting.
+            No file — catches wrong reads before work begins.</div>
+        </div>
+
+        <div class="memory-row">
+          <div class="mono small">Improve</div>
+          <div class="small"><strong>When work needs doing.</strong> One iteration: one change, verified, logged.
+            Produces: <code>audit-trail.md</code> entry + the change itself.</div>
+        </div>
+
+        <div class="memory-row">
+          <div class="mono small">Vision</div>
+          <div class="small"><strong>At the start; when direction feels unclear.</strong> Surfaces implicit goals as questions to confirm or correct.
+            Produces: <code>vision.md</code>.</div>
+        </div>
+
+        <div class="memory-row">
+          <div class="mono small">Retrospect</div>
+          <div class="small"><strong>After many sessions; before declaring done.</strong> Arc-level read of the full trail.
+            Produces: <code>retrospect.md</code>.</div>
+        </div>
+
+        <div class="memory-row">
+          <div class="mono small">Probe</div>
+          <div class="small"><strong>When you need to verify reasoning quality.</strong> Two near-identical cases; checks whether the agent distinguishes them correctly.
+            Result appears in the trail entry.</div>
+        </div>
+
+      </div>
 
       <p class="mt-md">
-        A new entry appears in <code>.trail/audit-trail.md</code>. That is the loop, end to end.
-        <br>
         <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md"
            target="_blank" rel="noopener">Full quickstart with troubleshooting &#8599;</a>
       </p>

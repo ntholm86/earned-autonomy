@@ -2550,3 +2550,36 @@ Could I argue the reorder is wrong? No — it is a vision constraint (operationa
 2. **"Delegate to AI. Own the work." placement** — Vision iter-51 named this 6-word phrase as a candidate for hero subtitle, section label, or meta description. Page is now structurally stable; deciding where it lives is the next content-level move.
 
 3. **Memory section audit** — The Memory section is detailed and technically accurate, but it was written under the principles-first structure. With skills now the entry point, the memory section's positioning after skills may feel abrupt. Worth one pass to check the transition.
+
+## 2026-05-27 - iter-53-quickstart-copy-and-reference
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Improve + Intent
+**outcome:** changed — Quickstart section rebuilt as copy-instruction + 6-row skill reference
+
+### Interpretation
+
+Operator: "even simpler — copy the skills to your skills destination locally — which skills to trigger when — produces this file for each." Intent: replace the installer + slash-command frame with a dead-simple setup line and a scannable trigger reference. Destination: developer reads once, knows how to start.
+
+### Decision
+
+[!DECISION] Replace "Three commands" (bash install.sh / /vision / /improve) with: one-sentence copy instruction + 6-row reference table using existing memory-row CSS. No new CSS. Skill order matches the skills section above (Trail → Intent → Improve → Vision → Retrospect → Probe). Each row: when to invoke (bold) + produces (inline).
+
+Pre-commit prediction: Quickstart becomes shorter. Install script disappears. Reference is scannable in one pass. No CSS changes.
+
+### Verify — prediction held
+
+Replaced: quickstart-list ol, three code-block commands, explanatory paragraph.
+New: one paragraph (copy files + repo link), six memory-row rows (when + produces), trailing QUICKSTART.md link.
+CSS: zero changes — CONFIRMED.
+
+### Reflection
+
+Blind spot: "when direction feels unclear" for Vision may not land — a cold reader might not know what "direction" means without having read the Improve description. If this reads as vague, a follow-up pass could sharpen to "before a long autonomous run."
+
+### Candidate Next Moves
+
+1. Cold-reader test — unchanged from iter-52 ranking. Still the highest-information move.
+2. "Delegate to AI. Own the work." placement — Vision iter-51 phrase, page is now stable.
+3. Vision trigger copy — "when direction feels unclear" may need sharpening.
