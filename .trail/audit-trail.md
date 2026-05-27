@@ -2221,3 +2221,48 @@ No CSS changes. Existing nav a styling applies.
 1. **GitHub Pages push** — no structural blockers remain; all primary action-clarity gaps are closed. Terminal readiness test. Requires explicit operator confirmation.
 2. **Nav order: swap Trail and Get started** — 'Skills | Get started | Trail' puts action before demonstration for the scanning reader. Small change, separate iteration.
 3. **Mobile nav test** — 6 items may overflow on 375px. Visual check before GitHub Pages push.
+
+## 2026-05-27 - iter-46-nav-order-get-started-before-trail
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — nav order: Get started moved before Trail
+**commit:** bab640a
+
+### Interpretation of the ask
+
+Operator: 'do number two' — explicit reference to iter-45 ranked candidate #2: 'Nav order: swap Trail and Get started.' Operator also stated 'we dont need to be mobile friendly,' dismissing candidate #3 (mobile nav test) from the candidates list.
+
+### [!DECISION] Swap Trail and Get started in nav
+
+Before: Principles | Foundations | Skills | Trail | Get started | GitHub ↗
+After:  Principles | Foundations | Skills | Get started | Trail | GitHub ↗
+
+Rationale (from iter-45 trail): Trail is a showcase for technical evaluators. Quickstart is the action destination for the reader who wants to use the framework. Action before demonstration.
+
+No CSS changes. One-line reorder.
+
+**Pre-commit prediction:** Action destination now visible before showcase section. No other text affected.
+
+**Prediction held:** confirmed — one-line swap, 1 insertion + 1 deletion.
+
+### Reflection
+
+**Model claim.** The nav is now correctly ordered for the primary reader: framework explanation (Principles, Foundations, Skills) → act (Get started) → prove it works (Trail). The action-clarity thread from iter-43 is fully closed.
+
+**Blind spot.** Operator dismissed mobile concern. Desktop visual check still untaken — the full nav with 6 items + GitHub ↗ has not been browser-verified.
+
+**Imagined pushback.** 'Get started before Trail implies the reader should install before seeing the proof. Someone skeptical may want to see Trail first.' Valid ordering argument. Counter: the reader who is skeptical enough to need proof before acting will find Trail by scrolling or by reading the full nav. Putting Get started earlier serves the majority.
+
+**Across-trail reflection:**
+- Recurring finding-class: not fired.
+- About to declare silence: not fired — a change was made.
+- Contradicts prior [!REALIZATION]: not fired.
+- Operator explicitly asked: FIRED — 'do number two' was a direct instruction.
+
+### Candidate Next Moves
+
+1. **GitHub Pages push** — no structural blockers remain. All action-clarity gaps closed. Requires explicit operator confirmation.
+2. **External cold-reader test** — the highest-information move still untaken after 46 iterations.
+3. **Inline style cleanup** — multiple legacy style='' attributes throughout the page violate the operational rule. A targeted pass would close the hygiene gap.
