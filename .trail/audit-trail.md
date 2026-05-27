@@ -2432,3 +2432,46 @@ De-AI skill: add pattern 13 (difficulty-announcement frames). Update count from 
 ### Reflection
 
 The title is now 12 words vs 17. Two complete sentences: setup + imperative. The difficulty frame is gone. The de-ai skill now catches the class of phrases that caused it.
+
+## 2026-05-27 - retro-003-skills-first-reorientation
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Retrospect
+**outcome:** changed — retrospect.md replaced with retro-003; vision.md updated with skills-first structure
+
+### Scope statement
+
+Vision shifted in iter-51 Vision run: the page inverts from framework-explanation (Principles first) to skills-adoption (Skills first). Read the full arc against the new direction. Determine what structural facts need changing, what operational rules need updating, and where the loop's attention is needed now.
+
+### Freshness check
+
+No tools/record.py in this repo. Arc-claims read directly from audit-trail.md (2435 lines, sessions 001–iter-51) and vision.md (post iter-51 update). Gate: PASS.
+
+### Arc-claims (summary)
+
+1. The arc built a framework-explanation page for 50 iterations. The structural reorder ahead is the largest since iter-34 Kaikaku — but only touches section order and Improve depth, not CSS.
+2. Improve has run 50+ times to build this page and still gets equal visual weight to Probe or Retrospect. Most significant content inconsistency in current state.
+3. Trail has been a showcase section, never a recognition hook. Moving it first applies the iter-39 recognition insight to the skills ordering — the step that was never taken.
+4. External cold-reader test: 8+ consecutive trail entries named it as the highest-information move. Never executed. After the reorder, it is not a candidate — it is the move.
+5. 200+ iterations of build history surfaces almost none of itself on the page. Belongs in the Improve section.
+6. Vision drift prevention is working: iter-51 Vision fired in the same session as the direction change. Fastest vision-response in the arc.
+7. retro-002 claim 'page is approaching final structural state' is superseded. CSS is stable; content structure is intentionally open.
+
+### Actions taken
+
+1. Read full audit-trail.md (2435 lines) and updated vision.md
+2. Replaced .trail/retrospect.md with retro-003 (7 arc-claims, 6 next-run items, 11 operational rules)
+3. .trail/vision.md: Structure section rewritten; What success looks like updated; What is rejected updated with skills-first constraint
+4. Appended this trail entry
+
+### Operational rules added (rules 8-11)
+
+8. Skills section appears above Principles in scroll order — vision constraint, not candidate
+9. Skill card order: Trail -> Intent -> Improve -> Vision -> Retrospect -> Probe
+10. Improve is not a card — expanded subsection with ~2x visual depth (loop steps + lineage + evidence)
+11. De-AI pattern 13 active: cut difficulty-announcement frames from headings and openers
+
+### Reflection
+
+The page has been a principles-first artifact since session-001. That was the right starting point — the framework had to be explained before the skills could be positioned as its enactment. Now the operator is making the practical judgment that developers discover the tools before the framework. The structural reorder does not discard the principles; it repositions them as the intellectual grounding you reach after deciding the tools are worth using. That is a different reader journey — and the operator's read of their audience is the right guide here, not the arc's prior assumptions.

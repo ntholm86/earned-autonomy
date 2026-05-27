@@ -1,6 +1,6 @@
 # Vision — pea-website
 
-*Written by agent after Vision run, 2026-05-26. Updated 2026-05-27 (iter-39 Vision run). Operator commits when it reads right.*
+*Written by agent after Vision run, 2026-05-26. Updated 2026-05-27 (iter-39 Vision run). Updated 2026-05-27 (iter-51 Vision run — skills-first shift). Operator commits when it reads right.*
 
 ---
 
@@ -26,28 +26,42 @@ The shift from "both equally" (session-001 Vision) was confirmed in the 2026-05-
 
 ## Structure
 
-Two content sections (no self-referential proof section):
+**[REVISED iter-51 — 2026-05-27: skills-first shift]**
 
-1. **The Principles** — Commander's Intent, Observable Autonomy, Convergence Is Silence. Not as a bullet list of definitions. As an explanation of *what problem each principle solves* and *why that problem matters* for anyone delegating real work to an AI. This is the intellectual core.
+**Prior structure (iter-39, now superseded):**
+~~1. The Principles — as the intellectual core~~
+~~2. The Skillset — as the concrete implementation~~
+*The operator confirmed this inverts: skills are now the entry point; principles are the explanation behind them.*
 
-2. **The Skillset** — The six skills (Intent, Vision, Trail, Improve, Retrospect, Probe) as the concrete implementation of those principles. Not a feature matrix — a coherent picture of how the principles become practice.
+**Current structure:**
 
-The harness protocol is out of scope for now.
+1. **Hero** — unchanged. "You're delegating real work to AI. Stay accountable for the work." Problem-framing remains the entry point.
 
-The two content sections are **not framed as a connected stack**. The principles stand on their own. The skills are their enactment — but a reader who only understands the principles has gotten value.
+2. **The Skills** — primary content section. Moves above Principles. The reader should land on this before the framework.
+   - **Trail first** — "what most realize they are missing right now." The recognition hook.
+   - **Intent second** — devs feel this problem: the agent goes somewhere sideways because it interpreted the brief literally.
+   - **Improve third, with 2× visual depth** — this is where work actually gets done. The section should show: the loop itself (read trail → examine → challenge → decide → one change → verify → reflect), the lineage (started as Kaizen from Toyota Kata; v2 split into Kaizen/Kaikaku/Hansei; v3 unified), and the evidence (200+ iterations on itself, two full self-rewrites). Improve is not a card — it is a subsection.
+   - **Vision fourth** — the piece that sets the destination. The agent needs to know where it's going; Vision is how you tell it. Direction/goal/mission/destination are all the same thing here.
+   - **Retrospect and Probe** — supporting roles, not removed. Keep as cards below Vision.
+
+3. **The Principles** — moves below Skills. Reframed as "why the skills are built this way" — the intellectual grounding you reach *after* deciding the skills are worth trying. Commander's Intent, Observable Autonomy, Convergence Is Silence remain, but they now *explain the skills*, not precede them.
+
+The page is no longer "framework with implementation." It is "tools that solve today's problems, with the framework that explains why they work."
+
+**Phrase candidate (Vision run, 2026-05-27):** "Delegate to AI. Own the work." — operator to confirm or adjust. Six words, two imperatives, captures the tension the page is built around. Potential use: hero subtitle, section label, or meta description replacement.
+
+The harness protocol remains out of scope.
 
 ## What success looks like
 
-A non-technical reader arriving cold should:
-- Understand **what PEA is and what problem it solves** within 3 seconds — without reading
-- Get the **point** of the three principles within 30 seconds — by scanning, not reading
-- Feel **recognition + intrigue**: "I didn't know this existed, but now that I see it, I needed it" — not impressed, not informed, *found*
+A developer arriving cold should:
+- Recognize their own problem in the Trail or Intent card **within 3 seconds** — without reading
+- Understand what Improve does and feel the shape of the loop within 30 seconds — by scanning, not reading
+- Feel **recognition + intrigue**: "I've been trying to solve this, and this names it" — not impressed, not informed, *found*
 
-**Emotional destination (confirmed 2026-05-27):** the primary reader has been trying to safely delegate real work to AI, finds it hard to trust, and lands on this page feeling: *this names the thing I've been struggling with.*
+**Emotional destination (confirmed 2026-05-27, reaffirmed iter-51):** the primary reader is a developer who has already felt the gap — the audit trail they don't have, the brief that went sideways, the run they can't verify. The page reaches them at the recognition point, not at the framework entry point.
 
-"Serious and credible, not promotional" remains a valid constraint — but it describes how the page is *evaluated* after reading. The primary register to achieve is recognition in the first three seconds. Credibility is what makes the recognition stick.
-
-The current page fails this test. The hero leads with pain before relief. The design relies on text being read rather than structure being seen. Operator confirmed 2026-05-27: *"it does not give this instant feeling of solving that hard problem."*
+"Serious and credible, not promotional" remains a valid constraint — but credibility is what makes recognition stick, not how recognition is achieved.
 
 ---
 
@@ -69,6 +83,7 @@ Epistemic register: honest and direct. Not promotional. Claims are grounded. The
 - Any harness protocol content (deferred)
 - Self-referential proof section in any form (removed iter-8; the demonstration lives in the trail)
 - "Both audiences equally" as a design constraint (non-technical reader is now primary)
+- **Principles-first page structure** (reversed iter-51 — skills are the entry point, principles explain why the skills are built the way they are)
 
 ---
 
