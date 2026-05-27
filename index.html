@@ -9,311 +9,207 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Light - warm white + deep teal - iter-7 */
-      /* contrast verified: ink/bg ~17:1, muted/bg ~6.4:1, accent/bg ~7.2:1 */
-      --bg:        #fafaf8;   /* Warm white */
-      --ink:       #1c1c1e;   /* Near-black - primary text */
-      --muted:     #44403c;   /* Warm stone grey - body copy - ~8:1 contrast */
-      --rule:      #e7e5e4;   /* Warm stone border / dividers */
-      --accent:    #155e75;   /* Deep teal - interactive & labels */
-      --accent-lt: #f0fdfa;   /* Pale teal tint - callout surfaces */
-      --num:       #e7e5e4;   /* Near-invisible oversized decorative numbers */
-      --card-bg:   #f5f5f3;   /* Slightly elevated surface - cards */
-      --font:      -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --mono:      'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-      --max:       760px;
-      --ease:      0.15s;     /* Universal transition timing */
+      /* Colour */
+      --bg:        #fafaf8;
+      --ink:       #1c1c1e;
+      --muted:     #44403c;
+      --rule:      #e7e5e4;
+      --accent:    #155e75;
+      --accent-lt: #f0fdfa;
+      --num:       #e7e5e4;
+      --card-bg:   #f5f5f3;
 
-      /* Type scale - 5 stops, semantic - iter-33 */
+      /* Fonts */
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+
+      /* Type scale */
       --text-micro:   0.78rem;
       --text-small:   0.9rem;
       --text-body:    1rem;
       --text-title:   clamp(1.5rem, 4vw, 2rem);
       --text-display: clamp(2rem, 5vw, 2.75rem);
 
-      /* Weight scale - 3 stops */
+      /* Weight */
       --weight-regular: 400;
       --weight-medium:  600;
       --weight-bold:    700;
 
-      /* Letter-spacing - 2 stops + default 0 */
+      /* Letter-spacing */
       --track-tight: -0.02em;
       --track-wide:   0.08em;
 
-      /* Radius - 2 stops */
-      --radius:    8px;       /* Card / callout corner radius */
-      --radius-sm: 4px;       /* Chip / button / inline corner radius */
+      /* Spacing - 4 stops */
+      --gap-xs: 0.5rem;
+      --gap-sm: 1rem;
+      --gap-md: 1.5rem;
+      --gap-lg: 3rem;
+
+      /* Layout */
+      --max:       760px;
+      --radius:    8px;
+      --radius-sm: 4px;
+      --ease:      0.15s;
     }
 
+    /* === Base === */
     html { font-size: 17px; scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
-      color: var(--ink);
+      color: var(--muted);
       font-family: var(--font);
-      line-height: 1.6;
+      font-size: var(--text-body);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
+    h1, h2, h3 { color: var(--ink); font-weight: var(--weight-bold); line-height: 1.25; }
+    h1 { font-size: var(--text-display); letter-spacing: var(--track-tight); margin-bottom: var(--gap-sm); }
+    h2 { font-size: var(--text-title);   letter-spacing: var(--track-tight); margin-bottom: var(--gap-sm); }
+    h3 { font-size: var(--text-body);    margin-bottom: var(--gap-xs); }
+    p  { margin-bottom: var(--gap-xs); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: var(--weight-medium); }
+    a  { color: var(--accent); text-decoration: none; transition: color var(--ease); }
+    a:hover { text-decoration: underline; }
+    ul, ol { list-style: none; }
 
-    /* ── NAV ── */
+    /* === Layout === */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
+    section { padding: var(--gap-lg) 0; }
+    section + section { border-top: 1px solid var(--rule); }
+    .stack    { display: flex; flex-direction: column; gap: var(--gap-sm); }
+    .stack-md { gap: var(--gap-md); }
+    .stack-lg { gap: var(--gap-lg); }
+    .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--gap-sm); }
+    .grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+
+    /* === Labels === */
+    .label {
+      display: block;
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      text-transform: uppercase;
+      letter-spacing: var(--track-wide);
+      color: var(--accent);
+      margin-bottom: var(--gap-xs);
+    }
+    .label-muted { color: var(--muted); }
+    .label-bordered {
+      padding-bottom: var(--gap-xs);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: var(--gap-sm);
+    }
+
+    /* === Surfaces === */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: var(--gap-sm) var(--gap-md);
+    }
+    .card-accent { border-left: 3px solid var(--accent); }
+    a.card { display: block; color: inherit; text-decoration: none; transition: border-color var(--ease), box-shadow var(--ease); }
+    a.card:hover { border-color: var(--accent); box-shadow: 0 2px 14px rgba(21,94,117,0.12); text-decoration: none; }
+
+    /* === Chips & buttons === */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--gap-xs);
+      font-size: var(--text-micro);
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      background: var(--card-bg);
+      transition: border-color var(--ease), color var(--ease);
+    }
+    a.chip { text-decoration: none; }
+    a.chip:hover { border-color: var(--accent); color: var(--accent); }
+    .chip-lg { padding: 0.35rem 0.85rem; font-size: var(--text-small); background: transparent; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--gap-xs);
+      padding: var(--gap-xs) var(--gap-sm);
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
+      text-decoration: none;
+      transition: opacity var(--ease);
+    }
+    .btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* === Text helpers === */
+    .small  { font-size: var(--text-small); }
+    .micro  { font-size: var(--text-micro); }
+    .italic { font-style: italic; }
+    .center { text-align: center; }
+    .max-prose { max-width: 600px; }
+
+    /* === Mono accent === */
+    .mono { font-family: var(--mono); color: var(--accent); font-weight: var(--weight-medium); }
+    code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      color: var(--accent);
+      background: var(--accent-lt);
+      padding: 0.1em 0.35em;
+      border-radius: var(--radius-sm);
+    }
+    .code-block {
+      display: block;
+      font-family: var(--mono);
+      font-size: var(--text-small);
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: var(--gap-xs) var(--gap-sm);
+      color: var(--ink);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* === Nav === */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 2rem;
+      padding: var(--gap-sm) var(--gap-md);
       border-bottom: 1px solid var(--rule);
       position: sticky;
       top: 0;
       background: var(--bg);
       z-index: 10;
     }
+    nav .label { margin-bottom: 0; }
+    nav ul { display: flex; gap: var(--gap-md); }
+    nav ul a { font-size: var(--text-small); color: var(--muted); }
+    nav ul a:hover { color: var(--accent); text-decoration: none; }
 
-    .nav-brand {
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: var(--text-small);
-      color: var(--muted);
-      text-decoration: none;
-      transition: color var(--ease);
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ── LAYOUT ── */
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section { padding: 2.75rem 0; }
-    section + section { border-top: 1px solid var(--rule); }
-
-    /* ── HERO ── */
-    .hero { padding: 3.5rem 0 2.75rem; }
-
-    .hero-eyebrow {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero h1 {
-      font-size: var(--text-display);
-      font-weight: var(--weight-bold);
-      line-height: 1.2;
-      letter-spacing: var(--track-tight);
-      margin-bottom: 1rem;
-      color: var(--ink);
-    }
-
-    .hero-problem {
-      font-size: var(--text-body);
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      max-width: 640px;
-    }
-
-    .hero-stances {
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 1.25rem 1.5rem;
-      margin: 1.25rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .hero-stances p {
-      font-size: var(--text-body);
-      color: var(--muted);
-    }
-
-    .hero-stances strong {
-      color: var(--ink);
-      font-weight: var(--weight-medium);
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-      padding: 0.65rem 1.25rem;
-      background: var(--accent);
-      color: var(--bg);
-      text-decoration: none;
-      border-radius: var(--radius-sm);
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
-      transition: opacity var(--ease);
-    }
-
-    .hero-cta:hover { opacity: 0.88; }
-
-    /* ── SECTION TITLES ── */
-    .section-label {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: var(--text-title);
-      font-weight: var(--weight-bold);
-      letter-spacing: var(--track-tight);
-      line-height: 1.25;
-      margin-bottom: 1rem;
-    }
-
-    .section-intro {
-      font-size: var(--text-body);
-      color: var(--muted);
-      max-width: 600px;
-      margin-bottom: 1.75rem;
-    }
-
-    /* ── PRINCIPLES ── */
-    .principles-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
+    /* === Principle layout === */
     .principle {
       display: grid;
       grid-template-columns: 3.5rem 1fr;
-      gap: 0 1.75rem;
+      gap: 0 var(--gap-md);
       align-items: start;
     }
-
     .principle-num {
       font-size: var(--text-display);
       font-weight: var(--weight-bold);
       line-height: 1;
       color: var(--num);
       font-variant-numeric: tabular-nums;
-      padding-top: 0.15rem;
     }
+    .icon { color: var(--accent); display: block; margin-bottom: var(--gap-xs); }
 
-    .principle-name {
-      font-size: var(--text-title);
-      font-weight: var(--weight-bold);
-      color: var(--ink);
-      margin-bottom: 0.2rem;
-    }
-
-    .principle-tagline {
-      font-size: var(--text-body);
-      font-weight: var(--weight-medium);
-      font-family: var(--mono);
-      color: var(--accent);
-      margin-bottom: 1rem;
-      display: block;
-      line-height: 1.4;
-    }
-
-    .principle-problem {
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
-      text-transform: uppercase;
-      letter-spacing: var(--track-wide);
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .principle-body p {
-      font-size: var(--text-body);
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .principle-body p:last-child { margin-bottom: 0; }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-
-    a.skill-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .skill-card {
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.5rem;
-      transition: border-color var(--ease), box-shadow var(--ease);
-    }
-
-    .skill-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 2px 14px rgba(21, 94, 117, 0.12);
-    }
-
-    .skill-name {
-      font-size: var(--text-body);
-      font-weight: var(--weight-bold);
-      color: var(--ink);
-      margin-bottom: 0.35rem;
-    }
-
-    .skill-problem {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      text-transform: uppercase;
-      letter-spacing: var(--track-wide);
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .skill-desc {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── EVIDENCE ── */
-    .evidence-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .evidence-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .evidence-num {
+    /* === Evidence numeral circle === */
+    .numeral-circle {
       flex-shrink: 0;
       width: 1.75rem;
       height: 1.75rem;
@@ -325,236 +221,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 0.15rem;
     }
 
-    .evidence-text {
-      font-size: var(--text-small);
-      color: var(--muted);
-    }
-
-    .evidence-text strong { color: var(--ink); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2.5rem 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
-    .footer-author {
-      font-size: var(--text-small);
-      color: var(--muted);
-    }
-
-    .footer-author strong {
-      display: block;
-      color: var(--ink);
-      font-weight: var(--weight-medium);
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .footer-link {
-      font-size: var(--text-small);
-      padding: 0.35rem 0.85rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-sm);
-      color: var(--muted);
-      text-decoration: none;
-      transition: border-color var(--ease), color var(--ease);
-    }
-
-    .footer-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .footer-license {
-      font-size: var(--text-micro);
-      color: var(--muted);
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      text-align: center;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 540px) {
-      nav { padding: 1rem 1.25rem; }
-      .nav-links { gap: 1rem; }
-      .container { padding: 0 1.25rem; }
-      section { padding: 2rem 0; }
-      .hero { padding: 2.5rem 0 2rem; }
-      .principle { grid-template-columns: 2.75rem 1fr; gap: 0 1.25rem; }
-      .principle-num { font-size: var(--text-display); }
-      .skills-grid { grid-template-columns: 1fr; }
-      .foundations-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── ROOTS (inline under principles) ── */
-    .principle-roots {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1.1rem;
-      padding-top: 0.9rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .roots-label {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-right: 0.1rem;
-    }
-
-    .root-chip {
-      font-size: var(--text-micro);
-      padding: 0.2rem 0.6rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-sm);
-      color: var(--muted);
-      text-decoration: none;
-      background: var(--card-bg);
-      transition: border-color var(--ease), color var(--ease);
-    }
-
-    a.root-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── FOUNDATIONS section ── */
-    .foundations-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .foundations-col h3 {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--track-wide);
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .foundation-item { margin-bottom: 1.25rem; }
-    .foundation-item:last-child { margin-bottom: 0; }
-
-    .foundation-link {
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
-      color: var(--ink);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.15rem;
-    }
-
-    a.foundation-link:hover { color: var(--accent); }
-
-    .foundation-source {
-      font-size: var(--text-micro);
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 0.25rem;
-    }
-
-    .foundation-note {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ── DIRECT FOUNDATION INTRO ── */
-    .foundations-col > .foundation-note { margin-bottom: 1.25rem; }
-
-    /* ── FOOTER LICENSE LINK ── */
-    .footer-license a { color: var(--muted); }
-
-    /* ── MEMORY PROSE (paragraphs above/below memory file list) ── */
-    .memory-prose {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .memory-prose-before { margin-top: -0.5rem; margin-bottom: 1.5rem; }
-    .memory-prose-after  { margin-top: 1.5rem; }
-
-    /* ── CODE INLINE ── */
-    code {
-      font-size: 0.82em;
-      font-family: var(--mono);
-      background: var(--accent-lt);
-      color: var(--accent);
-      padding: 0.1em 0.35em;
-      border-radius: var(--radius-sm);
-    }
-
-    /* ── ARF CALLOUT ── */
-    .arf-callout {
-      margin-top: 2rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-    }
-    .arf-label {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .arf-title {
-      font-size: var(--text-body);
-      font-weight: var(--weight-medium);
-      margin-bottom: 0.5rem;
-    }
-    .arf-text {
-      font-size: var(--text-small);
-      color: var(--muted);
-    }
-
-    /* ── EVIDENCE LABEL ── */
-    .evidence-label {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    /* ── PRINCIPLE ICON ── */
-    .principle-icon {
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.85rem;
-    }
-
-    /* ── MEMORY MODEL SECTION ── */
+    /* === Memory tree === */
     .memory-tree {
       font-family: var(--mono);
       font-size: var(--text-small);
@@ -563,83 +232,38 @@
       border: 1px solid var(--rule);
       border-left: 3px solid var(--accent);
       border-radius: var(--radius);
-      padding: 1.25rem 1.5rem;
-      margin: 1.5rem 0 2rem;
+      padding: var(--gap-sm) var(--gap-md);
       color: var(--ink);
       overflow-x: auto;
       white-space: pre;
+      margin: var(--gap-md) 0;
     }
-
-    .memory-tree .tree-comment {
-      color: var(--muted);
-      font-weight: var(--weight-regular);
-    }
-
-    .memory-tree .tree-name {
-      color: var(--accent);
-      font-weight: var(--weight-medium);
-    }
-
-    .memory-files {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .memory-file {
+    .memory-tree .tree-comment { color: var(--muted); font-weight: var(--weight-regular); }
+    .memory-tree .tree-name    { color: var(--accent); font-weight: var(--weight-medium); }
+    .memory-row {
       display: grid;
       grid-template-columns: 11rem 1fr;
-      gap: 1.25rem;
-      padding: 0.85rem 0;
+      gap: var(--gap-sm);
+      padding: var(--gap-xs) 0;
       border-top: 1px solid var(--rule);
       align-items: baseline;
     }
+    .memory-row:first-child { border-top: none; padding-top: 0; }
 
-    .memory-file:first-child { border-top: none; padding-top: 0; }
-
-    .memory-file-name {
-      font-family: var(--mono);
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
-      color: var(--accent);
-    }
-
-    .memory-file-role {
-      font-size: var(--text-body);
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .memory-file-role strong {
-      color: var(--ink);
-      font-weight: var(--weight-medium);
-    }
-
-    @media (max-width: 600px) {
-      .memory-file {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
-      }
-    }
-
-    /* ── QUICKSTART SECTION ── */
+    /* === Quickstart === */
     .quickstart-list {
-      list-style: none;
-      padding: 0;
       counter-reset: qs;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      margin: 1.5rem 0 0;
+      gap: var(--gap-md);
+      margin-top: var(--gap-md);
     }
-
     .quickstart-list li {
       display: grid;
       grid-template-columns: 3rem 1fr;
-      gap: 1rem;
+      gap: var(--gap-sm);
       align-items: baseline;
     }
-
     .quickstart-list li::before {
       counter-increment: qs;
       content: counter(qs);
@@ -650,141 +274,29 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .quickstart-step-title {
-      font-size: var(--text-body);
-      font-weight: var(--weight-bold);
-      color: var(--ink);
-      margin: 0 0 0.5rem 0;
-    }
-
-    .quickstart-code {
-      display: block;
-      font-family: var(--mono);
-      font-size: var(--text-small);
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: 0.7rem 0.9rem;
-      color: var(--ink);
-      overflow-x: auto;
-      white-space: pre;
-    }
-
-    .quickstart-after {
-      font-size: var(--text-body);
-      color: var(--muted);
-      line-height: 1.65;
-      margin-top: 2rem;
-    }
-
-    .quickstart-after a {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-
-    /* ── TRAIL SECTION ── */
+    /* === Trail scroll === */
     .trail-scroll {
       max-height: 540px;
       overflow-y: auto;
       border: 1px solid var(--rule);
       border-radius: var(--radius);
-      padding: 0 1.5rem 1rem;
-      margin-top: 1.5rem;
+      padding: 0 var(--gap-md) var(--gap-sm);
+      margin-top: var(--gap-md);
       scroll-behavior: smooth;
     }
-
-    .trail-scroll::-webkit-scrollbar { width: 6px; }
+    .trail-scroll::-webkit-scrollbar       { width: 6px; }
     .trail-scroll::-webkit-scrollbar-track { background: var(--card-bg); }
     .trail-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: var(--radius-sm); }
-
-    .trail-entry {
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .trail-entry-date {
-      font-size: var(--text-micro);
+    .trail-scroll .card { margin-top: var(--gap-md); }
+    .trail-meta {
       font-family: var(--mono);
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-
-    .trail-entry-headline {
-      font-size: var(--text-body);
-      font-weight: var(--weight-bold);
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
-    .trail-entry-meta {
       font-size: var(--text-micro);
-      font-family: var(--mono);
       color: var(--muted);
       line-height: 1.8;
-      padding-bottom: 0.9rem;
-      margin-bottom: 0.9rem;
+      padding-bottom: var(--gap-xs);
+      margin-bottom: var(--gap-xs);
       border-bottom: 1px solid var(--rule);
     }
-
-    .trail-section-label {
-      font-size: var(--text-micro);
-      font-weight: var(--weight-bold);
-      letter-spacing: var(--track-wide);
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .trail-entry > p {
-      font-size: var(--text-small);
-      color: var(--muted);
-      margin-bottom: 0.55rem;
-      line-height: 1.6;
-    }
-
-    .trail-caveat {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.6;
-      background: var(--accent-lt);
-      border-radius: var(--radius-sm);
-      padding: 0.7rem 1rem;
-      margin: 0.5rem 0 0.6rem;
-    }
-
-    .trail-findings {
-      list-style: none;
-      padding: 0;
-      margin: 0.35rem 0 0.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .trail-findings li {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.55;
-      padding-left: 1.1rem;
-      position: relative;
-    }
-
-    .trail-findings li::before {
-      content: "·";
-      position: absolute;
-      left: 0.1rem;
-      color: var(--accent);
-      font-weight: var(--weight-bold);
-    }
-
-    .trail-findings strong { color: var(--ink); }
-
     .trail-marker {
       font-family: var(--mono);
       font-size: 0.82em;
@@ -795,40 +307,29 @@
       border-radius: var(--radius-sm);
     }
 
-    .trail-truncated {
-      font-size: var(--text-micro);
-      color: var(--muted);
-      font-style: italic;
-      margin-top: 1rem;
-      padding-top: 0.75rem;
+    /* === Footer === */
+    footer { border-top: 1px solid var(--rule); padding: var(--gap-lg) 0; }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--gap-md);
+    }
+    .footer-bottom {
+      margin-top: var(--gap-md);
+      padding-top: var(--gap-sm);
       border-top: 1px solid var(--rule);
     }
 
-    .trail-view-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: var(--text-small);
-      color: var(--accent);
-      text-decoration: none;
-      margin-top: 0.75rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-sm);
-      padding: 0.4rem 0.9rem;
-      transition: border-color var(--ease), color var(--ease);
-    }
-
-    .trail-view-link:hover { border-color: var(--accent); }
-
-    /* ── AUTHOR STATEMENT ── */
-    .footer-statement {
-      font-size: var(--text-small);
-      color: var(--muted);
-      line-height: 1.65;
-      max-width: 600px;
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--rule);
+    /* === Responsive === */
+    @media (max-width: 540px) {
+      nav { padding: var(--gap-xs) var(--gap-sm); }
+      nav ul { gap: var(--gap-sm); }
+      .container { padding: 0 var(--gap-sm); }
+      .principle { grid-template-columns: 2.75rem 1fr; gap: 0 var(--gap-sm); }
+      .grid-auto, .grid-2 { grid-template-columns: 1fr; }
+      .memory-row { grid-template-columns: 1fr; gap: var(--gap-xs); }
     }
   </style>
 </head>
@@ -836,28 +337,28 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-brand" href="#">Earned Autonomy</a>
-    <ul class="nav-links">
+    <a class="label" href="#">Earned Autonomy</a>
+    <ul>
       <li><a href="#principles">Principles</a></li>
       <li><a href="#foundations">Foundations</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#trail">Trail</a></li>
-      <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">GitHub &#8599;</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <div class="container">
-    <section class="hero" id="top">
-      <p class="hero-eyebrow">Principles of Earned Autonomy</p>
+    <section id="top">
+      <p class="label">Principles of Earned Autonomy</p>
       <h1>A framework for safely delegating real work to AI - while remaining accountable for what gets done.</h1>
 
-      <p class="hero-problem">
+      <p>
         Three principles that apply to any AI model or toolset.
         They address the gap between AI capability and human accountability.
       </p>
 
-      <div class="hero-stances">
+      <div class="card card-accent stack" style="margin: var(--gap-md) 0;">
         <p><strong>Two responses to this gap are common. Both break down.</strong></p>
         <p>
           <strong>"I'll just review everything."</strong>
@@ -872,8 +373,8 @@
         </p>
       </div>
 
-      <a class="hero-cta" href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">
-        Read the framework ↗
+      <a class="btn" href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">
+        Read the framework &#8599;
       </a>
     </section>
   </div>
@@ -881,26 +382,26 @@
   <!-- PRINCIPLES -->
   <div class="container">
     <section id="principles">
-      <p class="section-label">The Framework</p>
-      <h2 class="section-title">Three Principles</h2>
-      <p class="section-intro">
+      <p class="label">The Framework</p>
+      <h2>Three Principles</h2>
+      <p>
         These are requirements. An AI setup that ignores them has a structural design problem.
         Each one names something the AI must never be allowed to decide on its own.
       </p>
 
-      <div class="principles-list">
+      <div class="stack-lg" style="margin-top: var(--gap-md);">
 
         <!-- Principle 1 -->
         <div class="principle">
           <div class="principle-num">01</div>
-          <div class="principle-body">
-            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <div class="stack">
+            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <line x1="5" y1="3" x2="5" y2="25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               <path d="M5 3 L22 9 L5 15" fill="currentColor" opacity="0.85"/>
             </svg>
-            <div class="principle-name">Commander's Intent</div>
-            <span class="principle-tagline">Define the destination. Never prescribe the route.</span>
-            <p class="principle-problem">The problem it solves</p>
+            <h3>Commander's Intent</h3>
+            <span class="mono small">Define the destination. Never prescribe the route.</span>
+            <p class="label label-muted">The problem it solves</p>
             <p>
               Give an AI agent a checklist and it executes the checklist. Its ceiling is the checklist.
               It finds what the checklist described and misses everything else. It cannot adapt to a situation
@@ -912,15 +413,15 @@
               The agent discovers the method.
             </p>
             <p>
-              In practice this means giving the AI a goal - “what here doesn’t earn its existence?” - rather than
+              In practice this means giving the AI a goal - "what here doesn't earn its existence?" - rather than
               a checklist of specific things to look for. It means providing vocabulary as a thinking framework,
               not a lookup table. The instruction defines the shape of the work. The agent finds the content.
             </p>
-            <div class="principle-roots">
-              <span class="roots-label">Roots</span>
-              <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" class="root-chip">Auftragstaktik</a>
-              <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" class="root-chip">Toyota Kata</a>
-              <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" class="root-chip">Socratic Method</a>
+            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
+              <span class="label label-muted" style="margin: 0;">Roots</span>
+              <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" class="chip">Auftragstaktik</a>
+              <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" class="chip">Toyota Kata</a>
+              <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" class="chip">Socratic Method</a>
             </div>
           </div>
         </div>
@@ -928,17 +429,17 @@
         <!-- Principle 2 -->
         <div class="principle">
           <div class="principle-num">02</div>
-          <div class="principle-body">
-            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <div class="stack">
+            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <circle cx="5" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
               <line x1="8.5" y1="14" x2="11" y2="14" stroke="currentColor" stroke-width="1.75"/>
               <circle cx="14" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
               <line x1="17" y1="14" x2="19.5" y2="14" stroke="currentColor" stroke-width="1.75"/>
               <circle cx="23" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
             </svg>
-            <div class="principle-name">Observable Autonomy</div>
-            <span class="principle-tagline">Autonomy is earned through transparency.</span>
-            <p class="principle-problem">The problem it solves</p>
+            <h3>Observable Autonomy</h3>
+            <span class="mono small">Autonomy is earned through transparency.</span>
+            <p class="label label-muted">The problem it solves</p>
             <p>
               Autonomy and transparency are usually treated as parallel concerns - independent checkboxes.
               They are causally linked.
@@ -954,10 +455,10 @@
             <p>
               The audit trail is how the agent earns the right to keep acting.
             </p>
-            <div class="principle-roots">
-              <span class="roots-label">Roots</span>
-              <a href="https://doi.org/10.3389/frobt.2018.00015" target="_blank" rel="noopener" class="root-chip">Meaningful Human Control</a>
-              <span class="root-chip">Trust Calibration - Lee &amp; See, 2004</span>
+            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
+              <span class="label label-muted" style="margin: 0;">Roots</span>
+              <a href="https://doi.org/10.3389/frobt.2018.00015" target="_blank" rel="noopener" class="chip">Meaningful Human Control</a>
+              <span class="chip">Trust Calibration - Lee &amp; See, 2004</span>
             </div>
           </div>
         </div>
@@ -965,16 +466,16 @@
         <!-- Principle 3 -->
         <div class="principle">
           <div class="principle-num">03</div>
-          <div class="principle-body">
-            <svg class="principle-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <div class="stack">
+            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <line x1="4" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
               <line x1="14" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
               <line x1="24" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
               <circle cx="14" cy="22" r="2.5" fill="currentColor"/>
             </svg>
-            <div class="principle-name">Convergence Is Silence</div>
-            <span class="principle-tagline">Converged when independent evaluators find nothing left to change.</span>
-            <p class="principle-problem">The problem it solves</p>
+            <h3>Convergence Is Silence</h3>
+            <span class="mono small">Converged when independent evaluators find nothing left to change.</span>
+            <p class="label label-muted">The problem it solves</p>
             <p>
               AI improvement cycles tend to declare completion too early. The usual test - "the score stopped
               going up" - measures the wrong thing. A score can plateau while the work is still unstable:
@@ -989,11 +490,11 @@
               others found - to assess the work. When they all find nothing left to change, the work is done.
               A stable score matters. The test is whether independent evaluators agree.
             </p>
-            <div class="principle-roots">
-              <span class="roots-label">Roots</span>
-              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" class="root-chip">Kaizen</a>
-              <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" class="root-chip">Delphi Method</a>
-              <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank" rel="noopener" class="root-chip">Cross-validation</a>
+            <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
+              <span class="label label-muted" style="margin: 0;">Roots</span>
+              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" class="chip">Kaizen</a>
+              <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" class="chip">Delphi Method</a>
+              <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank" rel="noopener" class="chip">Cross-validation</a>
             </div>
           </div>
         </div>
@@ -1001,10 +502,10 @@
       </div>
 
       <!-- ARF callout -->
-      <div class="arf-callout">
-        <p class="arf-label">Emergent property</p>
-        <p class="arf-title">Autonomous Reasoning Fidelity (ARF)</p>
-        <p class="arf-text">
+      <div class="card" style="margin-top: var(--gap-lg);">
+        <p class="label">Emergent property</p>
+        <h3>Autonomous Reasoning Fidelity (ARF)</h3>
+        <p>
           ARF is what all three principles produce together: the observable signal that the agent is
           reasoning, and that the reasoning is visible enough for outside observers to judge. It only shows
           up when all three principles hold - weaken any one of them, and it disappears.
@@ -1016,78 +517,78 @@
   <!-- FOUNDATIONS -->
   <div class="container">
     <section id="foundations">
-      <p class="section-label">Intellectual lineage</p>
-      <h2 class="section-title">Standing on prior work</h2>
-      <p class="section-intro">
+      <p class="label">Intellectual lineage</p>
+      <h2>Standing on prior work</h2>
+      <p>
         This framework draws from established traditions in military doctrine, lean manufacturing, philosophy,
         and empirical AI research. Each one contributed something the framework would be weaker
         without.
       </p>
 
-      <div class="foundations-grid">
+      <div class="grid-2" style="margin-top: var(--gap-md);">
 
-        <div class="foundations-col">
-          <h3>Conceptual traditions</h3>
+        <div class="stack-md">
+          <p class="label label-muted label-bordered">Conceptual traditions</p>
 
-          <div class="foundation-item">
-            <a href="https://en.wikipedia.org/wiki/Auftragstaktik" class="foundation-link" target="_blank" rel="noopener">Auftragstaktik - Prussian mission command ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" class="foundation-link" target="_blank" rel="noopener">Commander's Intent - US military adaptation ↗</a>
-            <p class="foundation-source">19th century military doctrine, German General Staff</p>
-            <p class="foundation-note">Defines subordinate authority by mission objective. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
+          <div class="stack">
+            <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener">Auftragstaktik - Prussian mission command &#8599;</a>
+            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener">Commander's Intent - US military adaptation &#8599;</a>
+            <p class="micro italic">19th century military doctrine, German General Staff</p>
+            <p class="small">Defines subordinate authority by mission objective. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://en.wikipedia.org/wiki/Toyota_kata" class="foundation-link" target="_blank" rel="noopener">Toyota Kata - Mike Rother ↗</a>
-            <a href="https://lean.org/lexicon-terms/kaizen/" class="foundation-link" target="_blank" rel="noopener">Lean Enterprise Institute: Kaizen and the Coaching Kata ↗</a>
-            <p class="foundation-source">McGraw-Hill, 2009</p>
-            <p class="foundation-note">The Coaching Kata establishes a pattern where the coach defines the target condition and the learner discovers the path. Shapes how PEA frames the operator–agent relationship.</p>
+          <div class="stack">
+            <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener">Toyota Kata - Mike Rother &#8599;</a>
+            <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener">Lean Enterprise Institute: Kaizen and the Coaching Kata &#8599;</a>
+            <p class="micro italic">McGraw-Hill, 2009</p>
+            <p class="small">The Coaching Kata establishes a pattern where the coach defines the target condition and the learner discovers the path. Shapes how PEA frames the operator-agent relationship.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://plato.stanford.edu/entries/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates - Stanford Encyclopedia of Philosophy ↗</a>
-            <a href="https://iep.utm.edu/socrates/" class="foundation-link" target="_blank" rel="noopener">Socrates - Internet Encyclopedia of Philosophy ↗</a>
-            <p class="foundation-source">Stanford Encyclopedia of Philosophy · Internet Encyclopedia of Philosophy</p>
-            <p class="foundation-note">Reasoning through questions rather than assertions - the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
+          <div class="stack">
+            <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener">Socrates - Stanford Encyclopedia of Philosophy &#8599;</a>
+            <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener">Socrates - Internet Encyclopedia of Philosophy &#8599;</a>
+            <p class="micro italic">Stanford Encyclopedia of Philosophy &middot; Internet Encyclopedia of Philosophy</p>
+            <p class="small">Reasoning through questions rather than assertions - the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://lean.org/lexicon-terms/kaizen/" class="foundation-link" target="_blank" rel="noopener">Kaizen - Lean Enterprise Institute ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Kaizen" class="foundation-link" target="_blank" rel="noopener">Kaizen - Wikipedia ↗</a>
-            <p class="foundation-source">Toyota Production System · Lean Enterprise Institute</p>
-            <p class="foundation-note">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as Convergence Is Silence and makes the independence condition explicit.</p>
+          <div class="stack">
+            <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener">Kaizen - Lean Enterprise Institute &#8599;</a>
+            <a href="https://en.wikipedia.org/wiki/Kaizen" target="_blank" rel="noopener">Kaizen - Wikipedia &#8599;</a>
+            <p class="micro italic">Toyota Production System &middot; Lean Enterprise Institute</p>
+            <p class="small">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as Convergence Is Silence and makes the independence condition explicit.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://www.rand.org/topics/delphi-method.html" class="foundation-link" target="_blank" rel="noopener">Delphi Method - RAND Corporation (originators) ↗</a>
-            <a href="https://en.wikipedia.org/wiki/Delphi_method" class="foundation-link" target="_blank" rel="noopener">Delphi Method - Wikipedia ↗</a>
-            <p class="foundation-source">RAND Corporation, 1950s</p>
-            <p class="foundation-note">Structured convergence through independent expert rounds without shared context. PEA borrows the independence condition: evaluators must not share context when assessing convergence.</p>
+          <div class="stack">
+            <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener">Delphi Method - RAND Corporation (originators) &#8599;</a>
+            <a href="https://en.wikipedia.org/wiki/Delphi_method" target="_blank" rel="noopener">Delphi Method - Wikipedia &#8599;</a>
+            <p class="micro italic">RAND Corporation, 1950s</p>
+            <p class="small">Structured convergence through independent expert rounds without shared context. PEA borrows the independence condition: evaluators must not share context when assessing convergence.</p>
           </div>
         </div>
 
-        <div class="foundations-col">
-          <h3>Empirical basis</h3>
-          <p class="foundation-note">
+        <div class="stack-md">
+          <p class="label label-muted label-bordered">Empirical basis</p>
+          <p class="small">
             Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints -
             and why an audit trail the agent authors itself is insufficient.
           </p>
 
-          <div class="foundation-item">
-            <a href="https://arxiv.org/abs/2305.04388" class="foundation-link" target="_blank" rel="noopener">Language Models Don't Always Say What They Think ↗</a>
-            <p class="foundation-source">Turpin et al. - NeurIPS 2023</p>
-            <p class="foundation-note">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning - sometimes by as much as 36 percentage points on benchmark tasks.</p>
+          <div class="stack">
+            <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener">Language Models Don't Always Say What They Think &#8599;</a>
+            <p class="micro italic">Turpin et al. - NeurIPS 2023</p>
+            <p class="small">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning - sometimes by as much as 36 percentage points on benchmark tasks.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://arxiv.org/abs/2310.01798" class="foundation-link" target="_blank" rel="noopener">Large Language Models Cannot Self-Correct Reasoning Yet ↗</a>
-            <p class="foundation-source">Huang et al. - ICLR 2024</p>
-            <p class="foundation-note">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
+          <div class="stack">
+            <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener">Large Language Models Cannot Self-Correct Reasoning Yet &#8599;</a>
+            <p class="micro italic">Huang et al. - ICLR 2024</p>
+            <p class="small">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
           </div>
 
-          <div class="foundation-item">
-            <a href="https://arxiv.org/abs/2505.05410" class="foundation-link" target="_blank" rel="noopener">Reasoning Models Don't Always Say What They Think ↗</a>
-            <p class="foundation-source">Chen et al. - arXiv:2505.05410, May 2025</p>
-            <p class="foundation-note">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring is not sufficient to rule out undesired behavior in capable models.</p>
+          <div class="stack">
+            <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener">Reasoning Models Don't Always Say What They Think &#8599;</a>
+            <p class="micro italic">Chen et al. - arXiv:2505.05410, May 2025</p>
+            <p class="small">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring is not sufficient to rule out undesired behavior in capable models.</p>
           </div>
         </div>
 
@@ -1098,19 +599,19 @@
   <!-- SKILLS -->
   <div class="container">
     <section id="skills">
-      <p class="section-label">The Implementation</p>
-      <h2 class="section-title">Six Skills</h2>
-      <p class="section-intro">
+      <p class="label">The Implementation</p>
+      <h2>Six Skills</h2>
+      <p>
         These six skills put the three principles into practice. Together they give any AI agent a
         persistent record of decisions, context, and history - so each session builds on the last.
       </p>
 
-      <div class="skills-grid">
+      <div class="grid-auto" style="margin-top: var(--gap-md);">
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent interpreted the prompt literally and missed the intent</div>
-          <div class="skill-name">Intent</div>
-          <p class="skill-desc">
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent interpreted the prompt literally and missed the intent</p>
+          <h3>Intent</h3>
+          <p class="small">
             Forces the agent to explicitly state its interpretation of the task before acting.
             Named after Commander's Intent - Auftragstaktik - the doctrine of defining the mission
             objective so subordinates can adapt when conditions change. An early warning system
@@ -1118,30 +619,30 @@
           </p>
         </a>
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/vision/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent doesn't know your vision - because it lives in your head</div>
-          <div class="skill-name">Vision</div>
-          <p class="skill-desc">
-            Surfaces the agent’s working assumptions about where the operator is heading - as
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/vision/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent doesn't know your vision - because it lives in your head</p>
+          <h3>Vision</h3>
+          <p class="small">
+            Surfaces the agent's working assumptions about where the operator is heading - as
             specific questions the operator can confirm, correct, or reject. Closes the gap between
             what has been written down and what the operator actually means. Produces
             <code>.trail/vision.md</code>.
           </p>
         </a>
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The work is unauditable</div>
-          <div class="skill-name">Trail</div>
-          <p class="skill-desc">
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The work is unauditable</p>
+          <h3>Trail</h3>
+          <p class="small">
             Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is
             appended to <code>.trail/audit-trail.md</code> as the work happens. Work that is not logged cannot be audited.
           </p>
         </a>
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent makes superficial, undisciplined edits</div>
-          <div class="skill-name">Improve</div>
-          <p class="skill-desc">
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent makes superficial, undisciplined edits</p>
+          <h3>Improve</h3>
+          <p class="small">
             The workhorse of the suite. Each iteration: read all prior context and history, examine the target,
             challenge the first instinct, make exactly one highest-leverage change, predict the outcome,
             verify it, reflect. Reads vision and trail before every run - never wastes an iteration on
@@ -1149,10 +650,10 @@
           </p>
         </a>
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">The agent can’t see patterns across its own work</div>
-          <div class="skill-name">Retrospect</div>
-          <p class="skill-desc">
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">The agent can't see patterns across its own work</p>
+          <h3>Retrospect</h3>
+          <p class="small">
             Steps back and reads the entire work history as a single document: what direction is the work
             heading, where has attention been concentrated, is that actually where the weight lies?
             Surfaces what no individual session would reveal. Produces
@@ -1160,10 +661,10 @@
           </p>
         </a>
 
-        <a class="skill-card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener">
-          <div class="skill-problem">You can't tell if the agent is reasoning or pattern-matching</div>
-          <div class="skill-name">Probe</div>
-          <p class="skill-desc">
+        <a class="card" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener">
+          <p class="label">You can't tell if the agent is reasoning or pattern-matching</p>
+          <h3>Probe</h3>
+          <p class="small">
             Constructs a novelty probe - a pair of cases that look similar but differ in a material way -
             to test whether the agent's response diverges where it should. Measures Autonomous Reasoning
             Fidelity directly. Used for validation runs.
@@ -1172,13 +673,13 @@
 
       </div>
 
-      <!-- Evidence row -->
-      <div class="evidence-row">
-        <p class="evidence-label">Field evidence</p>
+      <!-- Evidence -->
+      <div class="stack" style="margin-top: var(--gap-lg);">
+        <p class="label label-muted">Field evidence</p>
 
-        <div class="evidence-item">
-          <div class="evidence-num">1</div>
-          <p class="evidence-text">
+        <div class="row" style="align-items: flex-start;">
+          <div class="numeral-circle">1</div>
+          <p class="small" style="flex: 1;">
             <strong>200+ self-improvement iterations.</strong> The skills suite ran on itself over two hundred times.
             Along the way, it autonomously decided to rewrite itself from scratch - twice. Convergence was declared
             only when three independent evaluators from distinct model families (Anthropic, xAI/Grok, Google/Gemini)
@@ -1186,9 +687,9 @@
           </p>
         </div>
 
-        <div class="evidence-item">
-          <div class="evidence-num">2</div>
-          <p class="evidence-text">
+        <div class="row" style="align-items: flex-start;">
+          <div class="numeral-circle">2</div>
+          <p class="small" style="flex: 1;">
             <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant cloud system
             with domain-driven service boundaries, multiple collaborating microservices, and fully automated CI/CD.
             A scope estimated internally as a large T-shirt-size effort was completed in three days. The full trail
@@ -1196,9 +697,9 @@
           </p>
         </div>
 
-        <div class="evidence-item">
-          <div class="evidence-num">3</div>
-          <p class="evidence-text">
+        <div class="row" style="align-items: flex-start;">
+          <div class="numeral-circle">3</div>
+          <p class="small" style="flex: 1;">
             <strong>This page.</strong> Built in a single session - about 5 minutes - using Vision, Intent, Trail, and Improve.
             The full trail is committed to <code>.trail/</code> and verifiable against the git log.
           </p>
@@ -1211,9 +712,9 @@
   <!-- MEMORY MODEL -->
   <div class="container">
     <section id="memory">
-      <p class="section-label">Memory Model</p>
-      <h2 class="section-title">The .trail/ folder is the memory</h2>
-      <p class="section-intro">
+      <p class="label">Memory Model</p>
+      <h2>The .trail/ folder is the memory</h2>
+      <p>
         An agent without memory repeats yesterday's mistakes and forgets yesterday's decisions.
         The skills suite gives every repository a memory layer that lives in <code>.trail/</code>
         at the repo root. Each Improve run reads it before acting and extends it after. This is
@@ -1221,17 +722,17 @@
       </p>
 
       <pre class="memory-tree" aria-label="trail folder structure"><span class="tree-name">.trail/</span>              <span class="tree-comment"># lives in the root of the repo being worked on</span>
-├── <span class="tree-name">vision.md</span>          <span class="tree-comment"># the destination (operator-held, never written by skills)</span>
-├── <span class="tree-name">retrospect.md</span>      <span class="tree-comment"># current orientation + active operational rules (Retrospect rewrites each run)</span>
-├── <span class="tree-name">learning.md</span>        <span class="tree-comment"># derived: every [!REALIZATION] and [!REVERSAL] across the trail (regenerated by Trail)</span>
-├── <span class="tree-name">history.md</span>         <span class="tree-comment"># derived: run timeline (regenerated by Trail at every commit)</span>
-├── <span class="tree-name">audit-trail.md</span>     <span class="tree-comment"># append-only source of truth - one entry per session</span>
-├── <span class="tree-name">sessions/</span>          <span class="tree-comment"># mandatory: per-session summary file, one per run, linked from audit-trail.md</span>
-│   └── <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span>
-└── <span class="tree-name">transcripts/</span>       <span class="tree-comment"># optional: verbatim transcript exports when the harness supports it</span>
-    └── <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span></pre>
+&#9500;&#9472;&#9472; <span class="tree-name">vision.md</span>          <span class="tree-comment"># the destination (operator-held, never written by skills)</span>
+&#9500;&#9472;&#9472; <span class="tree-name">retrospect.md</span>      <span class="tree-comment"># current orientation + active operational rules (Retrospect rewrites each run)</span>
+&#9500;&#9472;&#9472; <span class="tree-name">learning.md</span>        <span class="tree-comment"># derived: every [!REALIZATION] and [!REVERSAL] across the trail (regenerated by Trail)</span>
+&#9500;&#9472;&#9472; <span class="tree-name">history.md</span>         <span class="tree-comment"># derived: run timeline (regenerated by Trail at every commit)</span>
+&#9500;&#9472;&#9472; <span class="tree-name">audit-trail.md</span>     <span class="tree-comment"># append-only source of truth - one entry per session</span>
+&#9500;&#9472;&#9472; <span class="tree-name">sessions/</span>          <span class="tree-comment"># mandatory: per-session summary file, one per run, linked from audit-trail.md</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span>
+&#9492;&#9472;&#9472; <span class="tree-name">transcripts/</span>       <span class="tree-comment"># optional: verbatim transcript exports when the harness supports it</span>
+    &#9492;&#9472;&#9472; <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span></pre>
 
-      <p class="memory-prose memory-prose-before">
+      <p>
         Three tiers. <strong>Operator layer:</strong> <code>vision.md</code> - never written by
         any skill. <strong>Synthesis layer:</strong> <code>retrospect.md</code>,
         <code>learning.md</code>, <code>history.md</code> - rewritten or regenerated each run, all
@@ -1240,52 +741,52 @@
         append-only, never edited after the fact.
       </p>
 
-      <div class="memory-files">
-        <div class="memory-file">
-          <div class="memory-file-name">vision.md</div>
-          <div class="memory-file-role">
+      <div class="stack" style="margin-top: var(--gap-md);">
+        <div class="memory-row">
+          <div class="mono small">vision.md</div>
+          <div class="small">
             <strong>Where you're going.</strong> The operator-held destination. What the target is
             for, the constraints that hold across all runs, the hard problem the work is chipping
             at. Stable. No skill ever writes to it - only humans do.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">retrospect.md</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">retrospect.md</div>
+          <div class="small">
             <strong>Where you are.</strong> The current arc-level orientation derived from reading
             the whole trail as one document. Contains the active operational rules the agent must
             obey this run. Rewritten each time the Retrospect skill runs.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">learning.md</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">learning.md</div>
+          <div class="small">
             <strong>What you've learned.</strong> A generated, chronological extract of every
             <code>[!REALIZATION]</code> and <code>[!REVERSAL]</code> marker in the trail. The
             compact form of the loop's accumulated insight - read this before reaching for the
             full history. Regenerated by Trail at every commit so it never lags behind.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">history.md</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">history.md</div>
+          <div class="small">
             <strong>The timeline.</strong> A generated run-by-run index derived from
             <code>audit-trail.md</code>. Faster to scan than the full evidence layer when you just
             need to know what happened when. Regenerated by Trail at every commit.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">audit-trail.md</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">audit-trail.md</div>
+          <div class="small">
             <strong>The path you walked.</strong> Append-only ledger. Every session writes one
             entry containing its interpretation of the ask, its examination, decisions, actions,
             and reflection. This is the source of truth - the synthesis layer above is derived
             from it.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">sessions/</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">sessions/</div>
+          <div class="small">
             <strong>The full summaries.</strong> Mandatory. One file per run
             (<code>YYYY-MM-DD-&lt;slug&gt;.md</code>), linked from the matching
             <code>audit-trail.md</code> entry. The audit ledger is the short-form index; the
@@ -1293,9 +794,9 @@
             cannot play both roles.
           </div>
         </div>
-        <div class="memory-file">
-          <div class="memory-file-name">transcripts/</div>
-          <div class="memory-file-role">
+        <div class="memory-row">
+          <div class="mono small">transcripts/</div>
+          <div class="small">
             <strong>The verbatim record.</strong> Optional, harness-dependent. When the platform
             can export the raw operator/agent dialogue, it lands here as
             <code>YYYY-MM-DD-&lt;slug&gt;.md</code>. Highest-trust evidence tier when available -
@@ -1304,7 +805,7 @@
         </div>
       </div>
 
-      <p class="memory-prose memory-prose-after">
+      <p style="margin-top: var(--gap-md);">
         The hierarchy resolves disagreements: if <code>vision.md</code> and
         <code>retrospect.md</code> disagree, vision wins (the operator holds the destination). If
         <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
@@ -1316,38 +817,38 @@
   <!-- QUICKSTART -->
   <div class="container">
     <section id="quickstart">
-      <p class="section-label">Get Started</p>
-      <h2 class="section-title">Three commands</h2>
-      <p class="section-intro">
+      <p class="label">Get Started</p>
+      <h2>Three commands</h2>
+      <p>
         Step 1 runs in your terminal. Steps 2 and 3 are chat commands to the agent.
       </p>
 
       <ol class="quickstart-list">
         <li>
           <div>
-            <p class="quickstart-step-title">Install the skills</p>
-            <code class="quickstart-code">bash install.sh        # or:  pwsh install.ps1</code>
+            <h3>Install the skills</h3>
+            <code class="code-block">bash install.sh        # or:  pwsh install.ps1</code>
           </div>
         </li>
         <li>
           <div>
-            <p class="quickstart-step-title">Capture the destination</p>
-            <code class="quickstart-code">/vision</code>
+            <h3>Capture the destination</h3>
+            <code class="code-block">/vision</code>
           </div>
         </li>
         <li>
           <div>
-            <p class="quickstart-step-title">Run one improvement</p>
-            <code class="quickstart-code">/improve &lt;one small concrete task&gt;</code>
+            <h3>Run one improvement</h3>
+            <code class="code-block">/improve &lt;one small concrete task&gt;</code>
           </div>
         </li>
       </ol>
 
-      <p class="quickstart-after">
+      <p style="margin-top: var(--gap-md);">
         A new entry appears in <code>.trail/audit-trail.md</code>. That is the loop, end to end.
         <br>
         <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md"
-           target="_blank" rel="noopener">Full quickstart with troubleshooting ↗</a>
+           target="_blank" rel="noopener">Full quickstart with troubleshooting &#8599;</a>
       </p>
     </section>
   </div>
@@ -1355,9 +856,9 @@
   <!-- TRAIL -->
   <div class="container">
     <section id="trail">
-      <p class="section-label">Observable Autonomy</p>
-      <h2 class="section-title">What an audit-trail.md entry looks like</h2>
-      <p class="section-intro">
+      <p class="label">Observable Autonomy</p>
+      <h2>What an audit-trail.md entry looks like</h2>
+      <p>
         Three entries from the skills suite's own <code>audit-trail.md</code> - the loop running
         on itself. Verbatim excerpts. Each one shows the agent's reasoning end to end: how it
         read the ask, what it looked at, what it decided, and what it concluded after the fact.
@@ -1367,11 +868,11 @@
 
       <div class="trail-scroll">
 
-        <!-- Entry 1: one-word change -->
-        <div class="trail-entry">
-          <p class="trail-entry-date">2026-04-30 · readme-stopped-to-converged</p>
-          <p class="trail-entry-headline">One word: "stopped" to "converged"</p>
-          <div class="trail-entry-meta">
+        <!-- Entry 1 -->
+        <div class="card card-accent">
+          <p class="mono small">2026-04-30 &middot; readme-stopped-to-converged</p>
+          <h3>One word: "stopped" to "converged"</h3>
+          <div class="trail-meta">
             target: autonomous-agent-skills<br>
             operator: ntholm86<br>
             agent: Claude Sonnet 4.6 (Anthropic / GitHub Copilot)<br>
@@ -1380,8 +881,8 @@
             delta: one word change; README opening now consistent with PRINCIPLES.md definition
           </div>
 
-          <p class="trail-section-label">Interpretation of the ask</p>
-          <p>
+          <p class="label">Interpretation of the ask</p>
+          <p class="small">
             Run the full Improve loop on the repo using the operator's convergence-loop prompt
             as the initial brief. Intent: find the highest-leverage remaining change that makes
             the skills more effective on any arbitrary codebase, or declare convergence if nothing
@@ -1389,8 +890,8 @@
             change per run.
           </p>
 
-          <p class="trail-section-label">Examination</p>
-          <p>
+          <p class="label">Examination</p>
+          <p class="small">
             <strong>Inconsistency lens.</strong> The opening paragraph read "It stopped when three
             independent evaluators from distinct model families found nothing left to change." The
             Evidence section reads "That is the convergence baseline at v3.1.0 (2026-04-24)" and
@@ -1400,7 +901,7 @@
             project ending. The opening misstated what convergence means. The Evidence section
             used the correct framing ("convergence baseline"); the opening did not.
           </p>
-          <p>
+          <p class="small">
             <strong>Challenge.</strong> Considered whether a structural gap in Probe's connection
             to the convergence protocol was higher leverage - but Probe already states "convergence
             (Principle 3) is the meta-measurement." Considered whether first-run / no-trail clarity
@@ -1410,8 +911,8 @@
             leverage finding.
           </p>
 
-          <p class="trail-section-label">Decision</p>
-          <p>
+          <p class="label">Decision</p>
+          <p class="small">
             <span class="trail-marker">[!DECISION]</span> Change "stopped" to "converged" in the
             opening paragraph. One word. The opening is the first statement any reader or agent
             encounters about what the loop does. If it encodes the wrong mental model of
@@ -1421,15 +922,15 @@
             minor edge case; (3) declare convergence - premature given the identified inconsistency.
           </p>
 
-          <p class="trail-section-label">Action</p>
-          <p>
+          <p class="label">Action</p>
+          <p class="small">
             Changed <code>"It stopped when three independent evaluators"</code> to
             <code>"It converged when three independent evaluators"</code> in the opening paragraph
             of README.md. verify.py passes after change.
           </p>
 
-          <p class="trail-section-label">Reflection</p>
-          <p>
+          <p class="label">Reflection</p>
+          <p class="small">
             The loop is converging. This session has been primarily README editorial work - the
             skills themselves are unchanged. The remaining gap is whether a new convergence run
             (with a different model family) agrees. This run's finding was small but precise: one
@@ -1439,11 +940,11 @@
           </p>
         </div>
 
-        <!-- Entry 2: catching what the prompt didn't ask about -->
-        <div class="trail-entry">
-          <p class="trail-entry-date">2026-04-23 · v3-clean-root-waste</p>
-          <p class="trail-entry-headline">Finding what the prompt never mentioned</p>
-          <div class="trail-entry-meta">
+        <!-- Entry 2 -->
+        <div class="card card-accent">
+          <p class="mono small">2026-04-23 &middot; v3-clean-root-waste</p>
+          <h3>Finding what the prompt never mentioned</h3>
+          <div class="trail-meta">
             target: skills repo (v3 live tree)<br>
             operator: maintainer<br>
             agent: Gemini 3.1 Pro (Preview)<br>
@@ -1452,27 +953,27 @@
             delta: v3-redesign branch
           </div>
 
-          <p class="trail-section-label">Interpretation of the ask</p>
-          <p>
+          <p class="label">Interpretation of the ask</p>
+          <p class="small">
             The operator asked me to act as the first fresh evaluator in the 3/3 convergence
             cycle for the newly shipped v3-redesign. My instruction was to read the governing
             principles (<code>PRINCIPLES.md</code>) and the new improvement skill
             (<code>improve/SKILL.md</code>), and run an honest <code>improve</code> loop against
             the live tree. If I found nothing, I was to record "silence" (chain position 1/3).
           </p>
-          <p>
+          <p class="small">
             I interpreted this using Commander's Intent: my job is not to rubber-stamp the chain,
             but to genuinely inspect the payload. If the v3 artifact still carries waste, I must
             remove it, resetting the chain.
           </p>
 
-          <p class="trail-section-label">Examination</p>
-          <p>
+          <p class="label">Examination</p>
+          <p class="small">
             <strong>Waste.</strong> While inspecting the live tree root, I found
             <code>SCORECARD.md</code> (11.5 KB) and <code>metrics.ps1</code> (35.6 KB). Both are
             v2 artifacts.
           </p>
-          <p>
+          <p class="small">
             <strong>Inconsistency.</strong> <code>REDESIGN.md</code> explicitly lists
             <code>SCORECARD.md</code> and the <code>.ps1</code> scripts under "What v3 removes"
             (stating they are kept under <code>archive/v2/</code>).
@@ -1480,23 +981,23 @@
             redundant tracking copies of these files alongside the archived ones.
           </p>
 
-          <p class="trail-section-label">Decision</p>
-          <p>
+          <p class="label">Decision</p>
+          <p class="small">
             <span class="trail-marker">[!DECISION]</span> I must fail the convergence check
             (i.e., not declare silence) because actionable waste and inconsistency were found. I
             will remove the duplicate retired v2 files from the root to align the repository tree
             with the declared v3 architecture.
           </p>
 
-          <p class="trail-section-label">Action</p>
-          <p>
+          <p class="label">Action</p>
+          <p class="small">
             Executed <code>git rm SCORECARD.md metrics.ps1</code> effectively purging them from
             the live root. Verified their counterparts are securely preserved in
             <code>archive/v2/</code>. Verified <code>tools/verify.py</code> passes without errors.
           </p>
 
-          <p class="trail-section-label">Reflection</p>
-          <p>
+          <p class="label">Reflection</p>
+          <p class="small">
             <span class="trail-marker">[!REALIZATION]</span> A pattern-matching evaluator
             executing the operator's prompt literally would have ignored the file debris,
             appended an <code>outcome: silence</code> entry, and falsely advanced the convergence
@@ -1507,24 +1008,24 @@
           </p>
         </div>
 
-        <!-- Entry 3: pattern recognition across sessions -->
-        <div class="trail-entry">
-          <p class="trail-entry-date">2026-04-23 · v3-changelog-splice-repair</p>
-          <p class="trail-entry-headline">626 lines of dead content, and a pattern</p>
-          <div class="trail-entry-meta">
+        <!-- Entry 3 -->
+        <div class="card card-accent">
+          <p class="mono small">2026-04-23 &middot; v3-changelog-splice-repair</p>
+          <h3>626 lines of dead content, and a pattern</h3>
+          <div class="trail-meta">
             target: skills repo (v3 live tree)<br>
             operator: user<br>
             agent: Claude Sonnet 4.6 (Anthropic, via GitHub Copilot)<br>
             skill: improve<br>
             outcome: CHANGELOG.md de-spliced; 626 lines of v2 body removed from live file<br>
-            delta: CHANGELOG.md 651 lines → 25 lines
+            delta: CHANGELOG.md 651 lines &rarr; 25 lines
           </div>
 
-          <p class="trail-section-label">Examination</p>
-          <p>
+          <p class="label">Examination</p>
+          <p class="small">
             Three lenses applied to the full v3 live tree:
           </p>
-          <p>
+          <p class="small">
             <strong>Inconsistency.</strong> CHANGELOG.md contained two <code># Changelog</code> H1
             headings. The v3 section ends with the redirect pointer "For history prior to v3, see
             archive/v2/CHANGELOG.md" and then immediately begins a second <code># Changelog</code>
@@ -1532,20 +1033,20 @@
             inline content directly contradict each other: the file says "go here for history" and
             then also provides that history in the same file.
           </p>
-          <p>
+          <p class="small">
             <strong>Waste.</strong> The 626-line v2 body is a verbatim duplicate of
             <code>archive/v2/CHANGELOG.md</code>. No information is lost by removing it; the
             redirect pointer survives.
           </p>
-          <p>
+          <p class="small">
             This is the same splice-pattern class found and fixed by GPT-5.4 in PRINCIPLES.md
             (<code>v3-principles-copy-repair</code>). The verifier did not catch it because
             CHANGELOG.md is not in <code>REQUIRED_FILES</code>; verify.py's H1-duplicate check only
             covers required live-tree docs, not changelog metadata.
           </p>
 
-          <p class="trail-section-label">Decision</p>
-          <p>
+          <p class="label">Decision</p>
+          <p class="small">
             <span class="trail-marker">[!DECISION]</span> Remove the spliced v2 content from
             CHANGELOG.md. Single highest-leverage finding: eliminates 626 lines of genuine waste,
             resolves a direct contradiction (redirect pointer vs. inline content), and is safe to
@@ -1554,20 +1055,20 @@
             passing.
           </p>
 
-          <p class="trail-section-label">Action</p>
-          <p>
+          <p class="label">Action</p>
+          <p class="small">
             Truncated CHANGELOG.md at the splice boundary: kept the v3 section (lines 1-25
             including the redirect pointer), removed the appended v2 body (626 lines). Done with a
             Python inline command that located the exact splice marker and wrote back only the v3
             content with UTF-8 encoding preserved.
           </p>
-          <p>
+          <p class="small">
             Verification: <code>python tools/verify.py</code> - <code>OK - trail integrity checks
             pass</code>, both before and after the change.
           </p>
 
-          <p class="trail-section-label">Reflection</p>
-          <p>
+          <p class="label">Reflection</p>
+          <p class="small">
             <span class="trail-marker">[!REALIZATION]</span> The same splice class has now
             appeared twice in the live tree - PRINCIPLES.md (caught by GPT-5.4) and CHANGELOG.md
             (caught here). This is a pattern, not a one-off accident. The migration that moved v2
@@ -1577,12 +1078,12 @@
           </p>
         </div>
 
-        <p class="trail-truncated">- three entries from a 6,000+ line trail spanning 130+ sessions -</p>
+        <p class="micro italic center" style="padding-top: var(--gap-sm); margin-top: var(--gap-sm); border-top: 1px solid var(--rule);">- three entries from a 6,000+ line trail spanning 130+ sessions -</p>
       </div>
 
-      <a class="trail-view-link"
+      <a class="chip chip-lg" style="margin-top: var(--gap-md);"
          href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/.trail/audit-trail.md"
-         target="_blank" rel="noopener">View full trail on GitHub ↗</a>
+         target="_blank" rel="noopener">View full trail on GitHub &#8599;</a>
     </section>
   </div>
 
@@ -1590,33 +1091,25 @@
   <div class="container">
     <footer>
       <div class="footer-inner">
-        <div class="footer-author">
-          <strong>Nils Wendelboe Holmager</strong>
-          Author - Principles of Earned Autonomy · April 2026
+        <div>
+          <p><strong>Nils Wendelboe Holmager</strong></p>
+          <p class="small">Author - Principles of Earned Autonomy &middot; April 2026</p>
         </div>
-        <div class="footer-links">
-          <a class="footer-link" href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">
-            Manifesto ↗
-          </a>
-          <a class="footer-link" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener">
-            Skills Suite ↗
-          </a>
-          <a class="footer-link" href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">
-            Zenodo DOI ↗
-          </a>
-          <a class="footer-link" href="https://orcid.org/0009-0009-7157-9084" target="_blank" rel="noopener">
-            ORCID ↗
-          </a>
+        <div class="row">
+          <a class="chip" href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener">Manifesto &#8599;</a>
+          <a class="chip" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener">Skills Suite &#8599;</a>
+          <a class="chip" href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">Zenodo DOI &#8599;</a>
+          <a class="chip" href="https://orcid.org/0009-0009-7157-9084" target="_blank" rel="noopener">ORCID &#8599;</a>
         </div>
       </div>
-      <p class="footer-statement">
+      <p class="small max-prose" style="margin-top: var(--gap-md);">
         I built this because I had this problem: how to safely delegate real work to AI -
         while remaining accountable for what gets done. What I kept running into were two failure
-        modes: reviewing everything until I was approving outputs I hadn’t really checked, or
+        modes: reviewing everything until I was approving outputs I hadn't really checked, or
         trusting the model until I found that a run was wrong after it had already been used.
         The framework is the answer I built for myself. An action that cannot be audited is broken.
       </p>
-      <p class="footer-license">
+      <p class="micro center footer-bottom">
         Framework and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
         Skills suite: MIT.
       </p>
