@@ -1357,3 +1357,89 @@ Prediction held. No regressions detected from grep. Browser visual check deferre
 2. **Browser visual check.** Verify principle-num/principle-name hierarchy still reads after the size+weight collapse; verify uppercase labels look right at unified 0.08em tracking. Cheaper than iter-34 and de-risks it.
 3. **Update vision.md and retrospect.md.** Promote vision.md's "Colour system (settled)" section to "Design system" with the full token surface; restate retrospect.md operational rule "all CSS changes go through :root tokens" as now-demonstrably-true for typography too. Documentation lag; not blocking but worth doing before the arc forgets.
 
+
+---
+
+## 2026-05-27 â€” iter-34 â€” kaikaku-css-redesign
+
+**Slug:** kaikaku-css-redesign  
+**Skills run:** Improve (Kaikaku), Trail  
+**Target:** `pea-website/index.html` (`<style>` block + entire `<body>`)  
+**Commits:** `fc45ea3` (code)  
+**Outcome:** index.html 1627 â†’ 1120 lines (-507). CSS 826 â†’ 327 lines (-499). HTML classes ~50 bespoke â†’ ~20 generic.
+
+### Interpretation of the ask
+
+Operator, verbatim: *"Also gap, padding, margin, border sizes - needs to reuse the variables - and we want to keep a minimal or variables. The css style classes themselves should also be very very generic and re-used throughout - instead of having header for each section just have a header class we re-use. So that the css becomes as small as possible - right now its 800 lines just for a simple layout page its unnessecary. Understand my intent. Use the improve skill."*
+
+Two intents folded into one ask:
+1. Finish the tokenization started in iter-33 â€” spacing must go through `:root` like the typography, weight, tracking, radius now do.
+2. Consolidate the class taxonomy â€” the page's 800-line CSS came from per-section bespoke classes (`.hero-eyebrow`, `.section-label`, `.principle-problem`, `.skill-problem`, `.arf-label`, `.evidence-label`, `.trail-section-label`, ... nine variants of the same uppercase eyebrow). One generic class, applied throughout.
+
+The line-count target (800 â†’ much smaller) made this Kaikaku, not refinement.
+
+### Examination
+
+**Inventory of accidental duplication (the four collapsible patterns):**
+- **9 uppercase-label classes** all sharing the same shape: micro size, medium weight, wide tracking, accent or muted colour.
+- **5 bordered surface classes** (`.hero-stances`, `.arf-callout`, `.memory-tree`, `.quickstart-code`, `.trail-entry`) all sharing card bg + rule border + radius + (optional) left accent stripe.
+- **17 paragraph rules** all declaring `color: var(--muted)` â€” because `body` defaulted to `--ink` and every body paragraph then had to opt out.
+- **6 ad-hoc flex columns** doing `display: flex; flex-direction: column; gap: <some-value>`.
+
+**Spacing waste:** 24 distinct rem values used across margin/padding/gap (0.15, 0.2, 0.25, 0.3, ..., 3.5). Most clustered around four real intentions: inner tightness, normal gap, between-block gap, between-section gap.
+
+### Challenge the first read
+
+Considered staying incremental â€” finish spacing tokens in iter-34, tackle class consolidation in iter-35. Rejected: the operator quoted a line count (800) and called the redundancy "unnecessary". Kaikaku was authorised. Sketch + execute beats sketch + confirm + execute on this track.
+
+Considered keeping the existing class names and only collapsing the CSS rules behind them. Rejected: the user said "the css style classes themselves should also be very very generic" â€” class names ARE part of the surface. Renaming is the point.
+
+Considered a 6-stop spacing scale to preserve more of the existing rhythm. Rejected: 4 stops (xs/sm/md/lg) forces enough collapse that the redundancy becomes structurally impossible to re-introduce by accident.
+
+### Decision
+
+**[!DECISION] Kaikaku â€” full v2 in one iter.**
+
+Token additions: `--gap-xs:0.5rem`, `--gap-sm:1rem`, `--gap-md:1.5rem`, `--gap-lg:3rem`. All margin/padding/gap routes through these.
+
+Class taxonomy (the 20 that replace the 50):
+- Layout: `.container .stack .stack-md .stack-lg .row .grid-auto .grid-2`
+- Type: native `h1/h2/h3` + `.label .label-muted .label-bordered .small .micro .italic .center .mono .max-prose`
+- Surfaces: `.card .card-accent` (anchor variants via `a.card:hover`)
+- Atoms: `.chip .chip-lg .btn`
+- Code: `code` + `.code-block`
+- Kept specials: `.principle .principle-num .icon .numeral-circle .memory-tree .memory-row .quickstart-list .trail-scroll .trail-meta .trail-marker .footer-inner .footer-bottom`
+
+Base-style shift: `body { color: var(--muted) }` instead of `--ink`. Headings + `<strong>` opt back to `--ink`. This single rule eliminated 17 explicit `color: var(--muted)` declarations.
+
+### Pre-commit prediction
+
+Falsifiable claims, before running:
+1. CSS line count will drop below 400 (target ~220, generous bound 400). **Result: 327. âœ“**
+2. Total file line count will drop below 1300. **Result: 1120. âœ“**
+3. Zero matches for any of the 50 retired class names will remain in the file. **Verified by regex grep over all retired names â€” zero matches.**
+4. Visual delta will be modest: tighter button (0.65/1.25rem â†’ 0.5/1rem padding), slightly more breathy in tight 0.25rem spots (now 0.5rem), uppercase labels unified at one tracking. **Not yet visually verified â€” see Candidate Next Moves.**
+
+### Action
+
+Two Python splice scripts (one for the `<style>` block, one for the `<body>`), both ran cleanly:
+- `_splice_style.py` â€” located `<style>`/`</style>` line indices, replaced contents with new tokenised CSS, wrote back UTF-8.
+- `_splice_body.py` â€” located `<body>`/`</body>` offsets in the raw text, replaced contents with the new class taxonomy, wrote back UTF-8.
+
+Verification: grep over 56 retired class names returned zero hits. Both temp scripts deleted before commit. `git add index.html` (explicit path â€” iter-33's `[!REVERSAL]` lesson). Commit `fc45ea3`: 424 insertions, 931 deletions.
+
+### Reflection
+
+**[!REALIZATION]** The class redundancy was not designed â€” it accreted. iter-26 added section A, copy-pasted A's class names with a new prefix for section B in a later iter, did it again for section C. By the time the page had eight sections, "eyebrow" lived under nine different names. The token discipline established in iter-33 only reaches the values; it does not touch the *class taxonomy* that consumes those values. Tokenising values inside a duplicated class graph still leaves the duplication. Naming discipline is a separate axis from value discipline, and the recurring-class-debris pattern that retrospect.md called out across iter-26/28/30 is the visible signature of *that* discipline being absent.
+
+**Per-iteration reflection (6a).** Model-claim: a single set of generic classes survives across all sections of a content-heavy single-page site without producing visual regressions. Blind spot: I have not opened the page in a browser this iter â€” the prediction "visual delta will be modest" is unverified. Imagined-reader pushback: a typographer would note that demoting bespoke heading classes to native `h3` flattens the visual hierarchy between, e.g., `.skill-name` (was bold 0.9rem) and `.trail-entry-headline` (was bold 1rem). Now both are `h3` at `--text-body`. The hierarchy survives via *surface context* (card vs scroll) rather than per-element styling. That's the trade.
+
+**Across-trail evaluation (6b).** Recurring-class trigger fires. The arc-level pattern, traceable through iter-26 (added quickstart with new classes), iter-28 (added memory model with new classes), iter-30 (added trail scroll with new classes), iter-33 (caught the inline-style violation but stayed inside the bespoke-class graph), and now iter-34 (collapse), is the same shape every time: each new section accreted its own dialect of CSS, and only periodic Kaikaku gathers them back into the common language. retrospect.md's operational rule "all CSS changes go through `:root` tokens" was necessary but not sufficient â€” needs a sibling rule about *reusing existing classes before inventing new ones*.
+
+### Candidate next moves (not selected this iter)
+
+1. Open the page in a browser, visually verify no broken layout. **Most important next step.**
+2. Update `.trail/vision.md` "Colour system (settled)" section â†’ "Design system (settled)" with the v2 taxonomy documented.
+3. Update `.trail/retrospect.md` operational rules with the new sibling rule: *"Before inventing a new CSS class, search existing classes for one that already serves the role. If found, use it. If not, justify the new class in the trail."*
+4. Run Probe: build a "what if a new section is added" probe and see whether the imagined-agent reaches for `.card` + `.label` or invents `.newsection-eyebrow`.
+
