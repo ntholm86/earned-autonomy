@@ -1000,3 +1000,42 @@ The page opens with the problem as a framework description. The footer closes wi
 
 ### [!REALIZATION] AI fingerprints are structural patterns, not word choices
 Metaphors, negation-first, staccato, and dramatic short-sentence emphasis are detectable patterns independent of vocabulary. Fixing vocabulary alone misses the deeper tells.
+
+
+---
+
+## 2026-05-27 - iter-26 - trail-section-rebuild
+
+**Slug:** trail-section-rebuild
+**Skills run:** improve
+**Target:** c:\git\pea-website\index.html (trail section)
+
+### Interpretation of the ask
+
+Operator: the trail section on the page should be a vertically scrollable div, and should display curated entries from the *skills suite* trail (different repo) rather than this website's own trail. Pick entries that are simple but powerful - easy to grasp at a glance, demonstrate depth on read.
+
+Intent: the visitor needs visual proof that Observable Autonomy produces readable, dense reasoning - not just that a trail exists. The wrong-source entry (pea-website self-trail) muddled the signal because it referenced its own session inside the page describing itself. Source must be the skills suite.
+
+### Examination
+
+Current state: one trail entry shown, sourced from pea-website's own .trail/, with a misleading 'View full trail on GitHub' link pointing to the skills repo (mismatched source and link). No scroll container - the entry just sits inline.
+
+Skills suite trail read in prior turn (130+ sessions, 6,045 lines). Selected three entries on the simple-but-deep axis:
+
+1. readme-stopped-to-converged (2026-04-30): one word changed; mental-model precision
+2. v3-clean-root-waste (2026-04-23): agent acted on something the prompt did not mention; Principle 1 in action
+3. v3-changelog-splice-repair (2026-04-23): 626 lines deleted; [!REALIZATION] same splice class appeared twice = pattern, convergence chain reset
+
+### Decision
+
+[!DECISION] Replace the single wrong-source entry with a .trail-scroll container holding the three curated skills-suite entries. Keep 'View full trail on GitHub' link outside the scroll wrapper so it stays anchored regardless of scroll position. Rewrite the section intro to make the source explicit ('the skills suite's own audit trail - the loop running on itself').
+
+### Action
+
+CSS .trail-scroll added in prior step (max-height 540px, custom scrollbar matching --rule color). HTML body of #trail section replaced wholesale.
+
+### Reflection
+
+The three entries are deliberately uneven in scope: one word, one un-prompted action, one large deletion. The unevenness is the point - it shows the loop scales from semantic precision to structural waste removal without changing its discipline. The scrollbar is a non-shouting affordance: 6px wide, --rule color, only visible on hover via webkit defaults.
+
+Commit: 371eb94
