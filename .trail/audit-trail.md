@@ -2059,3 +2059,71 @@ Pre-commit prediction: P3 tagline becomes immediately parseable on a cold scan. 
 1. **Add "Get Started" to the nav** — lowest-scoring metric (action clarity, 5/10). One `<li>` addition pointing to `#quickstart`. Low structural risk.
 2. **External cold-reader test** — highest-information move available. The loop has never tested the h1 recognition claim against an actual non-technical reader. One cold read would confirm or refute.
 3. **GitHub Pages push** — no remaining structural blockers. Terminal readiness test.
+
+## 2026-05-27 - iter-44-hero-secondary-cta
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** improve + intent
+**outcome:** changed — hero secondary CTA added; `.row` wraps both buttons; in-page path to #principles
+**commit:** bf24f1c
+
+### Interpretation of the ask
+
+Operator: "Use the improve skill. understand my intent." No topic specified — underspecified continuation.
+
+Sourced hunches from iter-43 candidate next moves:
+1. Action clarity was the lowest-scoring metric (5/10) — ranked #1 next move was "add Get Started to nav"
+2. A secondary in-page CTA in the hero is higher leverage than a nav item — catches the reader at the decision point (recognition moment), not the recovery path
+
+Proceeding with highest-confidence interpretation: fix the action clarity gap, highest-leverage form.
+
+### Examination
+
+**Purpose.** Vision's primary test: "recognition + intrigue in the first 3 seconds." Recognition is strong (h1). Intrigue requires a path forward. Current hero: one button, goes to Zenodo (academic paper). A non-technical reader who just felt recognition has no explicit in-page next step. The subhead promises "three principles" and then... there is no link to them.
+
+**Inconsistency.** "Three principles that close that gap" is the subhead. The only CTA is "Read the framework" → DOI. The thing the subhead promises has no button.
+
+**Waste.** `.chip.chip-lg` and `.row` already exist in the CSS. No new classes needed.
+
+### [!DECISION] Wrap hero button in `.row`, add `.chip.chip-lg` link to `#principles`
+
+Before:
+```html
+<a class="btn" href="[zenodo]">Read the framework ↗</a>
+```
+
+After:
+```html
+<div class="row">
+  <a class="btn" href="[zenodo]">Read the framework ↗</a>
+  <a class="chip chip-lg" href="#principles">See the three principles ↓</a>
+</div>
+```
+
+Prediction: Primary reader has an in-page "keep going" affordance at the moment of recognition. `.btn` (solid teal) reads primary; `.chip.chip-lg` (transparent, border) reads secondary. No inline styles, no CSS changes.
+
+**Ranked alternatives:**
+1. This change — highest leverage at the decision point (hero)
+2. "Get Started" in nav — useful but catches readers who have already scrolled
+3. GitHub Pages push — terminal readiness; not taken unilaterally
+
+### Reflection
+
+**Model claim.** The page now has two clear paths from the hero: an off-site credibility path (Zenodo) and an in-page discovery path (principles). This closes the primary action-clarity gap. The remaining action-clarity sub-problem (Quickstart not in nav) is lower priority — it's a recovery path for readers who have read the whole page and want to start.
+
+**Blind spot.** The secondary CTA copy "See the three principles ↓" assumes the reader wants the principles first. A reader who wants to install and try might prefer "Get started ↓" pointing to #quickstart. Not tested.
+
+**Imagined pushback.** "The `.row` wrapper adds a div that wasn't there; should the CTA elements be marked in the CSS rather than wrapped inline?" Valid structural concern; `.row` is a layout utility class, not a semantic one. Acceptable tradeoff given the operational rule against new inline styles.
+
+**Across-trail reflection:**
+- Recurring finding-class: not fired — this is copy/navigation work following a cold audit.
+- About to declare silence: not fired — a change was made.
+- Contradicts prior [!REALIZATION]: not fired.
+- Operator explicitly asked: not fired.
+
+### Candidate Next Moves
+
+1. **Add "Get Started" to the nav** — still unaddressed; the nav path to Quickstart is the remaining action-clarity sub-gap.
+2. **GitHub Pages push** — no structural blockers remain. Terminal readiness test.
+3. **External cold-reader test** — the highest-information move; still untaken after 44 iterations.
