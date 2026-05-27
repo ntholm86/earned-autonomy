@@ -354,8 +354,7 @@
       <h1>A framework for safely delegating real work to AI - while remaining accountable for what gets done.</h1>
 
       <p>
-        Three principles that apply to any AI model or toolset.
-        They address the gap between AI capability and human accountability.
+        Three principles. They apply to any AI model and any toolset.
       </p>
 
       <div class="card card-accent stack" style="margin: var(--gap-md) 0;">
@@ -385,8 +384,8 @@
       <p class="label">The Framework</p>
       <h2>Three Principles</h2>
       <p>
-        These are requirements. An AI setup that ignores them has a structural design problem.
-        Each one names something the AI must never be allowed to decide on its own.
+        Each one names a decision an AI must never make on its own.
+        Skip any and the setup is structurally broken, not poorly tuned.
       </p>
 
       <div class="stack-lg" style="margin-top: var(--gap-md);">
@@ -403,19 +402,12 @@
             <span class="mono small">Define the destination. Never prescribe the route.</span>
             <p class="label label-muted">The problem it solves</p>
             <p>
-              Give an AI agent a checklist and it executes the checklist. Its ceiling is the checklist.
-              It finds what the checklist described and misses everything else. It cannot adapt to a situation
-              the instruction author never anticipated - and those are precisely the situations that matter most.
+              Give an AI a checklist and the checklist becomes its ceiling. It finds what the checklist
+              describes and misses what the author never thought to list - which is usually what matters.
             </p>
             <p>
-              The alternative: the agent receives a <em>mission</em> - what must be achieved and why -
-              and determines how, based on what it actually encounters. The human defines the objective.
-              The agent discovers the method.
-            </p>
-            <p>
-              In practice this means giving the AI a goal - "what here doesn't earn its existence?" - rather than
-              a checklist of specific things to look for. It means providing vocabulary as a thinking framework,
-              not a lookup table. The instruction defines the shape of the work. The agent finds the content.
+              The alternative: hand it a <em>mission</em>. Tell it what to achieve and why; let it decide
+              how based on what it actually finds. The human defines the objective. The agent finds the method.
             </p>
             <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
               <span class="label label-muted" style="margin: 0;">Roots</span>
@@ -441,19 +433,15 @@
             <span class="mono small">Autonomy is earned through transparency.</span>
             <p class="label label-muted">The problem it solves</p>
             <p>
-              Autonomy and transparency are usually treated as parallel concerns - independent checkboxes.
-              They are causally linked.
+              Autonomy and transparency get treated as independent concerns. They are not.
             </p>
             <p>
-              Autonomy without a transparent record is abdication. Transparency requires more than a record simply existing: it must be captured <em>as the work happens</em>, and it must be one the agent cannot revise once the outcome is known.
-              Otherwise the record is just a story the agent tells about itself.
+              Autonomy without a record is abdication. A record the agent can revise after the fact
+              is just a story it tells about itself. The trail must be written <em>as the work happens</em>.
             </p>
             <p>
-              More visibility builds trust, and more trust earns more autonomy. Less visibility
-              erodes both. No visibility at all means no basis for trust.
-            </p>
-            <p>
-              The audit trail is how the agent earns the right to keep acting.
+              More visibility earns more autonomy. No visibility earns none. The audit trail is how
+              the agent earns the right to keep acting.
             </p>
             <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
               <span class="label label-muted" style="margin: 0;">Roots</span>
@@ -477,18 +465,16 @@
             <span class="mono small">Converged when independent evaluators find nothing left to change.</span>
             <p class="label label-muted">The problem it solves</p>
             <p>
-              AI improvement cycles tend to declare completion too early. The usual test - "the score stopped
-              going up" - measures the wrong thing. A score can plateau while the work is still unstable:
-              each pass changes something, the number stays flat, but the output never settles.
+              AI loops stop too early. The usual signal - "the score stopped going up" - measures the
+              wrong thing. A score can plateau while the work keeps changing underneath it.
             </p>
             <p>
-              Worse: a single evaluator will eventually align with its own blind spots. The score stabilizes while the work is still incomplete - the evaluator has stopped seeing what it can't see.
-              An AI that evaluates its own output is rationalising.
+              Worse: a single evaluator drifts into its own blind spots. An AI grading its own output
+              is rationalising.
             </p>
             <p>
-              The correct test: ask <em>diverse, independent evaluators</em> - each without knowing what the
-              others found - to assess the work. When they all find nothing left to change, the work is done.
-              A stable score matters. The test is whether independent evaluators agree.
+              The real test: ask <em>diverse, independent evaluators</em>, each blind to the others.
+              When they all find nothing left to change, the work is done.
             </p>
             <div class="row" style="padding-top: var(--gap-xs); border-top: 1px solid var(--rule);">
               <span class="label label-muted" style="margin: 0;">Roots</span>
@@ -506,9 +492,9 @@
         <p class="label">Emergent property</p>
         <h3>Autonomous Reasoning Fidelity (ARF)</h3>
         <p>
-          ARF is what all three principles produce together: the observable signal that the agent is
-          reasoning, and that the reasoning is visible enough for outside observers to judge. It only shows
-          up when all three principles hold - weaken any one of them, and it disappears.
+          ARF is the observable signal that the agent is actually reasoning - and that the reasoning
+          is visible enough to be judged from outside. It appears only when all three principles hold.
+          Weaken one and it disappears.
         </p>
       </div>
     </section>
@@ -520,9 +506,8 @@
       <p class="label">Intellectual lineage</p>
       <h2>Standing on prior work</h2>
       <p>
-        This framework draws from established traditions in military doctrine, lean manufacturing, philosophy,
-        and empirical AI research. Each one contributed something the framework would be weaker
-        without.
+        Drawn from military doctrine, lean manufacturing, philosophy, and empirical AI research.
+        Each contributed something the framework would be weaker without.
       </p>
 
       <div class="grid-2" style="margin-top: var(--gap-md);">
@@ -534,21 +519,21 @@
             <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener">Auftragstaktik - Prussian mission command &#8599;</a>
             <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener">Commander's Intent - US military adaptation &#8599;</a>
             <p class="micro italic">19th century military doctrine, German General Staff</p>
-            <p class="small">Defines subordinate authority by mission objective. Tells subordinates <em>what</em> and <em>why</em>, then trusts them to determine <em>how</em>. The direct origin of Commander's Intent.</p>
+            <p class="small">Subordinates are told <em>what</em> and <em>why</em> - never <em>how</em>. The direct origin of Commander's Intent.</p>
           </div>
 
           <div class="stack">
             <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener">Toyota Kata - Mike Rother &#8599;</a>
             <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener">Lean Enterprise Institute: Kaizen and the Coaching Kata &#8599;</a>
             <p class="micro italic">McGraw-Hill, 2009</p>
-            <p class="small">The Coaching Kata establishes a pattern where the coach defines the target condition and the learner discovers the path. Shapes how PEA frames the operator-agent relationship.</p>
+            <p class="small">The coach defines the target condition. The learner discovers the path. The same shape as the operator-agent relationship.</p>
           </div>
 
           <div class="stack">
             <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener">Socrates - Stanford Encyclopedia of Philosophy &#8599;</a>
             <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener">Socrates - Internet Encyclopedia of Philosophy &#8599;</a>
             <p class="micro italic">Stanford Encyclopedia of Philosophy &middot; Internet Encyclopedia of Philosophy</p>
-            <p class="small">Reasoning through questions rather than assertions - the instruction asks, the agent arrives at the answer from its own situated reasoning.</p>
+            <p class="small">Reasoning through questions, not assertions. The instruction asks; the agent answers from its own situated reasoning.</p>
           </div>
 
           <div class="stack">
@@ -562,7 +547,7 @@
             <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener">Delphi Method - RAND Corporation (originators) &#8599;</a>
             <a href="https://en.wikipedia.org/wiki/Delphi_method" target="_blank" rel="noopener">Delphi Method - Wikipedia &#8599;</a>
             <p class="micro italic">RAND Corporation, 1950s</p>
-            <p class="small">Structured convergence through independent expert rounds without shared context. PEA borrows the independence condition: evaluators must not share context when assessing convergence.</p>
+            <p class="small">Convergence by independent expert rounds, no shared context. PEA's independence condition comes from here.</p>
           </div>
         </div>
 
@@ -602,8 +587,8 @@
       <p class="label">The Implementation</p>
       <h2>Six Skills</h2>
       <p>
-        These six skills put the three principles into practice. Together they give any AI agent a
-        persistent record of decisions, context, and history - so each session builds on the last.
+        Six skills put the three principles into practice. Together they give the agent
+        memory across sessions - so each run builds on the last.
       </p>
 
       <div class="grid-auto" style="margin-top: var(--gap-md);">
@@ -612,10 +597,8 @@
           <p class="label">The agent interpreted the prompt literally and missed the intent</p>
           <h3>Intent</h3>
           <p class="small">
-            Forces the agent to explicitly state its interpretation of the task before acting.
-            Named after Commander's Intent - Auftragstaktik - the doctrine of defining the mission
-            objective so subordinates can adapt when conditions change. An early warning system
-            for misaligned assumptions.
+            Forces the agent to state its interpretation of the task before acting. Named after
+            Commander's Intent (Auftragstaktik). An early warning system for misaligned assumptions.
           </p>
         </a>
 
@@ -623,10 +606,9 @@
           <p class="label">The agent doesn't know your vision - because it lives in your head</p>
           <h3>Vision</h3>
           <p class="small">
-            Surfaces the agent's working assumptions about where the operator is heading - as
-            specific questions the operator can confirm, correct, or reject. Closes the gap between
-            what has been written down and what the operator actually means. Produces
-            <code>.trail/vision.md</code>.
+            Surfaces the agent's assumptions about where the operator is heading - as specific
+            questions to confirm, correct, or reject. Closes the gap between what was written down
+            and what was meant. Produces <code>.trail/vision.md</code>.
           </p>
         </a>
 
@@ -643,10 +625,9 @@
           <p class="label">The agent makes superficial, undisciplined edits</p>
           <h3>Improve</h3>
           <p class="small">
-            The workhorse of the suite. Each iteration: read all prior context and history, examine the target,
-            challenge the first instinct, make exactly one highest-leverage change, predict the outcome,
-            verify it, reflect. Reads vision and trail before every run - never wastes an iteration on
-            something already tried.
+            The workhorse. Each iteration: read the trail, examine the target, challenge the first
+            instinct, make one highest-leverage change, predict the outcome, verify, reflect. Always
+            reads vision and trail first - so it never repeats a failed move.
           </p>
         </a>
 
@@ -654,10 +635,9 @@
           <p class="label">The agent can't see patterns across its own work</p>
           <h3>Retrospect</h3>
           <p class="small">
-            Steps back and reads the entire work history as a single document: what direction is the work
-            heading, where has attention been concentrated, is that actually where the weight lies?
-            Surfaces what no individual session would reveal. Produces
-            <code>.trail/retrospect.md</code>.
+            Reads the entire work history as one document: where is the work heading, where has
+            attention gone, is that where the weight actually lies? Surfaces what no single session
+            would reveal. Produces <code>.trail/retrospect.md</code>.
           </p>
         </a>
 
@@ -665,9 +645,9 @@
           <p class="label">You can't tell if the agent is reasoning or pattern-matching</p>
           <h3>Probe</h3>
           <p class="small">
-            Constructs a novelty probe - a pair of cases that look similar but differ in a material way -
-            to test whether the agent's response diverges where it should. Measures Autonomous Reasoning
-            Fidelity directly. Used for validation runs.
+            Builds a pair of cases that look similar but differ in one material way, then tests
+            whether the agent's response diverges where it should. Directly measures Autonomous
+            Reasoning Fidelity.
           </p>
         </a>
 
@@ -690,10 +670,9 @@
         <div class="row" style="align-items: flex-start;">
           <div class="numeral-circle">2</div>
           <p class="small" style="flex: 1;">
-            <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant cloud system
-            with domain-driven service boundaries, multiple collaborating microservices, and fully automated CI/CD.
-            A scope estimated internally as a large T-shirt-size effort was completed in three days. The full trail
-            exists but cannot be published; it is employer-owned professional work product.
+            <strong>Enterprise field deployment.</strong> Used in production on a confidential multi-tenant
+            cloud system with multiple microservices and automated CI/CD. A large T-shirt-size scope was
+            completed in three days. The trail exists but cannot be published - it is employer-owned.
           </p>
         </div>
 
@@ -715,10 +694,9 @@
       <p class="label">Memory Model</p>
       <h2>The .trail/ folder is the memory</h2>
       <p>
-        An agent without memory repeats yesterday's mistakes and forgets yesterday's decisions.
-        The skills suite gives every repository a memory layer that lives in <code>.trail/</code>
-        at the repo root. Each Improve run reads it before acting and extends it after. This is
-        what makes the loop cumulative instead of amnesiac.
+        Without memory, an agent repeats yesterday's mistakes. The skills suite gives every
+        repository a memory layer in <code>.trail/</code>. Each Improve run reads it before acting
+        and extends it after. That is what makes the loop cumulative instead of amnesiac.
       </p>
 
       <pre class="memory-tree" aria-label="trail folder structure"><span class="tree-name">.trail/</span>              <span class="tree-comment"># lives in the root of the repo being worked on</span>
@@ -733,74 +711,68 @@
     &#9492;&#9472;&#9472; <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span></pre>
 
       <p>
-        Three tiers. <strong>Operator layer:</strong> <code>vision.md</code> - never written by
-        any skill. <strong>Synthesis layer:</strong> <code>retrospect.md</code>,
-        <code>learning.md</code>, <code>history.md</code> - rewritten or regenerated each run, all
-        derived from the evidence below. <strong>Evidence layer:</strong>
-        <code>audit-trail.md</code>, <code>sessions/</code>, <code>transcripts/</code> -
-        append-only, never edited after the fact.
+        Three tiers. <strong>Operator:</strong> <code>vision.md</code> - humans only.
+        <strong>Synthesis:</strong> <code>retrospect.md</code>, <code>learning.md</code>,
+        <code>history.md</code> - regenerated each run from the evidence below.
+        <strong>Evidence:</strong> <code>audit-trail.md</code>, <code>sessions/</code>,
+        <code>transcripts/</code> - append-only, never edited after the fact.
       </p>
 
       <div class="stack" style="margin-top: var(--gap-md);">
         <div class="memory-row">
           <div class="mono small">vision.md</div>
           <div class="small">
-            <strong>Where you're going.</strong> The operator-held destination. What the target is
-            for, the constraints that hold across all runs, the hard problem the work is chipping
-            at. Stable. No skill ever writes to it - only humans do.
+            <strong>Where you're going.</strong> The operator-held destination - what the target
+            is for, the constraints that hold across runs, the hard problem the work is chipping
+            at. Stable. Humans only.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">retrospect.md</div>
           <div class="small">
-            <strong>Where you are.</strong> The current arc-level orientation derived from reading
-            the whole trail as one document. Contains the active operational rules the agent must
-            obey this run. Rewritten each time the Retrospect skill runs.
+            <strong>Where you are.</strong> Arc-level orientation derived from reading the whole
+            trail as one document. Lists the active rules the agent must obey this run. Rewritten
+            on every Retrospect run.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">learning.md</div>
           <div class="small">
-            <strong>What you've learned.</strong> A generated, chronological extract of every
-            <code>[!REALIZATION]</code> and <code>[!REVERSAL]</code> marker in the trail. The
-            compact form of the loop's accumulated insight - read this before reaching for the
-            full history. Regenerated by Trail at every commit so it never lags behind.
+            <strong>What you've learned.</strong> A chronological extract of every
+            <code>[!REALIZATION]</code> and <code>[!REVERSAL]</code> in the trail. Read this
+            before reaching for the full history. Regenerated by Trail at every commit.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">history.md</div>
           <div class="small">
-            <strong>The timeline.</strong> A generated run-by-run index derived from
-            <code>audit-trail.md</code>. Faster to scan than the full evidence layer when you just
-            need to know what happened when. Regenerated by Trail at every commit.
+            <strong>The timeline.</strong> A run-by-run index derived from <code>audit-trail.md</code>.
+            Faster to scan than the full evidence when you just need to know what happened when.
+            Regenerated by Trail at every commit.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">audit-trail.md</div>
           <div class="small">
-            <strong>The path you walked.</strong> Append-only ledger. Every session writes one
-            entry containing its interpretation of the ask, its examination, decisions, actions,
-            and reflection. This is the source of truth - the synthesis layer above is derived
-            from it.
+            <strong>The path you walked.</strong> Append-only ledger. Every session writes one entry:
+            interpretation of the ask, examination, decisions, actions, reflection. The source of
+            truth - everything above is derived from it.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">sessions/</div>
           <div class="small">
-            <strong>The full summaries.</strong> Mandatory. One file per run
-            (<code>YYYY-MM-DD-&lt;slug&gt;.md</code>), linked from the matching
-            <code>audit-trail.md</code> entry. The audit ledger is the short-form index; the
-            session file is the long-form summary. Structural distinction is required - one file
-            cannot play both roles.
+            <strong>The full summaries.</strong> One file per run (<code>YYYY-MM-DD-&lt;slug&gt;.md</code>),
+            linked from its <code>audit-trail.md</code> entry. The ledger is the short-form index;
+            the session file is the long-form summary. One file cannot play both roles.
           </div>
         </div>
         <div class="memory-row">
           <div class="mono small">transcripts/</div>
           <div class="small">
-            <strong>The verbatim record.</strong> Optional, harness-dependent. When the platform
-            can export the raw operator/agent dialogue, it lands here as
-            <code>YYYY-MM-DD-&lt;slug&gt;.md</code>. Highest-trust evidence tier when available -
-            no reconstruction, no paraphrase.
+            <strong>The verbatim record.</strong> Optional - depends on whether the harness can
+            export the raw operator/agent dialogue. Highest-trust evidence when available: no
+            reconstruction, no paraphrase.
           </div>
         </div>
       </div>
@@ -859,11 +831,10 @@
       <p class="label">Observable Autonomy</p>
       <h2>What an audit-trail.md entry looks like</h2>
       <p>
-        Three entries from the skills suite's own <code>audit-trail.md</code> - the loop running
-        on itself. Verbatim excerpts. Each one shows the agent's reasoning end to end: how it
-        read the ask, what it looked at, what it decided, and what it concluded after the fact.
-        This is the raw material every other file in <code>.trail/</code> is derived from. Scroll
-        for more.
+        Three verbatim entries from the skills suite's own <code>audit-trail.md</code> - the loop
+        running on itself. Each one shows the agent's reasoning end to end: ask, examination,
+        decision, reflection. This is the raw material every other file in <code>.trail/</code>
+        is derived from.
       </p>
 
       <div class="trail-scroll">
@@ -1103,11 +1074,11 @@
         </div>
       </div>
       <p class="small max-prose" style="margin-top: var(--gap-md);">
-        I built this because I had this problem: how to safely delegate real work to AI -
-        while remaining accountable for what gets done. What I kept running into were two failure
-        modes: reviewing everything until I was approving outputs I hadn't really checked, or
-        trusting the model until I found that a run was wrong after it had already been used.
-        The framework is the answer I built for myself. An action that cannot be audited is broken.
+        I built this because I had this problem: how to safely delegate real work to AI while
+        remaining accountable for what gets done. I kept hitting two failure modes - reviewing
+        everything until I was approving outputs I hadn't really checked, or trusting the model
+        until I found a run was wrong after it had already been used. This framework is the answer
+        I built for myself. An action that cannot be audited is broken.
       </p>
       <p class="micro center footer-bottom">
         Framework and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
