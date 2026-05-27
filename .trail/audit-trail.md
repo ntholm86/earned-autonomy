@@ -1181,3 +1181,56 @@ What this run did not do: write a quickstart from scratch. The skills suite QUIC
 
 [!REALIZATION] The page's natural reading order is now a complete arc: principle -> mechanism (skills) -> what gets created (memory) -> how to use it (quickstart) -> what success looks like (trail). The trail section, which used to sit awkwardly after Memory Model, now has a clear role: it is the "after" picture for what the quickstart produces. Before this run, that section was floating. The new quickstart anchored it.
 
+
+---
+
+## 2026-05-27 · iter-31 · quickstart-simplified
+
+target: pea-website (index.html, Get Started section)
+operator: Nils Holmager
+agent: GitHub Copilot (Claude)
+skill: improve + deai
+outcome: quickstart replaced - 4-card dense grid with time estimates, body paragraphs, and Done-when gates became a 3-step numbered list with one command each
+delta: index.html -106 / +61 (net -45 lines, roughly 60% lighter section)
+commit: 9f3c19c
+
+### Interpretation of the ask
+
+The operator said the "One real run in ten minutes" section was "not simple to look at" and needed to be "dumbed down." Intent: cognitive load was too high for what is supposed to be the easiest path into the framework. A get-started section should be the moment the reader thinks "okay, I can do this." Instead it looked like a checklist with metadata. Strip to the actual core.
+
+### Examination
+
+Applied the deai skill's pattern taxonomy to the existing section:
+
+- **Marketing fluff in the title.** "One real run in ten minutes" — the time estimate is a sales claim, not information. Replaced with "Three commands" which is the literal truth.
+- **Preamble before the steps.** Two-sentence intro restating the time estimate. Cut.
+- **Per-step time estimates.** "Step 1 · 1 min", "Step 2 · 3 min" etc. - noise. Cut.
+- **Body paragraphs that paraphrase the command.** "Clone the skills suite and run the installer from its root. Drops the six skill folders into ~/.copilot/skills/ for any agent that reads them." The command itself communicates this. Cut.
+- **Done-when gates as italic notes.** Helpful in a written tutorial; visual clutter on a landing page. Cut.
+- **Step 4 (Confirm).** Three code blocks to look at three things. Replaced with one closing line: "A new entry appears in .trail/audit-trail.md. That is the loop, end to end."
+- **Optional commit-hook paragraph.** "That is how trail discipline stops being a habit and becomes structural." - this is a deai pattern 2 (negation-first definition) wearing a tie. Cut entirely; the canonical QUICKSTART.md still has it for readers who want depth.
+- **4-card grid layout.** Cards demand the reader's eye scan each card's internal structure (label, title, body, code, gate). A numbered vertical list demands only "what's the next number." Replaced grid with ol.
+
+### Decision
+
+[!DECISION] Three steps, each one line of code, presented as a numbered ol with large accent-coloured counter numbers in the left gutter. One short intro: "Step 1 runs in your terminal. Steps 2 and 3 are chat commands to the agent." - this is the one piece of context that the bare commands cannot communicate (which interface receives them). One closing line that names what success looks like, plus a single link to the full QUICKSTART.md for anyone who wants the long version.
+
+Title becomes "Three commands" - honest, factual, scannable in two words. Sets expectations correctly: this is small.
+
+### Action
+
+1. Replaced the .quickstart-steps / .quickstart-step / .quickstart-step-num / .quickstart-step-body / .quickstart-done / .quickstart-footer CSS block with a slimmer set: .quickstart-list (ol with counter-reset), .quickstart-list li::before (large accent counter number), .quickstart-step-title, .quickstart-code, .quickstart-after.
+2. Replaced the HTML: dropped the 4 card divs, dropped the footer paragraph with the commit-hook note, replaced with a 3-item <ol class="quickstart-list">.
+3. Removed the realistic-but-wordy /improve example ("remove unused imports across src/ and verify nothing breaks") in favour of the generic placeholder /improve <one small concrete task>.
+4. git commit -> 9f3c19c.
+
+### Reflection
+
+Net change: -106 lines of HTML/CSS, +61 lines. The section now reads top-to-bottom in about five seconds. The visual weight per piece of information dropped roughly 4x - cards demanded scanning per card; a numbered list demands only "next number, next number."
+
+[!REALIZATION] The previous version's complexity came from a teacher's instinct - explain each step, gate each step, show every artefact. That instinct produces good written tutorials and bad landing-page sections. The landing page's job is to lower the barrier to trying it, not to teach the full procedure. The full procedure already exists at QUICKSTART.md; the page should defer to it, not duplicate it.
+
+[!REALIZATION] The deai skill paid off most on the headline. "One real run in ten minutes" sounded reasonable in isolation but read as a sales pitch in context - I was selling rather than describing. "Three commands" is the smallest true sentence that does the same job. When a headline contains a quantity that the reader has to take on faith ("ten minutes"), that is almost always a sign the headline is selling. When the quantity is something the reader can verify by counting on the screen ("three"), the headline is describing.
+
+What this run did not do: kill the section entirely. Was tempted briefly - the page could just link to QUICKSTART.md and trust the reader. But three commands on the page itself is the difference between "interesting, I should bookmark this" and "I could literally try this right now." That difference is the whole point of the section. Kept.
+
