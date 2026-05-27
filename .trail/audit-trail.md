@@ -1924,3 +1924,59 @@ The old h1 and the new h1 contain almost the same information. The difference is
 **Candidate next moves:**
 1. Push to GitHub Pages — the terminal readiness test; no remaining structural blockers.
 2. External cold-reader test — highest-information move available; confirms or refutes the recognition claim.
+
+## 2026-05-27 - iter-41-de-ai-pass
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** de-ai
+**outcome:** changed — 9 tells stripped from non-verbatim prose
+**commit:** c7f1912
+
+### Scope
+
+All prose in index.html. Excluded: trail section entries (verbatim), footer prose (operator-authored voice, iter-17b).
+
+### Diagnostic catalogue applied
+
+Clusters found across the page:
+
+**Pattern 5 (hedging vocabulary) — 3 instances of "actually":**
+- `let it decide how based on what it actually finds` → cut "actually"
+- `ARF is the observable signal that the agent is actually reasoning` → cut "actually"
+- `is that where the weight actually lies?` → cut "actually"
+
+**Pattern 5 (hedging qualifier):**
+- `misses what the author never thought to list - which is usually what matters` → cut trailing qualifier. Sentence is complete without it; "usually" weakens a claim that doesn't need weakening.
+
+**Pattern 10 (false precision):**
+- `Chain-of-thought monitoring is not sufficient to rule out undesired behavior` → `cannot rule out`. "Is not sufficient to rule out" performs academic precision without adding it.
+
+**Pattern 9 (corporate sentence-stamp):**
+- Intent card: `Named after Commander's Intent (Auftragstaktik). An early warning system for misaligned assumptions.` → `Catches wrong interpretations before work begins.` The "Named after..." sentence restates the h3 title for a reader who already read the principles section. "An early warning system" is a marketing-register metaphor. Replaced with a direct statement of the outcome.
+
+**Pattern 4 (restatement bloat):**
+- Vision card: `Closes the gap between what was written down and what was meant.` — restatement of the sentence before it. Cut.
+
+**Pattern 9 (vague filler):**
+- Foundations: `Each contributed something the framework would be weaker without.` — says nothing specific. "Drawn from X" already establishes the lineage. Cut.
+
+**Pattern 1 (meta-framing):**
+- Quickstart: `Step 1 runs in your terminal. Steps 2 and 3 are chat commands to the agent.` — labels the list for the reader instead of letting them read the list. The numbered list makes this self-evident. Cut.
+
+### Kept with note
+
+- "The usual signal" in Convergence principle: "usually" is doing real work here — it identifies the common practice signal as distinct from the right signal.
+- "highest-leverage" in Improve card: term of art in the skill itself, not a buzz-stack qualifier.
+- "together" in Skills intro: content-bearing, not filler.
+- All parallel pairs in principles: content-bearing (operator vs. agent, visibility vs. autonomy).
+- Footer prose: operator authored (iter-17b). Not touched.
+
+### Reflection
+
+Nine targeted cuts. No sentence lost meaning. The prose is slightly flatter — that is the point.
+
+No new tell-patterns surfaced that would expand the catalogue. The `actually`-as-filler cluster was the most consistent signal; all three instances were in the principles/skills prose where emphasis-language tends to accumulate.
+
+**Candidate next moves:**
+1. GitHub Pages push — the only remaining blocker from retro-002.
