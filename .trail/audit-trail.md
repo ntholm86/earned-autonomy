@@ -1234,3 +1234,60 @@ Net change: -106 lines of HTML/CSS, +61 lines. The section now reads top-to-bott
 
 What this run did not do: kill the section entirely. Was tempted briefly - the page could just link to QUICKSTART.md and trust the reader. But three commands on the page itself is the difference between "interesting, I should bookmark this" and "I could literally try this right now." That difference is the whole point of the section. Kept.
 
+
+---
+
+## 2026-05-27 · iter-32 · vision-css-design-system
+
+target: pea-website (index.html design tokens)
+operator: Nils Holmager
+agent: GitHub Copilot (Claude)
+skill: vision
+outcome: vision surface only - inferences formed, one priority question asked, awaiting operator response before refactoring; no code changes this turn
+delta: none (vision is conversational, not action)
+
+### Interpretation of the ask
+
+The operator said the CSS has too many ad-hoc values for font-size, font-weight, letter-spacing, border-radius, margin, padding, and wants them standardised into "a small set of variables" that is "minimal and simplistic" so the layout is easy to change. They explicitly asked me to run the vision skill before acting. Intent: do not just refactor - first surface what I infer the operator means by "small set" and "minimal", confirm the shape, then act.
+
+### Signal gathered
+
+- vision.md "Colour system (settled)" section: all CSS changes go through :root tokens.
+- retrospect.md claim #5: the semantic-token architecture is "the clearest concrete payoff in the arc" because the Monokai->light reversal was 2 edits.
+- retrospect.md active operational rule: "Never add inline style="" attributes."
+- File measurement: 22 unique font-size values, 5 letter-spacings, 4 weights (fine), 4 radii (mostly tokenised), 2 inline style attributes I added in iter-28 and iter-29.
+
+### Sourced inferences
+
+1. (Direction) Same token-driven architecture that already covers colour, extended to typography/spacing/radii. Cited: vision.md colour section + retrospect claim #5.
+2. (Priority) "Small" and "minimal" matter more than preserving current variance. Cited: the operator used both modifiers and called the 22 sizes "all over the place" - variety framed as defect.
+3. (Constraint) Semantic naming, not scale-based. Cited: every existing token is semantic (--bg, --ink, --rule). A scale like --gray-50 would conflict.
+4. (Quiet violation) The inline style="" attributes I added in iter-28 (memory hierarchy paragraph) and iter-29 (three-tier framing paragraph) violate the active operational rule from retrospect.md. Two attributes in the file. Should be cleaned in this refactor.
+
+### Question asked
+
+"Does the semantic-name shape match what you want - and is 6 type stops the right ceiling, or do you want it tighter (5)?"
+
+Priority rationale: the answer determines token names, ceiling size, and shape of the diff. Every downstream choice depends on it.
+
+### Proposed token set (sketch, for operator reaction)
+
+- Type: --text-micro, --text-small, --text-body, --text-heading, --text-title, --text-display (6 stops)
+- Weight: --weight-regular, --weight-bold, --weight-heavy (3)
+- Letter-spacing: --track-tight, --track-normal, --track-wide (3)
+- Spacing: --gap-tight, --gap-default, --gap-loose, --gap-section (4)
+- Radius: --radius-sm, --radius (existing, 2)
+
+Total ~18 tokens covering every visual dimension; down from 22 ad-hoc font-sizes alone.
+
+### Reflection
+
+[!REALIZATION] The operator caught two things in one request: (a) the explicit "CSS is messy" complaint, and (b) the implicit fact that I had quietly drifted from the established architecture by adding inline styles in three recent iterations. Inline-style debris is the exact failure mode retrospect.md warned about ("they accumulate silently across sessions"). The vision skill surfaced it - a normal Improve run would have just done the CSS refactor and missed the rule violation.
+
+This is what the layered memory model is for. Vision (architectural commitment), retrospect (active rules), audit-trail (specific violations) - all three were needed to see the full shape. Reading only one would have missed it.
+
+### What is still open
+
+- Operator's answer to the priority question.
+- After answer: write the updated tokens into the existing :root block, replace all ad-hoc values, kill the 2 inline styles, update vision.md's "Colour system" section to "Design system" with the full token set, append iter-33 trail entry.
+
