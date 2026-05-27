@@ -963,3 +963,15 @@ Author authority signal: 3/10 ? 6/10. The paragraph is brief, specific, and uses
 1. Verify in browser — check footer layout at desktop and mobile widths
 2. ARF callout — rename or make measurable (remains an open liability)
 3. Publication readiness check — all 3 original assessment gaps now addressed to varying degrees
+
+---
+## Session: improve-iter-17b-author-voice-correction
+
+**Date:** 2026-05-27
+**Slug:** iter-17b — author voice correction
+
+### [!REVERSAL] iter-17 author voice draft was wrong
+The iter-17 draft wrote 'I kept watching the same two failure modes' — implying the author observed a pattern in others. The operator corrected: the WHY is personal and direct: 'I had this problem: how to safely delegate real work to AI — while remaining accountable for what gets done.' This is the h1 of the page restated as lived experience. The paragraph now leads with that exact framing, with the two failure modes reframed as first-person ('I started rubber-stamping', 'I trusted the outputs until a wrong run'). The 'broken/not risky' close is retained.
+
+### [!REALIZATION] The h1 and the author voice are now in dialogue
+The page opens with the problem as a framework description. The footer closes with the same phrase as personal experience. This is a structural payoff that wasn't visible until the author corrected the voice.
