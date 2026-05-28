@@ -3109,3 +3109,20 @@ iter-68 renamed the Principles h2 to "Principles of Earned Autonomy". This creat
 ### Reflection
 
 [!REALIZATION] iter-68 solved one problem (unnamed principles) and created another (triple repetition). The Improve loop caught it one iteration later. This is the loop working correctly.
+
+---
+
+## iter-70 — 2026-05-28 — rewrite Intent and Trail card descriptions
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Intent and Trail skill card descriptions rewritten
+**delta:** 2 targeted edits; no CSS changes
+
+### Decision
+
+**Intent:** Old: "Forces the agent to state its interpretation of the task before acting. Catches wrong interpretations before work begins." — mechanical, explains the mechanism not the purpose. New: states what the agent does (interprets intent, not just instruction), and names the intellectual lineage (military command / Socratic dialogue / coaching kata).
+
+**Trail:** Old: "Enforces Observable Autonomy. Every decision, rationale, and discarded alternative is appended to .trail/audit-trail.md as the work happens. Work that is not logged cannot be audited." — three clauses restating the same idea. New: two short sentences, escalating logic: log → audit → trust.
