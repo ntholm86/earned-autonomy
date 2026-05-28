@@ -21,7 +21,6 @@
       --ink:       #e4e7ec;   /* off-white body (~12:1 on --bg) */
       --muted:     #a8b1c2;   /* soft slate (~7:1) */
       --rule:      #2f3548;   /* subtle border */
-      --num:       #2f3548;   /* recessive numerals — intentionally low contrast */
 
       /* Semantic colour roles — type determines colour, not section geography */
       /* coral=nav-brand · amber=labels/headers · teal=action · sage=evidence · lavender=emphasis */
@@ -70,8 +69,6 @@
       --ease:      0.15s;
     }
 
-    /* === Semantic colour roles — type-driven, consistent across all sections === */
-
     /* === Base === */
     html { font-size: 17px; scroll-behavior: smooth; }
     body {
@@ -100,23 +97,14 @@
       font-style: italic;
       color: var(--ink);
     }
-    blockquote .attribution {
-      font-style: normal;
-      font-size: var(--text-small);
-      color: var(--muted);
-      margin-top: var(--gap-xs);
-    }
-
     /* === Layout === */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
     section { padding: var(--gap-lg) 0; }
     section + section { border-top: 1px solid var(--rule); }
     .stack    { display: flex; flex-direction: column; gap: var(--gap-sm); }
     .stack-md { gap: var(--gap-md); }
-    .stack-lg { gap: var(--gap-lg); }
     .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
     .grid-auto { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
-    .grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
     .grid-3    { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap-md); }
 
     /* === Labels === */
@@ -144,8 +132,6 @@
       padding: var(--gap-sm) var(--gap-md);
     }
     .card-accent { border-left: 3px solid var(--sage); }
-    a.card { display: block; color: inherit; text-decoration: none; transition: border-color var(--ease), box-shadow var(--ease); }
-    a.card:hover { border-color: var(--teal); box-shadow: 0 2px 14px color-mix(in srgb, var(--teal) 22%, transparent); text-decoration: none; }
     a.label:hover { color: var(--teal); }
     a.mono { color: var(--teal); }
 
@@ -166,21 +152,6 @@
     a.chip:hover { border-color: var(--teal); color: var(--teal); }
     .chip-lg { padding: 0.35rem 0.85rem; font-size: var(--text-small); background: transparent; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--gap-xs);
-      padding: var(--gap-xs) var(--gap-sm);
-      background: var(--teal);
-      color: var(--bg);
-      border-radius: var(--radius-sm);
-      font-size: var(--text-small);
-      font-weight: var(--weight-bold);
-      text-decoration: none;
-      transition: opacity var(--ease);
-    }
-    .btn:hover { opacity: 0.88; text-decoration: none; }
-
     /* === Text helpers === */
     .small  { font-size: var(--text-small); }
     .micro  { font-size: var(--text-micro); }
@@ -191,11 +162,6 @@
     /* === Spacing & flex utilities === */
     .mt-md  { margin-top: var(--gap-md); }
     .mt-lg  { margin-top: var(--gap-lg); }
-    .my-md  { margin: var(--gap-md) 0; }
-    .row-top { align-items: flex-start; }
-    .flex-1  { flex: 1; }
-    .row-ruled    { padding-top: var(--gap-xs); border-top: 1px solid var(--rule); }
-    .label-inline { margin: 0; }
     .trail-divider { padding-top: var(--gap-sm); margin-top: var(--gap-sm); border-top: 1px solid var(--rule); }
 
     /* === Mono accent === */
@@ -208,20 +174,6 @@
       padding: 0.1em 0.35em;
       border-radius: var(--radius-sm);
     }
-    .code-block {
-      display: block;
-      font-family: var(--mono);
-      font-size: var(--text-small);
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--amber);
-      border-radius: var(--radius-sm);
-      padding: var(--gap-xs) var(--gap-sm);
-      color: var(--ink);
-      overflow-x: auto;
-      white-space: pre;
-    }
-
     /* === Nav === */
     nav {
       display: flex;
@@ -238,37 +190,6 @@
     nav ul { display: flex; gap: var(--gap-md); }
     nav ul a { font-size: var(--text-small); color: var(--muted); }
     nav ul a:hover { color: var(--teal); text-decoration: none; }
-
-    /* === Principle layout === */
-    .principle {
-      display: grid;
-      grid-template-columns: 3.5rem 1fr;
-      gap: 0 var(--gap-md);
-      align-items: start;
-    }
-    .principle-num {
-      font-size: var(--text-display);
-      font-weight: var(--weight-bold);
-      line-height: 1;
-      color: var(--num);
-      font-variant-numeric: tabular-nums;
-    }
-    .icon { color: var(--teal); display: block; margin-bottom: var(--gap-xs); }
-
-    /* === Evidence numeral circle === */
-    .numeral-circle {
-      flex-shrink: 0;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 50%;
-      background: var(--sage);
-      color: var(--bg);
-      font-size: var(--text-micro);
-      font-weight: var(--weight-bold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
     /* === Memory tree === */
     .memory-tree {
@@ -296,30 +217,6 @@
       align-items: baseline;
     }
     .memory-row:first-child { border-top: none; padding-top: 0; }
-
-    /* === Quickstart === */
-    .quickstart-list {
-      counter-reset: qs;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-      margin-top: var(--gap-md);
-    }
-    .quickstart-list li {
-      display: grid;
-      grid-template-columns: 3rem 1fr;
-      gap: var(--gap-sm);
-      align-items: baseline;
-    }
-    .quickstart-list li::before {
-      counter-increment: qs;
-      content: counter(qs);
-      font-size: var(--text-display);
-      font-weight: var(--weight-bold);
-      color: var(--num);
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
 
     /* === Trail scroll === */
     .trail-scroll {
@@ -405,7 +302,6 @@
   <!-- PRINCIPLES -->
   <div class="container">
     <section id="principles">
-      <p class="label">Why the skills work</p>
       <h2>Principles of Earned Autonomy</h2>
       <p>
         Three structural constraints. Each one holds where good intentions and careful prompting fail.
