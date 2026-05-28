@@ -2896,3 +2896,32 @@ After: "That holds until you find out a run was wrong after it had already been 
 ### Reflection
 
 [!REALIZATION] The enumeration ("which model, which task, which day") was the de-ai tell — it is the kind of list a model generates to show it considered multiple angles. The actual claim doesn't need the examples; the reader fills them in.
+
+---
+
+## iter-61 — 2026-05-28 — principles meta-frame labels removed
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — three "The problem it solves" labels removed from Principles section
+**delta:** 3 line deletions; no CSS changes
+
+### Examination
+
+**Pattern 1 (meta-framing):** All three principle blocks contained a <p class="label label-muted">The problem it solves</p> label between the tagline and the explanation prose. This label announces "I am about to tell you the problem" before telling it. The section heading "Why the skills work" already establishes the frame. The prose in each block opens directly and strongly without the ramp.
+
+- P1: "Give an AI a checklist and the checklist becomes its ceiling." — no ramp needed
+- P2: "Autonomy and transparency get treated as independent concerns. They are not." — no ramp needed
+- P3: "AI loops stop too early." — no ramp needed
+
+**Challenge:** Could argue the label provides visual rhythm / breathing room between the tagline and prose. Checked: the tagline (mono small) and prose (p) already have distinct visual register. No rhythm is lost.
+
+### Decision
+
+[!DECISION] Remove all three instances. Same class, same pattern, same fix. One iter.
+
+### Reflection
+
+[!REALIZATION] The label was probably added early in the arc when the prose wasn't strong enough to open cold. The prose is now strong enough. The label became dead scaffolding.
