@@ -3767,3 +3767,45 @@ Three edits (1 CSS rename+revalue, 2 HTML usage swaps covering all 3 occurrences
 1. **Check the lineage section at mobile/narrow width** - the named blind spot; confirm 2rem gap and full-width cards read well below the --max breakpoint.
 2. **Cold-reader test** - still the standing retrospect #1; the page keeps accreting content and polish without external validation.
 3. **Operator review of the iter-127 principle/skill mappings** - still pending (Socratic has no principle; the three empirical cards all map to P2).
+
+
+---
+
+## retro-005 - arc-read iter-60..128 (Retrospect skill v1.8.0)
+_2026-05-28_
+
+**Target:** c:\git\pea-website\index.html (observational run; no page changes)
+
+### Scope
+First full arc-read since retro-004 (covered through iter-59). Question: across iter-60..128, has the loop advanced the destination or polished findable surfaces while destination-critical work stayed deferred? Specifically - did the cold-reader test that retro-004 declared "deferral exhausted" ever run?
+
+### Freshness gate
+PASS via direct trail read. No tools/record.py exists; history.md/learning.md (mtime 16:40) are stale vs audit-trail.md (20:38) with no derivation tool to refresh them. Arc-claims formed from primary audit-trail.md, not the stale derived artifacts.
+
+### Falsifiable arc-claims (written to .trail/retrospect.md)
+1. The cold-reader test has now been deferred ~20 consecutive times and still has not run - first named iter-29, ranked #1/#2 in nearly every entry since, called "the move, not a candidate" by retro-004. The single most durable fact about the arc.
+2. [!REALIZATION] The deferral is upstream of the page: there is NO operator-confirmed convergence criterion (destination iter-84: operator said "I am not sure what done actually looks like"). The loop optimizes for findable work because the one move that resolves "are we done?" needs two inputs it cannot self-generate - an external reader, and the operator's statement of the target reaction. retro-004's error was framing this as merely "overdue" rather than BLOCKED.
+3. iter-121..128 is a textbook comfortable-corner run (citations -> anchors -> dashes -> cross-links -> tooltips -> footers -> spacing), and the loop diagnosed it mid-stream (iter-126 declared link/tooltip class exhausted).
+4. The loop is structurally HONEST, not a confabulation trail - healthy reversal/realization density (iter-126 [!REVERSAL], iter-128 self-concession, iter-121 caught its own 404s). Failure mode is selective attention, not confabulation.
+5. Second perpetually-deferred task mirrors the pattern: the iter-88..120 trail gap (33 unlogged iterations), flagged as a candidate every entry 121-128, never acted on. The rank-defer-repeat pattern is the tell.
+6. iter-128 was the first browser render verification since iter-36; visual verification is now a demonstrated capability, mobile/narrow-width still unverified.
+
+### Loop-effectiveness [!REALIZATION]
+The loop is effective at execution and honest in its record, but its attention allocation is the problem. It will reliably find and fix every internal inconsistency, AI-tell, and misaligned token, and will reliably NOT discover whether the page lands with a cold reader - because that signal does not exist inside the file. The honest status: the page is in the exploration phase, the loop has done the findable exploration thoroughly, and convergence is GATED on an operator decision (iter-84's open question) that no run since has resolved.
+
+### New operational rules (added to retrospect.md)
+- Rule 15: link/tooltip standardization finding-class is EXHAUSTED - do not open further link/tooltip iterations.
+- Rule 16: the page is hyphen-only (em-dashes removed iter-123); trail/retrospect files may still use em-dashes.
+- Rule 17: spacing stack classes are .stack (sm) and .stack-lg (lg); .stack-md was renamed away iter-128.
+- Rule 18: browser render verification is available and expected for visual/layout changes.
+
+### Process note
+[!REVERSAL of a verification habit] The session's mojibake guard - Select-String/-match for 'a-circumflex euro' - gives FALSE POSITIVES on files that legitimately contain em-dashes/arrows, because PS5.1 decodes valid UTF-8 bytes (E2 80 94) as windows-1252. A Set-Content round-trip DID corrupt retrospect.md once (restored via git checkout); the correct write path is Add-Content -Encoding UTF8 from a temp file. But the AUTHORITATIVE clean-check is read_file (a real UTF-8 decoder), not a terminal grep. retrospect.md was verified clean by reading it back, despite the terminal grep claiming mojibake.
+
+### Action
+Wrote .trail/retrospect.md (REPLACE semantics, retro-005 content), committed 64af82e, pushed. This entry appended via Add-Content -Encoding UTF8.
+
+### Candidate Next Moves (for the operator, not the loop)
+1. **Operator: answer iter-84's open question** - "What would a reader have to say or do after visiting this page for you to feel it has done its job?" - then run the cold-reader test. This is the move; everything else is deferral.
+2. Formally close the iter-88..120 trail gap (backfill or one explicit [!REALIZATION] that it was intentional).
+3. Mobile/narrow-width visual check of the lineage section.
