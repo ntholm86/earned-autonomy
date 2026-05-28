@@ -3071,3 +3071,18 @@ section { padding: var(--gap-lg) 0 } — 3rem top + 3rem bottom = 6rem between c
 ### Decision
 
 [!DECISION] --gap-lg: 3rem → 2rem. Single token, uniform effect.
+
+---
+
+## iter-68 — 2026-05-28 — rename Principles heading to "Principles of Earned Autonomy"
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — h2 "Three Principles" → "Principles of Earned Autonomy"
+**delta:** 1 line; no CSS changes
+
+### Decision
+
+[!DECISION] The heading is the name of the framework. "Three Principles" described the count; "Principles of Earned Autonomy" names the thing. The eyebrow label "Why the skills work" is retained for context.
