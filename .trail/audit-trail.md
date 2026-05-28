@@ -3521,3 +3521,30 @@ Edited the five `.lineage-sources` blocks in index.html. Verified every URL befo
 1. **Reconcile the trail gap** (iter-88–iter-120): either backfill terse entries from the git log or record an explicit [!REALIZATION] that micro-iterations were intentionally not trail-logged, so the gap is documented rather than silent.
 2. **Re-verify the Widder PDF contents** (or swap for a primary US Army doctrine source with a stable canonical URL) to close the one weak "verified" claim.
 3. **Audit the empirical cards' arXiv links** for whether a published-venue DOI (NeurIPS/ICLR) would be a stronger primary than the arXiv abstract.
+
+## iter-122 — 2026-05-28 — skill-card principle labels jump on-page; principle cards keep GitHub links
+
+### Interpretation of the ask
+Operator: "The links that point to the principles inside the skill cards should take the user to the individual [principle] definition of this same PEA webpage using # in query string. And clicking the link inside the principle definition card should then take the user to the github page of that principle." Read as a deliberate two-hop journey: (1) a Skills-section card's principle label (P1/P2/P3) becomes an in-page anchor to the matching principle definition card; (2) that principle card's heading link continues out to the GitHub PRINCIPLES.md source. The phrase "individual skill definition" is read as "individual principle definition" — the second sentence ("the principle definition card") disambiguates it.
+
+### Examination
+Three principle cards in `#principles` had no individual ids; their `<h3>` links already deep-linked to GitHub PRINCIPLES.md anchors (the hop-2 target — correct, keep). Three skill cards (Intent/Trail/Improve) carried `<a class="label">P1|P2|P3</a>` footers pointing straight to the same GitHub anchors — collapsing the intended two hops into one. Sticky nav + `scroll-behavior: smooth`, but no `scroll-margin`, so an in-page jump would land the target card under the nav.
+
+### Decision
+One change: rewire principle navigation. Added `id="principle-1|2|3"` to the principle cards; repointed the three skill labels to `href="#principle-N"` and dropped `target="_blank" rel="noopener"` (same-page now); rewrote their data-tips from the generic "Go to definition." to name the specific principle and say "on this page"; added a single `:target { scroll-margin-top: 4.5rem; }` rule so any anchored jump clears the sticky nav. Principle-card headings left untouched (already hop-2 to GitHub).
+
+### Prediction
+Clicking P1/P2/P3 in a skill card scrolls to the matching principle card; the principle heading still opens GitHub; existing nav anchors also land more cleanly. No card layout/visual change, no new design tokens.
+
+### Action
+Applied seven edits (one CSS rule, three id additions, three label repoints). Verified: grep confirms three `id="principle-N"` targets and three matching `href="#principle-N"` sources, paired correctly. No HTML errors. Prediction held — the only behavioral change is the navigation hop; cards render identically.
+
+### Reflection
+- **Falsifiable model-claim:** every skill-card principle label now resolves to an on-page card whose id matches its fragment, and no skill-card label points off-site any longer. Falsified if any P-label still carries a github.com href, or if a fragment has no matching id.
+- **Named blind spot:** I added `:target { scroll-margin-top }` globally rather than scoping it to the principle cards. This silently changes where the existing nav anchors (#principles, #skills, #trail, …) land too. I judged this a net improvement (those anchors previously hid under the sticky nav), but it is a scope widening beyond the literal ask and could surprise someone who tuned to the old landing position.
+- **Imagined-reader pushback:** "A label that looks identical to the off-site labels but behaves differently (in-page vs new-tab) is inconsistent." Counter: the data-tip now states "on this page", and the label has no `&#8599;` external-link glyph (unlike the headings), so the affordance already distinguishes them. If this proves confusing, a future move is a distinct visual treatment for in-page vs external labels.
+
+### Candidate Next Moves
+1. **Refine the Probe card's "Autonomous Reasoning Fidelity" link** (currently `#principles`, the whole section) to target a dedicated ARF anchor — the ARF callout could take `id="arf"` for a precise jump, mirroring this iteration's pattern.
+2. **Visually distinguish in-page labels from external ones** (e.g., a small inbound-arrow or omit the external glyph deliberately) so the two link behaviors are legible before click.
+3. **Reconcile the trail gap (iter-88–iter-120)** still outstanding from iter-121 — the audit trail remains behind the commit history.
