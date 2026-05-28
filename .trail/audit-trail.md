@@ -2625,3 +2625,60 @@ Blind spot: the "Principles of Earned Autonomy" label in the hero still referenc
 1. Cold-reader test — still the highest-information move. The page is now structurally and copy-consistent.
 2. "Delegate to AI. Own the work." placement — Vision iter-51 phrase. Now that the hero is settled, the remaining open placement is: section label, nav tagline, or footer. Not meta description (used "Six skills" instead — stronger for SEO).
 3. Probe — check whether the agent distinguishes the skills-first reader journey from the old principles-first one.
+
+## 2026-05-28 - iter-55-footer-closing-phrase
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Improve + Intent
+**outcome:** changed — "Delegate to AI. Own the work." added to footer
+
+### Interpretation
+
+Operator: "Use the improve skill / understand my intent." Underspecified. Trail provides the sourced hunch: the phrase "Delegate to AI. Own the work." was formed in Vision iter-51 and has appeared as candidate-next-move #2 in three consecutive sessions (iter-52, iter-53, iter-54). The cold-reader test (#1 in all three) requires a human and cannot be executed in this session. The highest actionable move is the phrase placement.
+
+### Examine
+
+**Purpose lens.** The phrase is the 6-word compression of the page's core tension. It exists in vision.md but has no location on the page. The page opens with a 14-word h1 and has no closing statement that distils the whole message. The footer ends on "An action that cannot be audited is broken." — strong but P2-specific (Observable Autonomy). The page has no line that closes the rhetorical arc opened by the h1.
+
+**Inconsistency lens.** Vision holds a placed candidate; the page does not.
+
+### Challenge
+
+Replace the h1? No — the h1 was shaped in iter-40 specifically for the recognition register. "Delegate to AI. Own the work." loses the concrete "real work" / "accountable" framing that makes the recognition land.
+
+Nav brand? No — "Earned Autonomy" is the framework name, required for consistency with the Zenodo DOI.
+
+Footer close? Yes. The natural resting place: the last thing the reader reads, the 6-word distillation, closing the rhetorical arc opened by the h1.
+
+### Decision
+
+[!DECISION] Add <p class="mono small center mt-md">Delegate to AI. Own the work.</p> between the footer paragraph and the license line. No new CSS classes — mono, small, center, mt-md all pre-exist.
+
+Pre-commit prediction: the phrase appears in the footer as a centered mono closing statement. No structural, CSS, or content changes elsewhere.
+
+### Verify — prediction held
+
+- One match found for "Delegate to AI" — correct location, line 1184 — CONFIRMED
+- No new CSS classes introduced — CONFIRMED
+- Only index.html staged — CONFIRMED
+
+### Reflection
+
+The phrase was formed by the Vision skill, deferred across three sessions, and is now placed. The footer now has the rhythm: [author + links] → [personal story] → [6-word distillation] → [license]. The reader ends on the overarching claim rather than a P2-specific line.
+
+Blind spot: the phrase was formed by the agent in the Vision run, not explicitly confirmed by the operator. Three sessions of non-rejection is tacit acceptance, not explicit confirmation. If the operator wants a different placement or phrasing, this is the first committed instance to react to.
+
+Imagined expert pushback: "The personal paragraph ending with 'An action that cannot be audited is broken.' is already a strong close — the new line softens it by following it with something more abstract." Possible. But the phrase doesn't follow the paragraph on screen — it follows it in scroll, with visual separation. The specificity of "cannot be audited" and the compression of "Delegate to AI. Own the work." address different registers.
+
+**Macro reflection triggers:**
+- Recurring finding-class: not fired — different concern from previous iterations
+- About to declare silence: not fired — change was made
+- Contradicts prior [!REALIZATION]: not fired — phrase placement was explicitly named as open
+- Operator explicitly asked: not fired
+
+### Candidate Next Moves
+
+1. Cold-reader test — unchanged. The page is now structurally settled, copy-consistent, and has its closing phrase placed. A real reader who arrives cold is the only signal left the loop cannot generate itself.
+2. Confirm the footer phrase with operator — the phrase was agent-formed, not operator-confirmed. This session is the first committed instance; the operator can react. If the wording or placement is wrong, an adjustment is a one-iteration fix.
+3. Probe — test whether the agent distinguishes the skills-first reader journey from the principles-first frame the page spent 50 iterations building.
