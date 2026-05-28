@@ -172,3 +172,17 @@ When asked directly what done looks like during the iter-84 session, the operato
 **Open question for the operator:** What would a reader have to say or do after visiting this page for you to feel the page has done its job? Is there a specific reaction, a specific type of person, a specific action (installing the skills, sharing the link, reaching out)?
 
 Until the operator can answer this, convergence cannot be declared. This is not a failure — it means the page is still in the exploration phase, not the convergence phase.
+
+---
+
+## Destination update — iter-132 — 2026-05-28
+
+**The `#trail` section is repurposed: from teaching trail-format to standing as evidence-of-origin.**
+
+It previously showed three verbatim `audit-trail.md` entries as "what an entry looks like" — a format demonstration. The operator redirected it: the section's purpose is to be the *empirical credential of the skillset itself*. The skills are not top-down design; they are the convergent output of running the Improve loop on itself 200+ times, through its own evolution (Kaizen from Toyota Kata → split into Kaizen/Kaikaku/Hansei → unified Improve), stopped only when multiple independent AI model families each found nothing left to change while the principles held.
+
+Operator framing (2026-05-28, verbatim intent): *"Without empirical evidence we are just another person with an opinion"* — added as a pull-quote (attributed to W. Edwards Deming). The section must "capture its ingenuity and originality — evidence of targeting an improvement loop with higher awareness on itself which understands the purpose of its target — until convergence by Principle 3."
+
+**This is NOT the rejected "self-referential proof section."** The item under "What is rejected" (removed iter-8) was *the page proving the page* — the website making claims about its own construction. This evidence is about the *skillset* (the product the page describes), which the Structure section already sanctions: Improve should show "the evidence — 200+ iterations on itself, two full self-rewrites." The distinction holds: the page still does not explain its own construction; it presents the skillset's verifiable origin.
+
+**[!REALIZATION]** "The demonstration lives in the trail, not on the page" (destination, top) was being read too literally — as "do not surface the trail's evidentiary weight on the page at all." The operator's intent is narrower: do not make the *page* self-referential, but the *skillset's* convergence story is core content, not construction-talk. The trail link remains the proof; the page now states what that proof establishes.

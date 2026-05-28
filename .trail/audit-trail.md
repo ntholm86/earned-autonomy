@@ -3922,3 +3922,41 @@ CSS: added `.skill-when` (mirrors .lineage-applies structure; teal b for the "In
 1. **Mobile/narrow-width check** - standing blind spot from iter-128/129/130; now affects the invoke lines too.
 2. **Verify the "Get started" anchor `#quickstart` doesn't appear in any other text link** on the page that would now be dead.
 3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
+
+## iter-132 - repurpose the trail section as evidence-of-origin (Improve skill v3.9.2)
+_2026-05-28_
+
+**Target:** c:\git\pea-website\index.html, #trail section (+ destination.md)
+
+### Understand
+Operator: "the entire 'What an audit-trail.md entry looks like' should have the example of audit trail removed. The purpose of this section is to serve as evidence of the development and trail of the skillset itself and the 200+ iterations done using the improve skill through several versions - first kaizen, then improve. Without empirical evidence we are just another person with an opinion - that's a quote we are missing. Capture its ingenuity and originality - evidence of targeting an improvement loop with higher awareness on itself which understands the purpose of its target - until convergence by the definition of Principle 3 - multiple AI models independently finding nothing to improve while upholding the principles." Operator invoked Destination, then Improve. Read destination.md and retrospect.md (retro-005). Active rules in play: 1 (no inline style), 3 (no new class without checking), 5 (append trail via Add-Content UTF8), 16 (page is hyphen-only), 18 (browser-verify layout).
+
+### Destination application
+The destination's "What is rejected" list bans a "self-referential proof section (removed iter-8; the demonstration lives in the trail)." Surfaced this apparent conflict and resolved it: the rejected item was the page proving the *page* (claims about its own construction). This section is evidence about the *skillset* the page describes - which the Structure section explicitly sanctions ("Improve should show the evidence - 200+ iterations on itself, two full self-rewrites"). No real conflict. Recorded the refinement in destination.md as the iter-132 update with a [!REALIZATION] that "the demonstration lives in the trail" was being read too literally.
+
+### Examine (Purpose + Waste lens)
+Purpose: the #trail section taught *trail format* (three verbatim entries) - useful, but the preceding #memory section already explains the audit-trail's role. The format demonstration was the lower-value framing. The operator's intended purpose - the skillset's empirical credential - was absent from the page. Waste: the three example-entry cards carried 4 CSS classes (.trail-scroll, .trail-meta, .trail-marker, .trail-divider) used nowhere else; removing the cards orphans all four.
+
+### Decide + Predict
+ONE change: rewrite the #trail section from format-demonstration to evidence-of-origin. New h2 "Built by the loop it describes"; a sage-accented pull-quote (Deming, "Without data, you're just another person with an opinion."); three prose paragraphs (the 200+ iteration / Kaizen->Improve evolution story; the self-targeting loop that understands its target's purpose; convergence by Principle 3 across independent model families); a closing line that the record is public and checkable; keep the existing GitHub trail link. Add one new CSS rule (blockquote.pull-quote + cite). Remove the three example cards and the four orphaned CSS classes.
+- **Prediction:** The section reads as a credibility/evidence statement, not a how-to. The pull-quote renders large, italic, sage left-border, muted attribution. The in-page "Convergence Is Silence" link is teal, no tooltip (inline-prose rule). No orphaned CSS remains. get_errors clean. Page is shorter. Nav #trail anchor still resolves.
+
+### Action + verification
+CSS: added blockquote.pull-quote (sage border-left, clamp font, italic, ink) + cite (muted, small, not-italic); removed .trail-divider, .trail-scroll (+webkit scrollbar rules), .trail-meta, .trail-marker. HTML: replaced the section heading + intro + three .card.card-accent entries + divider with the new heading, pull-quote, four prose paragraphs, and the retained chip link. In-page link to #principle-3 carries no data-tip (rule 15: inline-prose links omit tooltips to preserve wrapping). get_errors: clean. grep confirmed zero remaining references to the four removed classes and the temporary placeholder div. Browser-verified at file:///c:/git/pea-website/index.html#trail: heading, sage pull-quote with muted attribution, teal inline link all render on-theme. Prediction held.
+
+### Reflect
+- **Falsifiable model-claim:** The page's strongest credibility lever is the convergence story (a skillset no human designed, that independent models could not improve), and it now has a dedicated home. If a cold reader still asks "why should I trust this?", the gap is now in the *hero/principles*, not the trail section.
+- **Named blind spot:** Mobile/narrow-width unverified (standing blind spot since iter-128). The pull-quote uses clamp() so it should scale, but the long quote line wrapping on a narrow viewport was not checked. Quote attribution: "Without data, you're just another person with an opinion" is the common attribution to W. Edwards Deming but lacks a verified primary source; rendered as "attributed to" to stay honest.
+- **Imagined-reader pushback:** "Is removing the verbatim entries a loss - they were the only place a reader saw real agent reasoning?" The full trail link survives and now carries more weight (it is the proof behind the claims). The examples were illustrative, not load-bearing; the convergence claim is the higher-value content.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - first structural repurpose of the #trail section since the dark-theme era.
+- *About to declare silence:* not fired - a substantive change was made.
+- *Contradicts prior [!REALIZATION]:* checked - the iter-8 "self-referential proof removed" decision was examined and explicitly reconciled (skillset-evidence vs page-self-reference), not contradicted.
+- *Operator explicitly asked:* fired - direct structural request, with Destination invoked first.
+
+### Candidate Next Moves
+1. **Mobile/narrow-width check** - the standing blind spot, now also covering the new pull-quote's wrapping behaviour.
+2. **Reconcile the #memory section intro with the repurposed #trail** - #memory still frames audit-trail.md as "the source of truth everything is derived from"; confirm the two sections now read as complementary (mechanism vs evidence) and not redundant.
+3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
+
