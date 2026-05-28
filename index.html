@@ -127,6 +127,47 @@
     a.label:hover { color: var(--amber); }
     a.mono { color: var(--teal); }
 
+    /* === Tooltip ===
+       Generic. Add data-tip="content" to any element. Optional
+       data-tip-title="EYEBROW" prepends a styled title line.
+       Pure CSS, no JS. Single card via ::after, caret via ::before. */
+    [data-tip] { position: relative; display: inline-block; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + var(--gap-sm));
+      transform: translateX(-50%) translateY(var(--gap-xs));
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      padding: var(--gap-xs) var(--gap-sm);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      font-weight: var(--weight-regular);
+      letter-spacing: normal;
+      text-transform: none;
+      line-height: 1.4;
+      white-space: normal;
+      width: max-content;
+      max-width: 18rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--ease), transform var(--ease);
+      z-index: 20;
+    }
+    [data-tip-title]::after {
+      content: attr(data-tip-title) "\A" attr(data-tip);
+      white-space: pre-line;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* === Chips & buttons === */
     .chip {
       display: inline-flex;
@@ -334,7 +375,7 @@
 
         <div class="card">
           <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-1-commanders-intent" target="_blank" rel="noopener">P1 &middot; Commander&#8217;s Intent</a>
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener">Intent SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Intent skill definition.">Intent SKILL &#8599;</a></h3>
           <p class="small">
             Force the Agent to understand the intent behind your prompt in relation to the context: what you mean, not what you said. Cites how it reads your intent before it continues.
           </p>
@@ -345,7 +386,7 @@
 
         <div class="card">
           <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-2-observable-autonomy" target="_blank" rel="noopener">P2 &middot; Observable Autonomy</a>
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">Trail SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Trail skill definition.">Trail SKILL &#8599;</a></h3>
           <p class="small">
             Logs all the work, decisions, reasoning, and sessions in <code>.trail/audit-trail.md</code>. The next prompt knows previous work and history.
           </p>
@@ -353,7 +394,7 @@
 
         <div class="card">
           <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-3-convergence-is-silence" target="_blank" rel="noopener">P3 &middot; Convergence Is Silence</a>
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener">Improve SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Improve skill definition.">Improve SKILL &#8599;</a></h3>
           <p class="small">
             One change per run. Reads the context first — destination, retrospect, trail — then finds the highest-leverage remaining change, predicts the outcome, acts, and logs it.
           </p>
@@ -369,21 +410,21 @@
       <div class="grid-auto mt-md">
 
         <div class="card">
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/destination/SKILL.md" target="_blank" rel="noopener">Destination SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/destination/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Destination skill definition.">Destination SKILL &#8599;</a></h3>
           <p class="small">
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code>.
           </p>
         </div>
 
         <div class="card">
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener">Retrospect SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Retrospect skill definition.">Retrospect SKILL &#8599;</a></h3>
           <p class="small">
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code>.
           </p>
         </div>
 
         <div class="card">
-          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener">Probe SKILL &#8599;</a></h3>
+          <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full Probe skill definition.">Probe SKILL &#8599;</a></h3>
           <p class="small">
             Tests whether the agent&#8217;s response diverges where it should. Measures <a href="#principles">Autonomous 
             Reasoning Fidelity</a>.
