@@ -3488,3 +3488,36 @@ Commit lands cleanly. Pre-existing uncommitted WIP (if any) is untouched. The ne
 1. **Run the Destination skill on pea-website** to check whether the operator-held destination is still current; this migration only fixed the filename, not the substance.
 2. **Run Retrospect on pea-website's trail** — the migration changes nothing structural, but a Retrospect pass would surface any arc-level claim that had become stale while attention was elsewhere.
 3. **Confirm no other tooling in pea-website still hard-codes the path `.trail/vision.md`** (e.g., a checked-in workflow, a script, a doc) — `record.py` and the skill prose already read the new name, but pea-website-local tooling has not been audited in this run.
+
+## iter-121 — 2026-05-28 — lineage citations: precise anchors + primary sources
+
+### Interpretation of the ask
+Operator: "are we able to find more specific and precise links to exact phrases at documentation pages — and multiple possible sources for each of the Intellectual lineage cards?" Read as: the lineage citations were landing-page links of mixed authority; upgrade them to (a) deep section anchors that target the relevant passage and (b) at least one independent primary source per conceptual card, so each claim is verifiable from more than one angle. "Spend time looking for credible sources" was a directive to verify before changing — not to guess.
+
+### Examination
+Five conceptual cards (Auftragstaktik, Toyota Kata, Socrates, Kaizen, Delphi) plus three empirical cards. The empirical cards already carried precise arXiv abstract links (Turpin, Huang, Chen) — primary sources, left untouched. The conceptual cards mixed a bare Wikipedia link with a single secondary source; some pointed at landing pages (RAND topics, IEP root, Wikipedia article tops) rather than the relevant section.
+
+### Decision
+One change: a source-precision pass across the five conceptual cards. Each now anchors its encyclopedia link to the relevant section and adds a verifiable primary source:
+- Auftragstaktik: Wikipedia §Characteristics + Commander's Intent + Military Review (Widder, US Army Combined Arms Center, 2002, PDF).
+- Toyota Kata: Wikipedia §The Improvement Kata + Rother's book (Google Books) + LEI Coaching Kata.
+- Socrates: SEP + IEP §Method/elenchus (#SH3a).
+- Kaizen: LEI + Wikipedia §Benefits + Imai's 1986 book (archive.org).
+- Delphi: RAND topic page + Dalkey & Helmer 1963 (DOI) + Wikipedia §Key characteristics.
+
+### Prediction
+Each claim becomes verifiable from independent sources; links deep-target the relevant section; no fabricated URLs.
+
+### Action
+Edited the five `.lineage-sources` blocks in index.html. Verified every URL before/after: IEP anchor pattern confirmed via the site's own cross-links (#SH3a); Toyota Kata capital-K + #The_Improvement_Kata confirmed; Rother Google Books id and Imai archive.org item confirmed live; Dalkey & Helmer DOI resolves. Two first-pass links 404'd (ADP 6-0 PDF path; RAND pardee page) and were caught by post-edit verification, then replaced with confirmed-live equivalents (Military Review Widder PDF; RAND topics page). Committed 4e76abb, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** A reader who clicks any conceptual-card link now lands on the specific section that substantiates the card's claim, not a landing page. Falsified if any of these anchors fails to resolve to the cited section, or if the Widder PDF (verified only as a non-404 binary, not parsed) is in fact dead.
+- **Named blind spot:** I verified the Widder PDF only by absence of a 404 (the fetcher returned "failed to extract" on the binary). I did not confirm its *contents* match the citation. If it 404s later, the Auftragstaktik card still has two working sources, so the failure is graceful — but the claim "verified" is weaker than for the others.
+- **Imagined-reader pushback:** "Three links per card is more clutter, not more trust." Counter: the iter-120 redesign already demoted sources to a divider-separated footer, so density there is acceptable; and the operator explicitly asked for multiple sources. But if a future pass finds the footer crowded, dropping the weakest third link (the Wikipedia duplicate) is the first move.
+- **Trail-state finding:** the trail's last numbered entry was iter-87 while commits run to iter-121 — the audit trail fell ~33 iterations behind during this session's micro-iterations. Not backfilled here; flagged as a Candidate Next Move.
+
+### Candidate Next Moves
+1. **Reconcile the trail gap** (iter-88–iter-120): either backfill terse entries from the git log or record an explicit [!REALIZATION] that micro-iterations were intentionally not trail-logged, so the gap is documented rather than silent.
+2. **Re-verify the Widder PDF contents** (or swap for a primary US Army doctrine source with a stable canonical URL) to close the one weak "verified" claim.
+3. **Audit the empirical cards' arXiv links** for whether a published-venue DOI (NeurIPS/ICLR) would be a stronger primary than the arXiv abstract.
