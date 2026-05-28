@@ -2729,3 +2729,56 @@ Blind spot: the quote is visible to scroll-readers but not to fast scanners land
 1. Cold-reader test — still the highest-information move. The page now has its formal definition placed.
 2. Surface the definition earlier — if the operator wants the quote visible to first-pass (skills-first) readers, a secondary placement in the hero or a standalone "Definition" band above the fold could serve that. This is scope expansion; requires operator confirmation.
 3. Probe — test whether the agent distinguishes the formal definition from the informal tagline as distinct claims.
+
+---
+
+## iter-57 — 2026-05-28 — gap-void-substitute removal
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — four instances of "gap" as spatial-void substitute removed
+**delta:** 4 prose edits; no CSS changes
+
+### Interpretation of the ask
+
+Run the Improve loop on the pea-website. The de-ai pass earlier this session surfaced the finding; the improve skill's job is to act on it, not present it for confirmation.
+
+### Examination
+
+**De-AI lens — pattern 9 (spatial-void substitutes):** Four instances of "gap" used as a void-shape substituting for the actual claim:
+
+1. Meta description: "Six skills that close that gap —"
+2. Hero <p>: "Six skills that close that gap — for any model, any toolset."
+3. Hero card lead: "Two responses to this gap are common. Both break down."
+4. Principles intro: "Each one closes a gap that good intentions and careful prompting cannot close."
+
+All four exhibit the same tell: a void is described, not the difference. Each can be cut or restated to say the actual thing.
+
+No other clusters found. The trail entries, foundations section, footer paragraph, and technical prose are clean.
+
+**Kaikaku question:** Is the structure itself wrong? No. Page is structurally settled at iter-56. Cold-reader test remains the only higher-leverage move — not executable without a human.
+
+### Challenge
+
+Alternative considered: declare silence and defer to cold-reader test. Rejected — the cold-reader test requires an external human, not executable in this session. The gap-removal is the highest executable move. Four instances of a single pattern class — not four separate changes but one coherent surface edit.
+
+### Decision
+
+[!DECISION] Apply all four gap-void-substitute removals as a single iter-57 change. Same root pattern, same session that identified it, no structural risk.
+
+Replacements:
+- Meta + hero <p>: "Six skills that close that gap —" → "Six skills —"
+- Hero card lead: "Two responses to this gap are common." → "Two responses are common."
+- Principles intro: "Each one closes a gap that good intentions and careful prompting cannot close." → "Each one holds where good intentions and careful prompting fail."
+
+### Action
+
+Four targeted replace_string_in_file edits to index.html. No CSS changes. No structural changes.
+
+### Reflection
+
+[!REALIZATION] The gap-void pattern was identified by running de-ai on the page — and de-ai had just been updated in this same session to include this pattern class (pattern 9 spatial-void substitutes). The skill caught its own blind spot on the first run after being updated. That is the skill working as designed.
+
+Cold-reader test remains the next move. It is the only quality signal this loop cannot generate for itself.
