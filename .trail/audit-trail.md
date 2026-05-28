@@ -3292,3 +3292,22 @@ Skills cards: Intent (operator voice), Trail (operator voice, just written), Imp
 The Improve card carried two appendages: a Lineage column (Toyota Kata origin story) and an Evidence section (3 numbered proofs). Both context-explain the skill to a skeptic rather than serving a practitioner who wants to use it. The loop steps are the only content that earns its place. Lineage belongs in Foundations; Evidence belongs in the trail. Neither belongs in the skill card.
 
 The grid-2 wrapper was removed (only one column remaining). CSS class retained — grid-2 is still used in Foundations section (line 1075).
+
+---
+
+## iter-81 — 2026-05-28 — Improve card description: paradox phrasing
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Improve card description rewritten
+**delta:** 1 paragraph replaced
+
+### Decision
+
+Old: "The workhorse. One iteration: one change. Every step is written to the trail before the next begins." — described mechanics only.
+
+New: "An iterative improvement loop for any target. Applied to itself, the method and the target become the same thing — the loop must judge its own definition of improvement. It ran 200+ times. Twice, the answer was: start over."
+
+Operator intent: expose the paradox of a program targeting itself, where the method and the target collapse into one thing. The self-rewrite (×2) is the proof the loop was genuinely evaluating, not rationalizing. A gaming loop would never conclude: start over.
