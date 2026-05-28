@@ -130,9 +130,9 @@
 
     /* === Tooltip ===
        Generic. Add data-tip="content" to any element. Optional
-       data-tip-title="EYEBROW" prepends a colored title line.
-       Pure CSS, no JS. ::after = card (with reserved top padding when titled).
-       ::before = title overlaid on the reserved top region (amber, uppercase). */
+       data-tip-title="EYEBROW" stacks a colored title chip above.
+       Pure CSS, no JS. Two separately-sized pieces:
+       ::after = body card; ::before = title chip floating above. */
     [data-tip] { position: relative; display: inline-block; }
     [data-tip]::after {
       content: attr(data-tip);
@@ -157,7 +157,7 @@
       z-index: 20;
     }
     [data-tip-title]::after {
-      padding-top: calc(var(--gap-xs) + 1.4em);
+      bottom: calc(100% + var(--gap-sm) + 1.4em + 3 * var(--gap-xs));
     }
     [data-tip-title]::before {
       content: attr(data-tip-title);
@@ -165,7 +165,11 @@
       left: 50%;
       bottom: calc(100% + var(--gap-sm));
       transform: translateX(-50%) translateY(var(--gap-xs));
-      padding: var(--gap-xs) var(--gap-sm) 0;
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      padding: var(--gap-xs) var(--gap-sm);
       color: var(--amber);
       font-size: var(--text-micro);
       font-weight: var(--weight-medium);
@@ -403,7 +407,7 @@
       <div class="card mt-lg">
         <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#autonomous-reasoning-fidelity-arf" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Read the full ARF definition.">Autonomous Reasoning Fidelity (ARF) &#8599;</a></h3>
         <p class="small"><em>Appears only when all three principles hold.</em></p>
-        <p class="small">ARF is the signal that the agent is reasoning visibly enough to be judged from outside. <a href="#skills">Probe</a> is the skill that tests for it.</p>
+        <p class="small">ARF is the metric that measures if the agent is reasoning visibly enough to be judged from outside. <a href="#skills">Probe</a> is the skill that tests for it.</p>
       </div>
     </section>
   </div>
