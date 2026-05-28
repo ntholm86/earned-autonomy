@@ -3311,3 +3311,22 @@ Old: "The workhorse. One iteration: one change. Every step is written to the tra
 New: "An iterative improvement loop for any target. Applied to itself, the method and the target become the same thing — the loop must judge its own definition of improvement. It ran 200+ times. Twice, the answer was: start over."
 
 Operator intent: expose the paradox of a program targeting itself, where the method and the target collapse into one thing. The self-rewrite (×2) is the proof the loop was genuinely evaluating, not rationalizing. A gaming loop would never conclude: start over.
+
+---
+
+## iter-82 — 2026-05-28 — Pattern 3 scan: restructure 2 em-dash connectors
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — 2 em-dash connectors restructured to separate sentences
+**delta:** 2 targeted edits; no CSS changes
+
+### Changes
+
+**Trail card:** "in .trail/audit-trail.md — so the next prompt knows what was already done." → two sentences. The consequence clause becomes its own sentence.
+
+**Improve card:** "the method and the target become the same thing — the loop must judge its own definition of improvement." → two sentences. The elaboration clause becomes its own sentence.
+
+**Line 561 (blockquote attribution dash):** kept. Correct typographic use.
