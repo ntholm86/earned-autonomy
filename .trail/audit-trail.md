@@ -3575,3 +3575,39 @@ Applied 15 edits covering all 22 occurrences. Post-edit grep for em-dash, en-das
 1. **Add an editorial note to .trail (or a lint check) recording the no-em-dash convention** so future content edits don't silently reintroduce them.
 2. **Revisit the Improve-card sentence "trail - acts"** - with both former em-dashes now hyphens, the clause "Reads the context first - destination, retrospect, trail - acts, and logs it" has two hyphens doing parenthetical work that could read as a list; a comma or rephrase might be clearer (operator-owned prose, surface only).
 3. **Reconcile the trail gap (iter-88 to iter-120)** still outstanding from iter-121.
+
+## iter-124 - 2026-05-28 - standardize ARF<->Probe cross-links to target the specific card
+
+### Interpretation of the ask
+Operator: ensure consistency and standardization across all links and tooltips (HTML + CSS) - simple, clear, generic, consolidated; and specifically, the Probe skill card's link to ARF does not jump directly to the ARF card the way the principle labels jump to their card. Read as: understand the established in-page navigation pattern, then bring the deviating cross-references into line with it. The named symptom (Probe -> ARF) is the concrete deliverable; the broader standardization is the lens.
+
+### Lenses applied
+- **Inconsistency (primary):** The page has three classes of in-page link. (1) Nav links target sections (#principles, #skills) - correct, section-level. (2) Standalone .label links (P1/P2/P3) target the exact card (#principle-N) with a "Go to ... on this page." data-tip - the established jump-to-card pattern. (3) Two inline cross-references inside prose both resolved to the containing SECTION rather than the specific card: Probe card -> ARF pointed at #principles, and ARF card -> Probe pointed at #skills. Same defect class, both directions. Neither the ARF callout nor the Probe card carried an id, so there was no exact anchor to target.
+- **Waste:** none found; no dead links or duplicate classes introduced.
+
+### Decision
+One coherent change: standardize the two reciprocal inline cross-references to target the specific card, matching the principle-label pattern. Added id="arf" to the ARF callout and id="probe" to the Probe card; rewired Probe->ARF to #arf and ARF->Probe to #probe. The existing global :target scroll-margin-top rule (iter-122) supplies the sticky-nav offset, so no CSS change was needed.
+
+Deliberately did NOT add data-tip tooltips to these two links. [!DECISION] The [data-tip] CSS sets display:inline-block, which would break natural line-wrapping of links that flow mid-sentence (the Probe card's ARF link already wraps across two lines). Tooltips in this design belong on standalone label/heading links, not inline-in-prose links. Standardization here therefore means correct anchor targets, not tooltips.
+
+### Prediction
+Clicking "Autonomous Reasoning Fidelity" in the Probe card scrolls directly to the ARF callout (offset below the sticky nav); clicking "Probe" in the ARF card scrolls directly to the Probe card. No wrapping change, no tooltip change, no other link affected.
+
+### Action + verification
+Two edits applied. Post-edit grep confirms: Probe card link is now href="#arf", ARF card link is now href="#probe", id="arf" and id="probe" present on the respective cards, and the only remaining #principles/#skills hrefs are the two nav links (correct). No HTML errors. Prediction held: targets changed to the specific cards; no other link, tooltip, or layout affected. Committed e8aff74, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** The page now has a clean three-tier link taxonomy with no exceptions - nav->section, standalone label->card (+tooltip), inline prose->card (no tooltip). A future run should find every in-page link fits one tier; a counterexample would falsify this.
+- **Named blind spot:** I did not click-test in a live browser; I verified by source inspection and the known global :target rule. If the ARF card or Probe card sits at an unusual scroll position, the 4.5rem offset may over- or under-shoot - unverified at runtime.
+- **Imagined-reader pushback:** "If you are standardizing, why do the P1/P2/P3 labels get tooltips but these inline links do not - that is the inconsistency you claim to have removed." Answer: the distinguishing axis is layout role (standalone vs. inline-flowing), not link purpose; forcing inline-block tooltips onto wrapping prose links would trade one inconsistency for a worse one (broken wrapping). The rule "tooltips on standalone links only" is the consistent principle.
+
+### Across-trail reflection
+- *Recurring finding-class:* FIRED - iter-122 (rewire skill labels to #principle-N), iter-124 (rewire ARF<->Probe to #arf/#probe) are both in-page anchor-target standardizations. The class is "in-page links should target the specific card." It is now believed complete (taxonomy claim above).
+- *About to declare silence:* not fired - made a change.
+- *Contradicts prior [!REALIZATION]:* not fired - consistent with iter-122's anchor-offset work.
+- *Operator explicitly asked:* fired in spirit - operator asked for consistency/standardization broadly; this run addressed the link layer.
+
+### Candidate Next Moves
+1. **Cold-reader test** - still the standing #1 per retrospect-004; 12+ deferrals, page is structurally settled and live. The only signal the loop cannot generate for itself.
+2. **Audit data-tip coverage and copy consistency across all standalone links** - confirm every external SKILL/GitHub link uses the "Read the full X skill definition." form and every in-page label uses "Go to the X on this page."; reconcile any stragglers (the operator named tooltips explicitly).
+3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
