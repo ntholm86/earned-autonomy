@@ -3848,3 +3848,42 @@ Two edits (the same conceptual change applied to 2 identical inner divs). Loaded
 1. **Mobile/narrow-width visual check** - the standing blind spot from iter-128, retro-005 #3, and this iteration; now the only unverified dimension of the lineage spacing.
 2. **Audit the whole file for other gap-bearing classes on non-flex/grid elements** - the [!REALIZATION] suggests the silent-zero-gap pattern could exist elsewhere; one grep + render pass would confirm or clear it.
 3. **Operator: answer iter-84's convergence question** - retro-005's standing #1; remains blocked on operator input.
+
+
+---
+
+## iter-130 - concept-icon set for principles and skills (Improve skill v3.9.2)
+_2026-05-28_
+
+**Target:** c:\git\pea-website\index.html, #principles and #skills
+
+### Understand
+Operator: "we need some proper ASCII art or SVG for the principles and the skills - either ascii or SVG; same size; theme colors; same style so it's clear they belong together; each art piece must clearly visualize the meaning behind it; consistent in size/colors/style; and they should NOT increase the vertical scroll of the page. IMPRESS ME." Read destination.md + retrospect.md (retro-005) first - rule 1 (no inline style), rule 18 (browser-verify layout).
+
+Interpreted intent: a coherent ICON FAMILY, one per principle (3) and per skill (6), unified by a single visual language, each visualizing its specific meaning, adding ZERO scroll height (the binding constraint).
+
+### Examine (Purpose + Inconsistency lens)
+The principle/skill cards have plain text h3 titles - no visual identity. SVG beats ASCII decisively: crisp at any DPI, themeable via one CSS color token, pixel-identical sizing, accessible (aria-hidden). The binding constraint (no added height) rules out any block-level art; the only zero-height home is inline on the existing h3 line. The :root comment already designates --teal as the icon role ("links, buttons, icons"), so a single teal stroke = instant "they belong together" while honoring the theme's own role map.
+
+### Decide + Predict
+ONE cohesive change: a `.pea-icon` line-art family (24x24 viewBox, fill:none, stroke var(--teal), stroke-width 1.8, round caps) inserted at the start of each of the 9 h3s, scoped via `h3:has(> svg.pea-icon){display:flex;align-items:center;gap:gap-xs}`. Icon sized 1.2em - deliberately below the h3 line-box (1.25 line-height) so the row height is governed by the text, not the icon. Unity from style; distinctness from motif. Motifs: P1 flag+dotted-route (destination fixed, route open); P2 eye (transparency); P3 three arrows->center dot (independent convergence); Intent speech-bubble+target (aim inside the words); Trail audit-log document; Improve refresh-loop+up-tick (iteration); Destination North Star (True North); Retrospect magnifier-over-log (reviews the whole trail); Probe fork solid-vs-dashed (tests where reasoning diverges).
+- **Prediction:** 9 consistent teal icons appear left of each title; page height UNCHANGED (icon <= line-box). ARF callout intentionally excluded (not one of the 3 principles). No wrapping regression on the single-column layout.
+
+### Action + verification
+Added one CSS block (.pea-icon + the :has scoping rule, no inline styles per rule 1) and 9 inline SVGs via a single multi-edit. get_errors clean. Browser-verified all three regions at desktop width: principles (flag/eye/converging-arrows), tier-1 skills (bubble/doc/loop), tier-2 skills (star/magnifier/fork). All render teal, identical size, on the existing title line; titles remained single-line; ARF correctly iconless. First render initially showed no icons - it was a stale cached page; a forced reload confirmed they render. Prediction held exactly: no visible height increase. Committed 1c7ff10, pushed.
+
+### Reflect
+- **Falsifiable model-claim:** Every principle/skill card now carries a meaning-bearing icon from one visual family at zero height cost. A future audit (or cold reader) should be able to name each icon's referent without the title; if any icon reads as generic decoration, that motif failed its "visualize the meaning" requirement and should be redrawn - the most at-risk is P3 (three converging arrows can read as a stick figure at 1.2em).
+- **[!REALIZATION]** `h3:has(> svg.pea-icon)` scopes the flex layout to ONLY icon-bearing h3s, so the page's other ~dozen h3s are untouched - a clean alternative to adding a marker class to 9 elements. `:has()` is the right tool for "style the container based on what it contains" and avoids class accretion (rule 3's spirit).
+- **Named blind spot:** desktop width only. At narrow/mobile width the longer titles ("Principle #2: Observable Autonomy") may wrap to two lines; with align-items:center the icon would float to the vertical middle of the wrapped block. Unverified - same standing mobile gap as iter-128/129.
+- **Imagined-reader pushback:** "You used one teal for all 9 - doesn't that undercut the principle->skill color mapping (P1/P2/P3 accents)?" Considered per-card accent colors (amber/teal/sage) but rejected: the operator's top requirement was 'clear they belong together,' and a single stroke color delivers that most strongly; the P-to-skill mapping is already carried by the `.label` footers. Uniform teal is the deliberate call, not an oversight.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - this is net-new visual identity, not lineage-spacing polish (iter-127/128/129) nor link/tooltip (exhausted per rule 15).
+- *Contradicts prior work:* not fired.
+- *Operator explicitly asked:* fired - direct feature request with explicit constraints.
+
+### Candidate Next Moves
+1. **Mobile/narrow-width check of the icon'd titles** - confirm wrapping titles still read well with a centered icon; the standing mobile blind spot now also touches these icons.
+2. **Decide whether ARF deserves an icon** - it sits among the principle cards iconless; a "signal/seal appears when all hold" glyph (e.g., a checkmark inside a ring, or a convergence of the three principle motifs) would complete the set, or its omission can be made deliberate.
+3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
