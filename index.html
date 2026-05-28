@@ -114,6 +114,7 @@
     .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
     .grid-auto { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
     .grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+    .grid-3    { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap-md); }
 
     /* === Labels === */
     .label {
@@ -369,7 +370,7 @@
       nav ul { gap: var(--gap-sm); }
       .container { padding: 0 var(--gap-sm); }
       .principle { grid-template-columns: 2.75rem 1fr; gap: 0 var(--gap-sm); }
-      .grid-auto, .grid-2 { grid-template-columns: 1fr; }
+      .grid-auto, .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .memory-row { grid-template-columns: 1fr; gap: var(--gap-xs); }
     }
   </style>
@@ -514,101 +515,27 @@
         Each one holds where good intentions and careful prompting fail.
       </p>
 
-      <div class="stack-lg mt-md">
+      <div class="grid-3 mt-md">
 
-        <!-- Principle 1 -->
-        <div class="principle">
-          <div class="principle-num">01</div>
-          <div class="stack">
-            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <line x1="5" y1="3" x2="5" y2="25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M5 3 L22 9 L5 15" fill="currentColor" opacity="0.85"/>
-            </svg>
-            <h3>Commander's Intent</h3>
-            <span class="mono small">Define the destination. Never prescribe the route.</span>
-            <p>
-              Give an AI a checklist and the checklist becomes its ceiling. It finds what the checklist
-              describes and misses what the author never thought to list.
-            </p>
-            <p>
-              The alternative: hand it a <em>mission</em>. Tell it what to achieve and why; let it decide
-              how based on what it finds. The human defines the objective. The agent finds the method.
-            </p>
-            <div class="row row-ruled">
-              <span class="label label-muted label-inline">Roots</span>
-              <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" class="chip">Auftragstaktik</a>
-              <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" class="chip">Toyota Kata</a>
-              <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" class="chip">Socratic Method</a>
-            </div>
-          </div>
+        <div class="card">
+          <p class="label">P1 &middot; Commander&#8217;s Intent</p>
+          <p class="mono small">Define the destination. Never prescribe the route.</p>
+          <p class="small">Give the AI a mission, not a checklist. The checklist becomes its ceiling.</p>
+          <p class="small"><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md" target="_blank" rel="noopener">Read the principle &#8599;</a></p>
         </div>
 
-        <!-- Principle 2 -->
-        <div class="principle">
-          <div class="principle-num">02</div>
-          <div class="stack">
-            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <circle cx="5" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
-              <line x1="8.5" y1="14" x2="11" y2="14" stroke="currentColor" stroke-width="1.75"/>
-              <circle cx="14" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
-              <line x1="17" y1="14" x2="19.5" y2="14" stroke="currentColor" stroke-width="1.75"/>
-              <circle cx="23" cy="14" r="3.5" stroke="currentColor" stroke-width="1.75"/>
-            </svg>
-            <h3>Observable Autonomy</h3>
-            <span class="mono small">Autonomy is earned through transparency.</span>
-            <blockquote>
-              <p>&#8220;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&#8221;</p>
-              <p class="attribution">&#8212; Nils Wendelboe Holmager, <cite><a href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">Principles of Earned Autonomy</a></cite>, 2026</p>
-            </blockquote>
-            <p>
-              Autonomy and transparency get treated as independent concerns. They are not.
-            </p>
-            <p>
-              Autonomy without a record is abdication. A record the agent can revise after the fact
-              is just a story it tells about itself. The trail must be written <em>as the work happens</em>.
-            </p>
-            <p>
-              More visibility earns more autonomy. No visibility earns none.
-            </p>
-            <div class="row row-ruled">
-              <span class="label label-muted label-inline">Roots</span>
-              <a href="https://doi.org/10.3389/frobt.2018.00015" target="_blank" rel="noopener" class="chip">Meaningful Human Control</a>
-              <span class="chip">Trust Calibration - Lee &amp; See, 2004</span>
-            </div>
-          </div>
+        <div class="card">
+          <p class="label">P2 &middot; Observable Autonomy</p>
+          <p class="mono small">Autonomy is earned through transparency.</p>
+          <p class="small">An unlogged action cannot be audited. A log the agent can revise is just a story it tells about itself.</p>
+          <p class="small"><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md" target="_blank" rel="noopener">Read the principle &#8599;</a></p>
         </div>
 
-        <!-- Principle 3 -->
-        <div class="principle">
-          <div class="principle-num">03</div>
-          <div class="stack">
-            <svg class="icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <line x1="4" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-              <line x1="14" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-              <line x1="24" y1="4" x2="14" y2="22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-              <circle cx="14" cy="22" r="2.5" fill="currentColor"/>
-            </svg>
-            <h3>Convergence Is Silence</h3>
-            <span class="mono small">Not done until independent evaluators find nothing to change.</span>
-            <p>
-              AI loops stop too early. The usual signal - "the score stopped going up" - measures the
-              wrong thing. A score can plateau while the work keeps changing underneath it.
-            </p>
-            <p>
-              Worse: a single evaluator drifts into its own blind spots. An AI grading its own output
-              is rationalising.
-            </p>
-            <p>
-              Ask <em>diverse, independent evaluators</em>, each blind to the others.
-              When they all find nothing left to change, the work is done.
-            </p>
-            <div class="row row-ruled">
-              <span class="label label-muted label-inline">Roots</span>
-              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" class="chip">Kaizen</a>
-              <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" class="chip">Delphi Method</a>
-              <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank" rel="noopener" class="chip">Cross-validation</a>
-            </div>
-          </div>
+        <div class="card">
+          <p class="label">P3 &middot; Convergence Is Silence</p>
+          <p class="mono small">Not done until independent evaluators find nothing to change.</p>
+          <p class="small">AI loops stop too early. The test is independent evaluators, each blind to the others.</p>
+          <p class="small"><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md" target="_blank" rel="noopener">Read the principle &#8599;</a></p>
         </div>
 
       </div>

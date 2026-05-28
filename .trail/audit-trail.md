@@ -3367,3 +3367,51 @@ Operator intent: shift from imperative (telling the reader what to do) to a prom
 ### Vision update
 
 Operator confirmed: "I am not sure what done actually looks like." This is material signal. The convergence criterion in vision.md ("recognition + intrigue: I've been trying to solve this, and this names it") was written by the agent in prior runs — the operator has never confirmed it as their own test. Done is currently undefined by the operator. Recorded in vision.md.
+
+---
+
+## iter-85 - 2026-05-28 - principles-3col-cards
+
+**target:** pea-website / index.html
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + intent
+**outcome:** changed - Principles section redesigned from full-prose vertical layout to 3-column card grid
+**delta:** stack-lg with 3 .principle blocks (icons, quotes, paragraphs, Roots chips) → .grid-3 with 3 compact .card divs; added .grid-3 CSS class with mobile collapse
+
+### Interpretation of the ask
+
+Operator request: "one row / 3 column layout. With just a short description and a link to the exact definition of the principle in the github repo. They should each be in a 'card'."
+
+Intent: the Principles section was carrying the same credentialing weight the operator removed from the Skills section (Lineage, Evidence, Roots chips). Three detailed principle blocks with icons, blockquotes, and prose paragraphs contradict the "strip to essentials" direction established across iters 80-84. The operator wants the principles to be scannable reference points that link out, not self-contained essays.
+
+### Examination
+
+The three .principle blocks held: numbered SVG icons, h3 titles, mono taglines, 2-3 full prose paragraphs each, a blockquote (P2), and Roots chip rows. None of that content was requested. All of it added scroll weight and shifted tone from practitioner tool to academic exhibit. The same direction that removed Lineage+Evidence from Improve and moved Foundations last applies here.
+
+Challenge: considered whether to keep the mono taglines as card subtitles. Decision: yes, they are the sharpest one-line statement of each principle and serve as scannable anchors.
+
+### Decision
+
+[!DECISION] Replace .stack-lg + 3 .principle divs with .grid-3 + 3 .card divs. Each card: label (P[n] · Name), mono tagline, 2-sentence description, link to PRINCIPLES.md.
+
+Added .grid-3 { grid-template-columns: 1fr 1fr 1fr; gap: var(--gap-md) } with mobile collapse at 540px via existing media query. No inline styles.
+
+Card descriptions written to be self-contained at 2 sentences each:
+- P1: "Give the AI a mission, not a checklist. The checklist becomes its ceiling."
+- P2: "An unlogged action cannot be audited. A log the agent can revise is just a story it tells about itself."
+- P3: "AI loops stop too early. The test is independent evaluators, each blind to the others."
+
+ARF callout card retained unchanged below the grid.
+
+### Action
+
+- Added .grid-3 CSS rule after .grid-2
+- Added .grid-3 to mobile @media (max-width: 540px) collapse rule
+- Replaced .stack-lg block (3 .principle divs) with .grid-3 block (3 .card divs)
+
+### Reflection
+
+Principles section now matches the weight of the Skills section cards. The section carries three scannable reference points rather than three mini-essays. The Foundations section handles the full intellectual lineage; the Principles section links to the authoritative definition. That is the right division of labour.
+
+The .principle, .principle-num, and .icon CSS classes are now unused but retained in the stylesheet (harmless).
