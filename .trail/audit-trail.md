@@ -2925,3 +2925,34 @@ After: "That holds until you find out a run was wrong after it had already been 
 ### Reflection
 
 [!REALIZATION] The label was probably added early in the arc when the prose wasn't strong enough to open cold. The prose is now strong enough. The label became dead scaffolding.
+
+---
+
+## iter-62 — 2026-05-28 — principles prose de-ai: P2 restatement + ARF callout
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — two restatement cuts in Principles section
+**delta:** 2 targeted edits; no CSS changes
+
+### Examination
+
+Full de-ai pass on all three principles body prose and ARF callout.
+
+**P1:** Clean. No tells. "The alternative: hand it a mission." is the strongest line on the page.
+
+**P2 — Pattern 2 (parallel-structure-itis):** "More visibility earns more autonomy. No visibility earns none. The audit trail is how the agent earns the right to keep acting." — three sentences restating the same claim with decreasing precision. Third sentence ("earns the right to keep acting") is a weaker restatement of "earns more autonomy." Cut it.
+
+**P3:** Clean. "An AI grading its own output is rationalising." lands directly.
+
+**ARF callout — Pattern 4 (restatement bloat):** "ARF is the observable signal that the agent is reasoning - and that the reasoning is visible enough to be judged from outside." — the second clause restates "observable." Compressed to: "ARF is the signal that the agent is reasoning visibly enough to be judged from outside."
+
+### Decision
+
+[!DECISION] Two cuts: P2 third parallel sentence removed; ARF callout second clause folded into the first.
+
+### Reflection
+
+P2 now ends on "No visibility earns none." — the strongest compression of the principle. That is the right end position.
