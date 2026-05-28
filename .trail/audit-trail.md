@@ -3655,3 +3655,37 @@ One edit applied. Grep for the tooltip phrase returns exactly two matches, both 
 1. **Resolve the skills-suite tooltip pair (590 vs 986)** - decide with the operator whether same-URL links must carry identical tooltips, or whether the browse-vs-CTA reframing is wanted; the one remaining same-URL variance.
 2. **Cold-reader test** - still the standing #1 per retrospect-004; the page is structurally settled and the link/tooltip layer is now consistent; the only signal the loop cannot generate for itself.
 3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
+
+## iter-126 - 2026-05-28 - unify skills-suite repo tooltips to shared template
+
+### Interpretation of the ask
+Operator: "you make the decision as on autopilot ... use the improve skill." Full Commander's Intent delegation - I hold the destination and pick the highest-leverage move. The standing destination across iter-122/124/125 is one consistent link/tooltip system. The cold-reader test (retrospect #1) requires an external reader I cannot generate on autopilot, so the highest-leverage move I CAN execute is the one my own iter-125 left dangling: the skills-suite same-URL tooltip pair (iter-125 candidate #1).
+
+### Lenses applied
+- **Inconsistency (primary):** iter-125 unified the manifesto same-URL pair to identical copy but deferred the skills-suite pair (line 590 inline "Browse all six skill files (...)." vs line 986 chip "All six skill files, ready to drop into your agent's skills folder."). Leaving one same-URL pair unified and another varied is itself an asymmetry - the exact failure class the skill targets. Resolving it makes the rule uniform: same URL -> identical tooltip.
+- **Consolidation:** The manifesto pair already uses a "The X repository: <contents>." template. Folding both skills-suite links into the same template ("The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.") makes BOTH GitHub-repo-root links follow one shared pattern, not just internally-consistent pairs.
+
+### Decision
+[!DECISION] Adopt the strict rule: same URL -> identical tooltip, with both repo-root links following the shared "The {X} repository: {contents}." template. Replaced both skills-suite tooltips with "The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe." This reverses iter-125's deferral - that run argued the browse-vs-CTA reframing might be intentional; on autopilot I judged that a uniform same-URL rule serves the operator's standardization intent better than preserving a subtle tone difference most users never compare. [!REVERSAL] of iter-125's "intentional variance" reading.
+
+### Prediction
+Both skills-suite repo links (590 inline, 986 chip) carry the identical new tooltip; template matches the manifesto pair; no link target, anchor text, alignment, or layout change; per-SKILL sub-path links untouched.
+
+### Action + verification
+Two edits applied. Grep confirms both lines now read "The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe."; the old "Browse..." and "ready to drop..." strings are gone. No HTML errors. Prediction held. Committed 7bb5917, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** Every link to a GitHub repo ROOT now uses the "The {X} repository: {contents}." tooltip template, and no same-URL pair anywhere on the page has divergent tooltip copy. A future run should find zero same-URL tooltip divergence; any counterexample falsifies this.
+- **Named blind spot:** The inline use at line 590 sits mid-sentence in the Get Started prose ("Download the six skill files from the skills repository"). I changed only its tooltip, not the surrounding sentence, but I did not re-read whether the now-listy tooltip ("Intent, Trail, ...") reads oddly as a hover on an inline word vs. the prior verb-led "Browse...". On a chip (986) the noun-phrase reads naturally; on an inline link it may feel less active. Unverified against a live hover.
+- **Imagined-reader pushback:** "You reversed a decision from one iteration ago on a tone judgment - that is churn, not improvement." Fair. The defense: iter-125 explicitly surfaced this as an open judgment call and ranked it candidate #1, and the operator then said "you decide on autopilot." Resolving an explicitly-deferred question when handed the decision is closing a loop, not thrashing. But the reader is right that two iterations touching the same two lines is a cost worth noting.
+
+### Across-trail reflection
+- *Recurring finding-class:* FIRED - iter-122 (anchor targets), iter-124 (cross-link targets), iter-125 (manifesto tooltip), iter-126 (skills tooltip). Four consecutive link/tooltip standardization passes. With this entry the class is now believed EXHAUSTED: every in-page link targets a specific card or section correctly, every standalone link has role-consistent tooltip copy, and no same-URL pair diverges. The next run should NOT look for more link/tooltip fixes - that corner is done. [!REALIZATION] The loop has spent four iterations in the link/tooltip corner; continuing there would be the "comfortable corner" failure mode retrospect-004 warns about. Attention must move to content/cold-reader validation.
+- *About to declare silence:* not fired - made a change.
+- *Contradicts prior [!REALIZATION]:* partially - reverses iter-125's "intentional variance" reading (marked [!REVERSAL] above).
+- *Operator explicitly asked:* fired - operator delegated the decision explicitly.
+
+### Candidate Next Moves
+1. **Cold-reader test** - now unambiguously the move. The link/tooltip class is exhausted (this run's realization); the page is structurally settled and live; it is the standing retrospect #1 across 13+ deferrals; it is the only signal the loop cannot generate for itself. Stop polishing the corner.
+2. **Hero card de-ai pass** - retrospect-004 immediate #3; the hero block has never had a systematic de-ai pass and is the first prose a reader meets.
+3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
