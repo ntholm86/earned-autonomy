@@ -3164,3 +3164,14 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 ### Decision
 
 [!DECISION] Operator supplied the anchor: "Force the AI to understand the intent behind the prompt." Previous versions (iter-70, iter-71) were too complex. Final: "Forces the AI to understand the intent behind your prompt, not just the words. The principle behind military command, Socratic method, and coaching kata."
+
+---
+
+## iter-73 — 2026-05-28 — Intent card: "what you mean, not what you said"
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Intent card sharpened to operator's phrase
+**delta:** 1 targeted edit
