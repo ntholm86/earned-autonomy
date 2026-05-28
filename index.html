@@ -185,6 +185,30 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+    /* Edge-aware alignment: opt-in via data-tip-align="right" or "left". */
+    [data-tip-align="right"]::before,
+    [data-tip-align="right"]::after {
+      left: auto;
+      right: 0;
+      transform: translateX(0) translateY(var(--gap-xs));
+    }
+    [data-tip-align="right"]:hover::after,
+    [data-tip-align="right"]:focus-visible::after,
+    [data-tip-align="right"][data-tip-title]:hover::before,
+    [data-tip-align="right"][data-tip-title]:focus-visible::before {
+      transform: translateX(0) translateY(0);
+    }
+    [data-tip-align="left"]::before,
+    [data-tip-align="left"]::after {
+      left: 0;
+      transform: translateX(0) translateY(var(--gap-xs));
+    }
+    [data-tip-align="left"]:hover::after,
+    [data-tip-align="left"]:focus-visible::after,
+    [data-tip-align="left"][data-tip-title]:hover::before,
+    [data-tip-align="left"][data-tip-title]:focus-visible::before {
+      transform: translateX(0) translateY(0);
+    }
 
     /* === Chips & buttons === */
     .chip {
@@ -338,7 +362,7 @@
       <li><a href="#quickstart">Get started</a></li>
       <li><a href="#trail">Trail</a></li>
       <li><a href="#foundations">Foundations</a></li>
-      <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Manifesto repository: principles, framework, evidence.">GitHub &#8599;</a></li>
+      <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener" data-tip-title="OPEN ON GITHUB" data-tip="Manifesto repository: principles, framework, evidence." data-tip-align="right">GitHub &#8599;</a></li>
     </ul>
   </nav>
 
