@@ -2865,3 +2865,34 @@ Read the full arc (212KB, 59 iterations) against the updated vision. Determine w
 1. Cold-reader test — execute. Not a candidate, the move.
 2. Validate tier-2 label copy with cold reader.
 3. De-ai pass on hero card block.
+
+---
+
+## iter-60 — 2026-05-28 — hero card second response de-ai
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — hero card second response compressed
+**delta:** 3 lines → 1 line; restatement bloat and em-dash connector removed
+
+### Examination
+
+**Pattern 4 (restatement bloat):** "good enough" isn't a fixed property - it depends on which model, which task, which day, how the prompt was framed." — four restatements of "not fixed." Point already made by "isn't a fixed property."
+
+**Pattern 3 sub-class (em-dash connector):** Dash joining claim to its enumerated unpacking. Separate sentence serves better.
+
+The first card ("I'll just review everything.") is clean.
+
+### Decision
+
+[!DECISION] Compress second response to two sentences. Move the punch line ("wrong after it had already been used") to the end position. Cut the enumeration ("which model, which task, which day").
+
+Before: "Sometimes. But 'good enough' isn't a fixed property - it depends on which model, which task, which day, how the prompt was framed. You won't know which outputs were wrong until they've already been used."
+
+After: "That holds until you find out a run was wrong after it had already been used."
+
+### Reflection
+
+[!REALIZATION] The enumeration ("which model, which task, which day") was the de-ai tell — it is the kind of list a model generates to show it considered multiple angles. The actual claim doesn't need the examples; the reader fills them in.
