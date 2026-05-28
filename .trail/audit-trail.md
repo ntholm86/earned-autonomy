@@ -3548,3 +3548,30 @@ Applied seven edits (one CSS rule, three id additions, three label repoints). Ve
 1. **Refine the Probe card's "Autonomous Reasoning Fidelity" link** (currently `#principles`, the whole section) to target a dedicated ARF anchor — the ARF callout could take `id="arf"` for a precise jump, mirroring this iteration's pattern.
 2. **Visually distinguish in-page labels from external ones** (e.g., a small inbound-arrow or omit the external glyph deliberately) so the two link behaviors are legible before click.
 3. **Reconcile the trail gap (iter-88–iter-120)** still outstanding from iter-121 — the audit trail remains behind the commit history.
+
+## iter-123 - 2026-05-28 - replace all em-dashes with plain hyphens
+
+### Interpretation of the ask
+Operator: "scan the page and get rid of all long dashes replace with normal ones : -". Read as a deliberate style preference: the em-dash is an AI-tell the operator wants eliminated everywhere on the page, replaced with a plain hyphen. "All" taken literally, so non-rendered CSS comments were included alongside visible copy. Out of scope: the middle-dot separator (&middot;) and the ampersand entity (&amp;), which are not dashes.
+
+### Examination
+22 long-dash occurrences total: 8 literal em-dashes (one in a colour comment, several in the aligned design-token comment block, two in body copy at the Improve card and a trail-step line) and 14 &mdash; entities (one lineage claim, twelve citation-link labels, one empirical-card claim). No en-dashes, no numeric dash entities. The lineage labels used ` &mdash; ` as a name/source separator; a spaced hyphen reads cleanly in that role.
+
+### Decision
+One change: dash normalization. Replaced every em-dash (literal and entity) with `-`, preserving surrounding spacing (` - `), batching the CSS :root comment block as a single edit and each content line individually.
+
+### Prediction
+No em-dashes remain anywhere in the file; no other text, link href, entity, or layout changes; the page renders identically except for dash glyphs.
+
+### Action
+Applied 15 edits covering all 22 occurrences. Post-edit grep for em-dash, en-dash, and their numeric entities (&#8212; / &#8211;) returned zero matches. No HTML errors. Prediction held: only dash glyphs changed; &middot; and &amp; preserved; all hrefs intact. Committed 1be2159, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** the file now contains no U+2014, U+2013, &mdash;, or &ndash;. Falsified by any surviving long-dash glyph or entity (grep confirms none).
+- **Named blind spot:** I widened scope to CSS comments, which are invisible to a page visitor. The operator said "scan the page", which could mean only rendered output. I judged "all long dashes" to govern, but if the operator meant visible-only, the comment edits are harmless noise rather than wrong.
+- **Imagined-reader pushback:** "Some of those em-dashes were grammatically correct parentheticals; a hyphen is typographically weaker." True - but this is an explicit operator style directive, not a correctness question, and the operator owns their prose voice. The de-ai skill agrees the em-dash is a machine-prose tell worth removing.
+
+### Candidate Next Moves
+1. **Add an editorial note to .trail (or a lint check) recording the no-em-dash convention** so future content edits don't silently reintroduce them.
+2. **Revisit the Improve-card sentence "trail - acts"** - with both former em-dashes now hyphens, the clause "Reads the context first - destination, retrospect, trail - acts, and logs it" has two hyphens doing parenthetical work that could read as a list; a comma or rephrase might be clearer (operator-owned prose, surface only).
+3. **Reconcile the trail gap (iter-88 to iter-120)** still outstanding from iter-121.
