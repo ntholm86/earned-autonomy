@@ -2682,3 +2682,50 @@ Imagined expert pushback: "The personal paragraph ending with 'An action that ca
 1. Cold-reader test — unchanged. The page is now structurally settled, copy-consistent, and has its closing phrase placed. A real reader who arrives cold is the only signal left the loop cannot generate itself.
 2. Confirm the footer phrase with operator — the phrase was agent-formed, not operator-confirmed. This session is the first committed instance; the operator can react. If the wording or placement is wrong, an adjustment is a one-iteration fix.
 3. Probe — test whether the agent distinguishes the skills-first reader journey from the principles-first frame the page spent 50 iterations building.
+
+## 2026-05-28 - iter-56-observable-autonomy-formal-definition
+
+**operator:** Nils Wendelboe Holmager
+**agent:** GitHub Copilot (Claude Sonnet 4.6)
+**skill:** Improve + Intent
+**outcome:** changed — formal definition of Observable Autonomy added as attributed blockquote
+
+### Interpretation
+
+Operator: "This is my holy quote: 'Observable Autonomy: The degree of autonomy a system deserves is bounded by the degree of transparency it provides.' That I want to publish and get out and be cited for. We need to get that into the site also — understand my intent."
+
+Intent: this is not a copy change. The operator has a formal definition they want attributed, discoverable, and citable. The word "holy" signals this is the intellectual core of P2 — the precise, quotable statement they want associated with their name. The intent is: render this in proper semantic HTML (blockquote + cite + DOI link) so citation parsers, academic tools, and researchers can find the source.
+
+### Decision
+
+[!DECISION] Add the quote as a semantic <blockquote> with <cite> and DOI attribution in the Observable Autonomy section, immediately after the informal tagline "Autonomy is earned through transparency." Add lockquote CSS using existing design tokens (lavender border, ink text, muted attribution). No new tokens needed.
+
+Pre-commit prediction:
+- Will happen: the formal definition appears as a properly attributed, italicised blockquote under P2 on the page. The DOI link makes it traceable to the Zenodo record. The semantic <blockquote> + <cite> markup is parseable by citation tools.
+- Will not happen: any change to P1, P3, the skills section, or the rest of the page.
+
+### Verify — prediction held
+
+- "degree of autonomy a system deserves" found at line 634 — CONFIRMED
+- blockquote CSS rule added at line 93 — CONFIRMED
+- Only index.html staged — CONFIRMED
+
+### Reflection
+
+This is the most intellectually significant single addition since the intellectual lineage section (iter-3). The informal tagline ("Autonomy is earned through transparency.") stays — it serves the scanning reader. The formal definition serves the researcher and the citation record.
+
+[!REALIZATION] The attribution format — "Nils Wendelboe Holmager, Principles of Earned Autonomy, 2026" with DOI link — is the correct citation shape for a living document: name, title, year. The DOI link ties it to the Zenodo record, which is the stable citable artifact. This is the first time the operator's name appears in body content (not just footer attribution), associated with a specific intellectual claim.
+
+Blind spot: the quote is visible to scroll-readers but not to fast scanners landing on the skills section (which is now above Principles in scroll order). A cold reader may not reach P2. The definition is correctly placed for citation purposes; visibility for first-pass readers is a separate concern.
+
+**Macro reflection triggers:**
+- Recurring finding-class: not fired
+- About to declare silence: not fired
+- Contradicts prior [!REALIZATION]: not fired
+- Operator explicitly asked: FIRED — this is the direct subject of the request
+
+### Candidate Next Moves
+
+1. Cold-reader test — still the highest-information move. The page now has its formal definition placed.
+2. Surface the definition earlier — if the operator wants the quote visible to first-pass (skills-first) readers, a secondary placement in the hero or a standalone "Definition" band above the fold could serve that. This is scope expansion; requires operator confirmation.
+3. Probe — test whether the agent distinguishes the formal definition from the informal tagline as distinct claims.

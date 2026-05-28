@@ -90,6 +90,19 @@
     a  { color: var(--teal); text-decoration: none; transition: color var(--ease); }
     a:hover { text-decoration: underline; }
     ul, ol { list-style: none; }
+    blockquote {
+      border-left: 3px solid var(--lavender);
+      padding: var(--gap-xs) var(--gap-sm) var(--gap-xs) var(--gap-md);
+      margin: var(--gap-md) 0;
+      font-style: italic;
+      color: var(--ink);
+    }
+    blockquote .attribution {
+      font-style: normal;
+      font-size: var(--text-small);
+      color: var(--muted);
+      margin-top: var(--gap-xs);
+    }
 
     /* === Layout === */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
@@ -617,6 +630,10 @@
             </svg>
             <h3>Observable Autonomy</h3>
             <span class="mono small">Autonomy is earned through transparency.</span>
+            <blockquote>
+              <p>&#8220;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&#8221;</p>
+              <p class="attribution">&#8212; Nils Wendelboe Holmager, <cite><a href="https://doi.org/10.5281/zenodo.19732890" target="_blank" rel="noopener">Principles of Earned Autonomy</a></cite>, 2026</p>
+            </blockquote>
             <p class="label label-muted">The problem it solves</p>
             <p>
               Autonomy and transparency get treated as independent concerns. They are not.
