@@ -3252,3 +3252,26 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 **Trail card:** Rewritten per operator instruction. "Logs all the work, decisions, reasoning, and sessions in .trail/audit-trail.md — so the next prompt knows what was already done." + P2 principle quote as second paragraph.
 
 **Single-column layout:** .grid-auto changed from repeat(auto-fill, minmax(320px, 1fr)) to 1fr. Both skill card groups (tier-1 and tier-2) now render as a single full-width column at all viewport sizes. Mobile override at line 372 is now redundant but harmless.
+
+---
+
+## iter-79 — 2026-05-28 — full-page de-ai pass
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — 2 targeted edits
+**delta:** P3 announcement frame cut; Foundations empirical intro em-dash → comma
+
+### Examination
+
+Full page diagnostic against all 13 de-ai patterns. Two actionable finds; all other prose clean or operator-authored.
+
+**P3 — Pattern 13 (announcement frame):** "The real test: ask diverse, independent evaluators, each blind to the others." The phrase "The real test:" announces the claim is coming. Cut it; the imperative sentence stands without the frame.
+
+**Foundations empirical basis — Pattern 3 (em-dash between parallel clauses):** "Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints — and why an audit trail the agent authors itself is insufficient." Two parallel "why" clauses joined by an em-dash. Replace with comma.
+
+### What was left unchanged
+
+Skills cards: Intent (operator voice), Trail (operator voice, just written), Improve (clean), Vision/Retrospect/Probe (de-ai'd iter-77). Principles P1/P2: clean. ARF callout: clean. Memory Model: clean. Quickstart table: clean. Trail section intro: clean. Foundations link descriptions: clean. Footer personal story: operator voice.
