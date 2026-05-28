@@ -3175,3 +3175,14 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 **skill:** improve
 **outcome:** changed — Intent card sharpened to operator's phrase
 **delta:** 1 targeted edit
+
+---
+
+## iter-74 — 2026-05-28 — Intent card: add local context clause
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Intent card description updated with operator's phrasing
+**delta:** 1 targeted edit
