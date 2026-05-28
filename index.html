@@ -183,6 +183,15 @@
       color: var(--muted);
     }
     .lineage-applies b { color: var(--amber); font-weight: 600; }
+    .skill-when {
+      margin-top: var(--gap-xs);
+      padding-top: var(--gap-xs);
+      border-top: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: var(--text-micro);
+      color: var(--muted);
+    }
+    .skill-when b { color: var(--teal); font-weight: 600; }
     h3 a { color: var(--amber); }
     h3 a:hover { color: var(--teal); }
     a.label:hover { color: var(--amber); }
@@ -390,7 +399,6 @@
     <ul>
       <li><a href="#principles">Principles</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#quickstart">Get started</a></li>
       <li><a href="#trail">Trail</a></li>
       <li><a href="#foundations">Foundations</a></li>
       <li><a href="https://github.com/ntholm86/principles-of-earned-autonomy" target="_blank" rel="noopener" data-tip="The manifesto repository: principles, framework, evidence." data-tip-align="right">GitHub &#8599;</a></li>
@@ -454,6 +462,7 @@
           <p class="small">
             The principle behind military command, Socratic method, and coaching kata.
           </p>
+          <p class="skill-when"><b>Invoke:</b> Before any task.</p>
           <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
@@ -462,6 +471,7 @@
           <p class="small">
             Logs all the work, decisions, reasoning, and sessions in <code>.trail/audit-trail.md</code>. The next prompt knows previous work and history.
           </p>
+          <p class="skill-when"><b>Invoke:</b> Every session.</p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
@@ -473,6 +483,7 @@
           <p class="small">
             Improves any target by understanding the context, purpose and intent. Applied to itself 200+ times.
           </p>
+          <p class="skill-when"><b>Invoke:</b> When work needs doing.</p>
           <a class="label" href="#principle-3" data-tip="Go to the Convergence Is Silence principle on this page.">P3 &middot; Convergence Is Silence</a>
         </div>
 
@@ -487,6 +498,7 @@
           <p class="small">
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code>.
           </p>
+          <p class="skill-when"><b>Invoke:</b> At the start - when direction feels unclear.</p>
         </div>
 
         <div class="card">
@@ -494,6 +506,7 @@
           <p class="small">
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code>.
           </p>
+          <p class="skill-when"><b>Invoke:</b> After many sessions - before declaring done.</p>
         </div>
 
         <div class="card" id="probe">
@@ -502,8 +515,21 @@
             Tests whether the agent&#8217;s response diverges where it should. Measures <a href="#arf">Autonomous 
             Reasoning Fidelity</a>.
           </p>
+          <p class="skill-when"><b>Invoke:</b> When you need to verify reasoning quality.</p>
         </div>
 
+      </div>
+
+      <div class="card mt-lg">
+        <p class="label label-muted label-bordered">Install</p>
+        <p class="small">Download the six skill files from the
+          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
+          and place them in your agent's skills folder
+          (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
+        </p>
+        <p class="small mt-xs">
+          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md" target="_blank" rel="noopener" data-tip="Step-by-step install, invocation, and troubleshooting.">Full quickstart with troubleshooting &#8599;</a>
+        </p>
       </div>
 
     </section>
@@ -603,65 +629,6 @@
         <code>retrospect.md</code> disagree, destination wins (the operator holds the destination). If
         <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
         trail is the evidence). Memory without a hierarchy is just noise.
-      </p>
-    </section>
-  </div>
-
-  <!-- QUICKSTART -->
-  <div class="container">
-    <section id="quickstart">
-      <h2>Get Started</h2>
-      <p>
-        Download the six skill files from the
-        <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
-        and place them in your agent's skills folder
-        (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
-      </p>
-
-      <div class="stack mt-md">
-        <p class="label label-muted label-bordered">When to invoke each skill</p>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Trail skill definition.">Trail &#8599;</a>
-          <div class="small"><strong>Every session.</strong> Append what was decided and why.
-            Produces: <code>audit-trail.md</code> entry.</div>
-        </div>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Intent skill definition.">Intent &#8599;</a>
-          <div class="small"><strong>Before any task.</strong> The agent states its interpretation before acting.
-            No file - catches wrong reads before work begins.</div>
-        </div>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Improve skill definition.">Improve &#8599;</a>
-          <div class="small"><strong>When work needs doing.</strong> One iteration: one change, verified, logged.
-            Produces: <code>audit-trail.md</code> entry + the change itself.</div>
-        </div>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/destination/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Destination skill definition.">Destination &#8599;</a>
-          <div class="small"><strong>At the start; when direction feels unclear.</strong> Surfaces implicit goals as questions to confirm or correct.
-            Produces: <code>destination.md</code>.</div>
-        </div>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Retrospect skill definition.">Retrospect &#8599;</a>
-          <div class="small"><strong>After many sessions; before declaring done.</strong> Arc-level read of the full trail.
-            Produces: <code>retrospect.md</code>.</div>
-        </div>
-
-        <div class="memory-row">
-          <a class="mono small" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/probe/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Probe skill definition.">Probe &#8599;</a>
-          <div class="small"><strong>When you need to verify reasoning quality.</strong> Two near-identical cases; checks whether the agent distinguishes them correctly.
-            Result appears in the trail entry.</div>
-        </div>
-
-      </div>
-
-      <p class="mt-md">
-        <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md"
-           target="_blank" rel="noopener" data-tip="Step-by-step install, invocation, and troubleshooting.">Full quickstart with troubleshooting &#8599;</a>
       </p>
     </section>
   </div>
