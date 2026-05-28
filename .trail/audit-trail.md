@@ -3330,3 +3330,19 @@ Operator intent: expose the paradox of a program targeting itself, where the met
 **Improve card:** "the method and the target become the same thing — the loop must judge its own definition of improvement." → two sentences. The elaboration clause becomes its own sentence.
 
 **Line 561 (blockquote attribution dash):** kept. Correct typographic use.
+
+---
+
+## iter-83 — 2026-05-28 — Hero H1: imperative → promise
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — H1 rewritten
+**delta:** 1 line
+
+Old: "You're delegating real work to AI. Stay accountable for the work."
+New: "How to delegate real work to AI and stay accountable for the work."
+
+Operator intent: shift from imperative (telling the reader what to do) to a promise (this page answers a question the reader already has). Invites rather than commands.
