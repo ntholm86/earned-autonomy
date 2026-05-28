@@ -3809,3 +3809,42 @@ Wrote .trail/retrospect.md (REPLACE semantics, retro-005 content), committed 64a
 1. **Operator: answer iter-84's open question** - "What would a reader have to say or do after visiting this page for you to feel it has done its job?" - then run the cold-reader test. This is the move; everything else is deferral.
 2. Formally close the iter-88..120 trail gap (backfill or one explicit [!REALIZATION] that it was intentional).
 3. Mobile/narrow-width visual check of the lineage section.
+
+
+---
+
+## iter-129 - lineage card spacing: the real fix (Improve skill v3.9.2)
+_2026-05-28_
+
+**Target:** c:\git\pea-website\index.html, #foundations (Intellectual lineage)
+
+### Understand
+Operator: "there is still an issue with the spacing between the intellectual lineage articles." Screenshot of the section with DevTools open showing the structure `section#foundations > div.stack.stack-lg.mt-md > div.stack-lg > article.lineage-card`. iter-128 widened the lineage gap (renamed .stack-md to .stack-lg) and believed it fixed the spacing; the operator reports it is still wrong. Read destination.md and retrospect.md (retro-005) first - rule 17 (stack classes are .stack/.stack-lg, .stack-md was renamed away), rule 18 (use browser verification for layout changes).
+
+### Examine (Inconsistency lens)
+Found the actual bug. The OUTER group container is `div.stack.stack-lg` - it has BOTH .stack (display:flex; flex-direction:column) and .stack-lg (gap: gap-lg), so its gap works. But the two INNER group divs (lines 894, 952) carry ONLY `.stack-lg` - which sets `gap: var(--gap-lg)` with NO `display: flex`. **A `gap` on a plain block container has no effect.** So the cards inside each group have had ZERO applied spacing the entire time. iter-128's stack-md->stack-lg rename changed a value that never applied; whether the inner div said gap-md or gap-lg, the rendered gap was 0. The cards touched because the container was never a flex/grid context - not because the gap was too small.
+
+This exactly confirms iter-128's own falsification clause: "if they still look glued, the accent-border weight - not the gap - is the cause, and that would falsify 'gap was the issue.'" The truth was a third option iter-128 did not enumerate: the gap was never being applied at all.
+
+### Decide + Predict
+ONE change: add `.stack` to the two inner group divs (`div.stack-lg` -> `div.stack stack-lg`) so they become flex columns and the existing gap-lg finally applies. Token-consistent, no new class, obeys rule 17 (does not reintroduce .stack-md).
+- **Prediction:** cards within each group gain gap-lg (2rem) separation where there was 0; section stops looking glued. Between-group spacing unchanged (outer flex already correct). Possible side effect: extra air under each group label / the Empirical intro paragraph.
+
+### Action + verification
+Two edits (the same conceptual change applied to 2 identical inner divs). Loaded index.html in the integrated browser and screenshot-verified at desktop width: cards now show clear 2rem separation and read as discrete units; group labels and the Empirical intro paragraph are well-spaced, NOT over-airy (side-effect concern did not materialize visibly). Prediction held exactly. Committed 8cd7bf4, pushed.
+
+### Reflect
+- **Falsifiable model-claim:** The lineage section's vertical rhythm is now real, not nominal - every flex container in the section (outer + 2 inner) actually applies its gap. A future audit should find no `.stack-lg` (or any gap-bearing class) on a non-flex/grid element anywhere in the file; if one exists, the same silent-zero-gap bug is lurking there too.
+- **[!REALIZATION]** A CSS token/class can be present, named correctly, and committed - and still be a complete no-op because the property it sets requires a layout mode the element does not have. iter-128 (and retro-005's claim 6, which accepted iter-128's "gap widened" framing) both took the gap value at face value without confirming `display: flex` was in effect. Reading the rendered box, not the class list, is the only reliable check. This is a sharper instance of rule 18: browser verification is needed not just for "does it look right" but to catch declarations that silently do nothing.
+- **Named blind spot:** verified desktop width only. Mobile/narrow-width still unconfirmed (standing item from iter-128 / retro-005).
+- **Imagined-reader pushback:** "iter-128 claimed to fix this and was browser-verified - how did it miss a zero gap?" Fair. iter-128's screenshot showed the BETWEEN-GROUP gap (outer flex, which does work), so the section looked spaced at a glance; the WITHIN-group glue was the part that stayed broken. Verifying the right region matters as much as verifying at all.
+
+### Across-trail reflection
+- *Recurring finding-class:* PARTIALLY fired - this is the third touch on lineage spacing (iter-127 footers, iter-128 gap rename, iter-129 flex fix). But iter-129 is a genuine root-cause fix of a bug the prior two missed, not more polish. The class should now be closed: the gap is real and verified.
+- *Contradicts prior work:* fired softly - supersedes iter-128's diagnosis (which treated a no-op value as the lever) and corrects retro-005 claim 6's acceptance of it. Not a [!REVERSAL] of an action (iter-128's rename is retained and now actually functions), but a correction of the stated cause.
+- *Operator explicitly asked:* fired - operator pointed directly at the spacing.
+
+### Candidate Next Moves
+1. **Mobile/narrow-width visual check** - the standing blind spot from iter-128, retro-005 #3, and this iteration; now the only unverified dimension of the lineage spacing.
+2. **Audit the whole file for other gap-bearing classes on non-flex/grid elements** - the [!REALIZATION] suggests the silent-zero-gap pattern could exist elsewhere; one grep + render pass would confirm or clear it.
+3. **Operator: answer iter-84's convergence question** - retro-005's standing #1; remains blocked on operator input.
