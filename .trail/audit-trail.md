@@ -3149,3 +3149,18 @@ iter-68 renamed the Principles h2 to "Principles of Earned Autonomy". This creat
 Intent: "The agent reads your prompt for the intent behind it, not just the instruction. It commits to that interpretation in writing before acting. The same principle used in military command, Socratic dialogue, and coaching kata."
 
 Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work happens. Unlogged work cannot be audited."
+
+---
+
+## iter-72 — 2026-05-28 — Intent card description simplified (operator rewrite)
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Intent card description replaced with operator's direct phrasing
+**delta:** 1 targeted edit
+
+### Decision
+
+[!DECISION] Operator supplied the anchor: "Force the AI to understand the intent behind the prompt." Previous versions (iter-70, iter-71) were too complex. Final: "Forces the AI to understand the intent behind your prompt, not just the words. The principle behind military command, Socratic method, and coaching kata."
