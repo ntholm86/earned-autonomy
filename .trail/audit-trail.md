@@ -3052,3 +3052,22 @@ After iter-65 removed the problem-framing card, the hero contained: label + h1 +
 ### Decision
 
 [!DECISION] Remove both. Hero is now label + h1 only. The skills section opens immediately below.
+
+---
+
+## iter-67 — 2026-05-28 — reduce section padding
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — --gap-lg reduced from 3rem to 2rem
+**delta:** 1 token change; all section padding, stack-lg, and footer padding affected
+
+### Examination
+
+section { padding: var(--gap-lg) 0 } — 3rem top + 3rem bottom = 6rem between content blocks. After iter-65/66 stripped the hero to label + H1, the gap between H1 and "THE SKILLS" became visually dominant. --gap-lg controls section padding, footer padding, and stack-lg. Reducing to 2rem tightens all inter-section spacing uniformly.
+
+### Decision
+
+[!DECISION] --gap-lg: 3rem → 2rem. Single token, uniform effect.
