@@ -121,3 +121,38 @@ Epistemic register: honest and direct. Not promotional. Claims are grounded. The
   - The design still relies on text being read rather than structure being seen.
 - **Visual verification not done.** No browser render check since the dark theme (iter-36). Contrast ratios for `--sage` and `--lavender` on `--bg` are estimated, not measured. Mobile viewport untested.
 - **GitHub Pages push** — blocked by the clarity problem above.
+
+---
+
+## Vision update — iter-59 (2026-05-28)
+
+**Skills section restructured. Two new direction claims confirmed by operator.**
+
+### New framing: skills map directly to principles
+
+The operator confirmed that the three immediate-use skills each enact one principle:
+
+- **Intent → P1 Commander's Intent** — forces the agent to state its interpretation before acting
+- **Trail → P2 Observable Autonomy** — enforces the audit trail
+- **Improve → P3 Convergence Is Silence** — one change, one iteration, verified and logged
+
+This connection was invisible on the page. It is now the label on each card.
+
+### Two-tier skill structure
+
+The six skills split into two tiers by when the user needs them:
+
+- **Tier 1 (immediate):** Intent, Trail, Improve — these solve recognisable problems from day one
+- **Tier 2 (deferred):** Vision, Retrospect, Probe — memory model, higher awareness, self-reflection, ARF. The need is there; it becomes visible once the first tier is running.
+
+### Order: Intent → Trail → Improve (supersedes retro-003 rule 9)
+
+Prior retrospect rule 9 specified Trail → Intent. The operator has confirmed: principle order (P1 → P2 → P3) is the correct ordering. Intent comes first because Commander's Intent is P1.
+
+### Card interaction: title-as-link (not whole-card-as-link)
+
+Clicking the skill title takes you to the skill on GitHub. The card itself is not a link. This resolves the Improve inconsistency (Improve was never an a.card) and matches the operator's stated preference.
+
+### Label color: coral → lavender
+
+Red labels communicate danger/error. Labels are now lavender (conceptual emphasis). Trail markers ([!DECISION], [!REALIZATION]) are now amber (technical identifiers). Coral is no longer the dominant UI color.

@@ -2782,3 +2782,54 @@ Four targeted replace_string_in_file edits to index.html. No CSS changes. No str
 [!REALIZATION] The gap-void pattern was identified by running de-ai on the page — and de-ai had just been updated in this same session to include this pattern class (pattern 9 spatial-void substitutes). The skill caught its own blind spot on the first run after being updated. That is the skill working as designed.
 
 Cold-reader test remains the next move. It is the only quality signal this loop cannot generate for itself.
+
+---
+
+## iter-59 — 2026-05-28 — Kaikaku: skills section principle framing + two-tier structure
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + vision
+**outcome:** changed — skills section restructured (Kaikaku)
+**delta:** CSS label color coral→lavender; trail-marker coral→amber; skill card order Intent→Trail→Improve→[tier-2]→Vision→Retrospect→Probe; title-as-link pattern; principle labels on tier-1 cards; tier-2 separator
+
+### Interpretation of the ask
+
+The operator identified three separate but connected problems and a direction:
+1. Red (coral) labels read as danger/error — wrong UX register for navigation labels
+2. Inconsistency: Improve h3 is a link; other skill h3s are not; some cards are links, Improve is not
+3. The skills section does not communicate that Intent/Trail/Improve map to P1/P2/P3 — the connection the operator calls "the strongest signals"
+
+Direction confirmed by operator: two-tier structure (immediate-use skills vs. deeper-use skills), principle framing on tier-1, title-as-link pattern throughout, coral off labels.
+
+### Examination
+
+**Inconsistency lens:** .card pattern (whole card is link) used for Trail, Intent, Vision, Retrospect, Probe. div.card used for Improve (expanded subsection cannot be an anchor). This produces two visually different interaction affordances for the same concept. The operator noticed it from the screenshot.
+
+**Purpose lens:** The skill labels were problem statements ("THE WORK IS UNAUDITABLE"). These were designed as recognition hooks. The operator now wants them to name the principle each skill enacts. That is a higher-order claim — not "here is a problem you have" but "here is the principle this skill puts into practice."
+
+**Color lens:** --coral (#f48a8a) is a red-pink. In standard UX convention, red = error/danger. Using it as the dominant label color across ALL section headers, card labels, nav brand, and trail markers creates consistent anxiety signaling. Labels are navigational and conceptual — not danger signals.
+
+### Decision
+
+[!DECISION] Kaikaku on the skills section. Six changes in one iteration:
+
+1. CSS .label color: --coral → --lavender. Lavender = conceptual emphasis. Non-alarming.
+2. CSS .trail-marker color/bg: --coral/--coral-lt → --amber/--amber-lt. Trail markers are technical identifiers, not danger signals.
+3. Skills section intro text: "Six skills put the three principles..." → "Three skills to use immediately. Three more once the loop is running."
+4. First tier cards (Intent + Trail): .card → div.card + h3 > a title links. Labels changed to "P1 · Commander's Intent" and "P2 · Observable Autonomy". Order reversed: Intent (P1) before Trail (P2).
+5. Improve card label: problem statement → "P3 · Convergence Is Silence". Already had title-as-link.
+6. Tier-2 separator label added before Vision/Retrospect/Probe grid: "Memory, reasoning & self-reflection". All three changed from .card to div.card + title links.
+
+[!REVERSAL] retro-003 operational rule 9 "Trail → Intent → Improve" superseded. New order: Intent → Trail → Improve, following principle numbering P1 → P2 → P3.
+
+### Action
+
+6-part multi_replace_string_in_file on index.html. Vision.md updated with direction claims.
+
+### Reflection
+
+[!REALIZATION] The principle-to-skill mapping was always implicit in the design but was never surfaced as a label. Surfacing it converts the skills section from a tool list into an argument: "here is P1, here is the skill that enacts it." That is the connection the operator was asking for. The two-tier structure is the same argument extended: "you need tier-1 immediately; tier-2 follows when you have been running long enough to need memory and arc-awareness."
+
+Cold-reader test remains the next move after this structural change settles.
