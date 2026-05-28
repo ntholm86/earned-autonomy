@@ -86,7 +86,7 @@ The two-tier label ("Memory, reasoning & self-reflection") above Vision/Retrospe
 
 11. **De-AI pattern 13 is active.** Check all headings and opening sentences for difficulty-announcement frames. Cut the frame; say the claim.
 
-12. **Labels use --lavender, not --coral.** Coral on navigation/label elements communicates danger. Lavender = conceptual emphasis. [Added iter-59]
+12. **Labels use --amber, not --lavender.** Updated iter-76: amber = structural announcements (labels, headers). Lavender = conceptual emphasis (em, blockquote borders). [Added iter-59, corrected iter-76]
 
 13. **Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use --amber / --amber-lt.** These are technical identifiers, not danger signals. [Added iter-59]
 
