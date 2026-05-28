@@ -3887,3 +3887,38 @@ Added one CSS block (.pea-icon + the :has scoping rule, no inline styles per rul
 1. **Mobile/narrow-width check of the icon'd titles** - confirm wrapping titles still read well with a centered icon; the standing mobile blind spot now also touches these icons.
 2. **Decide whether ARF deserves an icon** - it sits among the principle cards iconless; a "signal/seal appears when all hold" glyph (e.g., a checkmark inside a ring, or a convergence of the three principle motifs) would complete the set, or its omission can be made deliberate.
 3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
+
+---
+
+## iter-131 - dissolve the quickstart section (Improve skill v3.9.2)
+_2026-05-28_
+
+**Target:** c:\git\pea-website\index.html, #quickstart removal + #skills enrichment
+
+### Understand
+Operator: "the 'when to invoke' information should somehow be incorporated into the skills cards in the skills section. The whole get started section can be removed and CSS cleaned up. The download/install text can simply come after the skills inside the skills section - properly formatted and great looking." Read destination.md and retrospect.md (retro-005). Rule 1 (no inline style), rule 3 (no new class without checking existing). Operator intent: reduce redundancy, keep the information alive in the place where it belongs, shorten the page.
+
+### Examine (Waste + Inconsistency lens)
+Waste: the entire `#quickstart` section duplicates information already present across the page. The "when to invoke" rows repeat each skill's own description in different words. The install text (download + folder path) is unique and worth keeping but is buried in a section that will scroll past unnoticed. The "Get started" nav link points to the section; removing the section without cleaning the link would produce a dead anchor. Inconsistency: the "when to invoke" data lives separately from the skill cards it describes, which is the only place a reader would reasonably look for it.
+
+### Decide + Predict
+ONE change: consolidate. Add a `.skill-when` metadata line to each of the 6 skill cards (same structural pattern as `.lineage-applies`); add an Install card at the end of the skills section carrying the download text + quickstart link; remove the entire `#quickstart` section and its container; remove the dead "Get started" nav item. Keep `.memory-row` CSS untouched (used in the Memory section). No new top-level CSS class except `.skill-when`.
+- **Prediction:** 6 skill cards each gain a mono "Invoke: ..." trigger line separated by a subtle rule (teal b label, muted text). An Install card appears below the tier-2 skills grid. Nav shrinks from 5 section links to 4. Page is shorter. Memory section is unaffected. No dead anchors.
+
+### Action + verification
+CSS: added `.skill-when` (mirrors .lineage-applies structure; teal b for the "Invoke:" label). Nav: removed `<li><a href="#quickstart">Get started</a></li>`. 6 skill-card injections (Intent: "Before any task."; Trail: "Every session."; Improve: "When work needs doing."; Destination: "At the start - when direction feels unclear."; Retrospect: "After many sessions - before declaring done."; Probe: "When you need to verify reasoning quality."). Install card added with card styling, label-muted-bordered header, and full quickstart link. Entire QUICKSTART section deleted. get_errors: clean. Browser-verified: nav shows 4 links (no "Get started"), invoke lines render in teal mono with rule on all 6 cards, Install card lands cleanly between Probe and Memory. Prediction held exactly. Committed 0c8e0f4, pushed.
+
+### Reflect
+- **Falsifiable model-claim:** The page now presents each skill's "when to use it" in the same visual location as "what it does" and "what principle it serves" - a reader scanning one card has everything they need. If a reader still needs to look elsewhere to know when to invoke a skill, the invoke line is failing its job.
+- **Named blind spot:** The quickstart section also contained a "when to invoke" section ordered Trail→Intent→Improve→Destination→Retrospect→Probe (a progression logic: always→before tasks→when working→at start→later→optionally). The card ordering is Intent→Trail→Improve / Destination→Retrospect→Probe. The progression logic is now implicit in the card order rather than explicit as it was in the quickstart's sorted list. This may be fine (each card is complete), or it may be a subtle loss. Mobile unverified as always.
+- **Imagined-reader pushback:** "You removed a whole section - is that an 'improve' change or a 'redesign' change?" The section existed only to repeat and reorganize information that belongs on the skill cards. Its removal is pure waste elimination; nothing of substance was lost. The Install card preserves the only unique content.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - first touch on the quickstart section.
+- *Contradicts prior work:* not fired.
+- *Operator explicitly asked:* fired - direct structural request.
+
+### Candidate Next Moves
+1. **Mobile/narrow-width check** - standing blind spot from iter-128/129/130; now affects the invoke lines too.
+2. **Verify the "Get started" anchor `#quickstart` doesn't appear in any other text link** on the page that would now be dead.
+3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
