@@ -156,3 +156,19 @@ Clicking the skill title takes you to the skill on GitHub. The card itself is no
 ### Label color: coral → lavender
 
 Red labels communicate danger/error. Labels are now lavender (conceptual emphasis). Trail markers ([!DECISION], [!REALIZATION]) are now amber (technical identifiers). Coral is no longer the dominant UI color.
+
+---
+
+## Vision update — iter-84 — 2026-05-28
+
+**Convergence criterion is undefined by the operator.**
+
+The prior vision.md stated: "What success looks like: recognition + intrigue — 'I've been trying to solve this, and this names it.'" That framing was agent-generated in earlier Vision runs. The operator has never confirmed it as their own test.
+
+When asked directly what done looks like during the iter-84 session, the operator said: "I am not sure what done actually looks like."
+
+**[!REALIZATION]** The loop has been operating without an operator-confirmed convergence criterion. The emotional destination claim ("recognition + intrigue") is an agent inference, not an operator statement. It may be correct — but it has not been confirmed.
+
+**Open question for the operator:** What would a reader have to say or do after visiting this page for you to feel the page has done its job? Is there a specific reaction, a specific type of person, a specific action (installing the skills, sharing the link, reaching out)?
+
+Until the operator can answer this, convergence cannot be declared. This is not a failure — it means the page is still in the exploration phase, not the convergence phase.
