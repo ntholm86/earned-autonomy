@@ -2956,3 +2956,34 @@ Full de-ai pass on all three principles body prose and ARF callout.
 ### Reflection
 
 P2 now ends on "No visibility earns none." — the strongest compression of the principle. That is the right end position.
+
+---
+
+## iter-63 — 2026-05-28 — footer de-ai: announcement frame + word repetition
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — footer opening sentence stripped of announcement frame
+**delta:** 1 targeted edit; no CSS changes
+
+### Examination
+
+Full de-ai pass: Foundations, Memory Model, Quickstart, Trail section, Footer.
+
+- Foundations: reference material, clean.
+- Memory Model: "amnesiac" is doing real work, not padding. Clean.
+- Quickstart: imperative instructions, clean.
+- Trail section: verbatim entries (untouched) + short intro (clean).
+- Footer — **Pattern 5 (announcement frame):** "I built this because I had this problem: how to safely delegate real work to AI while remaining accountable for the work." Two failures: (1) "I built this because I had this problem" delays arrival at the problem — the setup announces the setup. (2) "the work" appears twice in the same sentence ("delegate real work" / "accountable for the work"). The paragraph ends with "So I built this." — that's already the action beat.
+
+**Challenge:** Footer is personal operator voice. Risk of changing register. Checked: "I had this problem:" is still first-person, still direct. The problem statement lands faster. Register preserved.
+
+### Decision
+
+[!DECISION] Strip announcement frame, fix word repetition: "I had this problem: how to delegate real work to AI and stay accountable for it."
+
+### Reflection
+
+The de-ai pass is now complete across all major prose sections. The page's clean sections (Foundations, Memory Model, Quickstart) required no changes — consistent with late-stage convergence behavior. The footer was the last reachable prose block.
