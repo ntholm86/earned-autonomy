@@ -3275,3 +3275,20 @@ Full page diagnostic against all 13 de-ai patterns. Two actionable finds; all ot
 ### What was left unchanged
 
 Skills cards: Intent (operator voice), Trail (operator voice, just written), Improve (clean), Vision/Retrospect/Probe (de-ai'd iter-77). Principles P1/P2: clean. ARF callout: clean. Memory Model: clean. Quickstart table: clean. Trail section intro: clean. Foundations link descriptions: clean. Footer personal story: operator voice.
+
+---
+
+## iter-80 — 2026-05-28 — Remove Lineage and Evidence from Improve card
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Lineage column and Evidence section removed from Improve expanded card
+**delta:** ~60 lines removed; grid-2 wrapper collapsed to plain stack
+
+### Examination
+
+The Improve card carried two appendages: a Lineage column (Toyota Kata origin story) and an Evidence section (3 numbered proofs). Both context-explain the skill to a skeptic rather than serving a practitioner who wants to use it. The loop steps are the only content that earns its place. Lineage belongs in Foundations; Evidence belongs in the trail. Neither belongs in the skill card.
+
+The grid-2 wrapper was removed (only one column remaining). CSS class retained — grid-2 is still used in Foundations section (line 1075).
