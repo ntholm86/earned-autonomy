@@ -129,8 +129,9 @@
 
     /* === Tooltip ===
        Generic. Add data-tip="content" to any element. Optional
-       data-tip-title="EYEBROW" prepends a styled title line.
-       Pure CSS, no JS. Single card via ::after, caret via ::before. */
+       data-tip-title="EYEBROW" prepends a colored title line.
+       Pure CSS, no JS. ::after = card (with reserved top padding when titled).
+       ::before = title overlaid on the reserved top region (amber, uppercase). */
     [data-tip] { position: relative; display: inline-block; }
     [data-tip]::after {
       content: attr(data-tip);
@@ -159,11 +160,32 @@
       z-index: 20;
     }
     [data-tip-title]::after {
-      content: attr(data-tip-title) "\A" attr(data-tip);
-      white-space: pre-line;
+      padding-top: calc(var(--gap-xs) + 1.4em);
+    }
+    [data-tip-title]::before {
+      content: attr(data-tip-title);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + var(--gap-sm));
+      transform: translateX(-50%) translateY(var(--gap-xs));
+      padding: var(--gap-xs) var(--gap-sm) 0;
+      color: var(--amber);
+      font-family: var(--font-sans);
+      font-size: var(--text-micro);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--track-wide);
+      text-transform: uppercase;
+      line-height: 1.4;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--ease), transform var(--ease);
+      z-index: 21;
     }
     [data-tip]:hover::after,
-    [data-tip]:focus-visible::after {
+    [data-tip]:focus-visible::after,
+    [data-tip-title]:hover::before,
+    [data-tip-title]:focus-visible::before {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
