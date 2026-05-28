@@ -3214,3 +3214,24 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 [!DECISION] Operator: "use the orange color for headers instead of purple." --amber (#e7c97a) is the amber/orange token. .label was on --lavender. Single token swap in .label rule. :root comment updated to reflect new semantic roles: amber=labels/headers, lavender=conceptual emphasis (em, blockquote borders — unchanged).
 
 [!NOTE] Operational rule 12 (iter-59: "Labels use --lavender") is now superseded. Labels use --amber from iter-76 onward.
+
+---
+
+## iter-77 — 2026-05-28 — de-ai pass: Vision, Retrospect, Probe card descriptions
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — three skill card descriptions de-ai'd
+**delta:** 3 targeted edits; no CSS changes
+
+### Examination
+
+**Improve:** Clean. No tells. Left unchanged.
+
+**Vision — Pattern 3 (em-dash prop):** "Surfaces the agent's assumptions about where the operator is heading — as specific questions to confirm, correct, or reject." The em-dash joins two clauses that want to be one sentence. "where the operator is heading" is also distant/formal. Rewritten: "The agent states what it thinks you're building and why, as specific questions for you to confirm or correct."
+
+**Retrospect — Pattern 2 (parallel rhetorical questions):** "where is the work heading, where has attention gone, is that where the weight lies?" — three questions performing depth. Cut to the operative claim: "Surfaces arc-level patterns no single session can see."
+
+**Probe — Pattern 10 (false precision):** "Directly measures Autonomous Reasoning Fidelity." — "Directly" is filler emphasis. Removed.
