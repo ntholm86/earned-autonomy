@@ -3346,3 +3346,24 @@ Old: "You're delegating real work to AI. Stay accountable for the work."
 New: "How to delegate real work to AI and stay accountable for the work."
 
 Operator intent: shift from imperative (telling the reader what to do) to a promise (this page answers a question the reader already has). Invites rather than commands.
+
+---
+
+## iter-84 — 2026-05-28 — H1 "complex work"; Foundations single column; Vision update
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + vision
+**outcome:** changed — 2 page edits + vision.md updated
+**delta:** H1 word change; Foundations grid-2 → stack stack-md (single column)
+
+### Changes
+
+**H1:** "real work" → "complex work". Sharpens the scope — not all AI delegation, specifically work with enough complexity that accountability becomes hard.
+
+**Foundations layout:** grid-2 → stack stack-md. Section now reads top-to-bottom: Conceptual traditions, then Empirical basis. Consistent with single-column direction applied to Skills in iter-78.
+
+### Vision update
+
+Operator confirmed: "I am not sure what done actually looks like." This is material signal. The convergence criterion in vision.md ("recognition + intrigue: I've been trying to solve this, and this names it") was written by the agent in prior runs — the operator has never confirmed it as their own test. Done is currently undefined by the operator. Recorded in vision.md.
