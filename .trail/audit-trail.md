@@ -3033,3 +3033,22 @@ The card positioned two common failure modes ("I'll just review everything" / "T
 ### Decision
 
 [!DECISION] Remove the card entirely. H1 → CTA → Skills. No intermediate problem-framing detour.
+
+---
+
+## iter-66 — 2026-05-28 — remove hero filler text and CTA row
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — "Six skills." paragraph and CTA row removed from hero
+**delta:** 9 lines removed; no CSS changes
+
+### Examination
+
+After iter-65 removed the problem-framing card, the hero contained: label + h1 + "Six skills." + two CTAs. "Six skills." is a filler line — it says nothing the h2 "Six Skills" directly below doesn't say. The CTA row (DOI link + scroll anchor) delays arrival at the skills section the reader is already scrolling toward.
+
+### Decision
+
+[!DECISION] Remove both. Hero is now label + h1 only. The skills section opens immediately below.
