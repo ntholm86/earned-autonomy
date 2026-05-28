@@ -2833,3 +2833,35 @@ Direction confirmed by operator: two-tier structure (immediate-use skills vs. de
 [!REALIZATION] The principle-to-skill mapping was always implicit in the design but was never surfaced as a label. Surfacing it converts the skills section from a tool list into an argument: "here is P1, here is the skill that enacts it." That is the connection the operator was asking for. The two-tier structure is the same argument extended: "you need tier-1 immediately; tier-2 follows when you have been running long enough to need memory and arc-awareness."
 
 Cold-reader test remains the next move after this structural change settles.
+
+---
+
+## retro-004 — 2026-05-28 — arc read post iter-59
+
+**target:** pea-website
+**skill:** Retrospect
+**trigger:** Vision updated (iter-59 Kaikaku); operator requested Retrospect run
+
+### Scope
+
+Read the full arc (212KB, 59 iterations) against the updated vision. Determine which operational rules changed, what the arc now shows, where the loop needs to go next.
+
+### Arc claims
+
+1. Two structural inversions in one week — the page is now a skills-adoption site with principle grounding. This is the correct destination.
+2. Cold-reader test has been deferred 12+ consecutive entries. Structural instability was the defense; iter-59 removes it. The deferral is exhausted.
+3. Color system revised three times; now semantically clean: lavender=labels, amber=trail markers, coral=nav only.
+4. Principle-to-skill framing (P1=Intent, P2=Trail, P3=Improve) is the highest-leverage content addition in the arc. Always implied, iter-59 made it explicit.
+5. De-ai passes have been reactive. One systematic pass (iter-57) was productive. Hero card block not yet touched.
+6. Two-tier skill structure is new and unvalidated against a reader who does not already know the framework.
+
+### Operational rules updated
+
+- Rule 9 revised: Intent (P1) → Trail (P2) → Improve (P3) order. Supersedes retro-003 Trail→Intent.
+- Rules 12–14 added: label color (lavender), trail-marker color (amber), card interaction (title-as-link).
+
+### Candidate next moves
+
+1. Cold-reader test — execute. Not a candidate, the move.
+2. Validate tier-2 label copy with cold reader.
+3. De-ai pass on hero card block.

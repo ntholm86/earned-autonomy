@@ -1,109 +1,101 @@
-# retrospect.md — pea-website
+﻿# retrospect.md — pea-website
 
-_Last updated: 2026-05-27 (run: retro-003)_
+_Last updated: 2026-05-28 (run: retro-004)_
 
 ---
 
 ## Freshness check
 
-No `tools/record.py` in this repo. No `history.md` or `learning.md`. Arc-claims read directly from `audit-trail.md` (2435 lines, sessions 001–iter-51 Vision) and the newly updated `vision.md` (iter-51 skills-first shift).
+No 	ools/record.py in this repo. Arc-claims read directly from udit-trail.md (212KB, sessions 001–iter-59) and the updated ision.md (iter-59 vision update appended).
 
-- `python tools/record.py history --write` — NOT AVAILABLE
-- `python tools/record.py learning --write` — NOT AVAILABLE
+- python tools/record.py history --write — NOT AVAILABLE
+- python tools/record.py learning --write — NOT AVAILABLE
 - Gate: PASS (direct trail read; no stale derived artifacts)
 
 ---
 
 ## Scope statement
 
-Vision shifted in iter-51: the page inverts from framework-explanation (Principles first) to skills-adoption (Skills first). Read the full arc against the new direction and determine: what structural facts need changing, what operational rules need updating, where is the loop's attention needed now?
+Vision was updated in iter-59 (skills section Kaikaku: principle framing, two-tier structure, label color change, card interaction pattern change). Read the full arc against the new vision and determine: what structural facts need updating, which operational rules changed, where is the loop's attention needed now.
 
 ---
 
 ## Current claims
 
-**1. The arc built a framework explanation page for 50 iterations. The page is now about to become a skills adoption page. This is the largest content-structure inversion since iter-34 Kaikaku — but it only touches section order and Improve depth, not CSS.**
+**1. The arc has now gone through two major structural inversions in the same week. The page is no longer a framework-explanation site — it is a skills-adoption site with principle grounding. This is the correct destination.**
 
-Every content decision from session-001 onward was made under "Principles first, Skills as enactment." That directive reversed in the iter-51 Vision run. The sections already exist; what changes is: Skills moves above Principles in scroll order, skill card order changes to Trail → Intent → Improve → Vision → Retrospect → Probe, and Improve becomes a subsection rather than a card. The CSS architecture is not implicated — all tokens and utility classes remain valid.
+Session-001 through iter-50 built a principles-first page under the original vision. Iter-51-52 inverted the section order (skills above principles). Iter-59 went further: the skills section now maps each tier-1 skill to its principle (P1→Intent, P2→Trail, P3→Improve), names the tier-2 group as memory/reasoning/self-reflection, and removes the whole-card-as-link pattern. The destination is now clear in the artifact, not just in vision.md.
 
-**2. Improve has run 50+ times to build this page and still gets equal visual weight to Probe or Retrospect. That is the most significant content inconsistency in the current state.**
+**2. The cold-reader test has been the #1 ranked next move in 12+ consecutive trail entries and has never been executed. After iter-59, the structure is the most settled it has been in the arc. The case for deferral is gone.**
 
-The page was built through Improve iterations. Improve is the loop itself, not a feature of the loop. The new vision names the fix: Improve gets ~2× depth, showing the loop steps (read trail → examine → challenge → decide → one change → verify → reflect), the lineage (Kaizen from Toyota Kata → v2 split into Kaizen/Kaikaku/Hansei → v3 unified), and the 200+ iteration evidence. A card that treats Improve like Vision or Probe understates what it is.
+First named at iter-29 (blind spot). Cited as #1 or #2 in every candidate-next-moves section through iter-59. Each deferral was defended on the grounds of structural instability — the page kept changing. After iter-59: the skills section framing is settled, the two-tier structure is in place, the color system is consistent, the principles-below-skills order is confirmed. The page is live at https://ntholm86.github.io/earned-autonomy/. There is no remaining structural defense for deferral.
 
-**3. Trail has been a showcase section since session-001 but has never been the recognition hook. Moving it to the first skill card is the application of the recognition insight from iter-39 that was applied to the hero but never applied to the skills ordering.**
+**3. The color system has been revised three times: light→dark (iter-36), and now coral→lavender for labels + coral→amber for trail markers (iter-59). Each revision was correct. The system is now semantically cleaner.**
 
-Iter-39 named recognition as the primary register — "this names the thing I've been struggling with." Iter-40 applied that to the h1. The skills section was never reordered to match. The new vision corrects it: Trail first, because that is what developers realize they are missing.
+Prior semantic assignment: coral = structural announcements (labels, trail markers). That mapped a warning color to navigation elements, creating ambient danger signaling. Current assignment: lavender = conceptual emphasis (labels), mber = technical identifiers (trail markers, code). Coral now has no UI role except as a brand color in nav. This is the most semantically coherent the color system has been.
 
-**4. The external cold-reader test is the longest continuously deferred item in the arc. It has appeared in candidate-next-moves in 8 or more consecutive trail entries and has never been executed.**
+**4. The principle-to-skill framing (P1=Intent, P2=Trail, P3=Improve) is the highest-leverage content addition in the arc. It was always implied but never surfaced. Iter-59 made it explicit.**
 
-First named in iter-43 cold audit. Listed as #1 or #2 in every subsequent trail entry through iter-50. The page is now publicly live at `https://ntholm86.github.io/earned-autonomy/`. The structural reorder about to happen will change the page before any cold reader sees it — correct sequencing. But after the reorder commits, this is the next move. Not the next candidate. The move.
+The skills suite was built to enact the three principles. The page never said which skill enacts which principle. A reader landing on the skills section had no reason to connect Intent to Commander's Intent or Trail to Observable Autonomy. The label now makes that connection on first glance. This is the argument the page was always making — iter-59 said it out loud.
 
-**5. The page has 200+ Improve iterations of history and surfaces almost none of it. The build story — how the loop built itself, twice, over two rewrites — is the most credible proof of concept available and is invisible to the reader.**
+**5. The loop has been running de-ai passes reactively (when the operator notices a tell) rather than systematically. Two de-ai skill updates were made this session: pattern 9 (spatial-void) and pattern 3 sub-class (em-dash connector). Both were triggered by operator feedback, not by the loop proactively running the skill.**
 
-Evidence section item 1 mentions "200+ iterations" in three sentences. The new vision names this as a fuller story belonging in the Improve section: two full self-rewrites, the Kaizen origin, the three-model convergence baseline. This is proof of concept for the framework, built by the framework.
+This is not a failure — the operator catching tells is the skill working. But a systematic de-ai pass (running all 13 patterns against the full page) has never been done as a standalone iteration. One was attempted this session and produced four gap-removal edits (iter-57). The precedent is there.
 
-**6. Vision drift prevention is working. The iter-51 Vision run fired in the same session that named the structural shift — the fastest vision-response in the arc.**
+**6. The two-tier skill structure (tier-1: immediate-use; tier-2: memory/reasoning) is new and unvalidated. It is the right conceptual frame — the operator confirmed it. It has not been seen by a reader who didn't already know the framework.**
 
-The 24-iteration drift of iter-36 → iter-39 was the named failure. Iter-51 corrected a structural direction change in the same session it was named. The operational rule from retro-002 is holding.
-
-**7. retro-002's claim "page is approaching final structural state" is now superseded. It was accurate under the old vision. The new vision opens a structural iteration: section order, Improve depth, skill hierarchy.**
-
-Retro-002 claim 6 should not be read as a constraint against the current direction. The CSS is stable. The content structure is not — intentionally, by operator direction.
+The two-tier label ("Memory, reasoning & self-reflection") above Vision/Retrospect/Probe is new as of iter-59. It accurately describes when those skills become useful. A cold reader seeing it for the first time may or may not read it that way. Only the cold-reader test resolves this.
 
 ---
 
 ## What the next runs should test
 
-**Immediate (structural reorder — the active work):**
+**Immediate:**
 
-1. **Move Skills section above Principles.** Skills becomes section 2 (after hero); Principles moves to section 3. Navigation labels update to reflect new order.
+1. **Cold-reader test.** Not a candidate. The move. The page is structurally settled, live, and the deferral justification is exhausted. This is the only signal the loop cannot generate for itself. After 12+ deferrals, executing it is overdue.
 
-2. **Reorder skill cards: Trail → Intent → Improve → Vision → Retrospect → Probe.** Trail leads.
+2. **Validate tier-2 label copy.** "Memory, reasoning & self-reflection" — does a cold reader understand what this tier is for? This is the only new content element in iter-59 that carries real semantic risk. The cold-reader test will surface this.
 
-3. **Expand Improve to a subsection with ~2× visual depth.** Show: (a) the loop steps in scannable form, (b) Kaizen/Toyota Kata lineage, (c) the 200+ iteration evidence (two self-rewrites, three-model convergence). Not a card.
-
-4. **Reframe Principles section header.** Position it as intellectual grounding beneath the skills — "why the skills are built this way" — not the entry point.
-
-**After the reorder:**
-
-5. **Cold-reader test — execute it.** Not a candidate. The move. The page will be publicly live and structurally settled. This is the only quality signal the loop cannot generate itself.
-
-6. **Confirm placement of "Delegate to AI. Own the work."** Formed in Vision iter-51. Tightest compression of the page's core message in the arc. Where it lives on the page is still open.
+3. **Hero card block — de-ai pass.** The hero card ("Two responses are common...") was not touched in iter-57 or iter-58. It has not received a systematic de-ai pass. It is the first substantive prose a reader encounters after the h1.
 
 ---
 
 ## Active operational rules
 
-*(Rules 1–7 from retro-002; rules 8–11 added retro-003)*
+*(Rules 1–7 from retro-002; rules 8–13 from retro-003/iter-59)*
 
-1. **Never add inline `style=""` attributes.** They accumulate silently and require dedicated cleanup. If a CSS class doesn't exist, create one.
+1. **Never add inline style="" attributes.** They accumulate silently and require dedicated cleanup. If a CSS class doesn't exist, create one.
 
-2. **All CSS changes go through `:root` tokens.** The 2-edit reversal property is the architecture's payoff. Maintain it.
+2. **All CSS changes go through :root tokens.** The 2-edit reversal property is the architecture's payoff. Maintain it.
 
 3. **Before inventing a new CSS class, verify no existing class already serves the role.** The iter-34 Kaikaku collapsed ~50 bespoke classes to ~20. Accreting bespoke classes is the failure mode that makes future Kaikaku necessary.
 
-4. **`git add <explicit paths>` — never `git add -A`.** Iter-33 swept an unintended deletion via `-A`.
+4. **git add <explicit paths> — never git add -A.** Iter-33 swept an unintended deletion via -A.
 
-5. **Append trail files with `Add-Content -Encoding UTF8`. Never `Set-Content`, never `>` redirection.** Iter-37 produced 124 mojibake em-dashes via a `Set-Content`/`Get-Content -Raw` round-trip.
+5. **Append trail files with Add-Content -Encoding UTF8. Never Set-Content, never > redirection.** Iter-37 produced 124 mojibake em-dashes via a Set-Content/Get-Content -Raw round-trip.
 
-6. **vision.md updates must be timely.** When a `[!REVERSAL]` fires, vision.md should be updated in the same iteration or the immediately following Vision run.
+6. **vision.md updates must be timely.** When a [!REVERSAL] fires, vision.md should be updated in the same iteration or the immediately following Vision run.
 
 7. **Trigger Vision when two consecutive design-direction corrections occur.** Prevented the 24-iteration drift from recurring.
 
-8. **Skills section appears above Principles in scroll order.** Per Vision iter-51. Vision constraint, not a candidate.
+8. **Skills section appears above Principles in scroll order.** Per Vision iter-51.
 
-9. **Skill card order: Trail → Intent → Improve → Vision → Retrospect → Probe.** Per Vision iter-51.
+9. **[REVISED iter-59] Skill order: Intent (P1) → Trail (P2) → Improve (P3) → [tier-2 separator] → Vision → Retrospect → Probe.** Supersedes retro-003 rule 9 (Trail→Intent). Principle order (P1→P2→P3) is the correct ordering.
 
 10. **Improve is not a card — it is an expanded subsection with ~2× visual depth.** Must show: the loop steps, the Kaizen/Toyota Kata lineage, the 200+ iteration evidence. Do not compress to card format.
 
-11. **De-AI pattern 13 is now active.** Check all headings and opening sentences for difficulty-announcement frames: "The hard part is...", "The tricky part is...", "The key challenge is...". Cut the frame; say the claim.
+11. **De-AI pattern 13 is active.** Check all headings and opening sentences for difficulty-announcement frames. Cut the frame; say the claim.
+
+12. **Labels use --lavender, not --coral.** Coral on navigation/label elements communicates danger. Lavender = conceptual emphasis. [Added iter-59]
+
+13. **Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use --amber / --amber-lt.** These are technical identifiers, not danger signals. [Added iter-59]
+
+14. **Skill cards use div.card + title-as-link (h3 > a), not .card.** Whole-card-as-link was inconsistent with Improve (which can never be an anchor). Title-as-link is the normalized pattern. [Added iter-59]
 
 ---
 
 ## Loop-effectiveness notes
 
-The loop has been effective at structural work and has consistently deferred the highest-uncertainty move (cold-reader test). That deferral was defensible while the page was unstable. It is no longer defensible after the structural reorder completes.
+The loop is effective and structurally honest. The [!REVERSAL] count is healthy (7+ confirmed reversals across the arc) — this is not a confabulation loop. The most significant finding is the sustained cold-reader deferral: 12+ consecutive entries, always ranked #1, never executed. That pattern is the clearest signal the loop has about where its own blind spot lies.
 
-**Retro-001 and retro-002 identified the same structural dynamic:** the loop is biased toward safe, verifiable changes at the expense of high-leverage, harder-to-verify ones. External validation is the only thing the loop structurally cannot provide for itself — which is exactly why it keeps being deferred. After the reorder: external.
-
-
+After iter-59, the structural work is done. What remains is validation — which only an external reader can provide.
