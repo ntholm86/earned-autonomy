@@ -3012,3 +3012,24 @@ New section order: Skills → Principles (+ ARF) → Memory Model → Quickstart
 ### Reflection
 
 The page now has a natural gradient: understand the framework (Skills → Principles) → learn to use it (Memory Model → Quickstart) → see it in action (Trail) → understand where it came from (Foundations). Foundations as a terminus is correct — it rewards the curious without blocking the practitioner.
+
+---
+
+## iter-65 — 2026-05-28 — remove hero problem-framing card
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + de-ai
+**outcome:** changed — hero card ("Two responses are common. Both break down.") removed
+**delta:** 9 lines removed; no CSS changes
+
+### Examination
+
+The card positioned two common failure modes ("I'll just review everything" / "The model is good enough") as a problem-framing detour between the h1 and the CTA. Pattern 5 (announcement frame) at section level: the card says "here is the problem" before showing the solution. The reader already knows they have a delegation problem — that is why they came to the page. The card does not sharpen the problem; it delays arrival at the skills.
+
+**Challenge:** The card had UX intent — establish pain before offering relief. Checked: the h1 "You're delegating real work to AI. Stay accountable for the work." already names the tension. The CTA row survives intact. Nothing is lost.
+
+### Decision
+
+[!DECISION] Remove the card entirely. H1 → CTA → Skills. No intermediate problem-framing detour.
