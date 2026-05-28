@@ -69,6 +69,7 @@
 
     /* === Base === */
     html { font-size: 17px; scroll-behavior: smooth; }
+    :target { scroll-margin-top: 4.5rem; }
     html, body { overflow-x: clip; }
     body {
       background: var(--bg);
@@ -383,21 +384,21 @@
       <h2>Principles of Earned Autonomy</h2>
       <div class="grid-auto mt-md">
 
-        <div class="card">
+        <div class="card" id="principle-1">
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-1-commanders-intent" target="_blank" rel="noopener" data-tip="Read the full Commander&#8217;s Intent principle.">Principle #1: Commander&#8217;s Intent &#8599;</a></h3>
           <p class="small"><em>&ldquo;Define the destination. Never prescribe the route.&rdquo;</em></p>
           <p class="small">Instructions limit autonomy. Make the AI interpret your intent and decide how to proceed.</p>
         </div>
 
-        <div class="card">
+        <div class="card" id="principle-2">
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-2-observable-autonomy" target="_blank" rel="noopener" data-tip="Read the full Observable Autonomy principle.">Principle #2: Observable Autonomy &#8599;</a></h3>
           <p class="small"><em>&ldquo;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&rdquo;</em></p>
           <p class="small">Autonomous actions that cannot be audited should be revoked.</p>
         </div>
 
-        <div class="card">
+        <div class="card" id="principle-3">
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-3-convergence-is-silence" target="_blank" rel="noopener" data-tip="Read the full Convergence Is Silence principle.">Principle #3: Convergence Is Silence &#8599;</a></h3>
-          <p class="small"><em>&ldquo;Not done until independent evaluators find nothing to change.&rdquo;</em></p>
+          <p class="small"><em>&ldquo;Not done until multiple independent models find nothing to change.&rdquo;</em></p>
           <p class="small">Definition of when the improve loop has achieved the desired outcome.</p>
         </div>
 
@@ -420,7 +421,6 @@
       <div class="grid-auto mt-md">
 
         <div class="card">
-          <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-1-commanders-intent" target="_blank" rel="noopener" data-tip="Jump to the principle this skill enforces.">P1 &middot; Commander&#8217;s Intent</a>
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Intent skill definition.">Intent SKILL &#8599;</a></h3>
           <p class="small">
             Force the Agent to understand the intent behind your prompt in relation to the context: what you mean, not what you said. Cites how it reads your intent before it continues.
@@ -428,25 +428,26 @@
           <p class="small">
             The principle behind military command, Socratic method, and coaching kata.
           </p>
+          <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
         <div class="card">
-          <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-2-observable-autonomy" target="_blank" rel="noopener" data-tip="Jump to the principle this skill enforces.">P2 &middot; Observable Autonomy</a>
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Trail skill definition.">Trail SKILL &#8599;</a></h3>
           <p class="small">
             Logs all the work, decisions, reasoning, and sessions in <code>.trail/audit-trail.md</code>. The next prompt knows previous work and history.
           </p>
+          <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
         <div class="card">
-          <a class="label" href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-3-convergence-is-silence" target="_blank" rel="noopener" data-tip="Jump to the principle this skill enforces.">P3 &middot; Convergence Is Silence</a>
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Improve skill definition.">Improve SKILL &#8599;</a></h3>
           <p class="small">
             One change per run. Reads the context first — destination, retrospect, trail — then finds the highest-leverage remaining change, predicts the outcome, acts, and logs it.
           </p>
           <p class="small">
-            Works on any target. Applied to itself 200+ times. Twice, the answer was: start over.
+            Improves any target by understanding the context. Applied to itself 200+ times.
           </p>
+          <a class="label" href="#principle-3" data-tip="Go to the Convergence Is Silence principle on this page.">P3 &middot; Convergence Is Silence</a>
         </div>
 
       </div>
