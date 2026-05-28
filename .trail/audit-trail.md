@@ -3415,3 +3415,22 @@ ARF callout card retained unchanged below the grid.
 Principles section now matches the weight of the Skills section cards. The section carries three scannable reference points rather than three mini-essays. The Foundations section handles the full intellectual lineage; the Principles section links to the authoritative definition. That is the right division of labour.
 
 The .principle, .principle-num, and .icon CSS classes are now unused but retained in the stylesheet (harmless).
+
+---
+
+## iter-87 - 2026-05-28 - vision-skill-renamed-destination
+
+**target:** pea-website / index.html
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve + intent
+**outcome:** changed - Vision skill renamed to Destination throughout
+**delta:** 9 occurrences updated: skill card link + URL, Improve loop step 1, memory tree, memory prose, memory-row, quickstart table, hierarchy note; vision.md → destination.md everywhere
+
+### Interpretation of the ask
+
+"The Vision skill is changing name to Destination." Scope: every reference to the Vision skill and its output file (.trail/vision.md) in the page. The trail files in the actual .trail/ folder (vision.md in this repo) are separate — those were not touched, only the page prose describing the skills system.
+
+### Decision
+
+[!DECISION] Updated all 9 occurrences in one pass: skill card (h3 link text + URL /vision/SKILL.md → /destination/SKILL.md + produces reference), Improve loop step 1 (read destination.md), memory tree filename, memory tier description, memory-row key, hierarchy note (vision wins → destination wins), quickstart skill name + produces reference.
