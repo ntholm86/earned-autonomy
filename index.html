@@ -414,7 +414,7 @@
           <p class="label">P1</p>
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-1-commanders-intent" target="_blank" rel="noopener">Commander&#8217;s Intent &#8599;</a></h3>
           <p class="small"><em>Define the destination. Never prescribe the route.</em></p>
-          <p class="small">Give the AI a mission, not a checklist. The checklist becomes its ceiling.</p>
+          <p class="small">Instructions cap what the AI can do.</p>
         </div>
 
         <div class="card">
@@ -523,11 +523,11 @@
   <div class="container">
     <section id="memory">
       <p class="label">Memory Model</p>
-      <h2>The trail is the memory</h2>
+      <h2>The audit-trail is the memory</h2>
       <p>
-        Without memory, an agent repeats yesterday's mistakes. The skills suite gives every
+        Without memory, an agent repeats yesterday's mistakes and forgets what it already did. The skills gives every
         repository a memory layer in <code>.trail/</code>. Each Improve run reads it before acting
-        and extends it after. That is what makes the loop cumulative instead of forgetful.
+        and extends it after. That is what makes the loop cumulative.
       </p>
 
       <pre class="memory-tree" aria-label="trail folder structure"><span class="tree-name">.trail/</span>              <span class="tree-comment"># lives in the root of the repo being worked on</span>
