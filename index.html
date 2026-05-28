@@ -123,6 +123,39 @@
       padding: var(--gap-sm) var(--gap-md);
     }
     .card-accent { border-left: 3px solid var(--sage); }
+
+    /* === Lineage card ===
+       Inverts the default reading order: the synthesis claim leads in ink,
+       sources follow as a chip-row beneath a divider. Accent colour signals
+       the kind of lineage (lavender = conceptual, sage = empirical). */
+    .lineage-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--lavender);
+      border-radius: var(--radius);
+      padding: var(--gap-sm) var(--gap-md);
+    }
+    .lineage-card.is-evidence { border-left-color: var(--sage); }
+    .lineage-claim {
+      color: var(--ink);
+      font-size: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: var(--gap-xs);
+    }
+    .lineage-meta {
+      font-family: var(--mono);
+      font-size: var(--text-micro);
+      color: var(--muted);
+      margin-bottom: var(--gap-sm);
+    }
+    .lineage-sources {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-xs);
+      padding-top: var(--gap-sm);
+      border-top: 1px solid var(--rule);
+      font-size: var(--text-small);
+    }
     h3 a { color: var(--amber); }
     h3 a:hover { color: var(--teal); }
     a.label:hover { color: var(--amber); }
@@ -851,40 +884,50 @@
         <div class="stack-md">
           <p class="label label-muted label-bordered">Conceptual traditions</p>
 
-          <div class="stack">
-            <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" data-tip="Prussian mission command doctrine - the origin of intent-based delegation.">Auftragstaktik - Prussian mission command &#8599;</a>
-            <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener" data-tip="US military adaptation of Auftragstaktik - the direct namesake of Principle #1.">Commander's Intent - US military adaptation &#8599;</a>
-            <p class="micro italic">19th century military doctrine, German General Staff</p>
-            <p class="small">Subordinates are told <em>what</em> and <em>why</em> - never <em>how</em>. The direct origin of Commander's Intent.</p>
-          </div>
+          <article class="lineage-card">
+            <p class="lineage-claim">Subordinates are told <em>what</em> and <em>why</em> &mdash; never <em>how</em>. The direct origin of Commander's Intent.</p>
+            <p class="lineage-meta">19th century military doctrine, German General Staff</p>
+            <div class="lineage-sources">
+              <a href="https://en.wikipedia.org/wiki/Auftragstaktik" target="_blank" rel="noopener" data-tip="Prussian mission command doctrine - the origin of intent-based delegation.">Auftragstaktik &mdash; Prussian mission command &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener" data-tip="US military adaptation of Auftragstaktik - the direct namesake of Principle #1.">Commander's Intent &mdash; US military adaptation &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" data-tip="Mike Rother's coaching kata - target condition set by coach, path discovered by learner.">Toyota Kata - Mike Rother &#8599;</a>
-            <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Kaizen and the Coaching Kata.">Lean Enterprise Institute: Kaizen and the Coaching Kata &#8599;</a>
-            <p class="micro italic">McGraw-Hill, 2009</p>
-            <p class="small">The coach defines the target condition. The learner discovers the path. The same shape as the operator-agent relationship.</p>
-          </div>
+          <article class="lineage-card">
+            <p class="lineage-claim">The coach defines the target condition. The learner discovers the path. The same shape as the operator-agent relationship.</p>
+            <p class="lineage-meta">Mike Rother, <em>Toyota Kata</em> &middot; McGraw-Hill, 2009</p>
+            <div class="lineage-sources">
+              <a href="https://en.wikipedia.org/wiki/Toyota_kata" target="_blank" rel="noopener" data-tip="Mike Rother's coaching kata - target condition set by coach, path discovered by learner.">Toyota Kata &mdash; Wikipedia &#8599;</a>
+              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Kaizen and the Coaching Kata.">Lean Enterprise Institute &mdash; Kaizen and the Coaching Kata &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener" data-tip="Stanford Encyclopedia of Philosophy entry on Socrates and the Socratic method.">Socrates - Stanford Encyclopedia of Philosophy &#8599;</a>
-            <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" data-tip="Internet Encyclopedia of Philosophy entry on Socrates.">Socrates - Internet Encyclopedia of Philosophy &#8599;</a>
-            <p class="micro italic">Stanford Encyclopedia of Philosophy &middot; Internet Encyclopedia of Philosophy</p>
-            <p class="small">Reasoning through questions, not assertions. The instruction asks; the agent answers from its own situated reasoning.</p>
-          </div>
+          <article class="lineage-card">
+            <p class="lineage-claim">Reasoning through questions, not assertions. The instruction asks; the agent answers from its own situated reasoning.</p>
+            <p class="lineage-meta">Socratic method &middot; classical antiquity</p>
+            <div class="lineage-sources">
+              <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener" data-tip="Stanford Encyclopedia of Philosophy entry on Socrates and the Socratic method.">Socrates &mdash; Stanford Encyclopedia of Philosophy &#8599;</a>
+              <a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener" data-tip="Internet Encyclopedia of Philosophy entry on Socrates.">Socrates &mdash; Internet Encyclopedia of Philosophy &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon entry for Kaizen.">Kaizen - Lean Enterprise Institute &#8599;</a>
-            <a href="https://en.wikipedia.org/wiki/Kaizen" target="_blank" rel="noopener" data-tip="Kaizen - continuous improvement through small iterative changes.">Kaizen - Wikipedia &#8599;</a>
-            <p class="micro italic">Toyota Production System &middot; Lean Enterprise Institute</p>
-            <p class="small">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as Convergence Is Silence and makes the independence condition explicit.</p>
-          </div>
+          <article class="lineage-card">
+            <p class="lineage-claim">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as <em>Convergence Is Silence</em> and makes the independence condition explicit.</p>
+            <p class="lineage-meta">Toyota Production System &middot; Lean Enterprise Institute</p>
+            <div class="lineage-sources">
+              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon entry for Kaizen.">Kaizen &mdash; Lean Enterprise Institute &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Kaizen" target="_blank" rel="noopener" data-tip="Kaizen - continuous improvement through small iterative changes.">Kaizen &mdash; Wikipedia &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" data-tip="RAND Corporation - originators of the Delphi method of expert convergence.">Delphi Method - RAND Corporation (originators) &#8599;</a>
-            <a href="https://en.wikipedia.org/wiki/Delphi_method" target="_blank" rel="noopener" data-tip="Delphi method - convergence by independent expert rounds.">Delphi Method - Wikipedia &#8599;</a>
-            <p class="micro italic">RAND Corporation, 1950s</p>
-            <p class="small">Convergence by independent expert rounds, no shared context. PEA's independence condition comes from here.</p>
-          </div>
+          <article class="lineage-card">
+            <p class="lineage-claim">Convergence by independent expert rounds, no shared context. PEA's independence condition comes from here.</p>
+            <p class="lineage-meta">RAND Corporation, 1950s</p>
+            <div class="lineage-sources">
+              <a href="https://www.rand.org/topics/delphi-method.html" target="_blank" rel="noopener" data-tip="RAND Corporation - originators of the Delphi method of expert convergence.">Delphi Method &mdash; RAND Corporation (originators) &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Delphi_method" target="_blank" rel="noopener" data-tip="Delphi method - convergence by independent expert rounds.">Delphi Method &mdash; Wikipedia &#8599;</a>
+            </div>
+          </article>
         </div>
 
         <div class="stack-md">
@@ -894,23 +937,29 @@
             and why an audit trail the agent authors itself is insufficient.
           </p>
 
-          <div class="stack">
-            <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - chain-of-thought can be plausibly misleading.">Language Models Don't Always Say What They Think &#8599;</a>
-            <p class="micro italic">Turpin et al. - NeurIPS 2023</p>
-            <p class="small">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning - sometimes by as much as 36 percentage points on benchmark tasks.</p>
-          </div>
+          <article class="lineage-card is-evidence">
+            <p class="lineage-claim">CoT explanations can be plausible and systematically misleading at the same time. Stated reasoning diverges from internal reasoning &mdash; sometimes by as much as 36 percentage points on benchmark tasks.</p>
+            <p class="lineage-meta">Turpin et al. &middot; NeurIPS 2023</p>
+            <div class="lineage-sources">
+              <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - chain-of-thought can be plausibly misleading.">Language Models Don't Always Say What They Think &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - LLM self-correction degrades performance without external feedback.">Large Language Models Cannot Self-Correct Reasoning Yet &#8599;</a>
-            <p class="micro italic">Huang et al. - ICLR 2024</p>
-            <p class="small">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
-          </div>
+          <article class="lineage-card is-evidence">
+            <p class="lineage-claim">Without external feedback, LLM self-correction degrades performance rather than improving it. An agent that assesses its own work is rationalising.</p>
+            <p class="lineage-meta">Huang et al. &middot; ICLR 2024</p>
+            <div class="lineage-sources">
+              <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - LLM self-correction degrades performance without external feedback.">Large Language Models Cannot Self-Correct Reasoning Yet &#8599;</a>
+            </div>
+          </article>
 
-          <div class="stack">
-            <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., May 2025 - even reasoning-trained models don't reliably narrate their process.">Reasoning Models Don't Always Say What They Think &#8599;</a>
-            <p class="micro italic">Chen et al. - arXiv:2505.05410, May 2025</p>
-            <p class="small">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring cannot rule out undesired behavior in capable models.</p>
-          </div>
+          <article class="lineage-card is-evidence">
+            <p class="lineage-claim">Even reasoning-trained models do not reliably narrate their internal process. Chain-of-thought monitoring cannot rule out undesired behavior in capable models.</p>
+            <p class="lineage-meta">Chen et al. &middot; arXiv:2505.05410, May 2025</p>
+            <div class="lineage-sources">
+              <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., May 2025 - even reasoning-trained models don't reliably narrate their process.">Reasoning Models Don't Always Say What They Think &#8599;</a>
+            </div>
+          </article>
         </div>
 
       </div>
