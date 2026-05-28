@@ -3235,3 +3235,20 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 **Retrospect — Pattern 2 (parallel rhetorical questions):** "where is the work heading, where has attention gone, is that where the weight lies?" — three questions performing depth. Cut to the operative claim: "Surfaces arc-level patterns no single session can see."
 
 **Probe — Pattern 10 (false precision):** "Directly measures Autonomous Reasoning Fidelity." — "Directly" is filler emphasis. Removed.
+
+---
+
+## iter-78 — 2026-05-28 — Trail card description rewrite + single-column skill layout
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — 2 edits
+**delta:** Trail card description rewritten; .grid-auto forced to 1fr (single column)
+
+### Changes
+
+**Trail card:** Rewritten per operator instruction. "Logs all the work, decisions, reasoning, and sessions in .trail/audit-trail.md — so the next prompt knows what was already done." + P2 principle quote as second paragraph.
+
+**Single-column layout:** .grid-auto changed from repeat(auto-fill, minmax(320px, 1fr)) to 1fr. Both skill card groups (tier-1 and tier-2) now render as a single full-width column at all viewport sizes. Mobile override at line 372 is now redundant but harmless.

@@ -112,7 +112,7 @@
     .stack-md { gap: var(--gap-md); }
     .stack-lg { gap: var(--gap-lg); }
     .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
-    .grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--gap-sm); }
+    .grid-auto { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
     .grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
 
     /* === Labels === */
@@ -422,8 +422,9 @@
           <p class="label">P2 &middot; Observable Autonomy</p>
           <h3><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener">Trail &#8599;</a></h3>
           <p class="small">
-            Logs every decision and rationale to <code>.trail/audit-trail.md</code> as the work happens. Unlogged work cannot be audited.
+            Logs all the work, decisions, reasoning, and sessions in <code>.trail/audit-trail.md</code> &mdash; so the next prompt knows what was already done.
           </p>
+          <p class="small"><em>&ldquo;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&rdquo;</em></p>
         </div>
 
       </div>
