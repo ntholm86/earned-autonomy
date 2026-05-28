@@ -3086,3 +3086,26 @@ section { padding: var(--gap-lg) 0 } — 3rem top + 3rem bottom = 6rem between c
 ### Decision
 
 [!DECISION] The heading is the name of the framework. "Three Principles" described the count; "Principles of Earned Autonomy" names the thing. The eyebrow label "Why the skills work" is retained for context.
+
+---
+
+## iter-69 — 2026-05-28 — remove hero label (naming collision)
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — hero label "Principles of Earned Autonomy" removed
+**delta:** 1 line removed; no CSS changes
+
+### Examination
+
+iter-68 renamed the Principles h2 to "Principles of Earned Autonomy". This created a three-way collision: (1) browser tab title, (2) hero label eyebrow, (3) Principles section h2 — all saying "Principles of Earned Autonomy." The hero label was added early in the arc to identify the framework before the reader reached the Principles section. That function is now handled by the h2 itself, and the tab title handles identification on page load.
+
+### Decision
+
+[!DECISION] Remove the hero label. H1 stands alone: "You're delegating real work to AI. Stay accountable for the work." No eyebrow needed — the statement is self-contained.
+
+### Reflection
+
+[!REALIZATION] iter-68 solved one problem (unnamed principles) and created another (triple repetition). The Improve loop caught it one iteration later. This is the loop working correctly.
