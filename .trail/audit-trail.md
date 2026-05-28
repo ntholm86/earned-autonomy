@@ -3197,3 +3197,20 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 **skill:** improve
 **outcome:** changed — Intent card description replaced with operator's final phrasing
 **delta:** 1 targeted edit
+
+---
+
+## iter-76 — 2026-05-28 — labels rotate to amber (orange)
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — .label color rotated from --lavender to --amber; :root semantic comment updated
+**delta:** 2 CSS token edits; no HTML changes
+
+### Decision
+
+[!DECISION] Operator: "use the orange color for headers instead of purple." --amber (#e7c97a) is the amber/orange token. .label was on --lavender. Single token swap in .label rule. :root comment updated to reflect new semantic roles: amber=labels/headers, lavender=conceptual emphasis (em, blockquote borders — unchanged).
+
+[!NOTE] Operational rule 12 (iter-59: "Labels use --lavender") is now superseded. Labels use --amber from iter-76 onward.

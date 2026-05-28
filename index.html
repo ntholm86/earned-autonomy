@@ -21,9 +21,9 @@
       --num:       #2f3548;   /* recessive numerals — intentionally low contrast */
 
       /* Semantic colour roles — type determines colour, not section geography */
-      /* coral=announcement · amber=technical · teal=action · sage=evidence · lavender=emphasis */
-      --coral:     #f48a8a;   /* labels, trail markers   — structural announcements */
-      --amber:     #e7c97a;   /* code, filenames          — technical identifiers */
+      /* coral=nav-brand · amber=labels/headers · teal=action · sage=evidence · lavender=emphasis */
+      --coral:     #f48a8a;   /* nav brand                — identity anchor */
+      --amber:     #e7c97a;   /* labels, headers          — structural announcements */
       --teal:      #7fd1c5;   /* links, buttons, icons    — action / navigation */
       --lavender:  #c4a7e7;   /* em emphasis              — conceptual highlights */
       --sage:      #a3d6a7;   /* evidence borders, circles — verified claims */
@@ -122,7 +122,7 @@
       font-weight: var(--weight-medium);
       text-transform: uppercase;
       letter-spacing: var(--track-wide);
-      color: var(--lavender);
+      color: var(--amber);
       margin-bottom: var(--gap-xs);
     }
     .label-muted { color: var(--muted); }
