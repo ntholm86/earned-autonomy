@@ -3733,3 +3733,37 @@ One CSS edit + eight HTML edits applied. Grep confirms 8 .lineage-applies footer
 1. **Operator review of the 8 mappings** - the principle/skill assignments are interpretive; the Socratic (no principle) and empirical-card (all P2) calls are the most likely to want adjustment.
 2. **Cold-reader test** - still the standing retrospect #1; the page keeps gaining content without external validation.
 3. **Mirror the lineage "Applies in:" cross-reference the other direction** - the skill cards and principle cards do not point back to their intellectual lineage; a reader on the Intent card cannot jump to Auftragstaktik/Socratic. Symmetry candidate.
+
+## iter-128 - 2026-05-28 - widen lineage card spacing to gap-lg
+
+### Interpretation of the ask
+Operator (with a zoomed screenshot): "Is the spacing between cards correct?" Read not as a yes/no question but as "this looks too tight to me - examine and fix if warranted." Intent: the lineage cards should read as clearly separated units.
+
+### Lenses applied
+- **Inconsistency / proximity (primary):** Cards in the lineage section were separated by gap-md (1.5rem), while inside each card the .lineage-sources and .lineage-applies dividers each carry ~1rem of balanced space per side. By strict proximity the ordering was technically correct (between-card 1.5rem > within-card block 1rem), so it was not "broken." But the cards are visually heavy (1px border + 3px accent bar + rounded corners + fill); at 1.5rem those hard edges read as glued, which is what the screenshot showed. The gap was correct on paper but too tight for the cards' visual weight.
+- **Waste:** confirmed stack-md was used ONLY in this section (lines 892/894/952) - no other consumer - so the fix is fully contained.
+
+### Decision
+[!DECISION] One change: widen the lineage stack from gap-md (1.5rem) to gap-lg (2rem). Implemented cleanly by RENAMING the class .stack-md -> .stack-lg (value --gap-lg) and updating its three usages, rather than editing stack-md's value in place (which would have left a name/value mismatch - a class named "md" yielding a "lg" gap). No new orphan class, no dead CSS, and it extends the existing .stack -> .stack-lg spacing ladder. Honors the operator's standing values: standardization, generic reusable classes, consolidated.
+
+### Prediction
+Card-to-card spacing in the lineage section grows 1.5rem -> 2rem (also label->card and group->group, all siblings in the same stack); cards read as clearly separated; no other section changes; no orphaned stack-md class remains.
+
+### Action + verification
+Three edits (1 CSS rename+revalue, 2 HTML usage swaps covering all 3 occurrences). Grep confirms zero stack-md references remain and all three usages are stack-lg; no HTML errors. Rendered the #foundations section in the integrated browser and captured a screenshot: cards now show clear separation, no longer glued. Prediction held exactly. Committed 22db013, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** The lineage section's spacing hierarchy is now correct AND visually legible - between-card (2rem) clearly exceeds within-card block spacing (1rem), so the cards read as discrete units. A future run (or cold reader) should not perceive the cards as merged; if they still look glued, the accent-border weight - not the gap - is the cause, and that would falsify "gap was the issue."
+- **Named blind spot:** I judged "too tight" partly from a screenshot and one rendered viewport at desktop width. I did not check the spacing at narrow/mobile widths, where the same 2rem may feel different relative to the now-full-width cards. Responsive behavior of the new gap is unverified.
+- **Imagined-reader pushback:** "You said it was 'technically correct' then changed it anyway - is this taste dressed up as a fix?" Partly fair: this was an aesthetic legibility call, not a correctness bug, and I should be honest that the proximity ordering was already valid. The defense: the operator's perception that cards looked glued is itself the signal; a manifesto site arguing for clarity should not have its own evidence section read as a dense block. The rename-not-revalue discipline keeps the change clean regardless.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - iter-127 added lineage footers (content); this is a spacing/layout tweak to the same section but a different class of work; not a sustained pattern.
+- *About to declare silence:* considered it (the spacing was technically correct) but the operator's perception warranted a legibility change, so not fired.
+- *Contradicts prior [!REALIZATION]:* not fired.
+- *Operator explicitly asked:* fired - operator asked directly about the spacing.
+
+### Candidate Next Moves
+1. **Check the lineage section at mobile/narrow width** - the named blind spot; confirm 2rem gap and full-width cards read well below the --max breakpoint.
+2. **Cold-reader test** - still the standing retrospect #1; the page keeps accreting content and polish without external validation.
+3. **Operator review of the iter-127 principle/skill mappings** - still pending (Socratic has no principle; the three empirical cards all map to P2).
