@@ -3689,3 +3689,47 @@ Two edits applied. Grep confirms both lines now read "The skills repository: Int
 1. **Cold-reader test** - now unambiguously the move. The link/tooltip class is exhausted (this run's realization); the page is structurally settled and live; it is the standing retrospect #1 across 13+ deferrals; it is the only signal the loop cannot generate for itself. Stop polishing the corner.
 2. **Hero card de-ai pass** - retrospect-004 immediate #3; the hero block has never had a systematic de-ai pass and is the first prose a reader meets.
 3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
+
+## iter-127 - 2026-05-28 - add "Applies in:" footer to each lineage card
+
+### Interpretation of the ask
+Operator: in the Intellectual lineage section, give each card a footer stating where that tradition is applied in the skills and principles, format "Applies in: Principle 1 - commanders intent, Intent skill". Read as: close the loop between influence and application - each lineage card already states the historical claim and sources; the footer says where the idea actually landed in PEA (which principle, which skill), using the page's established P1=Intent / P2=Trail(Observable Autonomy) / P3=Improve(Convergence) / Probe=ARF framing.
+
+### Lenses applied
+- **Purpose:** The lineage section answers "where did these ideas come from." It did not answer "where did they go." The footer adds the missing return path, which is the reader value the operator is after.
+- **Inconsistency:** The lineage-card component already has a bespoke sub-class family (lineage-claim, lineage-meta, lineage-sources). A footer fits that family; adding .lineage-applies is consistent with the component, not class accretion (operational rule 3 satisfied - no existing class served an inline card-footer role).
+
+### Decision
+One change with two parts: (1) add CSS .lineage-applies - a footer below the sources divider, mono/micro/muted to match the .lineage-meta "metadata register", with the "Applies in:" label in --amber (structural-announcement color per operational rule 12); (2) add the footer to all 8 cards.
+
+Mappings derived from each card's own claim text + the page's principle/skill framing, and surfaced to the operator for correction:
+- Auftragstaktik -> P1 Commander's Intent, Intent skill (operator's own example)
+- Toyota Kata (coach/learner) -> P1 Commander's Intent, Improve skill
+- Socratic method -> Intent skill, Probe skill (questions/situated reasoning; no single principle forced)
+- Kaizen/convergence -> P3 Convergence Is Silence, Improve skill (claim says so literally)
+- Delphi (independence) -> P3 Convergence Is Silence, Improve skill
+- Turpin (CoT misleading) -> P2 Observable Autonomy, Probe skill
+- Huang (self-correction degrades) -> P2 Observable Autonomy, Trail skill
+- Chen (reasoning unnarrated) -> P2 Observable Autonomy, Probe skill
+
+### Prediction
+Each of the 8 cards gains one footer line after its sources; styling via tokens only (no inline styles); no claim/meta/source text altered; conceptual and empirical cards look consistent.
+
+### Action + verification
+One CSS edit + eight HTML edits applied. Grep confirms 8 .lineage-applies footer lines (plus the 2 CSS rule matches). No HTML errors. Prediction held: only footers added, no existing card text changed, all styling through :root tokens. Committed ff42001, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** Every lineage card now declares its PEA application, so the section reads bidirectionally (origin <-> application). A future run should find no lineage card lacking an "Applies in:" footer; a card without one falsifies this.
+- **Named blind spot:** The principle/skill mappings are MY interpretation from claim text, not operator-authored ground truth. The two I am least sure of: Socratic (I gave it no principle - it could be argued as P1) and the three empirical cards (I mapped all to P2 Observable Autonomy, but Huang's self-assessment finding also strongly supports P3's independence condition). I surfaced the full table to the operator precisely because these are judgment calls, not facts.
+- **Imagined-reader pushback:** "Two cards both say 'P3 Convergence Is Silence, Improve skill' (Kaizen and Delphi) - is the footer adding information or just repeating the section's theme?" Fair: for the convergence pair the footer is less differentiating. But it still serves the cross-reference purpose (a reader scanning for 'where is the Improve skill grounded' finds both), and uniformity of the footer across all cards is worth more than per-card cleverness.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - iter-122/124/125/126 were link/tooltip standardization (declared exhausted in iter-126); this run is a content/structure addition to the lineage section, a different class.
+- *About to declare silence:* not fired - made a change.
+- *Contradicts prior [!REALIZATION]:* not fired - iter-126 said stop polishing the link/tooltip corner; this run moved to content, consistent with that.
+- *Operator explicitly asked:* fired - operator specified the feature directly.
+
+### Candidate Next Moves
+1. **Operator review of the 8 mappings** - the principle/skill assignments are interpretive; the Socratic (no principle) and empirical-card (all P2) calls are the most likely to want adjustment.
+2. **Cold-reader test** - still the standing retrospect #1; the page keeps gaining content without external validation.
+3. **Mirror the lineage "Applies in:" cross-reference the other direction** - the skill cards and principle cards do not point back to their intellectual lineage; a reader on the Intent card cannot jump to Auftragstaktik/Socratic. Symmetry candidate.
