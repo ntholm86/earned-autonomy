@@ -3186,3 +3186,14 @@ Trail: "Logs every decision and rationale to .trail/audit-trail.md as the work h
 **skill:** improve
 **outcome:** changed — Intent card description updated with operator's phrasing
 **delta:** 1 targeted edit
+
+---
+
+## iter-75 — 2026-05-28 — Intent card: operator final phrasing
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Intent card description replaced with operator's final phrasing
+**delta:** 1 targeted edit
