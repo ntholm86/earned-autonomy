@@ -3611,3 +3611,47 @@ Two edits applied. Post-edit grep confirms: Probe card link is now href="#arf", 
 1. **Cold-reader test** - still the standing #1 per retrospect-004; 12+ deferrals, page is structurally settled and live. The only signal the loop cannot generate for itself.
 2. **Audit data-tip coverage and copy consistency across all standalone links** - confirm every external SKILL/GitHub link uses the "Read the full X skill definition." form and every in-page label uses "Go to the X on this page."; reconcile any stragglers (the operator named tooltips explicitly).
 3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
+
+## iter-125 - 2026-05-28 - unify duplicate manifesto-repo tooltip copy
+
+### Interpretation of the ask
+Operator confirmed candidate next move #2 from iter-124: audit data-tip coverage and copy consistency across all standalone links, reconciling any stragglers. The broader standing intent (from the iter-124 request) is consistency and standardization across all links and tooltips.
+
+### Lenses applied
+- **Inconsistency (primary):** Pulled all 45 data-tip instances plus every anchor and grouped by role. Findings:
+  - External SKILL.md links (12): all "Read the full X skill definition." - uniform.
+  - External PRINCIPLES.md links (3): all "Read the full X principle." - uniform.
+  - ARF link (1): "Read the full ARF definition." - intentionally different noun (ARF is a signal, not a principle).
+  - In-page .label links (3): all "Go to the X principle on this page." - uniform.
+  - Inline prose cross-refs #arf/#probe (2): no tooltip - correct per the iter-124 rule (tooltips on standalone links only).
+  - Nav/footer section links (6): no tooltip - correct, section-level nav.
+  - Resource links (DOI, ORCID, lineage citations, etc.): descriptive and legitimately per-target varied.
+  - ONE real defect: two links to the IDENTICAL url (github.com/ntholm86/principles-of-earned-autonomy) carried tooltips differing only by a leading "The" - nav (line 370) "Manifesto repository: ..." vs footer chip (line 985) "The manifesto repository: ...". Accidental drift, same target, same intent.
+- **Coverage:** No link lacks a tooltip that should have one. The only article-less anchors are nav-section links and the two inline prose cross-refs, both correctly tooltip-free by design.
+
+### Decision
+One change: unify the two manifesto-repo tooltips. Aligned the nav tooltip to the chip's "The manifesto repository: principles, framework, evidence." form - reads more naturally as hover prose and matches the article-led phrasing already used at line 871 ("The complete, append-only audit trail ..."). Preserved data-tip-align="right" on the nav link.
+
+Did NOT touch the skills-suite pair (line 590 "Browse all six skill files (...)." vs line 986 "All six skill files, ready to drop into your agent's skills folder.") - same URL but deliberately reframed: line 590 is an inline "browse" reference, line 986 is a call-to-action chip. That variance is intentional, not drift. Surfaced as a candidate rather than bundled, to keep this iteration a single clear fix.
+
+### Prediction
+Both manifesto-repo links share one identical tooltip string; no other tooltip, link, target, or layout change; data-tip-align="right" on the nav link preserved.
+
+### Action + verification
+One edit applied. Grep for the tooltip phrase returns exactly two matches, both now "The manifesto repository: principles, framework, evidence."; nav still carries data-tip-align="right". No HTML errors. Prediction held. Committed 8de92cd, pushed.
+
+### Reflection
+- **Falsifiable model-claim:** The tooltip layer now follows a clean role-based taxonomy with exactly one intentional same-URL variance remaining (the skills-suite browse-vs-CTA pair). A future run should find no other same-URL pair with accidentally divergent copy; a counterexample falsifies this.
+- **Named blind spot:** I judged the skills-suite pair (590/986) "intentional" from copy tone alone; I did not confirm with the operator that the two framings are wanted rather than also-drift. If the operator's rule is strictly "identical URL -> identical tooltip", that pair is a second defect I deferred.
+- **Imagined-reader pushback:** "A one-word 'The' is trivial - was this worth an iteration?" Answer: the operator explicitly asked for tooltip standardization and 'consolidated'; two tooltips for the same URL differing by an article is exactly the accidental drift that erodes a standardized system, and the audit that found it (confirming 39 other tooltips ARE uniform) is the real product of the run.
+
+### Across-trail reflection
+- *Recurring finding-class:* FIRED - iter-122 (anchor targets), iter-124 (cross-link targets), iter-125 (tooltip copy) are three consecutive link/tooltip standardization passes. The class "in-page link and tooltip consistency" is now believed nearly exhausted; only the deferred 590/986 judgment call remains.
+- *About to declare silence:* not fired - made a change.
+- *Contradicts prior [!REALIZATION]:* not fired - extends iter-124's link-taxonomy claim.
+- *Operator explicitly asked:* FIRED - operator confirmed candidate #2 directly.
+
+### Candidate Next Moves
+1. **Resolve the skills-suite tooltip pair (590 vs 986)** - decide with the operator whether same-URL links must carry identical tooltips, or whether the browse-vs-CTA reframing is wanted; the one remaining same-URL variance.
+2. **Cold-reader test** - still the standing #1 per retrospect-004; the page is structurally settled and the link/tooltip layer is now consistent; the only signal the loop cannot generate for itself.
+3. **Reconcile the trail numbering gap (iter-88..iter-120)** still outstanding from iter-121.
