@@ -2987,3 +2987,28 @@ Full de-ai pass: Foundations, Memory Model, Quickstart, Trail section, Footer.
 ### Reflection
 
 The de-ai pass is now complete across all major prose sections. The page's clean sections (Foundations, Memory Model, Quickstart) required no changes — consistent with late-stage convergence behavior. The footer was the last reachable prose block.
+
+---
+
+## iter-64 — 2026-05-28 — Foundations section moved to last position
+
+**target:** pea-website (index.html)
+**operator:** ntholm86
+**agent:** Claude Sonnet 4.6 (Anthropic / GitHub Copilot)
+**skill:** improve
+**outcome:** changed — Foundations / Intellectual lineage section moved from position 4 to last section before footer
+**delta:** section order change + nav link reordered; no content edits
+
+### Examination
+
+Operator intent: Foundations is reference/validation material — it earns credibility but does not drive action. Readers who want to act (Memory Model → Quickstart → Trail) were being forced past a dense reference section first. The page should read action-first, lineage-last.
+
+### Decision
+
+[!DECISION] Move Foundations to last section before footer. Update nav to match: Skills → Principles → Get started → Trail → Foundations.
+
+New section order: Skills → Principles (+ ARF) → Memory Model → Quickstart → Trail → Foundations → Footer.
+
+### Reflection
+
+The page now has a natural gradient: understand the framework (Skills → Principles) → learn to use it (Memory Model → Quickstart) → see it in action (Trail) → understand where it came from (Foundations). Foundations as a terminus is correct — it rewards the curious without blocking the practitioner.
