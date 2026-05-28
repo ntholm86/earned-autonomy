@@ -1,101 +1,83 @@
 ﻿# retrospect.md — pea-website
 
-_Last updated: 2026-05-28 (run: retro-004)_
+_Last updated: 2026-05-28 (run: retro-005)_
 
 ---
 
 ## Freshness check
 
-No 	ools/record.py in this repo. Arc-claims read directly from udit-trail.md (212KB, sessions 001–iter-59) and the updated ision.md (iter-59 vision update appended).
+No `tools/record.py` in this repo. Arc-claims read directly from `audit-trail.md` (285KB) and `destination.md`.
 
-- python tools/record.py history --write — NOT AVAILABLE
-- python tools/record.py learning --write — NOT AVAILABLE
-- Gate: PASS (direct trail read; no stale derived artifacts)
+- `python tools/record.py history --write` — NOT AVAILABLE
+- `python tools/record.py learning --write` — NOT AVAILABLE
+- Note: `history.md`/`learning.md` (mtime 16:40) are stale relative to `audit-trail.md` (mtime 20:38); they predate iter-121..128. No derivation tool exists to refresh them. Arc-claims were formed from the primary `audit-trail.md`, not the stale derived artifacts.
+- Gate: PASS (direct trail read; derived artifacts knowingly bypassed, not relied upon)
 
 ---
 
 ## Scope statement
 
-Vision was updated in iter-59 (skills section Kaikaku: principle framing, two-tier structure, label color change, card interaction pattern change). Read the full arc against the new vision and determine: what structural facts need updating, which operational rules changed, where is the loop's attention needed now.
+First full arc-read since retro-004 (which covered through iter-59). Question: across iter-60..iter-128, has the loop been advancing the destination, or polishing findable surfaces while the destination-critical work stays deferred? Specifically: did the cold-reader test that retro-004 declared "overdue, deferral exhausted" ever execute?
 
 ---
 
 ## Current claims
 
-**1. The arc has now gone through two major structural inversions in the same week. The page is no longer a framework-explanation site — it is a skills-adoption site with principle grounding. This is the correct destination.**
+**1. The cold-reader test has now been deferred ~20 consecutive times and still has not run. retro-004 declared the structural justification for deferral "exhausted" after iter-59. Fifteen-plus iterations later (iter-60..87, iter-121..128) it remains the standing #1 and remains unexecuted. This is the single most durable fact about the arc.**
 
-Session-001 through iter-50 built a principles-first page under the original vision. Iter-51-52 inverted the section order (skills above principles). Iter-59 went further: the skills section now maps each tier-1 skill to its principle (P1→Intent, P2→Trail, P3→Improve), names the tier-2 group as memory/reasoning/self-reflection, and removes the whole-card-as-link pattern. The destination is now clear in the artifact, not just in vision.md.
+It was first named at iter-29, ranked #1 or #2 in essentially every entry since, and explicitly called "the move, not a candidate" by retro-004. The page is live at https://ntholm86.github.io/earned-autonomy/. The loop has had every structural precondition to gather external reader signal for 60+ iterations and has not. The deferral is no longer *about* the page — it is the loop's defining blind spot.
 
-**2. The cold-reader test has been the #1 ranked next move in 12+ consecutive trail entries and has never been executed. After iter-59, the structure is the most settled it has been in the arc. The case for deferral is gone.**
+**2. The reason the cold-reader test keeps being deferred is upstream of the page: there is no operator-confirmed convergence criterion. (destination, iter-84: the operator said "I am not sure what done actually looks like.")** Without a definition of done, the loop optimizes for what is *findable* — de-ai passes, link targets, tooltip copy, dash style, spacing — because those produce a visible change every run. The one thing that would resolve "are we done?" requires two inputs the loop cannot self-generate: an external reader's reaction, and the operator's own statement of the target reaction. Until iter-84's open question is answered, every iteration is exploration-phase polish, not convergence-phase work. This is the deeper claim retro-004 missed by framing the deferral as merely "overdue."
 
-First named at iter-29 (blind spot). Cited as #1 or #2 in every candidate-next-moves section through iter-59. Each deferral was defended on the grounds of structural instability — the page kept changing. After iter-59: the skills section framing is settled, the two-tier structure is in place, the color system is consistent, the principles-below-skills order is confirmed. The page is live at https://ntholm86.github.io/earned-autonomy/. There is no remaining structural defense for deferral.
+**3. The recent arc (iter-121..128) is a textbook comfortable-corner run, and the loop correctly diagnosed it mid-stream.** Citations (121) → in-page anchor wiring (122) → dash normalization (123) → cross-link targeting (124) → tooltip unification (125, 126) → lineage footers (127) → card spacing (128). iter-126 itself declared the link/tooltip finding-class "exhausted" and warned the next run not to keep polishing it; iter-127/128 then moved to adjacent lineage-section polish. Healthy self-awareness, but the trajectory confirms claims 1–2: the loop is doing findable work because destination-critical work is blocked on operator input.
 
-**3. The color system has been revised three times: light→dark (iter-36), and now coral→lavender for labels + coral→amber for trail markers (iter-59). Each revision was correct. The system is now semantically cleaner.**
+**4. The loop is structurally honest — this is NOT a confabulation trail.** Reversal/realization density is healthy across the arc: iter-126 carries an explicit [!REVERSAL] of iter-125's "intentional variance" judgment; iter-128 honestly conceded its change was "technically correct, an aesthetic legibility call, not a bug"; iter-121 caught two of its own 404s in post-edit verification and logged them; predictions are stated before action and checked after. The trail records its own misses. Confabulation is not the failure mode here — selective attention is.
 
-Prior semantic assignment: coral = structural announcements (labels, trail markers). That mapped a warning color to navigation elements, creating ambient danger signaling. Current assignment: lavender = conceptual emphasis (labels), mber = technical identifiers (trail markers, code). Coral now has no UI role except as a brand color in nav. This is the most semantically coherent the color system has been.
+**5. A second perpetually-deferred task mirrors the cold-reader pattern at smaller scale: the iter-88..iter-120 trail gap (33 iterations not logged).** Flagged as a Candidate Next Move in every entry from iter-121 through iter-128, never acted on. The loop now has two known-needed tasks it keeps ranking and never executing. The pattern (rank #1/#3, defer, repeat) is the tell, not the specific task.
 
-**4. The principle-to-skill framing (P1=Intent, P2=Trail, P3=Improve) is the highest-leverage content addition in the arc. It was always implied but never surfaced. Iter-59 made it explicit.**
-
-The skills suite was built to enact the three principles. The page never said which skill enacts which principle. A reader landing on the skills section had no reason to connect Intent to Commander's Intent or Trail to Observable Autonomy. The label now makes that connection on first glance. This is the argument the page was always making — iter-59 said it out loud.
-
-**5. The loop has been running de-ai passes reactively (when the operator notices a tell) rather than systematically. Two de-ai skill updates were made this session: pattern 9 (spatial-void) and pattern 3 sub-class (em-dash connector). Both were triggered by operator feedback, not by the loop proactively running the skill.**
-
-This is not a failure — the operator catching tells is the skill working. But a systematic de-ai pass (running all 13 patterns against the full page) has never been done as a standalone iteration. One was attempted this session and produced four gap-removal edits (iter-57). The precedent is there.
-
-**6. The two-tier skill structure (tier-1: immediate-use; tier-2: memory/reasoning) is new and unvalidated. It is the right conceptual frame — the operator confirmed it. It has not been seen by a reader who didn't already know the framework.**
-
-The two-tier label ("Memory, reasoning & self-reflection") above Vision/Retrospect/Probe is new as of iter-59. It accurately describes when those skills become useful. A cold reader seeing it for the first time may or may not read it that way. Only the cold-reader test resolves this.
+**6. iter-128 performed the first browser render verification since the dark theme (iter-36).** destination still lists "Visual verification not done" and "Mobile viewport untested" as open. iter-128 closed the desktop half (rendered #foundations, confirmed spacing visually) but explicitly left mobile/narrow-width unverified. Visual verification is now a demonstrated capability in this loop, not a theoretical one.
 
 ---
 
 ## What the next runs should test
 
-**Immediate:**
+**Immediate — and this time it is blocked on the operator, not the loop:**
 
-1. **Cold-reader test.** Not a candidate. The move. The page is structurally settled, live, and the deferral justification is exhausted. This is the only signal the loop cannot generate for itself. After 12+ deferrals, executing it is overdue.
+1. **Resolve iter-84's open question, then run the cold-reader test.** The loop cannot generate either input. The operator must answer: "What would a reader have to say or do after visiting this page for you to feel it has done its job?" Until then, convergence cannot be declared and further polish iterations have sharply diminishing returns. This is the move; everything else is deferral.
 
-2. **Validate tier-2 label copy.** "Memory, reasoning & self-reflection" — does a cold reader understand what this tier is for? This is the only new content element in iter-59 that carries real semantic risk. The cold-reader test will surface this.
+2. **Formally close the iter-88..iter-120 trail gap.** Either backfill terse entries from the git log, or record one explicit [!REALIZATION] that those micro-iterations were intentionally not logged — so the gap is documented rather than silently carried as a perpetual candidate.
 
-3. **Hero card block — de-ai pass.** The hero card ("Two responses are common...") was not touched in iter-57 or iter-58. It has not received a systematic de-ai pass. It is the first substantive prose a reader encounters after the h1.
+3. **Mobile/narrow-width visual check.** iter-128's named blind spot; destination's standing open item. Now cheap (browser render is demonstrated). The lineage cards went full-width with a 2rem gap — confirm that reads well below the --max breakpoint.
 
 ---
 
 ## Active operational rules
 
-*(Rules 1–7 from retro-002; rules 8–13 from retro-003/iter-59)*
+*(Rules 1–14 carried forward from retro-004; rules 15–18 added retro-005. All still apply unless struck.)*
 
-1. **Never add inline style="" attributes.** They accumulate silently and require dedicated cleanup. If a CSS class doesn't exist, create one.
-
-2. **All CSS changes go through :root tokens.** The 2-edit reversal property is the architecture's payoff. Maintain it.
-
-3. **Before inventing a new CSS class, verify no existing class already serves the role.** The iter-34 Kaikaku collapsed ~50 bespoke classes to ~20. Accreting bespoke classes is the failure mode that makes future Kaikaku necessary.
-
-4. **git add <explicit paths> — never git add -A.** Iter-33 swept an unintended deletion via -A.
-
-5. **Append trail files with Add-Content -Encoding UTF8. Never Set-Content, never > redirection.** Iter-37 produced 124 mojibake em-dashes via a Set-Content/Get-Content -Raw round-trip.
-
-6. **vision.md updates must be timely.** When a [!REVERSAL] fires, vision.md should be updated in the same iteration or the immediately following Vision run.
-
-7. **Trigger Vision when two consecutive design-direction corrections occur.** Prevented the 24-iteration drift from recurring.
-
-8. **Skills section appears above Principles in scroll order.** Per Vision iter-51.
-
-9. **[REVISED iter-59] Skill order: Intent (P1) → Trail (P2) → Improve (P3) → [tier-2 separator] → Vision → Retrospect → Probe.** Supersedes retro-003 rule 9 (Trail→Intent). Principle order (P1→P2→P3) is the correct ordering.
-
-10. **Improve is not a card — it is an expanded subsection with ~2× visual depth.** Must show: the loop steps, the Kaizen/Toyota Kata lineage, the 200+ iteration evidence. Do not compress to card format.
-
-11. **De-AI pattern 13 is active.** Check all headings and opening sentences for difficulty-announcement frames. Cut the frame; say the claim.
-
-12. **Labels use --amber, not --lavender.** Updated iter-76: amber = structural announcements (labels, headers). Lavender = conceptual emphasis (em, blockquote borders). [Added iter-59, corrected iter-76]
-
-13. **Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use --amber / --amber-lt.** These are technical identifiers, not danger signals. [Added iter-59]
-
-14. **Skill cards use div.card + title-as-link (h3 > a), not .card.** Whole-card-as-link was inconsistent with Improve (which can never be an anchor). Title-as-link is the normalized pattern. [Added iter-59]
+1. **Never add inline `style=""` attributes.** If a CSS class doesn't exist, create one.
+2. **All CSS changes go through `:root` tokens.** The 2-edit reversal property is the architecture's payoff.
+3. **Before inventing a new CSS class, verify no existing class serves the role.** Accreting bespoke classes is the failure mode that forces future Kaikaku.
+4. **`git add <explicit paths>` — never `git add -A`.** (iter-33 swept an unintended deletion.)
+5. **Append trail files with `Add-Content -Encoding UTF8`. Never `Set-Content`, never `>` redirection.** (iter-37 produced 124 mojibake em-dashes; a Set-Content round-trip corrupted retrospect.md again in retro-005.) Write via a temp UTF-8 file, append with `Add-Content`, then grep for `â€` to confirm clean.
+6. **destination.md updates must be timely** when a [!REVERSAL] fires.
+7. **Trigger a Vision/Destination run when two consecutive design-direction corrections occur.**
+8. **Skills section appears above Principles in scroll order.**
+9. **Skill order: Intent (P1) → Trail (P2) → Improve (P3) → [tier-2 separator] → Destination → Retrospect → Probe.**
+10. **Improve is an expanded subsection (~2× depth), not a card.**
+11. **De-AI pattern 13 is active.** Cut difficulty-announcement frames from headings/opening sentences.
+12. **Labels use `--amber`** (structural announcements). Lavender = conceptual emphasis. (Corrected iter-76.)
+13. **Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use `--amber`/`--amber-lt`** — technical identifiers, not danger signals.
+14. **Skill cards use `div.card` + title-as-link (h3 > a), not whole-card-as-link.**
+15. **[retro-005] The link/tooltip standardization finding-class is EXHAUSTED** (declared iter-126, confirmed by the iter-127/128 drift to adjacent polish). Do not open further link-target or tooltip-copy iterations. In-page links target the specific card (`#principle-N`, `#arf`, `#probe`); standalone links carry role-consistent `data-tip`; inline-prose links carry none (forcing `display:inline-block` breaks wrapping); same URL → identical tooltip.
+16. **[retro-005] The page is hyphen-only.** Em-dashes were removed wholesale in iter-123 by operator preference. New page content must use plain hyphens, never `—` or `&mdash;`. (Trail/retrospect files may still use em-dashes; the rule is page-scoped.)
+17. **[retro-005] Spacing ladder is `--gap-xs/sm/md/lg`; stack classes are `.stack` (sm) and `.stack-lg` (lg).** `.stack-md` was renamed away in iter-128. When changing a token-driven value, rename the class rather than leaving a name/value mismatch.
+18. **[retro-005] Browser render verification is available and expected for visual/layout changes.** iter-128 used the integrated browser to confirm a spacing change. Use it before committing layout-affecting edits; do not rely on source reasoning alone for "does it look right."
 
 ---
 
 ## Loop-effectiveness notes
 
-The loop is effective and structurally honest. The [!REVERSAL] count is healthy (7+ confirmed reversals across the arc) — this is not a confabulation loop. The most significant finding is the sustained cold-reader deferral: 12+ consecutive entries, always ranked #1, never executed. That pattern is the clearest signal the loop has about where its own blind spot lies.
+The loop is effective at execution and honest in its record (claim 4), but its attention allocation is the problem (claims 1–3). Across 60+ iterations spanning two retrospects, the highest-ranked move has been gathering external reader signal, and it has never once executed — because it is the one move the loop structurally cannot perform alone, and the operator has not yet supplied the missing inputs (a convergence criterion, a reader).
 
-After iter-59, the structural work is done. What remains is validation — which only an external reader can provide.
+The kind of finding this loop will structurally miss: anything that requires an input from outside the artifact. It will reliably find and fix every internal inconsistency, every AI-tell, every misaligned token — and it will reliably *not* discover whether the page actually lands with a cold reader, because that signal does not exist inside the file. retro-004 saw the symptom and called it "overdue." retro-005's correction: it is not overdue, it is *blocked* — and naming it as a backlog item the loop should "just do" has been the subtle error, because it lets the operator-dependent precondition stay invisible. The honest status is: **the page is in the exploration phase, the loop has done the findable exploration thoroughly, and convergence is gated on an operator decision that iter-84 surfaced and no run since has resolved.**
