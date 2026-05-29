@@ -227,7 +227,6 @@
     h3 a { color: var(--amber); }
     h3 a:hover { color: var(--teal); }
     a.label:hover { color: var(--amber); }
-    a.mono { color: var(--teal); }
 
     /* === Tooltip ===
        Generic. Add data-tip="content" to any element. Pure CSS, no JS.
@@ -337,33 +336,6 @@
     nav ul a { font-size: var(--text-small); color: var(--muted); }
     nav ul a:hover { color: var(--teal); text-decoration: none; }
 
-    /* === Memory tree === */
-    .memory-tree {
-      font-family: var(--mono);
-      font-size: var(--text-small);
-      line-height: 1.7;
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--amber);
-      border-radius: var(--radius);
-      padding: var(--gap-sm) var(--gap-md);
-      color: var(--ink);
-      overflow-x: auto;
-      white-space: pre;
-      margin: var(--gap-md) 0;
-    }
-    .memory-tree .tree-comment { color: var(--muted); font-weight: 400; }
-    .memory-tree .tree-name    { color: var(--amber); font-weight: var(--weight-medium); }
-    .memory-row {
-      display: grid;
-      grid-template-columns: 11rem 1fr;
-      gap: var(--gap-sm);
-      padding: var(--gap-xs) 0;
-      border-top: 1px solid var(--rule);
-      align-items: baseline;
-    }
-    .memory-row:first-child { border-top: none; padding-top: 0; }
-
     /* === Footer === */
     footer { border-top: 1px solid var(--rule); padding: var(--gap-lg) 0; }
     .footer-inner {
@@ -385,7 +357,6 @@
       nav ul { gap: var(--gap-sm); }
       .container { padding: 0 var(--gap-sm); }
       .grid-auto { grid-template-columns: 1fr; }
-      .memory-row { grid-template-columns: 1fr; gap: var(--gap-xs); }
     }
   </style>
 </head>
@@ -409,8 +380,8 @@
       <h1>Safely delegate complex work to AI and stay accountable.</h1>
       <p class="hero-dek">
         The skillset can improve any target by understanding its purpose. It was aimed at
-        <strong>its own skillset</strong> 200+ times with different AI models - until convergence
-        was declared - improving its own ability to improve any target by understanding its purpose.
+        <strong>its own skillset</strong> 200+ times with different AI models - improving its own ability to improve any target by understanding its purpose - until convergence
+        was declared.
       </p>
     </section>
   </div>
@@ -472,7 +443,10 @@
         <div class="card">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 h8 l4 4 v13 a1 1 0 0 1 -1 1 h-11 a1 1 0 0 1 -1 -1 v-16 a1 1 0 0 1 1 -1 z"/><path d="M15 3 v4 h4"/><path d="M9.5 11 H15"/><path d="M9.5 14 H15"/><path d="M9.5 17 H12.5"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Trail skill definition.">Trail SKILL &#8599;</a></h3>
           <p class="small">
-            Logs all the work, decisions, reasoning, and sessions in <code>.trail/audit-trail.md</code>. The next prompt knows previous work and history.
+            Writes every session to <code>.trail/audit-trail.md</code> - the append-only source of truth. One entry per run: the ask, examination, decisions, actions, reflection. The next prompt knows what was already done and why.
+          </p>
+          <p class="small">
+            Regenerates the derived views at each commit: <code>history.md</code> (the run timeline) and <code>learning.md</code> (every realization and reversal). Full summaries land in <code>sessions/</code>; raw dialogue in <code>transcripts/</code> when the harness can export it.
           </p>
           <p class="skill-when"><b>Invoke:</b> Every session.</p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
@@ -497,7 +471,7 @@
         <div class="card">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 L13.7 10.3 L21.5 12 L13.7 13.7 L12 21.5 L10.3 13.7 L2.5 12 L10.3 10.3 Z"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/destination/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Destination skill definition.">Destination SKILL &#8599;</a></h3>
           <p class="small">
-            The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code>.
+            The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code> - where you're going: what the target is for, the constraints that hold across runs, the hard problem the work is chipping at. Operator-held; humans only.
           </p>
           <p class="skill-when"><b>Invoke:</b> At the start - when direction feels unclear.</p>
         </div>
@@ -505,7 +479,7 @@
         <div class="card">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M14.8 14.8 L21 21"/><path d="M6.5 8.5 H13.5"/><path d="M6.5 11 H13.5"/><path d="M6.5 13.5 H11"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Retrospect skill definition.">Retrospect SKILL &#8599;</a></h3>
           <p class="small">
-            Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code>.
+            Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code> - where you are: arc-level orientation plus the active rules the agent must obey this run.
           </p>
           <p class="skill-when"><b>Invoke:</b> After a few improvement skills iterations.</p>
         </div>
@@ -522,6 +496,16 @@
       </div>
 
       <div class="card mt-lg">
+        <p class="label label-muted label-bordered">Memory</p>
+        <p class="small">
+          The skills give every repository a memory layer in <code>.trail/</code>, written to the root of the repo being worked on. Each run reads it before acting and extends it after - that is what makes the loop cumulative instead of repeating yesterday's mistakes.
+        </p>
+        <p class="small mt-xs">
+          A hierarchy resolves disagreements: the operator-held <code>destination.md</code> overrides the agent's orientation in <code>retrospect.md</code>; and where orientation and the append-only <code>audit-trail.md</code> evidence disagree, the trail wins. Memory without a hierarchy is just noise.
+        </p>
+      </div>
+
+      <div class="card mt-lg">
         <p class="label label-muted label-bordered">Install</p>
         <p class="small">Download the six skill files from the
           <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
@@ -533,104 +517,6 @@
         </p>
       </div>
 
-    </section>
-  </div>
-
-  <!-- MEMORY MODEL -->
-  <div class="container">
-    <section id="memory">
-
-      <h2>The audit-trail is the memory</h2>
-      <p>
-        Without memory, an agent repeats yesterday's mistakes and forgets what it already did. The skills gives every
-        repository a memory layer in <code>.trail/</code>. Each Improve run reads it before acting
-        and extends it after. That is what makes the loop cumulative.
-      </p>
-
-      <pre class="memory-tree" aria-label="trail folder structure"><span class="tree-name">.trail/</span>              <span class="tree-comment"># lives in the root of the repo being worked on</span>
-&#9500;&#9472;&#9472; <span class="tree-name">destination.md</span>      <span class="tree-comment"># the destination (operator-held, never written by skills)</span>
-&#9500;&#9472;&#9472; <span class="tree-name">retrospect.md</span>      <span class="tree-comment"># current orientation + active operational rules (Retrospect rewrites each run)</span>
-&#9500;&#9472;&#9472; <span class="tree-name">learning.md</span>        <span class="tree-comment"># derived: every [!REALIZATION] and [!REVERSAL] across the trail (regenerated by Trail)</span>
-&#9500;&#9472;&#9472; <span class="tree-name">history.md</span>         <span class="tree-comment"># derived: run timeline (regenerated by Trail at every commit)</span>
-&#9500;&#9472;&#9472; <span class="tree-name">audit-trail.md</span>     <span class="tree-comment"># append-only source of truth - one entry per session</span>
-&#9500;&#9472;&#9472; <span class="tree-name">sessions/</span>          <span class="tree-comment"># mandatory: per-session summary file, one per run, linked from audit-trail.md</span>
-&#9474;   &#9492;&#9472;&#9472; <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span>
-&#9492;&#9472;&#9472; <span class="tree-name">transcripts/</span>       <span class="tree-comment"># optional: verbatim transcript exports when the harness supports it</span>
-    &#9492;&#9472;&#9472; <span class="tree-name">YYYY-MM-DD-&lt;slug&gt;.md</span></pre>
-
-      <p>
-        Three tiers. <strong>Operator:</strong> <code>destination.md</code> - humans only.
-        <strong>Synthesis:</strong> <code>retrospect.md</code>, <code>learning.md</code>,
-        <code>history.md</code> - regenerated each run from the evidence below.
-        <strong>Evidence:</strong> <code>audit-trail.md</code>, <code>sessions/</code>,
-        <code>transcripts/</code> - append-only, never edited after the fact.
-      </p>
-
-      <div class="stack mt-md">
-        <div class="memory-row">
-          <div class="mono small">destination.md</div>
-          <div class="small">
-            <strong>Where you're going.</strong> The operator-held destination - what the target
-            is for, the constraints that hold across runs, the hard problem the work is chipping
-            at. Stable. Humans only.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">retrospect.md</div>
-          <div class="small">
-            <strong>Where you are.</strong> Arc-level orientation derived from reading the whole
-            trail as one document. Lists the active rules the agent must obey this run. Rewritten
-            on every Retrospect run.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">learning.md</div>
-          <div class="small">
-            <strong>What you've learned.</strong> A chronological extract of every
-            <code>[!REALIZATION]</code> and <code>[!REVERSAL]</code> in the trail. Read this
-            before reaching for the full history. Regenerated by Trail at every commit.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">history.md</div>
-          <div class="small">
-            <strong>The timeline.</strong> A run-by-run index derived from <code>audit-trail.md</code>.
-            Faster to scan than the full evidence when you just need to know what happened when.
-            Regenerated by Trail at every commit.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">audit-trail.md</div>
-          <div class="small">
-            <strong>The path you walked.</strong> Append-only ledger. Every session writes one entry:
-            interpretation of the ask, examination, decisions, actions, reflection. The source of
-            truth - everything above is derived from it.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">sessions/</div>
-          <div class="small">
-            <strong>The full summaries.</strong> One file per run (<code>YYYY-MM-DD-&lt;slug&gt;.md</code>),
-            linked from its <code>audit-trail.md</code> entry. The ledger is the short-form index;
-            the session file is the long-form summary. One file cannot play both roles.
-          </div>
-        </div>
-        <div class="memory-row">
-          <div class="mono small">transcripts/</div>
-          <div class="small">
-            <strong>The verbatim record.</strong> Optional - depends on whether the harness can
-            export the raw operator/agent dialogue. Highest-trust evidence when available: no
-            reconstruction, no paraphrase.
-          </div>
-        </div>
-      </div>
-
-      <p class="mt-md">
-        The hierarchy resolves disagreements: if <code>destination.md</code> and
-        <code>retrospect.md</code> disagree, destination wins (the operator holds the destination). If
-        <code>retrospect.md</code> and <code>audit-trail.md</code> disagree, the trail wins (the
-        trail is the evidence). Memory without a hierarchy is just noise.
-      </p>
     </section>
   </div>
 

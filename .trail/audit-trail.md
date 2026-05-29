@@ -4100,3 +4100,44 @@ HTML: replaced the dek paragraph. No CSS touched. get_errors: clean. Browser-ver
 2. **Reconcile dek with #trail opening** - both now state the recursion AND convergence; tighten #trail's lead so the page escalates rather than repeats.
 3. **Operator confirm the dek is settled** - four iterations in; an explicit "this is right" would close the recurring-class loop.
 
+
+## iter-137 - consolidate the Memory section into the skill cards + a utility card (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, #memory section + #skills cards
+
+### Understand
+Operator (intent stated twice - "understand my intent"): the standalone Memory section duplicates information that belongs *on the skills that produce the files*. Which skill produces which file, and what each file is for, should live on that skill's card (Trail produces audit-trail.md, etc.). Whatever framing remains (the .trail/ memory-layer concept + the resolution hierarchy) should collapse into a small utility card like the existing "Install" card - and ideally the entire Memory section disappears, consolidated elsewhere meaningfully.
+
+### Examine (Purpose + Waste lenses)
+- **Waste/duplication:** the #memory section listed 7 files with per-file descriptions, a folder tree, and a 3-tier prose paragraph. The skill cards *already* half-stated this (Trail "logs to audit-trail.md", Destination "Produces destination.md", Retrospect "Produces retrospect.md") - so the section was a second, fuller copy of facts the cards should own. Classic catalogue-vs-owner duplication.
+- **Purpose mapping:** files map cleanly to producing skills - Trail owns audit-trail.md (source of truth) + derived history.md/learning.md + sessions/ + transcripts/; Destination owns destination.md; Retrospect owns retrospect.md. Intent/Improve/Probe produce no file. The only content with no single skill-owner is the *cross-cutting* framing (the layer exists per-repo; the disagreement hierarchy) - that is what the utility card is for.
+
+### Decide + Predict
+One coherent operator-directed restructuring: (1) enrich Trail/Destination/Retrospect cards with the files they produce + each file's purpose; (2) add a compact "Memory" utility card (layer concept + hierarchy) before Install; (3) delete the #memory section and its orphaned CSS.
+- **Prediction:** page loses ~80 lines; file catalogue now lives on its producing skill; hierarchy survives on the utility card; nav unaffected (no #memory link exists); transcripts/ harness-nuance and destination>orientation>trail resolution both preserved; hyphen-only; no inline styles; errors clean.
+
+### Action + verification
+- Enriched Trail card (audit-trail.md source-of-truth + derived history.md/learning.md + sessions/ + transcripts/), Destination card (destination.md purpose), Retrospect card (retrospect.md purpose).
+- Added "Memory" utility card before Install with the .trail/ layer concept and the disagreement hierarchy (kept "Memory without a hierarchy is just noise.").
+- Deleted the entire #memory section (h2 + intro + folder tree + 7 memory-rows + tiers paragraph + hierarchy paragraph).
+- Removed CSS orphaned by the deletion: `.memory-tree` (+ `.tree-name`/`.tree-comment`), `.memory-row` (+ `:first-child` + the narrow-width media line), and `a.mono` (verified zero `<a class="mono">` consumers).
+- **[!REVERSAL]:** I also removed `.mono` as "orphaned", then a grep (only after the edit) showed the FOOTER tagline `<p class="mono small center">Delegate to AI. Own the work.</p>` still uses it - the earlier grep had been capped at 20 results and missed line 695. Restored `.mono`. Root cause: I trusted a truncated grep for an "is-this-orphaned" judgment. Verified post-restore via computed style: footer renders rgb(231,201,122) (=--amber) in JetBrains Mono. **Lesson:** before deleting a CSS rule as orphaned, run an *uncapped* usage search for that exact class, not a multi-pattern grep that may truncate.
+- get_errors: clean. Browser-verified (fresh page): Trail card shows the file inventory; Memory utility card renders on-theme between Probe and Install; footer tagline confirmed mono+amber. Prediction held (modulo the within-iteration .mono reversal).
+
+### Reflect
+- **Falsifiable model-claim:** the page's information architecture is now "skill owns its outputs" rather than "central catalogue of outputs". This is more scalable - adding a skill that writes a file means enriching that one card, not maintaining a separate section that drifts out of sync. If a future run finds the file facts have re-duplicated somewhere, this claim is falsified.
+- **Named blind spot:** I did not check whether removing the folder-tree visual cost the page something the prose cards do not convey - specifically the *nesting* (sessions/ and transcripts/ containing YYYY-MM-DD-<slug>.md files). The cards mention sessions/transcripts but no longer show the filename pattern. May or may not matter; not re-added this run. Also: narrow-width/mobile still unverified for the new card stack (standing blind spot since iter-128).
+- **Imagined-reader pushback:** "The Memory utility card and the Trail card now both describe audit-trail.md - did you just move the duplication instead of removing it?" Partial fair hit: Trail card describes audit-trail.md as *what Trail writes*; the Memory card references it only as the *bottom of the hierarchy*. Different framing, minimal overlap - but a stricter editor might fold the hierarchy sentence into the Improve card (which already says it reads destination/retrospect/trail) and drop the Memory card's second paragraph.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - the prior 4 entries (133-136) were all hero-dek copy; this is a structural section consolidation, a clean break from the dek run.
+- *About to declare silence:* not fired - substantial change made.
+- *Contradicts prior [!REALIZATION]:* not fired - no prior realization defended the standalone Memory section; iter-132 (remove orphaned CSS on section change) is reaffirmed here, not contradicted.
+- *Operator explicitly asked:* FIRED - operator directed the consolidation explicitly and twice asked for intent to be understood. Macro reflection: the operator is steering the page toward *fewer, denser sections where each fact has one home*. The arc has been moving from "exhaustive explanatory sections" (folder tree, 7-row table) toward "the cards carry it." This consolidation is the largest structural simplification since iter-132's #trail repurpose. Worth watching whether the next operator move continues collapsing sections (Foundations? the long #trail prose?).
+
+### Candidate Next Moves
+1. **Narrow-width / mobile check** - now compounded: a 6-line hero dek plus two new utility cards, never verified below --max. Standing blind spot; cheapest high-value move.
+2. **Reconsider the folder-tree nesting** - decide deliberately whether the sessions//transcripts/ filename pattern (YYYY-MM-DD-<slug>.md) is worth a one-line mention on the Trail card, or genuinely not needed.
+3. **Fold the hierarchy into Improve, drop the Memory card's 2nd paragraph** - if the imagined-reader's duplication concern proves real on re-read, this tightens further.
+
