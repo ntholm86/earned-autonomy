@@ -4065,3 +4065,38 @@ HTML: replaced the dek text; moved <strong> to the final word "itself." No CSS t
 2. **Reconcile dek with #trail opening** - both now state the recursion; tighten #trail's lead so the page escalates (hook -> full story) instead of repeating. This is the higher-leverage next move than further dek edits.
 3. **Mobile/narrow-width check** - standing blind spot, now compounded by a 5-line hero dek.
 
+
+## iter-136 - hero dek: reframe from "Improve skill" to the whole skillset as the target (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, hero dek
+
+### Understand
+Operator gave two corrections to the iter-135 dek: (1) "No one wrote these skills." is not correct - remove it. (2) Reframe so the *entire skills repo* was the target of the Improve skill, not just the Improve skill (Improve is part of the suite, so it is included). Operator supplied near-final copy: "The skillset can improve any target by understanding its purpose - it targetted its own skillset 200+ times with different AI models until convergence was declared. Improving its own ability to improve any target by understanding the purpose of the target and intent of the operator."
+
+### Examine (operator intent is the authority here)
+The iter-135 framing ("The Improve skill ... on the one target ... itself") was too narrow - it cast the recursion as Improve-on-Improve, when the actual work targeted the whole skillset. The operator's correction widens the subject to "the skillset" and reintroduces convergence as a closing beat (now wanted, where in iter-134 it was de-emphasized - operator intent has shifted as the dek matured). The phrase "No one wrote these skills" was an overclaim/inaccuracy the operator caught.
+
+### Decide + Predict
+ONE change: replace the dek with the operator's copy, lightly tightened for hero flow and hyphen-only style: join the two sentences with a hyphen-dash beat instead of a full stop so the "improving its own ability..." clause reads as the consequence; fix typo "targetted" -> "aimed at"; keep mechanism (purpose + operator intent). Bold the recursion punch "its own skillset."
+- **Prediction:** dek subject = the skillset; "No one wrote these skills" gone; recursion + convergence + mechanism all present; one bolded punch; hyphen-only; get_errors clean.
+
+### Action + verification
+HTML: replaced the dek paragraph. No CSS touched. get_errors: clean. Browser-verified at #top (reloaded, screenshot): H1 unchanged; dek reads "The skillset can improve any target by understanding its purpose - and it was aimed at **its own skillset** 200+ times, across different AI models, until convergence was declared - improving its own ability to improve any target by understanding the purpose of the target and the intent of the operator." Renders on-theme, 6 lines desktop. Prediction held.
+
+### Reflect
+- **Falsifiable model-claim:** Widening the subject from "the Improve skill" to "the skillset" is more *accurate* (the work targeted the whole repo) AND lands the paradox harder (a skillset that improved its own skillset). If a later operator note re-narrows it to Improve specifically, this claim is falsified - but the operator's explicit correction is the evidence it was right.
+- **Named blind spot:** This is the FOURTH consecutive dek iteration (133/134/135/136). The dek is now a 6-line paragraph - the longest it has been. Mobile/narrow-width still unverified, and at 6 lines the risk of a wall-of-text hero on narrow screens is now material. I did not check narrow width this iteration either.
+- **Imagined-reader pushback:** "until convergence was declared" - by whom? The cold reader does not know convergence is a defined stopping condition in this method. The #trail section explains it; the hero asserts it without support. Acceptable as a hero teaser that #trail pays off, but it leans on the rest of the page.
+
+### Across-trail reflection
+- *Recurring finding-class:* FIRED HARD - four consecutive hero-dek iterations. iter-135 already flagged this. All four are operator-driven copy convergence, so still legitimate, but the dek has now absorbed an unusual share of the arc's attention. Mitigation: the next dek touch should require explicit new operator input, and the higher-leverage move (reconcile dek <-> #trail opening; narrow-width check) should take priority.
+- *About to declare silence:* not fired.
+- *Contradicts prior [!REALIZATION]:* partially reverses iter-134's "convergence is not the impressive part, keep it out of the hero" - operator now explicitly wants convergence in the dek. Operator intent supersedes the earlier loop judgment; noting the shift so the trail is honest about it.
+- *Operator explicitly asked:* fired (verbatim copy + two corrections).
+
+### Candidate Next Moves
+1. **Narrow-width / mobile check** - now urgent: the dek is a 6-line paragraph and has never been verified below desktop width. Highest-priority next move.
+2. **Reconcile dek with #trail opening** - both now state the recursion AND convergence; tighten #trail's lead so the page escalates rather than repeats.
+3. **Operator confirm the dek is settled** - four iterations in; an explicit "this is right" would close the recurring-class loop.
+
