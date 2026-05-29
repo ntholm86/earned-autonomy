@@ -4422,3 +4422,27 @@ One cohesive change:
 2. **Source the Deming epigraph** - "Without data, you're just another person with an opinion" is attributed but unlinked; same sourcing discipline this iteration established for the prose could extend to the pull-quote cite.
 3. **Mobile / narrow-width pass** - standing since iter-128; now also covers the new lineage headers and the longer linked prose paragraph.
 
+
+## operator self-edit - principle #1 and #2 card copy revised
+_2026-05-29_ - commit f0b15f3
+
+**Target:** c:\git\pea-website\index.html, Principles #1 and #2 card prose
+
+### Nature of this entry
+This was an operator self-edit committed by the agent verbatim. Per the trail discipline, it is recorded here to close the commit-to-trail gap; no Improve loop was run by the agent.
+
+### What changed
+
+**Principle #1 card:**
+- Before: "Instructions limit autonomy. Make the AI interpret your intent and decide how to proceed. An autonomous agent must understand what needs to be achieved and why it matters."
+- After: "An autonomous agent must understand what needs to be achieved and why it matters. Instructions limit autonomy. Make the AI interpret your intent and decide how to proceed."
+- Operator moved the stakes-claim (what the agent must understand) to the front, and the instruction (how to do it) to the back. The result leads with the problem rather than the solution.
+
+**Principle #2 card:**
+- Before: "Autonomous actions that cannot be audited should be revoked."
+- After: "All autonomous actions must be auditable or revoked."
+- Tighter; shifts from a passive recommendation ("should be") to an active structural requirement ("must be"); makes the dual outcome (auditable OR revoked) explicit.
+
+### Reflection
+Both edits sharpen the operator's voice and tighten the claims. The Principle #2 rewrite is a meaningful semantic strengthening: "should be revoked" was aspirational, "must be auditable or revoked" is a rule. Consistent with the destination constraint: "serious and credible, not promotional."
+
