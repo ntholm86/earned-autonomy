@@ -4030,3 +4030,38 @@ HTML: replaced the dek paragraph text and moved the <strong> wrap to the paradox
 2. **Reconcile dek with #trail opening** - #trail now says "the target just happened to be the loop itself"; the dek says the same in fewer words. Tighten #trail's lead so the two escalate (hook -> full story) rather than repeat.
 3. **Mobile/narrow-width check** - standing blind spot; the dek is now two lines longer on narrow viewports.
 
+
+## iter-135 - hero dek: name Improve's purpose, land the paradox as a punch (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, hero dek
+
+### Understand
+Operator offered three escalating candidate phrasings, workshopping the dek: (1) terse paradox "using its own ability to improve - to improve that ability"; (2) adds the mechanism "using the Improve skill to improve its own ability to improve anything by understanding the purpose of the target"; (3) the full arc "The Improve skill targeted itself 200+ times with different models and improved its own ability to improve anything by understanding its own purpose: To improve any target. Until convergence was declared." Invoked Improve. The operator is converging on the kernel: Improve has ONE purpose (improve any target by understanding what it is for), and the target it was aimed at was itself.
+
+### Examine (Purpose lens + cold-reader constraint)
+Candidate 2 supplies the missing mechanism that iter-134 lacked: *how* Improve improves anything = by understanding the target's purpose. Candidate 3 is the most complete but is too heavy for a hero dek (names the purpose, the recursion, AND reintroduces convergence). The destination's primary reader is non-technical/cold; the hero must stay digestible. Convergence is the stopping condition the operator already said (iter-134) is not the impressive part - it belongs in #trail, not the hook.
+
+### Decide + Predict
+ONE change: rewrite the dek to keep candidate 2's mechanism and deliver candidate 1's paradox as a short punch, while leaving convergence to #trail. Copy: "No one wrote these skills. The Improve skill has one purpose - improve any target by understanding what that target is for - and it was run 200+ times, across different AI models, on the one target that could deepen it: itself." Bold the one-word punch: "itself."
+- **Prediction:** dek names Improve + its mechanism + 200+ iterations across models, lands the paradox as a bolded one-word close; no CSS change; hyphen-only; get_errors clean.
+
+### Action + verification
+HTML: replaced the dek text; moved <strong> to the final word "itself." No CSS touched. get_errors: clean. Browser-verified at #top (reloaded, screenshot): H1 unchanged; dek reads "...on the one target that could deepen it: **itself.**" The mechanism clause ("improve any target by understanding what that target is for") renders inline between em-less hyphen dashes. Prediction held.
+
+### Reflect
+- **Falsifiable model-claim:** The dek now carries both the mechanism (why Improve generalises) and the paradox (it was its own target), in cold-reader-legible prose. If a reader still does not register the recursion, the failure is now the *concept's inherent difficulty*, not the copy - this is close to the best plain-language compression of the paradox available.
+- **Named blind spot:** Three consecutive dek iterations (133 add, 134 reweight, 135 mechanism+punch). All operator-driven, but the dek is now the single most-edited element of the recent arc. I did not test whether a single, longer-lived phrasing would have been reached faster by asking the operator for the kernel up front rather than iterating on renders. Mobile/narrow-width still unverified - the dek is now 5 lines on desktop, likely more on narrow.
+- **Imagined-reader pushback:** "'the one target that could deepen it' - why is the skill itself the only target that could deepen it?" The claim is poetic compression: improving the skill on any *other* target improves that target, not the skill; only running it on itself improves the skill's own capability. A literal reader may not unpack that. The line trades precision for resonance - a deliberate hero-register choice.
+
+### Across-trail reflection
+- *Recurring finding-class:* FIRED - three consecutive hero-dek iterations (133/134/135). This is the recurring-class trigger. Judgment: it is operator-driven copy convergence on a single high-stakes element (the hero hook), not the loop polishing a findable surface to manufacture a change. Legitimate. But the next dek touch without new operator input would be the comfortable-corner tell - flagging it here so the next iteration sees it.
+- *About to declare silence:* not fired.
+- *Contradicts prior [!REALIZATION]:* refines iter-134 (paradox over stopping-condition) by adding the mechanism; placement (iter-133) and emphasis (iter-134) both stand.
+- *Operator explicitly asked:* fired.
+
+### Candidate Next Moves
+1. **Operator confirm the dek is settled** - three iterations in; worth an explicit "this is right" before touching it again, to avoid the comfortable-corner trap the recurring-class trigger just flagged.
+2. **Reconcile dek with #trail opening** - both now state the recursion; tighten #trail's lead so the page escalates (hook -> full story) instead of repeating. This is the higher-leverage next move than further dek edits.
+3. **Mobile/narrow-width check** - standing blind spot, now compounded by a 5-line hero dek.
+
