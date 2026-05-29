@@ -459,14 +459,14 @@
           <p class="small"><em>&ldquo;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&rdquo;</em></p>
           <p class="micro"><cite>Nils Wendelboe Holmager</cite></p>
           <p class="small">All autonomous actions must be auditable or revoked.</p>
-          <p class="principle-roots"><b>Rooted in:</b> <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - stated reasoning diverges from internal reasoning.">Turpin et al. &#8599;</a>, <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - self-correction degrades without external feedback.">Huang et al. &#8599;</a>, <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., 2025 - even reasoning-trained models don&#8217;t reliably narrate their process.">Chen et al. &#8599;</a></p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-flight-recorder" data-tip="The flight data recorder (&#8220;black box&#8221;) - record everything so any action is reviewable after the fact.">Flight Data Recorder</a>, <a href="#lineage-reproducibility" data-tip="Reproducibility - a result is knowledge only when an independent party can re-derive it from a transparent record.">Reproducibility</a>, <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - stated reasoning diverges from internal reasoning.">Turpin et al. &#8599;</a>, <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - self-correction degrades without external feedback.">Huang et al. &#8599;</a>, <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., 2025 - even reasoning-trained models don&#8217;t reliably narrate their process.">Chen et al. &#8599;</a></p>
         </div>
 
         <div class="card" id="principle-3">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M12 2.5 V8"/><path d="M9.5 5.5 L12 8 L14.5 5.5"/><path d="M3.5 19 L9 13.5"/><path d="M5.5 13.5 L9 13.5 L9 17"/><path d="M20.5 19 L15 13.5"/><path d="M18.5 13.5 L15 13.5 L15 17"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-3-convergence-is-silence" target="_blank" rel="noopener" data-tip="Read the full Convergence Is Silence principle.">Principle #3: Convergence Is Silence &#8599;</a></h3>
           <p class="small"><em>&ldquo;Not done until multiple independent models find nothing to change.&rdquo;</em></p>
           <p class="small">Definition of when the improve loop has achieved the desired outcome.</p>
-          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-kaizen" data-tip="Kaizen - the loop ends when diverse participants find nothing left to change.">Kaizen</a>, <a href="#lineage-delphi" data-tip="Delphi Method - convergence by independent expert rounds.">Delphi Method</a></p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-kaizen" data-tip="Kaizen - the loop ends when diverse participants find nothing left to change.">Kaizen</a>, <a href="#lineage-delphi" data-tip="Delphi Method - convergence by independent expert rounds.">Delphi Method</a>, <a href="#lineage-reproducibility" data-tip="Reproducibility - a result counts as knowledge only after independent parties re-derive it.">Reproducibility</a></p>
         </div>
 
       </div>
@@ -507,6 +507,7 @@
             The principle behind military command, Socratic method, and coaching kata.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;understand my intent&#8221; every prompt.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-auftragstaktik" data-tip="Auftragstaktik (Mission Command) - communicate intent, not instructions.">Auftragstaktik</a>, <a href="#lineage-socratic" data-tip="Socratic Method - draw out reasoning through questions, not assertions.">Socratic Method</a></p>
           <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
@@ -519,6 +520,7 @@
             From that record it keeps readable views in sync at each commit - a run timeline and a log of every realization and reversal - so you never have to reconstruct the history by hand.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;trail everything&#8221; every session.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-flight-recorder" data-tip="Flight Data Recorder - record everything to a tamper-resistant device for after-the-fact investigation.">Flight Data Recorder</a>, <a href="#lineage-reproducibility" data-tip="Reproducibility - a transparent, re-checkable record of how a result was reached.">Reproducibility</a>, <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - self-assessment without an external record is rationalising.">Huang et al. &#8599;</a></p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
@@ -531,6 +533,7 @@
             One highest leverage change per run. Reads the context first - destination, retrospect, trail - acts, and logs it.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the improve skill&#8221; until <code>.trail/destination.md</code> is fulfilled.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-toyota-kata" data-tip="Toyota Coaching Kata - the coach sets the target condition, the learner finds the path.">Toyota Coaching Kata</a>, <a href="#lineage-kaizen" data-tip="Kaizen - continuous small improvements; stop when nothing is left to change.">Kaizen</a>, <a href="#lineage-delphi" data-tip="Delphi Method - convergence through independent rounds.">Delphi Method</a></p>
           <a class="label" href="#principle-3" data-tip="Go to the Convergence Is Silence principle on this page.">P3 &middot; Convergence Is Silence</a>
         </div>
 
@@ -544,6 +547,7 @@
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code> - where you're going: what the target is for, the constraints that hold across runs, the hard problem the work is chipping at. Operator-held; humans only.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the destination skill&#8221; at the start, when direction feels unclear.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-auftragstaktik" data-tip="Auftragstaktik - define the destination (what and why), never the route.">Auftragstaktik</a>, <a href="#lineage-toyota-kata" data-tip="Toyota Coaching Kata - the coach defines the target condition the learner moves toward.">Toyota Coaching Kata</a></p>
         </div>
 
         <div class="card" id="retrospect">
@@ -552,6 +556,7 @@
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code> - where you are: arc-level orientation plus the active rules the agent must obey this run.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the retro skill&#8221; after a few Improve iterations.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-reproducibility" data-tip="Reproducibility - an independent reading of the complete record to verify what it shows.">Reproducibility</a></p>
         </div>
 
         <div class="card" id="probe">
@@ -561,6 +566,7 @@
             Reasoning Fidelity</a>.
           </p>
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the probe skill&#8221; when you need to verify reasoning quality.</p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-socratic" data-tip="Socratic Method - probe reasoning through paired questions.">Socratic Method</a>, <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - stated reasoning can diverge from internal reasoning.">Turpin et al. &#8599;</a>, <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., 2025 - reasoning-trained models don&#8217;t reliably narrate their process.">Chen et al. &#8599;</a></p>
         </div>
 
       </div>
@@ -632,7 +638,7 @@
     <section id="foundations">
       <h2>Intellectual lineage</h2>
       <p>
-        Military doctrine, lean manufacturing, philosophy, and empirical AI research.
+        Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research.
       </p>
 
       <div class="stack stack-lg mt-md">
@@ -649,7 +655,7 @@
               <a href="https://www.armyupress.army.mil/Portals/7/Hot-Spots/docs/MC/MR-Sep-Oct-2002-Widder.pdf" target="_blank" rel="noopener" data-tip="Maj. Gen. Werner Widder, 'Auftragstaktik and Innere Fuhrung: Trademarks of German Generalship.' Military Review, US Army Combined Arms Center, 2002. PDF.">Auftragstaktik - Military Review (US Army Combined Arms Center, 2002, PDF) &#8599;</a>
               <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener" data-tip="Commander's Intent: the direct namesake of Principle #1.">Commander's Intent (Wikipedia) &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#intent" data-tip="The Intent skill on this page.">Intent skill</a></p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#intent" data-tip="The Intent skill on this page.">Intent skill</a>, <a href="#destination" data-tip="The Destination skill on this page.">Destination skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -661,7 +667,7 @@
               <a href="https://books.google.com/books?id=rFDq1DYprzYC" target="_blank" rel="noopener" data-tip="Mike Rother, Toyota Kata (McGraw-Hill, 2009). The primary source. ISBN 978-0-07-163985-9.">Mike Rother, <em>Toyota Kata</em> (2009) &#8599;</a>
               <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Kaizen and the Coaching Kata.">Lean Enterprise Institute - the Coaching Kata &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a></p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a>, <a href="#destination" data-tip="The Destination skill on this page.">Destination skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -673,6 +679,28 @@
               <a href="https://iep.utm.edu/socrates/#SH3a" target="_blank" rel="noopener" data-tip="The elenchus: Socrates tests and refutes through question and answer, never assertion. Internet Encyclopedia of Philosophy, Method section.">The Socratic Method (the elenchus) - Internet Encyclopedia of Philosophy &#8599;</a>
             </div>
             <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#intent" data-tip="The Intent skill on this page.">Intent skill</a>, <a href="#probe" data-tip="The Probe skill on this page.">Probe skill</a></p>
+          </article>
+
+          <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-flight-recorder">Flight Data Recorder (the &#8220;black box&#8221;)</h3>
+            <p class="lineage-claim">Record everything to a crash-survivable, tamper-resistant device, so that after any incident the full history can be independently reconstructed. The system is trusted because its actions are reviewable - not because they were assumed correct.</p>
+            <p class="lineage-meta">David Warren, ARL Australia, 1954 &middot; mandatory in commercial aircraft since 1967</p>
+            <div class="lineage-sources">
+              <a href="https://en.wikipedia.org/wiki/Flight_recorder" target="_blank" rel="noopener" data-tip="Flight recorder: an electronic device that records flight data and cockpit audio for the purpose of investigating aviation accidents and incidents; engineered to survive a high-speed impact and intense fire; mandatory in US commercial aircraft since 1967. Wikipedia.">Flight recorder - recording for accident investigation (Wikipedia) &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Flight_recorder#Australian_designs" target="_blank" rel="noopener" data-tip="In 1954 David Warren of the Aeronautical Research Laboratories, Australia, published 'A Device for Assisting Investigation into Aircraft Accidents'; his prototype was designed explicitly for post-crash examination. Wikipedia, Australian designs.">David Warren - &#8220;A Device for Assisting Investigation into Aircraft Accidents&#8221; (Wikipedia) &#8599;</a>
+            </div>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a>, <a href="#trail-skill" data-tip="The Trail skill on this page.">Trail skill</a></p>
+          </article>
+
+          <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-reproducibility">Reproducibility (the scientific method)</h3>
+            <p class="lineage-claim">A result counts as knowledge only after independent parties can re-derive it from a transparent record. Reasoning that cannot be reproduced and checked is not yet trustworthy - the same standard PEA holds an agent's work to.</p>
+            <p class="lineage-meta">Robert Boyle, 17th century &middot; Karl Popper, <em>The Logic of Scientific Discovery</em>, 1934</p>
+            <div class="lineage-sources">
+              <a href="https://en.wikipedia.org/wiki/Reproducibility" target="_blank" rel="noopener" data-tip="Reproducibility is a major principle underpinning the scientific method; a result is recognised as scientific knowledge only after independent replication by other researchers. Wikipedia.">Reproducibility - a principle of the scientific method (Wikipedia) &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research" target="_blank" rel="noopener" data-tip="Reproducible research: results documented so their deduction is fully transparent - data, code, and a version-controlled history that anyone can review. Wikipedia, Reproducible research.">Reproducible research - a transparent, reviewable record (Wikipedia) &#8599;</a>
+            </div>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a>, <a href="#principle-3" data-tip="Convergence Is Silence (Principle 3) on this page.">Principle 3 - Convergence Is Silence</a>, <a href="#trail-skill" data-tip="The Trail skill on this page.">Trail skill</a>, <a href="#retrospect" data-tip="The Retrospect skill on this page.">Retrospect skill</a></p>
           </article>
 
           <article class="lineage-card">
