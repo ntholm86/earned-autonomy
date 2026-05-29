@@ -4256,3 +4256,42 @@ One cohesive change - introduce a gradient depth system (treated as a single des
 2. **Decide rule 2's stance on the `#fff 3%` luminance literal** - either bless luminance-mix as exempt, or add a `--card-hi` token. A retrospect-level call.
 3. **Consider whether the CTA wants a button affordance** - gradient tint is a soft CTA signal; if stronger pull is wanted, a real button on "skills repository" is the next lever.
 
+
+## iter-141 - repository link promoted to primary CTA button; secondary quickstart link removed (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, Install card (#skills) + new `.btn` class
+
+### Understand (Intent applied)
+Operator gave three asks in one prompt; I split them into two iterations. This is iter-141, the first: (1) remove the "Full quickstart with troubleshooting" link, and (2) make the go-to-repository link the call-to-action button. These two are a single coherent move - "make the repository the unambiguous primary action" - so they belong in one iteration. The gradient ask is iter-142. This directly executes iter-140's own deferred Candidate Next Move #3 ("the CTA wants a button affordance: gradient tint is a soft signal; a real button is the next lever").
+- **Rejected interpretation:** turning the inline-prose "skills repository" link itself into the button. Rejected per rule 15 - inline-prose links cannot become `display:inline-block` without breaking text wrapping; the button must be a standalone element, so the prose mention is de-linked to plain text and a standalone button added below.
+
+### Examine (Purpose lens)
+The Install card (the page's conversion point since iter-139) had TWO links competing for the click: an inline "skills repository" link buried mid-sentence, and a secondary "Full quickstart with troubleshooting" link below. Neither was a button; the primary action had the weakest affordance on the card (an inline text link), while the soft teal card-tint (iter-140) was doing all the CTA signaling. Two links + no button = diluted, ambiguous action. The destination's "recognition + a clear next step" intent wants one obvious thing to click.
+- Rule 3 check (reuse before inventing): examined `.chip` / `.chip-lg` - both are muted outline pills (secondary/tertiary affordance). Neither is a filled primary CTA. A new `.btn` is warranted, not accretion.
+
+### Decide + Predict
+One change: add a `.btn` class (filled teal gradient, dark `--bg` ink, teal border, soft shadow - reuses the action color and the gradient idiom already established iter-140), de-link the inline prose mention, remove the quickstart paragraph, and add a single standalone "Go to the skills repository" button.
+- **Prediction:** the Install card will present exactly one strong clickable action (the teal button); the QUICKSTART link will be absent from the DOM; button text dark-on-teal for contrast; errors clean. I expect NOT to break prose wrapping (button is standalone, not inline).
+
+### Action + verification
+- Added `.btn` + `a.btn` / `a.btn:hover` CSS after `.chip-lg`: `linear-gradient(150deg, color-mix(teal, #fff 10%) -> teal)`, `color: var(--bg)`, teal-mix border, `box-shadow 0 1px 3px`, hover `filter: brightness(1.07)`.
+- Rewrote the Install card: prose keeps "from the skills repository" as plain text; removed the `<p class="small mt-xs">` quickstart paragraph entirely; added `<p class="mt-md"><a class="btn" ...>Go to the skills repository &#8599;</a></p>`.
+- get_errors: clean. Browser-verified (computed): button text = "Go to the skills repository â†—"; `background-image` = teal gradient (srgb 0.548,0.838,0.795 -> teal); `color` = rgb(30,32,48) = --bg; `document.querySelector('a[href*="QUICKSTART"]')` = null (link removed). Screenshot: filled teal button sits inside the teal-tinted card as the single action; no competing link. Prediction held in full.
+
+### Reflect
+- **Falsifiable model-claim:** the Install card is now *complete* as a CTA - placement (iter-139), surface tint (iter-140), and a single strong button affordance (iter-141) are all in place. A future run should find nothing more to do to the *conversion mechanics* of this card; if it does, my claim that "the CTA is done" was wrong. The remaining uncertainty is upstream (does anyone arriving cold actually click? - the cold-reader question, still operator-blocked per retro-005).
+- **Named blind spot:** I did not verify the button on narrow/mobile width. The button has fixed horizontal padding (1.1rem) and is `inline-flex`; on a very narrow viewport it should be fine (short label), but the standing mobile blind spot (since iter-128) now includes this element. Also did not check `:hover`/focus-visible keyboard affordance - the button is an `<a>` so it is focusable, but I did not confirm a visible focus ring.
+- **Imagined-reader pushback:** "`.btn` uses `color-mix(..., #fff 10%)` - another non-token white literal, same issue you flagged in iter-140." Fair and now recurring: white appears as a luminance operation in both `.card` and `.btn`. This strengthens the case (iter-140 Candidate Move #2) for either a `--card-hi`/lightening convention or an explicit rule blessing luminance-mix. Flagging as a now-twice-seen pattern, not a one-off.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired as a *comfortable-corner* concern - but note iter-139/140/141 are a deliberate 3-iteration CTA-completion sequence (placement -> tint -> button), which is operator-directed convergence on one element, not aimless polish. Distinct from the link/tooltip class retro-005 marked exhausted (this added a button, did not retarget a link).
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired - consistent with iter-140's own deferred candidate.
+- *Operator explicitly asked:* FIRED. Macro reflection: the operator has now directed three consecutive iterations onto the Install CTA. Per retro-005's core claim, the highest-leverage move remains operator-blocked (the cold-reader test + convergence criterion from iter-84). This CTA-completion arc is real, useful, conversion-phase work - but it is still *findable internal polish*, not the external-signal gathering retro-005 names as the actual gate. The `#fff` luminance-literal is now a confirmed recurring micro-pattern (iter-140 + iter-141) and is the one genuinely new cross-iteration finding here; it warrants a token/rule decision rather than a third silent repetition.
+
+### Candidate Next Moves
+1. **Subtle gradients on more on-theme elements (iter-142)** - the operator's third ask, already queued; the immediate next move.
+2. **Decide the `#fff` luminance-mix question** - now seen in `.card` and `.btn`; either add a lightening token/convention or bless luminance-mix explicitly in retrospect rules, before it recurs a third time.
+3. **Mobile / narrow-width pass** - standing blind spot since iter-128, now compounded by the hero dek, two utility cards, the gradient system, `background-attachment: fixed`, and now the button. Cheap (browser render available); overdue.
+

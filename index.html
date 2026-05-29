@@ -316,6 +316,25 @@
     a.chip { text-decoration: none; }
     a.chip:hover { border-color: var(--teal); color: var(--teal); }
     .chip-lg { padding: 0.35rem 0.85rem; font-size: var(--text-small); background: transparent; }
+    /* Primary CTA button - filled teal (action color) with a subtle gradient,
+       dark ink for contrast. The page's single strongest affordance. */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--gap-xs);
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-small);
+      font-weight: var(--weight-medium);
+      color: var(--bg);
+      background:
+        linear-gradient(150deg, color-mix(in srgb, var(--teal), #fff 10%) 0%, var(--teal) 100%);
+      border: 1px solid color-mix(in srgb, var(--teal), #fff 10%);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: filter var(--ease), box-shadow var(--ease);
+    }
+    a.btn { text-decoration: none; }
+    a.btn:hover { filter: brightness(1.07); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
 
     /* === Text helpers === */
     .small  { font-size: var(--text-small); }
@@ -446,13 +465,12 @@
 
       <div class="card card-cta mt-md">
         <p class="label label-muted label-bordered">Install</p>
-        <p class="small">Download the six skill files from the
-          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
+        <p class="small">Download the six skill files from the skills repository
           and place them in your agent's skills folder
           (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
         </p>
-        <p class="small mt-xs">
-          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md" target="_blank" rel="noopener" data-tip="Step-by-step install, invocation, and troubleshooting.">Full quickstart with troubleshooting &#8599;</a>
+        <p class="mt-md">
+          <a class="btn" href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">Go to the skills repository &#8599;</a>
         </p>
       </div>
 
