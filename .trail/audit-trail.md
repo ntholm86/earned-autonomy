@@ -4446,3 +4446,42 @@ This was an operator self-edit committed by the agent verbatim. Per the trail di
 ### Reflection
 Both edits sharpen the operator's voice and tighten the claims. The Principle #2 rewrite is a meaningful semantic strengthening: "should be revoked" was aspirational, "must be auditable or revoked" is a rule. Consistent with the destination constraint: "serious and credible, not promotional."
 
+
+## iter-145 - Principle #1 card reframed: the autonomy+safety dual payoff (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, Principle #1 (Commander's Intent) card body
+
+### Understand (Intent applied - and the operator asked for Intent-of-intent)
+Operator: capture the content insight of Principle 1. The existing framing "Instructions limit autonomy" is precise but does not unpack its own depth for a cold reader. The operator's deeper point (stated across this conversation): Principle 1 / the Intent skill is a *wrapper* on any prompt - always-applicable, always net-positive - and the page currently undersells it by framing Principle 1 only as accountability/control, missing that it is ALSO about NOT limiting the AI's autonomy while staying safe. The operator explicitly asked me to reflect as the model (disregarding the project) on whether this is true, and to read the intent-of-the-intent.
+- **Intent of the intent:** the operator has located the actual headline of the framework - the same move yields BOTH more autonomy AND more safety - and wants it on the page. The literal ask is a copy edit; the real ask is to make the page state the framework's strongest, most counterintuitive claim.
+- **My honest reflection (recorded as the substance behind the edit):** the wrapper claim is true for a mechanical reason, not a marketing one. As an autoregressive model I condition on what comes earliest; an under-specified prompt makes me default to the *median* interpretation of the words. Forcing intent-reconstruction first re-conditions generation on a sharpened target before any task tokens are produced - effectively a better self-prompt. It composes with any other task because it runs before it. That is the depth "instructions limit autonomy" compresses but does not reveal.
+
+### Examine (Purpose lens)
+The card read: "Instructions limit autonomy. An autonomous agent must understand what needs to be achieved and why it matters. Make the AI interpret your intent and decide how to proceed." Three correct but disconnected sentences; the payoff (why you'd WANT to give up prescribing the route) was implicit. A cold reader gets "control" but not "this is how you stop crippling the AI." The destination's primary reader (developer who has felt the brief-went-sideways pain) needs the dual claim made explicit: prescribing steps is the cage; intent is the unlock.
+
+### Decide + Predict
+One change - rewrite the body paragraph to (a) open with a concrete metaphor that unpacks "instructions limit autonomy" (cage vs destination), (b) name the cost of prescription (can only obey; cannot reason/adapt/catch your mistake), (c) state the dual payoff explicitly (one move -> more autonomy AND more safety). Keep it one paragraph, hyphen-only, no new CSS.
+- **Prediction:** the card now communicates the autonomy+safety duality to a cold reader in one pass; no structural/CSS change; errors clean; the existing `Rooted in:` line (operator-added) and `<em>` tagline are untouched.
+
+### Action + verification
+- Replaced the body `<p class="small">`. New text: "Instructions are a cage; intent is a destination. Prescribe every step and the AI can only obey - it cannot reason, adapt, or catch the mistake you did not foresee. Give it the what and the why, and one move buys both: more autonomy, because it reasons its own route, and more safety, because it is aimed at your goal - not a literal misreading of it."
+- get_errors: clean. Browser-verified: paragraph text matches; screenshot of #principle-1 confirms it renders well within the card, tagline + Rooted-in line intact. Prediction held.
+- Note: the prior shared browser page id was stale (session reset); opened a fresh page to verify. Hyphen-only respected (spaced " - ").
+
+### Reflect
+- **Falsifiable model-claim:** Principle #1's card is now the page's strongest hook because it states a counterintuitive duality (give up control to get both control and capability) rather than a control-only message. A future run should find the *other* two principle cards comparatively flatter - #2 and #3 still state their claim without unpacking the payoff. If a cold-reader test ever runs, #1 should be the card readers quote back. If they don't, this claim is wrong.
+- **Named blind spot:** I rewrote #1 in isolation; I did not check whether the new "cage/destination" voice now clashes tonally with #2 ("All autonomous actions must be auditable or revoked.") and #3. The three cards may now have uneven richness - a real risk I am not resolving this iteration.
+- **Imagined-reader pushback:** "'Instructions are a cage' is a stronger, more rhetorical voice than the rest of the page - is it too promotional for a 'serious and credible, not promotional' destination?" Fair tension. Defense: it is a metaphor that compresses a true mechanism, not a hype claim; the sentence immediately grounds it (can only obey; cannot reason/adapt). But if the operator reads it as too much, the fallback is "Instructions constrain; intent directs." Flagging for operator judgment.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - this is a content/messaging change distinct from the recent visual (140-142), metadata (143), and sourcing (144) iterations.
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired - but note this is the first iteration in a while driven by a genuine *content insight from the operator* rather than a visual/structural tweak. Possibly a shift in the arc's center of gravity from polish toward message.
+- *Operator explicitly asked:* FIRED. Macro reflection: the operator is now surfacing framework-level insights (the wrapper/duality) and treating the page as the place to articulate them. This is closer to destination-critical work than the recent polish arc: the destination's success criterion is a cold reader feeling "recognition + intrigue," and the autonomy+safety duality is exactly the kind of claim that produces "I've been trying to solve this, and this names it." This iteration is more aligned with the true north than the last several. The operator also floated multi-page deep-dives (deferred this turn by mutual agreement to capture the on-page insight first) - a candidate structural direction that, if pursued, would be the first architecture change since the single-file era.
+
+### Candidate Next Moves
+1. **Decide on the per-principle deep-dive pages** - the operator raised it; the open question is whether the deeper content is written yet. If yes, this becomes the first multi-page/architecture decision (more HTML files vs Vite/React). Highest-leverage *direction* question.
+2. **Level up Principle #2 and #3 cards to match #1's payoff-explicit voice** - the named blind spot; #1 now unpacks its "what it unlocks," #2/#3 still state the claim only. Restores card symmetry.
+3. **Tonal check of "Instructions are a cage"** against the "serious, not promotional" constraint - quick operator confirm; fallback wording ready.
+
