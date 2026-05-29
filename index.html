@@ -23,8 +23,7 @@
       --rule:      #2f3548;   /* subtle border */
 
       /* Semantic colour roles - type determines colour, not section geography */
-      /* coral=nav-brand · amber=labels/headers · teal=action · sage=evidence · lavender=emphasis */
-      --coral:     #f48a8a;   /* nav brand                - identity anchor */
+      /* amber=labels/headers · teal=action · sage=evidence · lavender=emphasis */
       --amber:     #e7c97a;   /* labels, headers          - structural announcements */
       --teal:      #7fd1c5;   /* links, buttons, icons    - action / navigation */
       --lavender:  #c4a7e7;   /* em emphasis              - conceptual highlights */
@@ -32,8 +31,6 @@
 
       /* Derived tints */
       --amber-lt:  color-mix(in srgb, var(--amber) 18%, var(--bg));
-
-      --card-bg:   var(--bg-elev);
 
       /* Fonts */
       --font: 'Inter', system-ui, sans-serif;
@@ -104,7 +101,6 @@
       max-width: 54ch;
       margin-top: var(--gap-sm);
     }
-    .hero-dek strong { color: var(--ink); font-weight: var(--weight-medium); }
     /* === Layout === */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
     section { padding: var(--gap-lg) 0; }
@@ -140,7 +136,6 @@
       padding: var(--gap-sm) var(--gap-md);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     }
-    .card-accent { border-left: 3px solid var(--sage); }
     /* Install CTA - teal (action) accent so the primary action reads as one */
     .card-cta {
       background:
@@ -195,7 +190,7 @@
        the kind of lineage (lavender = conceptual, sage = empirical). */
     .lineage-card {
       background:
-        linear-gradient(to right, color-mix(in srgb, var(--lavender) 7%, var(--card-bg)) 0%, var(--card-bg) 45%);
+        linear-gradient(to right, color-mix(in srgb, var(--lavender) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--lavender);
       border-radius: var(--radius);
@@ -204,7 +199,7 @@
     .lineage-card.is-evidence {
       border-left-color: var(--sage);
       background:
-        linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--card-bg)) 0%, var(--card-bg) 45%);
+        linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
     }
     .lineage-title {
       font-size: var(--text-body);
@@ -240,7 +235,7 @@
       font-size: var(--text-micro);
       color: var(--muted);
     }
-    .lineage-applies b { color: var(--amber); font-weight: 600; }
+    .lineage-applies b { color: var(--amber); font-weight: var(--weight-medium); }
     .skill-trigger {
       margin-top: var(--gap-xs);
       padding-top: var(--gap-xs);
@@ -249,14 +244,7 @@
       font-size: var(--text-micro);
       color: var(--muted);
     }
-    .skill-trigger b { color: var(--lavender); font-weight: 600; }
-    .skill-when {
-      margin-top: var(--gap-xs);
-      font-family: var(--mono);
-      font-size: var(--text-micro);
-      color: var(--lavender);
-    }
-    .skill-when b { font-weight: 600; }
+    .skill-trigger b { color: var(--lavender); font-weight: var(--weight-medium); }
     .principle-roots {
       margin-top: var(--gap-sm);
       padding-top: var(--gap-sm);
@@ -265,7 +253,7 @@
       font-size: var(--text-micro);
       color: var(--muted);
     }
-    .principle-roots b { color: var(--amber); font-weight: 600; }
+    .principle-roots b { color: var(--amber); font-weight: var(--weight-medium); }
     .principle-roots a { color: var(--teal); }
     .principle-roots a:hover { color: var(--amber); }
     h3 a { color: var(--amber); }
@@ -283,7 +271,7 @@
       left: 50%;
       bottom: calc(100% + var(--gap-sm));
       transform: translateX(-50%) translateY(var(--gap-xs));
-      background: var(--card-bg);
+      background: var(--bg-elev);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
@@ -335,7 +323,7 @@
       border: 1px solid var(--rule);
       border-radius: var(--radius-sm);
       color: var(--muted);
-      background: var(--card-bg);
+      background: var(--bg-elev);
       transition: border-color var(--ease), color var(--ease);
     }
     a.chip { text-decoration: none; }
@@ -364,7 +352,6 @@
     /* === Text helpers === */
     .small  { font-size: var(--text-small); }
     .micro  { font-size: var(--text-micro); }
-    .italic { font-style: italic; }
     .center { text-align: center; }
     .max-prose { max-width: 600px; }
 
@@ -577,7 +564,7 @@
         <p class="small">
           The skills give every repository a memory layer in <code>.trail/</code>, written to the root of the repo being worked on. Each run reads it before acting and extends it after - that is what makes the loop cumulative instead of repeating yesterday's mistakes.
         </p>
-        <p class="small mt-xs">
+        <p class="small">
           When two of them disagree, a fixed order settles it: your <code>destination.md</code> outranks
           the agent's read of where things stand in <code>retrospect.md</code>, and the append-only
           <code>audit-trail.md</code> outranks both - evidence beats opinion. Memory without a hierarchy is just noise.
