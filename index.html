@@ -149,9 +149,12 @@
     }
 
     /* === Pull quote ===
-       Evidence-section epigraph. Sage accent marks it as a verified-claim frame. */
+       Evidence-section epigraph. Sage accent marks it as a verified-claim frame.
+       A faint sage tint emanates from the accent edge, reinforcing the semantic. */
     blockquote.pull-quote {
       border-left: 3px solid var(--sage);
+      background:
+        linear-gradient(to right, color-mix(in srgb, var(--sage) 9%, transparent) 0%, transparent 42%);
       padding-left: var(--gap-md);
       margin: var(--gap-md) 0;
       font-size: clamp(1.25rem, 3vw, 1.6rem);
@@ -191,13 +194,18 @@
        sources follow as a chip-row beneath a divider. Accent colour signals
        the kind of lineage (lavender = conceptual, sage = empirical). */
     .lineage-card {
-      background: var(--card-bg);
+      background:
+        linear-gradient(to right, color-mix(in srgb, var(--lavender) 7%, var(--card-bg)) 0%, var(--card-bg) 45%);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--lavender);
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
     }
-    .lineage-card.is-evidence { border-left-color: var(--sage); }
+    .lineage-card.is-evidence {
+      border-left-color: var(--sage);
+      background:
+        linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--card-bg)) 0%, var(--card-bg) 45%);
+    }
     .lineage-claim {
       color: var(--ink);
       font-size: var(--text-body);
@@ -357,7 +365,8 @@
       padding: 0.1em 0.35em;
       border-radius: var(--radius-sm);
     }
-    /* === Nav === */
+    /* === Nav ===
+       A faint teal-top fade echoes the canvas radial glow the header sits over. */
     nav {
       display: flex;
       justify-content: space-between;
@@ -366,7 +375,8 @@
       border-bottom: 1px solid var(--rule);
       position: sticky;
       top: 0;
-      background: var(--bg);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--teal) 5%, var(--bg)) 0%, var(--bg) 100%);
       z-index: 10;
     }
     nav .label { margin-bottom: 0; }

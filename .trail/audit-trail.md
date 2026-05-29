@@ -4295,3 +4295,49 @@ One change: add a `.btn` class (filled teal gradient, dark `--bg` ink, teal bord
 2. **Decide the `#fff` luminance-mix question** - now seen in `.card` and `.btn`; either add a lightening token/convention or bless luminance-mix explicitly in retrospect rules, before it recurs a third time.
 3. **Mobile / narrow-width pass** - standing blind spot since iter-128, now compounded by the hero dek, two utility cards, the gradient system, `background-attachment: fixed`, and now the button. Cheap (browser render available); overdue.
 
+
+## iter-142 - extend gradient depth idiom to pull-quote, lineage-card, nav (colored token tints) (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, three flat surfaces (blockquote.pull-quote, .lineage-card, nav)
+
+### Understand (Intent applied)
+Operator's third ask from the same prompt: "meaningfully and subtly add some more gradients to whatever elements are appropriate in context while sticking to the theme." Key word "meaningfully" - gradients should reinforce meaning, not merely decorate. This is iter-142, second of the two iterations the prompt split into (iter-141 was the CTA button).
+- **Rejected interpretation:** a blanket decorative gradient on every surface (footer, sections, etc.). Rejected because "meaningfully" + "subtle" points at gradients that carry semantic weight, not maximal coverage.
+
+### Examine (Purpose lens)
+After iter-140/141, the gradient idiom lives on body (radial glow), .card (top-light), .card-cta (teal tint), .btn (teal fill). The remaining flat surfaces with semantic color already assigned:
+- **blockquote.pull-quote** - sage left border (sage = verified-evidence) but a flat background. The accent color carries meaning the surface does not echo.
+- **.lineage-card** - left border color-codes lineage (lavender = conceptual, sage = empirical via `.is-evidence`), but flat `var(--card-bg)` background.
+- **nav** - solid `var(--bg)`, sits directly over the body's top-center radial teal glow but does not acknowledge it.
+These three are where a gradient is *meaningful*: it reinforces an already-assigned color-semantic (sage/lavender) or ties an element to the existing canvas glow (nav/teal).
+
+### Decide + Predict
+One cohesive change - extend the gradient idiom to these three surfaces using **colored token tints**, deliberately introducing NO new `#fff` literals (the recurring luminance-literal concern flagged iter-140 and iter-141; this iteration uses sage/lavender/teal token-mixes only):
+1. pull-quote: left-emanating `linear-gradient(to right, sage 9% -> transparent 42%)` so the tint flows from the sage accent edge.
+2. lineage-card: left-emanating `lavender 7% -> card-bg 45%`; `.is-evidence` overrides with `sage 7% -> card-bg`, color-coding conceptual vs empirical.
+3. nav: `linear-gradient(180deg, teal 5% -> bg)` echoing the canvas radial glow it sits over (both stops opaque, so the sticky header stays opaque over scrolling content).
+- **Prediction:** each surface gains a faint, on-theme tint reinforcing its existing semantic; nav stays opaque; no new `#fff` literal added; errors clean. I expect the tints to be subtle enough not to compete with the teal CTA button (the strongest element).
+
+### Action + verification
+- Applied 3 edits via multi-replace. get_errors: clean.
+- Browser-verified (computed `background-image`): nav = teal-mix top fade (srgb 0.137,0.160,0.217 -> bg); pull-quote = sage-mix to-right (srgb 0.639,0.839,0.654 ...); lineage-card = lavender-mix; `.is-evidence` = sage-mix. All four present and distinct.
+- Screenshots: pull-quote shows a subtle sage wash from its left edge; lineage cards (Foundations, both conceptual/lavender in view) show a faint lavender wash from the accent edge fading to base; nav carries a faint teal top. All read as subtle depth, none competes with the CTA. Prediction held; nav opacity confirmed (content does not bleed through).
+- Note: temporarily set `document.documentElement.style.scrollBehavior='auto'` in the LIVE DOM only (to defeat smooth-scroll screenshot timing) - not written to the file; the file retains `scroll-behavior: smooth`.
+
+### Reflect
+- **Falsifiable model-claim:** the page's gradient system is now *complete and semantically disciplined* - every gradient either signals elevation (cards/canvas) or reinforces an assigned color-meaning (sage=evidence, lavender=conceptual, teal=action). A future run should find no flat surface that *warrants* a meaningful gradient still missing one, and should find no gradient that is purely decorative. If a future run adds a gradient that carries no semantic, the discipline has slipped and this claim fails.
+- **Named blind spot:** I did NOT verify these tints at narrow/mobile width, nor against a low-brightness display where 5-9% tints may vanish or, conversely, banding may appear on the large body radial. The standing mobile blind spot (since iter-128) now spans the entire gradient system.
+- **Imagined-reader pushback:** "nav is sticky - did you confirm the teal-top gradient does not make text harder to read as content scrolls under it?" The gradient's darkest stop is `var(--bg)` (the page base) at the bottom edge where the border-bottom sits, so the lower nav region is exactly page-base; the teal 5% only lightens the top edge. Legibility of nav links (muted/teal on near-bg) is unchanged. Confirmed by screenshot, but only at desktop width.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired as comfortable-corner - but this completes a 4-iteration gradient/CTA visual arc (139 placement, 140 surface depth, 141 button, 142 semantic tints). All operator-directed; this is convergence on the page's visual language, not aimless polish.
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired - extends iter-140's gradient idiom consistently.
+- *Operator explicitly asked:* FIRED. Macro reflection: four consecutive operator-directed visual iterations. Two observations. (1) The `#fff` luminance-literal pattern was NOT extended this run - I deliberately used colored token-mixes only, partially addressing the iter-140/141 recurring concern, though `.card` and `.btn` still carry the literals and the token/rule decision (Candidate Move) remains open. (2) Per retro-005's standing claim, the highest-leverage move is still operator-blocked (the cold-reader test + iter-84 convergence criterion). This visual arc is genuine conversion/polish work but remains *findable internal work*; the external-signal gate is untouched. The visual language now feels converged - a natural moment to surface the cold-reader question again.
+
+### Candidate Next Moves
+1. **Mobile / narrow-width pass on the full gradient system** - the named blind spot, now spanning body radial + cards + CTA + button + three tints + `background-attachment: fixed`. Cheap (browser render available) and overdue since iter-128; highest-priority internal move.
+2. **Resolve the `#fff` luminance-literal question** (`.card`, `.btn`) - add a lightening token/convention or bless luminance-mix in retrospect rules. Still open after three iterations.
+3. **Re-surface iter-84's cold-reader / convergence question to the operator** - the visual language now reads converged; per retro-005 this operator-blocked decision is the actual gate to declaring done, and this is a natural moment to ask.
+
