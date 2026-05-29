@@ -3995,3 +3995,38 @@ CSS: added `.hero-dek` (clamp 1.1-1.35rem, line-height 1.5, --muted, max-width 5
 2. **Mobile/narrow-width check** - now also covering the taller hero stack (H1 + dek).
 3. **Reconcile dek claim with #trail** - if the dek stays, #trail's opening paragraph now partly repeats it; consider tightening #trail's lead so the two read as escalation (hook -> full story), not repetition.
 
+
+## iter-134 - hero dek recentred on the paradox, not the stopping condition (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, hero dek
+
+### Understand
+Operator corrected iter-133's emphasis: "we are highlighting the wrong thing. 'independent AI models could find nothing left to change' is not what is impressive. The loop targetting itself - understanding its own purpose to improve anything - and improving that capability 200+ times - this is what I want to capture. the paradox." Invoked Improve. The convergence/silence claim is the *stopping condition*; the operator wants the *self-referential bootstrap* foregrounded - a general-purpose improvement process turned on itself to improve its own capability.
+
+### Examine (Purpose lens)
+iter-133's dek bolded "independent AI models could find nothing left to change." That is true but it is the *exit criterion* (Principle 3), not the wonder. It also subtly shifts credit to the external evaluators rather than to the loop's self-application. The operator's point: the uncopyable, paradoxical thing is the recursion - a loop whose purpose is "improve any target," aimed at itself, spending 200+ iterations improving its own ability to improve. That is the differentiator; convergence is just how it knew to stop.
+
+### Decide + Predict
+ONE change: rewrite the dek text (no CSS change - .hero-dek already exists and renders well). New copy: "No one wrote these skills. They are what happens when a loop built to improve anything is aimed at itself - 200+ iterations using its own ability to improve to improve that ability." Bold clause moves from the stopping condition to the paradox: "using its own ability to improve to improve that ability."
+- **Prediction:** dek reads as the self-referential bootstrap; bolded clause is the recursion, not the convergence; no layout/CSS change; hyphen-only preserved; get_errors clean.
+
+### Action + verification
+HTML: replaced the dek paragraph text and moved the <strong> wrap to the paradox clause. No CSS touched. get_errors: clean. Browser-verified at #top (reloaded): H1 unchanged in ink; dek now reads "...a loop built to improve anything is aimed at itself - 200+ iterations **using its own ability to improve to improve that ability.**" Bolded clause renders as the paradox. Prediction held. Spaced hyphen, no em-dash.
+
+### Reflect
+- **Falsifiable model-claim:** The hero's emphasis now matches the operator's stated source of pride - the recursion, not the validation. If a future reader's reaction is "so it passed review" rather than "wait, it improved *itself*," the copy is still mis-weighting toward the exit criterion.
+- **Named blind spot:** "using its own ability to improve to improve that ability" is a deliberate near-tautology to convey the paradox - it may read as either striking or confusing on first pass. Did not test it against a cold reader; the repetition that makes it paradoxical is the same repetition that could read as a typo. Mobile/narrow-width still unverified (the dek is now slightly longer).
+- **Imagined-reader pushback:** "Is 200+ iterations of self-improvement actually impressive, or just a number?" The claim leans on the paradox being legible; if the reader does not register that the loop and its target are the same thing, "200+ iterations" is just a metric. The phrase "aimed at itself" is doing the heavy lifting - if that clause is missed, the paradox collapses to an ordinary changelog count.
+
+### Across-trail reflection
+- *Recurring finding-class:* borderline - this is the second consecutive hero-dek iteration (iter-133 added it, iter-134 reworded it). Not yet a comfortable-corner pattern (it is operator-driven course-correction, not the loop polishing a findable surface), but if a third dek iteration arrives without new operator input, that would be the tell.
+- *About to declare silence:* not fired.
+- *Contradicts prior [!REALIZATION]:* partial - refines iter-133's framing (proof under promise) by reweighting *which* proof; the placement decision stands, the emphasis is corrected.
+- *Operator explicitly asked:* fired - direct emphasis correction.
+
+### Candidate Next Moves
+1. **Operator react to the paradox phrasing** - confirm "using its own ability to improve to improve that ability" lands, or smooth the near-tautology if it reads as confusing.
+2. **Reconcile dek with #trail opening** - #trail now says "the target just happened to be the loop itself"; the dek says the same in fewer words. Tighten #trail's lead so the two escalate (hook -> full story) rather than repeat.
+3. **Mobile/narrow-width check** - standing blind spot; the dek is now two lines longer on narrow viewports.
+
