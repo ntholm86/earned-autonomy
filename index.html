@@ -239,6 +239,8 @@
       color: var(--muted);
     }
     .lineage-applies b { color: var(--amber); font-weight: var(--weight-medium); }
+    .lineage-applies a { color: var(--teal); }
+    .lineage-applies a:hover { color: var(--amber); }
     .skill-trigger {
       margin-top: var(--gap-xs);
       padding-top: var(--gap-xs);
@@ -496,7 +498,7 @@
 
       <div class="grid-auto mt-md">
 
-        <div class="card">
+        <div class="card" id="intent">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5 h17 a1.5 1.5 0 0 1 1.5 1.5 v8 a1.5 1.5 0 0 1 -1.5 1.5 h-9 l-4 3.5 v-3.5 h-2.5 a1.5 1.5 0 0 1 -1.5 -1.5 v-8 a1.5 1.5 0 0 1 1.5 -1.5 z"/><circle cx="12.5" cy="10.5" r="2.6"/><circle cx="12.5" cy="10.5" r="0.4" fill="currentColor" stroke="none"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/intent/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Intent skill definition.">Intent SKILL &#8599;</a></h3>
           <p class="small">
             Force the Agent to understand the intent behind your prompt in relation to the context: what you mean, not what you said. Cites how it reads your intent before it continues. 
@@ -508,7 +510,7 @@
           <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
-        <div class="card">
+        <div class="card" id="trail-skill">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 h8 l4 4 v13 a1 1 0 0 1 -1 1 h-11 a1 1 0 0 1 -1 -1 v-16 a1 1 0 0 1 1 -1 z"/><path d="M15 3 v4 h4"/><path d="M9.5 11 H15"/><path d="M9.5 14 H15"/><path d="M9.5 17 H12.5"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/trail/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Trail skill definition.">Trail SKILL &#8599;</a></h3>
           <p class="small">
             Writes every session to <code>.trail/audit-trail.md</code> - the append-only source of truth. One entry per run: the ask, examination, decisions, actions, reflection. The next prompt knows what was already done and why.
@@ -520,7 +522,7 @@
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
-        <div class="card">
+        <div class="card" id="improve">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5 A8 8 0 1 0 18.5 16"/><path d="M20 7.5 L20 11.5 L16 11.5"/><path d="M9 14.5 l3 -3 l3 3"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/improve/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Improve skill definition.">Improve SKILL &#8599;</a></h3>
           <p class="small">
             Iterative improvement loop. Improves any target by understanding the context, purpose and intent. Applied to itself 200+ times.
@@ -536,7 +538,7 @@
 
       <div class="grid-auto mt-md">
 
-        <div class="card">
+        <div class="card" id="destination">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 L13.7 10.3 L21.5 12 L13.7 13.7 L12 21.5 L10.3 13.7 L2.5 12 L10.3 10.3 Z"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/destination/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Destination skill definition.">Destination SKILL &#8599;</a></h3>
           <p class="small">
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code> - where you're going: what the target is for, the constraints that hold across runs, the hard problem the work is chipping at. Operator-held; humans only.
@@ -544,7 +546,7 @@
           <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the destination skill&#8221; at the start, when direction feels unclear.</p>
         </div>
 
-        <div class="card">
+        <div class="card" id="retrospect">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M14.8 14.8 L21 21"/><path d="M6.5 8.5 H13.5"/><path d="M6.5 11 H13.5"/><path d="M6.5 13.5 H11"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/retrospect/SKILL.md" target="_blank" rel="noopener" data-tip="Read the full Retrospect skill definition.">Retrospect SKILL &#8599;</a></h3>
           <p class="small">
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code> - where you are: arc-level orientation plus the active rules the agent must obey this run.
@@ -647,7 +649,7 @@
               <a href="https://www.armyupress.army.mil/Portals/7/Hot-Spots/docs/MC/MR-Sep-Oct-2002-Widder.pdf" target="_blank" rel="noopener" data-tip="Maj. Gen. Werner Widder, 'Auftragstaktik and Innere Fuhrung: Trademarks of German Generalship.' Military Review, US Army Combined Arms Center, 2002. PDF.">Auftragstaktik - Military Review (US Army Combined Arms Center, 2002, PDF) &#8599;</a>
               <a href="https://en.wikipedia.org/wiki/Commander%27s_intent" target="_blank" rel="noopener" data-tip="Commander's Intent: the direct namesake of Principle #1.">Commander's Intent (Wikipedia) &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 1 - Commander's Intent, Intent skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#intent" data-tip="The Intent skill on this page.">Intent skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -659,7 +661,7 @@
               <a href="https://books.google.com/books?id=rFDq1DYprzYC" target="_blank" rel="noopener" data-tip="Mike Rother, Toyota Kata (McGraw-Hill, 2009). The primary source. ISBN 978-0-07-163985-9.">Mike Rother, <em>Toyota Kata</em> (2009) &#8599;</a>
               <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Kaizen and the Coaching Kata.">Lean Enterprise Institute - the Coaching Kata &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 1 - Commander's Intent, Improve skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -670,7 +672,7 @@
               <a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener" data-tip="Stanford Encyclopedia of Philosophy entry on Socrates and the Socratic method.">Socrates - Stanford Encyclopedia of Philosophy &#8599;</a>
               <a href="https://iep.utm.edu/socrates/#SH3a" target="_blank" rel="noopener" data-tip="The elenchus: Socrates tests and refutes through question and answer, never assertion. Internet Encyclopedia of Philosophy, Method section.">The Socratic Method (the elenchus) - Internet Encyclopedia of Philosophy &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 1 - Commander's Intent, Intent skill, Probe skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#intent" data-tip="The Intent skill on this page.">Intent skill</a>, <a href="#probe" data-tip="The Probe skill on this page.">Probe skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -682,7 +684,7 @@
               <a href="https://en.wikipedia.org/wiki/Kaizen#Benefits_and_tradeoffs" target="_blank" rel="noopener" data-tip="Continual aligned small improvements, standardized, yield large results. Wikipedia, Benefits section.">Kaizen - continuous improvement (Wikipedia) &#8599;</a>
               <a href="https://archive.org/details/kaizen00masa" target="_blank" rel="noopener" data-tip="Masaaki Imai, Kaizen: The Key to Japan's Competitive Success (1986). The book that introduced the term to the West.">Masaaki Imai, <em>Kaizen</em> (1986) &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 3 - Convergence Is Silence, Improve skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-3" data-tip="Convergence Is Silence (Principle 3) on this page.">Principle 3 - Convergence Is Silence</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a></p>
           </article>
 
           <article class="lineage-card">
@@ -694,7 +696,7 @@
               <a href="https://doi.org/10.1287/mnsc.9.3.458" target="_blank" rel="noopener" data-tip="Dalkey & Helmer (1963), 'An Experimental Application of the Delphi Method', Management Science. The seminal paper.">Dalkey &amp; Helmer, the original Delphi experiment (1963) &#8599;</a>
               <a href="https://en.wikipedia.org/wiki/Delphi_method#Key_characteristics" target="_blank" rel="noopener" data-tip="Anonymity and independence of participants prevent reputation from dominating. Wikipedia, Key characteristics.">Delphi Method - independence &amp; anonymity (Wikipedia) &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 3 - Convergence Is Silence, Improve skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-3" data-tip="Convergence Is Silence (Principle 3) on this page.">Principle 3 - Convergence Is Silence</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a></p>
           </article>
         </div>
 
@@ -711,7 +713,7 @@
             <div class="lineage-sources">
               <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - chain-of-thought can be plausibly misleading.">Language Models Don't Always Say What They Think &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 2 - Observable Autonomy, Probe skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a>, <a href="#probe" data-tip="The Probe skill on this page.">Probe skill</a></p>
           </article>
 
           <article class="lineage-card is-evidence">
@@ -720,7 +722,7 @@
             <div class="lineage-sources">
               <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - LLM self-correction degrades performance without external feedback.">Large Language Models Cannot Self-Correct Reasoning Yet &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 2 - Observable Autonomy, Trail skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a>, <a href="#trail-skill" data-tip="The Trail skill on this page.">Trail skill</a></p>
           </article>
 
           <article class="lineage-card is-evidence">
@@ -729,7 +731,7 @@
             <div class="lineage-sources">
               <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., May 2025 - even reasoning-trained models don't reliably narrate their process.">Reasoning Models Don't Always Say What They Think &#8599;</a>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> Principle 2 - Observable Autonomy, Probe skill</p>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a>, <a href="#probe" data-tip="The Probe skill on this page.">Probe skill</a></p>
           </article>
         </div>
 
