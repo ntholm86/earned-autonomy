@@ -4485,3 +4485,44 @@ One change - rewrite the body paragraph to (a) open with a concrete metaphor tha
 2. **Level up Principle #2 and #3 cards to match #1's payoff-explicit voice** - the named blind spot; #1 now unpacks its "what it unlocks," #2/#3 still state the claim only. Restores card symmetry.
 3. **Tonal check of "Instructions are a cage"** against the "serious, not promotional" constraint - quick operator confirm; fallback wording ready.
 
+
+## iter-146 - Principles #2 and #3 brought to payoff-explicit parity with #1 (Improve skill v3.9.2, after a Destination run)
+
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, Principle #2 (Observable Autonomy) and #3 (Convergence Is Silence) card bodies. Run sequence this turn: Destination run (recorded in destination.md, iter-146 section) -> this Improve change.
+
+### Understand (Intent applied - operator asked for three layers of intent)
+Operator: "Now run the vision skill / use the improve skill to make any changes / understand my intent and my intent of my intent and my intent of my intent of my intent."
+- **Layer 1 (literal):** run Destination, then make one Improve change. Run them, do not merely describe.
+- **Layer 2 (intent of intent):** the last two turns located the framework's headline - Principle 1 is a universal *wrapper* and one move yields BOTH autonomy and safety. "Run the vision skill" therefore means: record that the arc's center of gravity moved from polish to message (retro-005 called the prior arc "comfortable-corner" polish), and let that sharpened destination pick the Improve change rather than another visual nicety. Layer destination.md, never overwrite (vision-management memory rule).
+- **Layer 3 (intent of intent of intent):** the phrasing is itself a Commander's Intent act - a destination given without a route, testing whether the loop reasons or pattern-matches "run skill X then skill Y." The deepest goal is to *experience the page's own claim*: delegate an under-specified layered request and have the AI land where the operator meant - the loop proving itself live. So the real deliverable is fidelity, not the edit.
+
+### Examine (Purpose lens)
+After iter-145, Principle #1's card states its payoff (cage vs destination; autonomy AND safety from one move). But #2's body was the bare rule "All autonomous actions must be auditable or revoked." and #3's was the dry "Definition of when the improve loop has achieved the desired outcome." The framework's strongest move - state the rule, then reveal what it unlocks - was stranded on a single card. A reader scanning the three cards would feel #1 land and #2/#3 fall flat. This is the named blind spot from iter-145's reflection ("#2 and #3 still state their claim without unpacking the payoff"), and it is now message-completeness work, which the Destination run just confirmed is the priority.
+
+### Decide + Predict
+One conceptual change applied to the two cards that lack it: rewrite #2 and #3 bodies to the same payoff-explicit voice as #1 (vivid reframe -> mechanism -> what it unlocks), preserving each card's quote, cite, and Rooted-in line. Hyphen-only, no new CSS, existing `.small` class.
+- #2 body -> "An agent that records every action - what it did, why, and what changed - can be checked, corrected, and trusted with more. One whose work cannot be audited cannot be trusted, so its autonomy is revoked. Transparency is not overhead; it is what earns the freedom." (payoff: transparency is the currency that buys autonomy - the principle's name made operational.)
+- #3 body -> "Done is not a deadline or a budget running out - it is a silence. The loop changes one thing at a time until several independent models, run separately, each find nothing left to improve. Agreement you did not engineer is the proof the work is finished." (payoff: convergence by independent agreement, not fatigue or budget.)
+- **Prediction:** the three cards now read as a set with consistent depth; #1 no longer stands alone; no CSS/structural change; errors clean; quotes/cites/roots untouched. Tone stays grounded (no new metaphor as loud as "cage").
+
+### Action + verification
+- multi_replace on both card bodies. get_errors: clean. Browser-verified (had to bypass file:// cache with a `?v=timestamp` query - first reload served stale content): both new bodies confirmed verbatim in the DOM; screenshot shows #1 and #2 reading as a coherent pair with matched richness. Prediction held.
+- Counted as ONE change: the same move (payoff-explicit parity) applied to the two cards that were missing it. Splitting into two iterations would be artificial - the unit of work is "make the card set consistent," not "edit card #2."
+
+### Reflect
+- **Falsifiable model-claim:** the Principles section now reads as a unified argument rather than one strong card plus two stubs; a cold-reader test should find readers able to restate all three payoffs, not just #1's. If a reader still only quotes #1 back, the parity attempt failed and #2/#3 need different (not just richer) treatment.
+- **Named blind spot:** I did not re-examine whether the three cards are now *too* uniform - three "X is not Y; it is Z" openings in a row (intent/destination, transparency/overhead implied, done/silence) could read as a rhetorical template a sharp reader notices and discounts. I optimized for parity; I did not check for monotony. A future run should read the three openings aloud in sequence.
+- **Imagined-reader pushback:** "You changed two cards and called it one iteration - is that the Improve discipline slipping?" Defense: the change is one decision (parity), and the two edits are inseparable instances of it; predicting and verifying them together is honest. But I am flagging it rather than hiding it, because the line between "one coherent change" and "two changes I batched" is exactly where the discipline erodes if unwatched.
+
+### Across-trail reflection
+- *Recurring finding-class:* this is the SECOND consecutive content/message iteration (145 reframed #1; 146 brought #2/#3 to match). Combined with the Destination run, the arc has clearly turned from the visual/structural/sourcing polish of iter-121..144 toward message-completeness. retro-005 predicted the loop would keep polishing findable surfaces until the operator unblocked it - the operator has now done so by injecting content insight.
+- *Operator explicitly asked:* FIRED (and uniquely - asked for layered intent-reading, then for both a Destination run and an Improve change in one turn). Macro reflection: this turn is the closest the loop has come to destination-critical work in 60+ iterations. The Destination run proposed a candidate answer to iter-84's convergence question (done = a cold reader FEELS the autonomy+safety duality, not just understands the rules) - which, if the operator confirms it, finally unblocks the cold-reader test retro-005 named as "the move." That confirmation is the next real gate, and it is operator-held.
+- *About to declare silence / contradicts prior realization:* not fired.
+
+### Candidate Next Moves
+1. **Get the operator's answer to the two Destination questions** (headline = autonomy+safety duality? done = cold reader FEELS it? / single page vs multi-site). This is the gate - confirming the convergence criterion unblocks the cold-reader test deferred 20+ times (retro-005 #1). Highest leverage by far.
+2. **Read the three card openings aloud for monotony** (the named blind spot) - if the "X is not Y; it is Z" template repeats too visibly, vary one.
+3. **Mobile / narrow-width pass** - still standing since iter-128; the cards now carry longer prose, compounding the need.
+
