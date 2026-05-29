@@ -235,22 +235,22 @@
       color: var(--muted);
     }
     .lineage-applies b { color: var(--amber); font-weight: 600; }
-    .skill-when {
+    .skill-trigger {
       margin-top: var(--gap-xs);
       padding-top: var(--gap-xs);
       border-top: 1px solid var(--rule);
       font-family: var(--mono);
       font-size: var(--text-micro);
-      color: var(--muted);
+      color: var(--lavender);
     }
-    .skill-when b { color: var(--teal); font-weight: 600; }
-    .skill-trigger {
+    .skill-trigger b { font-weight: 600; }
+    .skill-when {
       margin-top: var(--gap-xs);
       font-family: var(--mono);
       font-size: var(--text-micro);
       color: var(--lavender);
     }
-    .skill-trigger b { font-weight: 600; }
+    .skill-when b { font-weight: 600; }
     h3 a { color: var(--amber); }
     h3 a:hover { color: var(--teal); }
     a.label:hover { color: var(--amber); }
@@ -436,7 +436,7 @@
   <!-- PRINCIPLES -->
   <div class="container">
     <section id="principles">
-      <h2>Principles of Earned Autonomy</h2>
+      <h2>Principles of Earned Autonomy (PEA)</h2>
       <div class="grid-auto mt-md">
 
         <div class="card" id="principle-1">
@@ -494,8 +494,8 @@
           <p class="small">
             The principle behind military command, Socratic method, and coaching kata.
           </p>
-          <p class="skill-when"><b>Invoke:</b> Every prompt.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;understand my intent&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> Every prompt.</p>
           <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
@@ -507,8 +507,8 @@
           <p class="small">
             Regenerates the derived views at each commit: <code>history.md</code> (the run timeline) and <code>learning.md</code> (every realization and reversal). Full summaries land in <code>sessions/</code>; raw dialogue in <code>transcripts/</code> when the harness can export it.
           </p>
-          <p class="skill-when"><b>Invoke:</b> Every session.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;trail everything&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> Every session.</p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
@@ -520,8 +520,8 @@
           <p class="small">
             One highest leverage change per run. Reads the context first - destination, retrospect, trail - acts, and logs it.
           </p>
-          <p class="skill-when"><b>Invoke:</b> Until <code>.trail/destination.md</code> is fulfilled.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;use the improve skill&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> Until <code>.trail/destination.md</code> is fulfilled.</p>
           <a class="label" href="#principle-3" data-tip="Go to the Convergence Is Silence principle on this page.">P3 &middot; Convergence Is Silence</a>
         </div>
 
@@ -534,8 +534,8 @@
           <p class="small">
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code> - where you're going: what the target is for, the constraints that hold across runs, the hard problem the work is chipping at. Operator-held; humans only.
           </p>
-          <p class="skill-when"><b>Invoke:</b> At the start - when direction feels unclear.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;use the destination skill&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> At the start - when direction feels unclear.</p>
         </div>
 
         <div class="card">
@@ -543,8 +543,8 @@
           <p class="small">
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code> - where you are: arc-level orientation plus the active rules the agent must obey this run.
           </p>
-          <p class="skill-when"><b>Invoke:</b> After a few improvement skills iterations.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;use the retro skill&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> After a few improvement skills iterations.</p>
         </div>
 
         <div class="card" id="probe">
@@ -553,8 +553,8 @@
             Tests whether the agent&#8217;s response diverges where it should. Measures <a href="#arf">Autonomous 
             Reasoning Fidelity</a>.
           </p>
-          <p class="skill-when"><b>Invoke:</b> When you need to verify reasoning quality.</p>
           <p class="skill-trigger"><b>To trigger:</b> &#8220;use the probe skill&#8221;</p>
+          <p class="skill-when"><b>Invoke:</b> When you need to verify reasoning quality.</p>
         </div>
 
       </div>

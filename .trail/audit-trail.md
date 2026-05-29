@@ -4341,3 +4341,41 @@ One cohesive change - extend the gradient idiom to these three surfaces using **
 2. **Resolve the `#fff` luminance-literal question** (`.card`, `.btn`) - add a lightening token/convention or bless luminance-mix in retrospect rules. Still open after three iterations.
 3. **Re-surface iter-84's cold-reader / convergence question to the operator** - the visual language now reads converged; per retro-005 this operator-blocked decision is the actual gate to declaring done, and this is a natural moment to ask.
 
+
+## iter-143 - skill-card metadata: To trigger above Invoke, both lavender (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, `.skill-when` / `.skill-trigger` CSS + 6 skill cards
+
+### Understand (Intent applied)
+Operator: the two metadata lines on every skill card ("Invoke:" and "To trigger:") should be the SAME color - purple (lavender) - and ordered To trigger first, then Invoke. Currently Invoke (`.skill-when`) was muted text with a teal bold label and carried the divider border-top; To trigger (`.skill-trigger`) was lavender, borderless, second. So two coupled changes: unify color to lavender, and swap order.
+- **Rejected interpretation:** make both teal (the other candidate "same color"). Rejected - operator explicitly said "purple," and lavender is already the skill-trigger color and the theme's conceptual-emphasis role.
+
+### Examine (Inconsistency lens)
+The two lines were styled as if different in kind: Invoke = teal-label/muted-text/bordered (read as the primary metadata), To trigger = lavender/borderless (secondary). Operator's mental model is the opposite and flatter: trigger is what you *do* (say this), invoke is *when* - trigger should lead, and both are the same class of "how to use this skill" info, hence one color. The teal bold label on Invoke also competed with the teal skill-title links and the teal CTA, diluting teal's action-signal.
+
+### Decide + Predict
+One change: (1) make `.skill-when` lavender with a plain-weight-color bold label (drop the teal `b`), matching `.skill-trigger`; (2) move the divider (border-top + padding-top) from `.skill-when` to `.skill-trigger` so the rule sits above whichever line now comes first; (3) swap the two `<p>` lines in all 6 cards so To trigger precedes Invoke.
+- **Prediction:** all 6 cards show To trigger (lavender) then Invoke (lavender) under a single divider rule; both computed `color` = rgb(196,167,231); teal no longer appears in this metadata block; errors clean.
+
+### Action + verification
+- CSS: reordered the rules - `.skill-trigger` now carries `padding-top`/`border-top`; both classes `color: var(--lavender)`; both `b { font-weight: 600 }` (removed `color: var(--teal)` from `.skill-when b`).
+- HTML: swapped the trigger/when line pair in all 6 cards (Intent, Trail, Improve, Destination, Retrospect, Probe) via multi-replace.
+- get_errors: clean. Browser-verified (computed): Intent card order = [skill-trigger "To trigger: ...", skill-when "Invoke: Every prompt."]; both `color` = rgb(196,167,231) = --lavender (#c4a7e7). Screenshot of Intent + Trail cards confirms: divider rule above To trigger, both lines lavender, Invoke below tight, no teal. Prediction held in full.
+
+### Reflect
+- **Falsifiable model-claim:** the skill-card metadata block is now a single visual category (lavender mono, trigger-then-when) rather than two differently-weighted lines. A future run should treat these as a unit; if it re-introduces a second color or re-orders them, it is reverting an explicit operator decision, not improving.
+- **Named blind spot:** I verified two of the six cards by screenshot (Intent, Trail) and all six by the line-swap edits + the shared CSS; I did not individually screenshot Destination/Retrospect/Probe/Improve. Risk is low (same classes, mechanical swap, errors clean) but not zero if one card had a markup quirk. Also unverified at mobile width.
+- **Imagined-reader pushback:** "Invoke used to be teal-bold to signal *when to run it* as the primary fact; flattening both to lavender loses the when/how distinction." Fair, but the operator's model is that 'how to trigger' is the lead action and both are one info-class; the order (trigger first) now carries the priority that color previously did. Trade accepted on operator instruction.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - this is a copy/visual ordering+color change, distinct from the gradient arc (140-142) and CTA arc (139-141).
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* partial - iter-138 introduced lavender skill-trigger as *distinct* from the teal-labeled Invoke; iter-143 collapses that distinction per operator. Not a contradiction of a target-claim, an operator-directed simplification. Rule 12 (lavender = conceptual emphasis) still holds; this extends lavender to the whole how-to-use block.
+- *Operator explicitly asked:* FIRED. Macro reflection: operator continues hands-on copy/visual direction (this + the principle-card edits). Teal is now more exclusively the action color (CTA button, links, icons) since it was removed from the Invoke label - an incidental consistency gain. The cold-reader/convergence question (retro-005, iter-84) remains the standing operator-blocked gate; unaffected by this change.
+
+### Candidate Next Moves
+1. **Mobile / narrow-width pass** - still the top standing internal move (named since iter-128); now also covers this metadata reorder.
+2. **Resolve the `#fff` luminance-literal question** (`.card`, `.btn`) - open since iter-140.
+3. **Re-surface iter-84's cold-reader / convergence question** - the page's visual + copy language reads increasingly settled; the gate to "done" is operator input.
+
