@@ -72,7 +72,11 @@
     :target { scroll-margin-top: 4.5rem; }
     html, body { overflow-x: clip; }
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(1100px 520px at 50% -8%, color-mix(in srgb, var(--teal) 7%, var(--bg)) 0%, transparent 60%),
+        linear-gradient(180deg, color-mix(in srgb, var(--lavender) 4%, var(--bg)) 0%, var(--bg) 30%);
+      background-attachment: fixed;
+      background-color: var(--bg);
       color: var(--muted);
       font-family: var(--font);
       font-size: var(--text-body);
@@ -129,12 +133,20 @@
 
     /* === Surfaces === */
     .card {
-      background: var(--card-bg);
+      background:
+        linear-gradient(155deg, color-mix(in srgb, var(--bg-elev), #fff 3%) 0%, var(--bg-elev) 55%);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     }
     .card-accent { border-left: 3px solid var(--sage); }
+    /* Install CTA - teal (action) accent so the primary action reads as one */
+    .card-cta {
+      background:
+        linear-gradient(150deg, color-mix(in srgb, var(--teal) 12%, var(--bg-elev)) 0%, var(--bg-elev) 62%);
+      border-color: color-mix(in srgb, var(--teal) 30%, var(--rule));
+    }
 
     /* === Pull quote ===
        Evidence-section epigraph. Sage accent marks it as a verified-claim frame. */
@@ -432,7 +444,7 @@
     <section id="skills">
       <h2>The Skills</h2>
 
-      <div class="card mt-md">
+      <div class="card card-cta mt-md">
         <p class="label label-muted label-bordered">Install</p>
         <p class="small">Download the six skill files from the
           <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
