@@ -4141,3 +4141,40 @@ One coherent operator-directed restructuring: (1) enrich Trail/Destination/Retro
 2. **Reconsider the folder-tree nesting** - decide deliberately whether the sessions//transcripts/ filename pattern (YYYY-MM-DD-<slug>.md) is worth a one-line mention on the Trail card, or genuinely not needed.
 3. **Fold the hierarchy into Improve, drop the Memory card's 2nd paragraph** - if the imagined-reader's duplication concern proves real on re-read, this tightens further.
 
+
+## iter-138 - add a lavender "To trigger" phrase line to each skill card (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, #skills cards
+
+### Understand
+Operator (intent stated twice): each skill card should teach the literal phrase a user types to fire that skill - e.g. "understand my intent" - shown as a line parallel to the existing teal "Invoke:" line but in purple (--lavender) so it reads as distinct. Rationale given verbatim: "We need to tell ppl how to use them." The "Invoke:" line says *when*; this new line says *what to say*.
+
+### Examine (Purpose lens)
+The cards already had "Invoke:" (the *when* - cadence/condition) but no *how-to-fire*. For a cold reader who has installed the skills, "Invoke: Every prompt" does not tell them what to actually type. This is a genuine usability gap, not polish. The fix is a concrete, copy-pasteable trigger phrase per skill, mapped to each skill's USE-WHEN cue so the phrase actually works.
+
+### Decide + Predict
+One change: add a `.skill-trigger` line (lavender) under each card's Invoke line. Trigger phrases derived from each skill's USE-WHEN: Intent "understand my intent" (operator-given), Trail "log this to the trail", Improve "use the improve skill" (operator-given), Destination "what am I building?", Retrospect "how are we doing?" (verbatim from Retrospect's USE-WHEN), Probe "test your reasoning". New CSS class `.skill-trigger` reusing the `.skill-when` mono/micro treatment but colored --lavender; no border-top (avoids a double rule under Invoke).
+- **Prediction:** six cards each gain one lavender trigger line under Invoke; one new CSS class; phrase in purple; hyphen-only; no inline styles; errors clean.
+
+### Action + verification
+- CSS: added `.skill-trigger` (margin-top gap-xs, mono, text-micro, color --lavender) + `.skill-trigger b { font-weight:600 }`. No border-top, so it sits tight under the Invoke line rather than adding a second rule.
+- HTML: added `<p class="skill-trigger"><b>To trigger:</b> &#8220;...&#8221;</p>` to all six cards (Intent/Trail/Improve placed before the principle label; Destination/Retrospect/Probe at card end).
+- get_errors: clean. Browser-verified: computed color of `.skill-trigger` = rgb(196,167,231) = #c4a7e7 = --lavender (confirmed purple, not teal). Screenshot shows teal "Invoke:" line then lavender "To trigger: '...'" line on each card. Prediction held.
+
+### Reflect
+- **Falsifiable model-claim:** the skills section is shifting from *describing* the skills to being an *operating manual* for them - first the file-ownership consolidation (iter-137), now the literal trigger phrases. The page's job for the skills section is becoming "a reader can install AND drive these," not just "a reader understands what they are." If a future run finds the trigger phrases drifting from the actual SKILL.md USE-WHEN cues, this is falsified.
+- **Named blind spot:** I asserted these phrases will actually trigger the skills, but I did not test any of them against a live agent - they are reasoned from each SKILL.md's USE-WHEN, not verified to fire. "how are we doing?" is verbatim from Retrospect's description so is high-confidence; the others ("log this to the trail", "what am I building?", "test your reasoning") are plausible but unverified against a real harness. Also: two micro-lines (Invoke + Trigger) now stack at the card foot - narrow-width legibility of the longer phrases unverified (operator reported mobile fine last iter, but that predated these lines).
+- **Imagined-reader pushback:** "These look like magic incantations - will the skill fire ONLY on this exact phrase, or is it natural-language matching?" The truth is the latter (USE-WHEN is fuzzy semantic matching), but the quoted, mono-formatted phrasing implies an exact command. A stricter editor might prefix with "e.g." or soften to "Say something like" to avoid implying a rigid command syntax. I chose the tighter form for scannability; flagging the tradeoff.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - this is a content/usability addition to the skill cards, distinct from the hero-dek run (133-136) and the section consolidation (137).
+- *About to declare silence:* not fired - substantive change made.
+- *Contradicts prior [!REALIZATION]:* not fired - extends iter-137's "cards own their operating detail" direction rather than contradicting it.
+- *Operator explicitly asked:* FIRED - operator directed the addition and asked twice for intent to be understood. Macro reflection: operator continues steering the skills section toward an operating manual (iter-137 gave each card its outputs; iter-138 gives each card its trigger). Consistent arc; the section is maturing from "what these are" to "how to run these."
+
+### Candidate Next Moves
+1. **Verify the trigger phrases actually fire** - the named blind spot; the highest-value follow-up since a wrong phrase actively misleads. Could be checked by the operator against their own agent, or softened to "e.g." phrasing if exactness can't be guaranteed.
+2. **Soften the trigger framing to imply natural-language matching** - prefix "e.g." or "Say something like" if the rigid-command reading is a real risk (imagined-reader pushback).
+3. **Narrow-width recheck of the stacked Invoke + Trigger micro-lines** - the longer phrases ("understand my intent", "use the improve skill") on a 320px card.
+
