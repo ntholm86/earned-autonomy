@@ -433,8 +433,7 @@
     <section id="top">
       <h1>Safely delegate complex work to AI and stay accountable.</h1>
       <p class="hero-dek">
-        The skillset can improve any target by understanding its purpose. It was aimed at
-        <strong>its own skillset</strong> 200+ times with different AI models - improving its own ability to improve any target by understanding its own purpose to improve any target - until no model could improve anything further.
+        Six skills that make an AI's reasoning visible and auditable - so you can delegate the work and still own the result.
       </p>
     </section>
   </div>
@@ -448,7 +447,7 @@
         <div class="card" id="principle-1">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21 V4"/><path d="M17 4 h-9 l2.5 3 l-2.5 3 h9"/><circle cx="3" cy="21" r="1.5" fill="currentColor" stroke="none"/><path d="M3 21 H17" stroke-dasharray="1.5 3"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-1-commanders-intent" target="_blank" rel="noopener" data-tip="Read the full Commander&#8217;s Intent principle.">Principle #1: Commander&#8217;s Intent &#8599;</a></h3>
           <p class="small"><em>&ldquo;Define the destination. Never prescribe the route.&rdquo;</em></p>
-          <p class="small">An autonomous agent must understand what needs to be achieved and why it matters. Instructions limit autonomy. Make the AI interpret your intent and decide how to proceed.</p>
+          <p class="small">Intent does not limit autonomy - it is what creates it. Tell the agent what to achieve and why it matters, and it can reason its own way there. Prescribe the steps instead, and you cap it at your own foresight.</p>
         </div>
 
         <div class="card" id="principle-2">
@@ -500,8 +499,7 @@
           <p class="small">
             The principle behind military command, Socratic method, and coaching kata.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;understand my intent&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> Every prompt.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;understand my intent&#8221; every prompt.</p>
           <a class="label" href="#principle-1" data-tip="Go to the Commander&#8217;s Intent principle on this page.">P1 &middot; Commander&#8217;s Intent</a>
         </div>
 
@@ -511,10 +509,9 @@
             Writes every session to <code>.trail/audit-trail.md</code> - the append-only source of truth. One entry per run: the ask, examination, decisions, actions, reflection. The next prompt knows what was already done and why.
           </p>
           <p class="small">
-            Regenerates the derived views at each commit: <code>history.md</code> (the run timeline) and <code>learning.md</code> (every realization and reversal). Full summaries land in <code>sessions/</code>; raw dialogue in <code>transcripts/</code> when the harness can export it.
+            From that record it keeps readable views in sync at each commit - a run timeline and a log of every realization and reversal - so you never have to reconstruct the history by hand.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;trail everything&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> Every session.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;trail everything&#8221; every session.</p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
@@ -526,8 +523,7 @@
           <p class="small">
             One highest leverage change per run. Reads the context first - destination, retrospect, trail - acts, and logs it.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;use the improve skill&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> Until <code>.trail/destination.md</code> is fulfilled.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the improve skill&#8221; until <code>.trail/destination.md</code> is fulfilled.</p>
           <a class="label" href="#principle-3" data-tip="Go to the Convergence Is Silence principle on this page.">P3 &middot; Convergence Is Silence</a>
         </div>
 
@@ -540,8 +536,7 @@
           <p class="small">
             The agent reads the conversation and the trail and states what it thinks you're building and why, as specific questions for you to confirm or correct. Produces <code>.trail/destination.md</code> - where you're going: what the target is for, the constraints that hold across runs, the hard problem the work is chipping at. Operator-held; humans only.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;use the destination skill&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> At the start - when direction feels unclear.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the destination skill&#8221; at the start, when direction feels unclear.</p>
         </div>
 
         <div class="card">
@@ -549,8 +544,7 @@
           <p class="small">
             Reads the entire trail. Self-reflects on all iterations and surfaces patterns no single session can see. Produces <code>.trail/retrospect.md</code> - where you are: arc-level orientation plus the active rules the agent must obey this run.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;use the retro skill&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> After a few improvement skills iterations.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the retro skill&#8221; after a few Improve iterations.</p>
         </div>
 
         <div class="card" id="probe">
@@ -559,8 +553,7 @@
             Tests whether the agent&#8217;s response diverges where it should. Measures <a href="#arf">Autonomous 
             Reasoning Fidelity</a>.
           </p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;use the probe skill&#8221;</p>
-          <p class="skill-when"><b>Invoke:</b> When you need to verify reasoning quality.</p>
+          <p class="skill-trigger"><b>To trigger:</b> write &#8220;use the probe skill&#8221; when you need to verify reasoning quality.</p>
         </div>
 
       </div>
@@ -571,7 +564,9 @@
           The skills give every repository a memory layer in <code>.trail/</code>, written to the root of the repo being worked on. Each run reads it before acting and extends it after - that is what makes the loop cumulative instead of repeating yesterday's mistakes.
         </p>
         <p class="small mt-xs">
-          A hierarchy resolves disagreements: the operator-held <code>destination.md</code> overrides the agent's orientation in <code>retrospect.md</code>; and where orientation and the append-only <code>audit-trail.md</code> evidence disagree, the trail wins. Memory without a hierarchy is just noise.
+          When two of them disagree, a fixed order settles it: your <code>destination.md</code> outranks
+          the agent's read of where things stand in <code>retrospect.md</code>, and the append-only
+          <code>audit-trail.md</code> outranks both - evidence beats opinion. Memory without a hierarchy is just noise.
         </p>
       </div>
 
@@ -589,8 +584,9 @@
       </blockquote>
 
       <p>
-        These skills are the output of running the Improve loop on
-        itself - more than 200 iterations, across the loop's own evolution. It began as
+        The skillset improves any target by understanding its purpose - it was aimed at itself.
+        200+ times, with different AI models, each pass improving its own ability, until no model
+        could improve it further. It began as
         <a href="#lineage-kaizen">Kaizen</a>, borrowed from <a href="#lineage-toyota-kata">Toyota Kata</a>.
         It split into <a href="#lineage-kaizen">Kaizen</a>,
         <a href="https://en.wikipedia.org/wiki/Kaikaku#Kaikaku_vs_kaizen" target="_blank" rel="noopener">Kaikaku</a>, and
@@ -629,7 +625,7 @@
     <section id="foundations">
       <h2>Intellectual lineage</h2>
       <p>
-        Drawn from military doctrine, lean manufacturing, philosophy, and empirical AI research.
+        Military doctrine, lean manufacturing, philosophy, and empirical AI research.
       </p>
 
       <div class="stack stack-lg mt-md">
