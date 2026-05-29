@@ -206,6 +206,12 @@
       background:
         linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--card-bg)) 0%, var(--card-bg) 45%);
     }
+    .lineage-title {
+      font-size: var(--text-body);
+      font-weight: var(--weight-bold);
+      color: var(--ink);
+      margin: 0 0 var(--gap-xs);
+    }
     .lineage-claim {
       color: var(--ink);
       font-size: var(--text-body);
@@ -584,9 +590,12 @@
 
       <p>
         These skills are the output of running the Improve loop on
-        itself - more than 200 iterations, across the loop's own evolution. It began as Kaizen,
-        borrowed from Toyota Kata. It split into Kaizen, Kaikaku, and Hansei. It was unified into the
-        single Improve skill in use today. Each version was sharpened by the version before it.
+        itself - more than 200 iterations, across the loop's own evolution. It began as
+        <a href="#lineage-kaizen">Kaizen</a>, borrowed from <a href="#lineage-toyota-kata">Toyota Kata</a>.
+        It split into <a href="#lineage-kaizen">Kaizen</a>,
+        <a href="https://en.wikipedia.org/wiki/Kaikaku#Kaikaku_vs_kaizen" target="_blank" rel="noopener">Kaikaku</a>, and
+        <a href="https://en.wikipedia.org/wiki/Hansei#Meaning" target="_blank" rel="noopener">Hansei</a>.
+        It was unified into the single Improve skill in use today. Each version was sharpened by the version before it.
       </p>
 
       <p>
@@ -629,6 +638,7 @@
           <p class="label label-muted label-bordered">Conceptual traditions</p>
 
           <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-auftragstaktik">Auftragstaktik (Mission Command)</h3>
             <p class="lineage-claim">Subordinates are told <em>what</em> and <em>why</em> - never <em>how</em>. The direct origin of Commander's Intent.</p>
             <p class="lineage-meta">19th century military doctrine, German General Staff</p>
             <div class="lineage-sources">
@@ -640,6 +650,7 @@
           </article>
 
           <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-toyota-kata">Toyota Coaching Kata</h3>
             <p class="lineage-claim">The coach defines the target condition. The learner discovers the path. The same shape as the operator-agent relationship.</p>
             <p class="lineage-meta">Mike Rother, <em>Toyota Kata</em> &middot; McGraw-Hill, 2009</p>
             <div class="lineage-sources">
@@ -651,6 +662,7 @@
           </article>
 
           <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-socratic">Socratic Method</h3>
             <p class="lineage-claim">Reasoning through questions, not assertions. The instruction asks; the agent answers from its own situated reasoning.</p>
             <p class="lineage-meta">Socratic method &middot; classical antiquity</p>
             <div class="lineage-sources">
@@ -661,6 +673,7 @@
           </article>
 
           <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-kaizen">Kaizen</h3>
             <p class="lineage-claim">The natural exit condition of a kaizen loop: when diverse participants find nothing left to change. PEA formalises this as <em>Convergence Is Silence</em> and makes the independence condition explicit.</p>
             <p class="lineage-meta">Toyota Production System &middot; Lean Enterprise Institute</p>
             <div class="lineage-sources">
@@ -672,6 +685,7 @@
           </article>
 
           <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-delphi">Delphi Method</h3>
             <p class="lineage-claim">Convergence by independent expert rounds, no shared context. PEA's independence condition comes from here.</p>
             <p class="lineage-meta">RAND Corporation, 1950s</p>
             <div class="lineage-sources">

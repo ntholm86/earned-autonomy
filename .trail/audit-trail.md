@@ -4379,3 +4379,46 @@ One change: (1) make `.skill-when` lavender with a plain-weight-color bold label
 2. **Resolve the `#fff` luminance-literal question** (`.card`, `.btn`) - open since iter-140.
 3. **Re-surface iter-84's cold-reader / convergence question** - the page's visual + copy language reads increasingly settled; the gate to "done" is operator input.
 
+
+## iter-144 - lineage cards get theory-name headers; TRAIL prose mentions linked to sources (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, #trail prose + #foundations lineage cards + new `.lineage-title`
+
+### Understand (Intent applied)
+Operator, two coupled asks in one prompt: (1) in "Built by the loop it describes" (#trail), the mentions of lean/Toyota lineage terms (Kaizen, Toyota Kata, Kaikaku, Hansei) need credible source references - a precise external source to a specific explaining passage, OR, when several sources exist, a link to the appropriate card/article in the Intellectual lineage section; (2) the Intellectual lineage section should give each theory/principle a header (Toyota Coaching Kata, Kaizen, Socratic Method, etc.). Treated as one iteration because (2) creates the in-page anchor targets that (1) links to - they are interdependent.
+- **Rejected interpretation:** link every lineage term to an external Wikipedia page uniformly. Rejected - the operator explicitly prefers in-page card links when a concept has multiple sources (Kaizen and Toyota Kata each have a 3-source card), reserving external links for terms with no card.
+
+### Examine (Purpose + consistency lens)
+- #trail prose asserted the loop's lineage (Kaizen -> Toyota Kata -> split into Kaizen/Kaikaku/Hansei -> unified) with ZERO links, while #foundations carries fully-sourced lineage cards for exactly these traditions. A reader hitting "Kaizen" in the narrative had no path to the evidence sitting one section below. Unsupported-claim gap.
+- #foundations lineage cards led with `.lineage-claim` (the synthesis) and identified the tradition only via the small mono `.lineage-meta` citation line. No card had a title naming the theory, so the section read as a wall of claims rather than a labelled catalogue of traditions. The operator's mental model (and good IA) wants each card headed by the name of the thing.
+
+### Decide + Predict
+One cohesive change:
+1. Add `.lineage-title` CSS (body-size, bold, ink, tight bottom margin).
+2. Add an `<h3 class="lineage-title" id="...">` to each of the 5 CONCEPTUAL cards: Auftragstaktik (Mission Command) #lineage-auftragstaktik, Toyota Coaching Kata #lineage-toyota-kata, Socratic Method #lineage-socratic, Kaizen #lineage-kaizen, Delphi Method #lineage-delphi.
+3. Link the #trail prose: Kaizen and Toyota Kata -> their in-page cards (multi-source case); Kaikaku -> en.wikipedia.org/wiki/Kaikaku#Kaikaku_vs_kaizen and Hansei -> en.wikipedia.org/wiki/Hansei#Meaning (no in-page card exists; precise section anchors VERIFIED via fetch before linking, not guessed).
+- **Scope decision:** the 3 EMPIRICAL cards (Turpin/Huang/Chen studies) get NO title this run - they are cited studies, not named theories/principles; the operator's list ("Toyota Coaching Kata, Kaizen, Socratic method") is all conceptual, and inventing finding-titles would be fabrication. Flagged as a candidate next move for section-wide visual consistency.
+- **Prediction:** 5 conceptual cards show a bold ink theory-name header above the claim; all 5 anchor ids exist; the 4 prose terms become 5 links (Kaizen appears twice) resolving correctly (2 in-page, 2 external + the repeat); no data-tip on the inline prose links (rule 15); errors clean.
+
+### Action + verification
+- Applied 7 edits via multi-replace (1 CSS + 5 card headers + 1 prose paragraph). get_errors: clean.
+- Browser-verified (page.evaluate): all 5 ids present; `.lineage-title` elements = H3, fontWeight 700, color rgb(228,231,236)=--ink, correct text. Prose links: Kaizen->#lineage-kaizen, Toyota Kata->#lineage-toyota-kata, Kaizen->#lineage-kaizen, Kaikaku->wikipedia Kaikaku#Kaikaku_vs_kaizen, Hansei->wikipedia Hansei#Meaning. Screenshot confirms "Toyota Coaching Kata" and "Socratic Method" render as bold headers leading their cards. Prediction held in full.
+- External source validity: fetched both Wikipedia pages before linking; confirmed Kaikaku has a "Kaikaku vs kaizen" section (radical vs incremental - the exact v2-split context) and Hansei has a "Meaning" section (the reflection practice). Sources are credible (Wikipedia, consistent with the page's existing lineage-source style) and the anchors exist.
+
+### Reflect
+- **Falsifiable model-claim:** the page now has a single sourcing discipline - every lineage assertion, whether in narrative prose or in a card, is one click from its evidence; in-page when the concept is catalogued, external when it is not. A future run should find no remaining unsourced lineage/tradition claim in the prose. If it finds one (e.g. the Deming epigraph, or "military doctrine" phrases elsewhere), this claim is incomplete.
+- **Named blind spot:** I did not click-test the in-page anchor jumps in the live browser (verified ids exist + hrefs match, which is structurally sufficient, but did not watch the scroll land with the 4.5rem `:target` offset). Also did not verify the empirical-card visual inconsistency (5 titled + 3 untitled within #foundations) reads as intentional rather than half-done - a real risk I am consciously accepting per the theory/principle scope.
+- **Imagined-reader pushback:** "You linked 'Kaizen' twice in adjacent sentences to the same anchor - redundant." Fair; I judged consistency-within-the-list (all three split-terms linked) more valuable than avoiding the repeat, since an unlinked 'Kaizen' sitting between linked 'Kaikaku' and 'Hansei' would look like an oversight. Defensible either way; flagging the call.
+
+### Across-trail reflection
+- *Recurring finding-class:* the link/tooltip standardization class was declared EXHAUSTED in retro-005 (rule 15). Does this iteration violate that? Evaluated: NO - rule 15 concerns standardizing existing link *targets/tooltips*; this adds NEW links to source previously-unsourced prose claims and adds NEW section structure (titles/anchors). It is a sourcing/IA change, not link-target polish. But it is adjacent, so I name it explicitly rather than waving it past.
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired - consistent with the page's established lineage-sourcing pattern; extends it into the prose.
+- *Operator explicitly asked:* FIRED. Macro reflection: operator continues granular hands-on direction (principle copy, skill-card metadata, now lineage sourcing). This iteration meaningfully strengthens credibility (the destination's "serious and credible" constraint) by closing the prose-claim/evidence gap - arguably more destination-aligned than the recent visual arc. Still internal/findable work; retro-005's external cold-reader gate (iter-84) remains unaddressed and unblocked-able by the loop alone.
+
+### Candidate Next Moves
+1. **Title the 3 empirical cards (or decide they intentionally differ)** - the named blind spot; resolves the 5-titled/3-untitled inconsistency in #foundations. Either give each a short finding-name header or add a one-line rationale for the conceptual/empirical distinction.
+2. **Source the Deming epigraph** - "Without data, you're just another person with an opinion" is attributed but unlinked; same sourcing discipline this iteration established for the prose could extend to the pull-quote cite.
+3. **Mobile / narrow-width pass** - standing since iter-128; now also covers the new lineage headers and the longer linked prose paragraph.
+
