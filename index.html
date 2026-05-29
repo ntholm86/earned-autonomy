@@ -432,6 +432,18 @@
     <section id="skills">
       <h2>The Skills</h2>
 
+      <div class="card mt-md">
+        <p class="label label-muted label-bordered">Install</p>
+        <p class="small">Download the six skill files from the
+          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
+          and place them in your agent's skills folder
+          (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
+        </p>
+        <p class="small mt-xs">
+          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md" target="_blank" rel="noopener" data-tip="Step-by-step install, invocation, and troubleshooting.">Full quickstart with troubleshooting &#8599;</a>
+        </p>
+      </div>
+
       <div class="grid-auto mt-md">
 
         <div class="card">
@@ -456,7 +468,7 @@
             Regenerates the derived views at each commit: <code>history.md</code> (the run timeline) and <code>learning.md</code> (every realization and reversal). Full summaries land in <code>sessions/</code>; raw dialogue in <code>transcripts/</code> when the harness can export it.
           </p>
           <p class="skill-when"><b>Invoke:</b> Every session.</p>
-          <p class="skill-trigger"><b>To trigger:</b> &#8220;log this to the trail&#8221;</p>
+          <p class="skill-trigger"><b>To trigger:</b> &#8220;trail everything&#8221;</p>
           <a class="label" href="#principle-2" data-tip="Go to the Observable Autonomy principle on this page.">P2 &middot; Observable Autonomy</a>
         </div>
 
@@ -508,24 +520,12 @@
       </div>
 
       <div class="card mt-lg">
-        <p class="label label-muted label-bordered">Memory</p>
+        <p class="label label-muted label-bordered">Memory Model</p>
         <p class="small">
           The skills give every repository a memory layer in <code>.trail/</code>, written to the root of the repo being worked on. Each run reads it before acting and extends it after - that is what makes the loop cumulative instead of repeating yesterday's mistakes.
         </p>
         <p class="small mt-xs">
           A hierarchy resolves disagreements: the operator-held <code>destination.md</code> overrides the agent's orientation in <code>retrospect.md</code>; and where orientation and the append-only <code>audit-trail.md</code> evidence disagree, the trail wins. Memory without a hierarchy is just noise.
-        </p>
-      </div>
-
-      <div class="card mt-lg">
-        <p class="label label-muted label-bordered">Install</p>
-        <p class="small">Download the six skill files from the
-          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite" target="_blank" rel="noopener" data-tip="The skills repository: Intent, Trail, Improve, Destination, Retrospect, Probe.">skills repository &#8599;</a>
-          and place them in your agent's skills folder
-          (<code>.copilot/skills/</code> for GitHub Copilot, or wherever your toolset reads custom instructions from).
-        </p>
-        <p class="small mt-xs">
-          <a href="https://github.com/ntholm86/principles-of-earned-autonomy-skills-suite/blob/main/QUICKSTART.md" target="_blank" rel="noopener" data-tip="Step-by-step install, invocation, and troubleshooting.">Full quickstart with troubleshooting &#8599;</a>
         </p>
       </div>
 

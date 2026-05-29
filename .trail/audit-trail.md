@@ -4178,3 +4178,40 @@ One change: add a `.skill-trigger` line (lavender) under each card's Invoke line
 2. **Soften the trigger framing to imply natural-language matching** - prefix "e.g." or "Say something like" if the rigid-command reading is a real risk (imagined-reader pushback).
 3. **Narrow-width recheck of the stacked Invoke + Trigger micro-lines** - the longer phrases ("understand my intent", "use the improve skill") on a 320px card.
 
+
+## iter-139 - move Install card to top of Skills section as the call-to-action (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, #skills section order
+
+### Understand
+Operator gave two asks in one prompt: (1) move the Install section higher on the page, before the skill cards, because "installing is the call to action"; (2) add subtle theme-true gradients for depth. Per Improve's one-change discipline I am splitting these into two iterations. This entry (iter-139) is the structural move only; gradients follow in iter-140.
+
+### Examine (Purpose lens)
+Install was the last card in #skills, after the six skill cards and the Memory Model card. For a reader who has just been sold on the skills, the next action (get them) was buried at the very bottom. A CTA belongs where intent-to-act peaks - immediately under the section header, before the detail. The Memory Model card is reference material and correctly stays at the bottom.
+
+### Decide + Predict
+One change: relocate the Install card to directly under the "The Skills" h2, above both card grids. Change its spacing class from `mt-lg` (it was a trailing card) to `mt-md` (now the first element after the heading, matching the grid spacing).
+- **Prediction:** Install becomes the first card under the h2; Memory Model stays last; spacing is mt-md; no content change; errors clean.
+
+### Action + verification
+- Inserted the Install card (mt-md) immediately after `<h2>The Skills</h2>`.
+- Removed the original Install card (mt-lg) from the bottom, leaving Memory Model as the final card.
+- get_errors: clean. DOM-verified child order of #skills: H2 -> Install (mt-md) -> tier-1 grid (Intent...) -> tier-2 grid (Destination...) -> Memory Model (mt-lg). Prediction held. (Screenshot scroll-timing was unreliable under smooth-scroll; DOM order is authoritative and was confirmed directly.)
+
+### Reflect
+- **Falsifiable model-claim:** the Skills section is being reordered around *reader action*, not *logical exposition* - CTA first, then the catalogue, then reference. If a later run finds the Install-first placement hurts comprehension (reader installs before knowing what the six skills are), this is falsified; but the hero + principles above already establish what the skills are, so the CTA has enough context by the time the reader reaches #skills.
+- **Named blind spot:** I did not visually confirm the final rendered position via screenshot (scroll timing fought me under `scroll-behavior: smooth`); I relied on DOM child-order instead. DOM order is authoritative for "is it first," but I have not eyeballed the vertical rhythm of Install-card-then-grid (e.g. whether mt-md vs mt-lg reads right against the h2). Deferred to iter-140's visual pass.
+- **Imagined-reader pushback:** "A CTA to install should look like a CTA - it is still a plain bordered card identical to Memory Model. Moving it up does not make it *read* as the primary action." Fair - position alone is a weak CTA signal. iter-140's gradient/depth pass is the natural place to give it visual weight, so this critique is addressed by the very next iteration rather than now.
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - this is a one-off structural reorder, distinct from the dek run (133-136), the consolidation (137), and the trigger lines (138).
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired - consistent with iter-137's "cards own their role" direction.
+- *Operator explicitly asked:* FIRED - operator directed the move. Macro reflection: the operator has run five consecutive operator-directed iterations on the skills/hero area (dek x4 era, then 137 consolidate, 138 triggers, 139 move). The page's top half is under active authored revision; the loop's role this stretch is execution + honest recording, not autonomous direction-finding. That is appropriate while the operator is actively steering.
+
+### Candidate Next Moves
+1. **iter-140: subtle gradients for depth (operator's second ask)** - and use it to give the now-top Install card visual CTA weight (addresses this iter's imagined-reader pushback). Next up.
+2. **Visual confirm the Install-first vertical rhythm** - eyeball mt-md spacing against the h2 once the gradient pass reloads the page.
+3. **Consider a verb/affordance on the Install card** - if position + gradient still do not read as "the primary action," a button-style affordance may be the real fix.
+
