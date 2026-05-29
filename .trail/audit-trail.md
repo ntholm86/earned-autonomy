@@ -3960,3 +3960,38 @@ CSS: added blockquote.pull-quote (sage border-left, clamp font, italic, ink) + c
 2. **Reconcile the #memory section intro with the repurposed #trail** - #memory still frames audit-trail.md as "the source of truth everything is derived from"; confirm the two sections now read as complementary (mechanism vs evidence) and not redundant.
 3. **Operator: answer iter-84's convergence question** - retro-005's standing #1, still blocked on operator input.
 
+
+## iter-133 - hero dek carries the differentiator (Improve skill v3.9.2)
+_2026-05-29_
+
+**Target:** c:\git\pea-website\index.html, hero section
+
+### Understand
+Operator was considering moving the new #trail "Built by the loop it describes" section up to the hero, because "this piece of text truly is what's different about this skillset." They were unsure about hero framing and asked directly: "what do YOU think about all this. understand my intent." They offered two literal options: (a) reinstate a box below the hero with the convergence paragraph (or a shorter version), or (b) move the whole #trail section up but keep it digestible. Read destination.md (incl. iter-132 update) and retrospect.md (retro-005). Active rules: 1 (no inline style), 3 (reuse before inventing classes), 16 (hyphen-only), 18 (browser-verify).
+
+### Examine (Purpose lens, against the destination)
+The differentiator (no human designed this; independent models could not improve it) is the page's one uncopyable claim, and it currently sits 6 sections down. The destination's standing #1 open item (iter-84) is exactly "recognition + intrigue not yet achieved; the hook must name relief before framework language." So surfacing the differentiator high is destination-aligned. BUT: the destination's primary reader is non-technical, arriving cold ("if they don't get the point without reading every paragraph, the page has failed"). The full #trail section leans on "Kaizen, Kaikaku, Hansei, Toyota Kata, fixed point" - jargon that is impressive to an insider and opaque to a cold reader. Moving the whole section to the hero would put jargon above the fold.
+
+### Decide + Predict
+Rejected both literal options. Synthesis instead: reinstate the hero dek (the "thing below the hero" the operator remembered) carrying the *essence* of the differentiator in plain language, and leave the full lineage story in #trail where the reader has context. ONE change: add `.hero-dek` CSS (no existing class serves a larger-muted lead - checked .small/.mono/.label/.max-prose) + one `<p class="hero-dek">` below the H1: "No one wrote these skills. They are what an improvement loop produced after running on itself 200+ times - and it stopped only when independent AI models could find nothing left to change." Key clause bolded to ink.
+- **Prediction:** hero gains one muted subtitle line, larger than body, reading as proof under the promise H1. No layout breakage; #trail untouched; page stays hyphen-only; get_errors clean.
+
+### Action + verification
+CSS: added `.hero-dek` (clamp 1.1-1.35rem, line-height 1.5, --muted, max-width 54ch, margin-top gap-sm) + `.hero-dek strong` (ink, medium). HTML: dek paragraph inserted below the H1 with the strong-wrapped final clause. get_errors: clean. Browser-verified at #top: H1 in ink/bold, dek in muted with "independent AI models could find nothing left to change" in ink/bold, comfortable measure, on-theme. Prediction held exactly. Hyphen-only respected (spaced hyphen, no em-dash).
+
+### Reflect
+- **Falsifiable model-claim:** The page's hero now states proof, not just promise; the differentiator is above the fold in cold-reader-legible form. If the next cold-reader signal still says "sounds like every other AI tool," the gap has moved from *placement* to *the promise H1 itself* (which remains a generic claim any vendor could write).
+- **Named blind spot:** Mobile/narrow-width unverified (standing blind spot). The dek uses clamp() and a ch-based max-width so it should reflow, but the H1+dek stack height on a small viewport - whether it pushes the first principle card too far down - was not checked. Also did not A/B the dek against simply rewriting the H1 itself to carry proof; chose the additive (reversible) move over rewriting the headline.
+- **Imagined-reader pushback:** "Is a dek that says 'no one wrote these skills' overclaiming?" It is literally true of the skillset's convergence origin (per #trail and the public audit-trail), but a skeptical reader may read it as marketing hyperbole until they reach the evidence. The bolded clause and the downstream trail link carry the proof; the risk is the gap between claim (hero) and evidence (section 6).
+
+### Across-trail reflection
+- *Recurring finding-class:* not fired - first hero-content change since iter-84 (hero H1 wording).
+- *About to declare silence:* not fired - a change was made.
+- *Contradicts prior [!REALIZATION]:* not fired - consistent with iter-132's "convergence story is the credibility lever" and destination iter-84's relief-before-framework finding.
+- *Operator explicitly asked:* fired - operator delegated the judgment ("what do YOU think") and invoked Improve.
+
+### Candidate Next Moves
+1. **Operator react to the dek** - confirm the framing, or decide the H1 itself should carry the proof (the bigger move I deliberately did not gamble on this iteration).
+2. **Mobile/narrow-width check** - now also covering the taller hero stack (H1 + dek).
+3. **Reconcile dek claim with #trail** - if the dek stays, #trail's opening paragraph now partly repeats it; consider tightening #trail's lead so the two read as escalation (hook -> full story), not repetition.
+
