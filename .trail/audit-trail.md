@@ -5111,3 +5111,20 @@ Zero CSS changes. code renders amber on amber-lt (existing token) - trigger phra
 5. Confirm First session card closes the reader gap
 
 **Loop-effectiveness finding:** The operator-gate unblocked -- real feedback, real gap identified, addressed in two iterations. Remaining concern: the trail gap is a credibility problem for a page about Observable Autonomy. Three retrospect cycles have not closed it.
+
+
+---
+
+## iter-174 -- 2026-05-31
+
+**Ask:** Proceed from retro-006 candidate #1.
+
+**Intent:** On Authorship card reads "Kaizen and Hansei are post-war Japanese manufacturing." Kaikaku is named throughout the page (Lineage section, Improve skill) but missing from this sentence. Flagged iter-165, survived three retrospect cycles.
+
+**Examine:** Single sentence, single omission. Kaikaku is the second TPS concept in the three-part Kaizen/Kaikaku/Hansei structure built in iter-167 and referenced across the Lineage section. The authorship card is the page's credibility statement -- it should list everything it borrows, not a subset.
+
+**Change:** "Kaizen and Hansei" -> "Kaizen, Kaikaku, and Hansei" in the On Authorship card.
+
+**Predict:** No visual change. One word added. The authorship card is now consistent with the rest of the page.
+
+**Reflect:** Three-iter candidate, one edit. The deferral was never about difficulty.
