@@ -4984,3 +4984,31 @@ Inconsistency lens: Every other card has 2-3 sources with at least one instituti
 **Predict:** No visual structure change. Cold reader now sees the relationship immediately on scan. The cross-link creates a navigable connection from Toyota Kata to the TPS card.
 
 **Reflect:** The page now has explicit intellectual genealogy: Toyota Kata (Rother, 2009) derived from TPS observation - TPS is the source, Toyota Kata is the teaching abstraction of it. This is the accurate and honest structure.
+
+
+---
+
+## iter-170 — 2026-05-31
+
+**Ask:** "Take a look at the intellectual lineage section and think about if the order should be different to make more sense. understand my intent. use improve."
+
+**Intent:** Source-order audit: does the card sequence produce a coherent narrative for a reader scanning top to bottom, or are cards stranded in the wrong conceptual cluster?
+
+**Examine (Inconsistency lens):**
+
+Current order: Auftragstaktik (P1) - Toyota Kata (P1 + Improve) - Socratic Method (P1) - Saltzer/Schroeder (P2) - Flight Recorder (P2) - Reproducibility (P2+P3) - TPS (Improve+P3) - Delphi (P3).
+
+Two problems:
+1. Toyota Kata sits in the P1 cluster but its primary page weight is the Improve skill, not P1. Its P1 connection (operator/learner) is secondary to its role as the Improve skill's structural origin.
+2. Toyota Kata comes BEFORE TPS even though iter-169 established it is derived from observing TPS. Source after derivative.
+
+**Change (single):** Move Toyota Coaching Kata from position 2 (inside the P1 cluster) to position 7 (after TPS, before Delphi). Cards now read as three clean bands:
+- P1: Auftragstaktik, Socratic Method
+- P2: Saltzer/Schroeder, Flight Recorder, Reproducibility
+- P3/Improvement: TPS (the source), Toyota Kata (Rother's teaching abstraction of TPS), Delphi
+
+The TPS-to-Toyota-Kata derivation now reads in the correct direction. All anchor IDs and cross-links are unchanged - no broken references.
+
+**Predict:** No visual change per card; only scan order changes. The P1 cluster becomes tighter (two cards that purely map to P1), and the improvement cluster at the end gains internal coherence (TPS first, its derivative second, Delphi third).
+
+**Reflect:** The reorder surfaces an implicit narrative the section already had but did not express: the page's improvement tradition runs TPS (the practice) - Toyota Kata (the teaching framework) - Delphi (the convergence mechanism). All three were there; now they are in the right sequence.
