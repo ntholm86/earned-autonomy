@@ -5212,3 +5212,38 @@ Finding B (Consolidated code): --card-accent dead variable. The SURFACES comment
 **Predict:** Zero visual change. Scroll paint performance improved on mobile (GPU compositing restored). CSS is 2 lines shorter; the comment is no longer misleading.
 
 **Reflect:** ackground-attachment: fixed is a common aesthetic habit that carries hidden mobile cost. The --card-accent finding is a documentation-reality mismatch: the comment documented intent rather than fact, and the intent was never implemented. Both survive because they look plausible and don't cause visible bugs.
+
+---
+
+## iter-178 -- 2026-05-31 -- animation system + gradient depth
+
+**Interpretation:** Operator requested "high performing vanilla tech subtle animations and gradients for more depth" to make the site feel significantly more professional without disturbing the visual. Intent read as: a cohesive visual upgrade pass -- multiple coordinated subtle effects, not one tweak.
+
+**Examination:**
+- CSS baseline: GPU-composited properties only (transform, opacity, translate) -- everything else causes a repaint if animated on scroll or continuously
+- animation-timeline: view() is Chrome/Edge/Safari only; Firefox has no support -- must be @supports-gated
+- Critical conflict: animation-fill-mode: both locks whatever property the keyframe uses; hover transitions on the same property will not fire. Resolution: use standalone `translate` property (CSS Transforms L2) for entrance animations, `transform` for hover effects. These are separate cascade properties -- compositor handles them independently.
+- Gradient depth: existing card highlight at 3% (#fff) was barely perceptible. CTA teal wash at 12% was understated.
+
+**Challenge:** The animation-range: entry 0% entry 30% fill behavior -- do elements already in-viewport on page load appear correctly? Answer: yes -- elements visible on load have already passed the entry phase so fill-mode: both (forwards fill) holds them at the `to` state (opacity: 1, translate: 0 0). No flash.
+
+**Decision:** One coherent iteration -- animation layer + gradient depth together. Both serve the same "more professional, more dimensional" goal.
+
+**Actions:**
+1. `.card, .lineage-card` gradient: #fff 3% -> #fff 5%, added #000 4% stop at 100% for lower-corner depth
+2. `.card-cta` gradient: teal 12% -> 16%, added #000 4% stop at 100%
+3. `.lineage-card` gradient: accent 7% -> 11%, range tightened to 42%
+4. New ANIMATIONS section (before </style>):
+   - @keyframes fade-up: opacity 0->1, translate 0 14px -> 0 0
+   - Hero h1 + .hero-dek: staggered time-based entrance (universal, all browsers)
+   - @supports (animation-timeline: view()): scroll-driven entrance on .card, .lineage-card, blockquote.pull-quote
+   - .card hover: translateY(-3px) + box-shadow: 0 6px 24px rgba(0,0,0,.32) -- transition 0.2s
+   - .lineage-card hover: left-accent glow via box-shadow: -4px 0 12px -2px color-mix(in srgb, var(--accent) 65%, transparent)
+   - .pea-icon: scale(1.1) on h3:hover
+   - a.chip: micro-lift translateY(-1px) on hover
+   - .btn: added transform to transition; :active { transform: scale(0.97) }
+   - nav > a.label: sliding underline reveal (background-size 0 -> 100%)
+   - blockquote.pull-quote: border brightens on hover via color-mix
+   - @media (prefers-reduced-motion: reduce): collapses animation-duration/iteration-count/transition-duration to 0.01ms
+
+**Reflection:** The `translate` / `transform` separation is the key technical insight here. Without it, scroll-driven fill-mode would silently freeze hover interactions. The @supports guard is correct progressive enhancement -- Firefox users see the page without entrance animations, which is still a fully functional experience. Eight interactive effects feel cohesive because they share the same motion vocabulary: short durations (0.15-0.3s), ease curves, GPU properties only.

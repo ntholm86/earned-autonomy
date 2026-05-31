@@ -121,7 +121,7 @@
        padding, and border-color to their own accent.
        ============================================================ */
     .card, .lineage-card {
-      background: linear-gradient(155deg, color-mix(in srgb, var(--bg-elev), #fff 3%) 0%, var(--bg-elev) 55%);
+      background: linear-gradient(155deg, color-mix(in srgb, var(--bg-elev), #fff 5%) 0%, var(--bg-elev) 50%, color-mix(in srgb, var(--bg-elev), #000 4%) 100%);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
@@ -129,7 +129,7 @@
     }
     /* CTA: teal-washed surface, strong enough to read as the primary action */
     .card-cta {
-      background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 12%, var(--bg-elev)) 0%, var(--bg-elev) 62%);
+      background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 16%, var(--bg-elev)) 0%, var(--bg-elev) 55%, color-mix(in srgb, var(--bg-elev), #000 4%) 100%);
       border-color: color-mix(in srgb, var(--teal) 30%, var(--rule));
     }
     /* Lineage card: compact, left-accent bar, tinted gradient.
@@ -138,7 +138,7 @@
       --accent: var(--lavender);
       padding: var(--gap-xs) var(--gap-sm);
       border-left: 3px solid var(--accent);
-      background: linear-gradient(to right, color-mix(in srgb, var(--accent) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
+      background: linear-gradient(to right, color-mix(in srgb, var(--accent) 11%, var(--bg-elev)) 0%, var(--bg-elev) 42%);
     }
     .lineage-card.is-evidence { --accent: var(--sage); }
 
@@ -286,6 +286,92 @@
       nav { padding: var(--gap-xs) var(--gap-sm); }
       nav ul { gap: var(--gap-sm); }
       .container { padding: 0 var(--gap-sm); }
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       GPU-only: translate + transform + opacity (compositor-safe).
+       translate (CSS Transforms L2) and transform are separate
+       properties — scroll-driven entrance owns translate; hover
+       lift owns transform. No fill-mode conflict.
+       Scroll entrance: progressive (Chrome/Edge/Safari only;
+       Firefox = static, clean fallback).
+       ============================================================ */
+
+    @keyframes fade-up {
+      from { opacity: 0; translate: 0 14px; }
+      to   { opacity: 1; translate: 0 0; }
+    }
+
+    /* Hero: staggered load entrance (universal) */
+    #top h1        { animation: fade-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    #top .hero-dek { animation: fade-up 0.55s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+    /* Scroll-driven card entrance (progressive enhancement) */
+    @supports (animation-timeline: view()) {
+      .card, .lineage-card, blockquote.pull-quote {
+        animation: fade-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+      }
+    }
+
+    /* Card hover: lift + deeper shadow */
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0,0,0,.32);
+    }
+
+    /* Lineage card hover: left-accent glow */
+    .lineage-card {
+      transition: box-shadow 0.2s ease;
+    }
+    .lineage-card:hover {
+      box-shadow: -4px 0 12px -2px color-mix(in srgb, var(--accent) 65%, transparent);
+    }
+
+    /* Skill icons: scale on h3 hover */
+    .pea-icon { transition: transform 0.2s ease; }
+    h3:hover .pea-icon { transform: scale(1.1); }
+
+    /* Chips: micro-lift on hover */
+    a.chip {
+      transition: border-color var(--ease), color var(--ease), transform var(--ease);
+    }
+    a.chip:hover { transform: translateY(-1px); }
+
+    /* Button: extend transition to include transform; add press */
+    .btn {
+      transition: filter var(--ease), box-shadow var(--ease), transform var(--ease);
+    }
+    .btn:active { transform: scale(0.97); }
+
+    /* Nav brand: sliding underline reveal */
+    nav > a.label {
+      background-image: linear-gradient(currentColor, currentColor);
+      background-size: 0 1px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.3s ease, color var(--ease);
+    }
+    nav > a.label:hover { background-size: 100% 1px; }
+
+    /* Pull-quote: border brightens on hover */
+    blockquote.pull-quote { transition: border-color 0.3s ease; }
+    blockquote.pull-quote:hover {
+      border-color: color-mix(in srgb, var(--sage) 80%, white);
+    }
+
+    /* Reduced motion: collapse all animation and transition */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
