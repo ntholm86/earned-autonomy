@@ -13,63 +13,38 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ============================================================
+       TOKENS
+       Semantic color roles: amber=labels  teal=action
+       sage=evidence  lavender=concepts  ink=body  muted=secondary
+       ============================================================ */
     :root {
-      /* Colour - calm dark canvas, syntax-highlighting inspired */
-      /* Background tiers */
-      --bg:        #1e2030;   /* deep navy-charcoal */
-      --bg-elev:   #252a3a;   /* one tier up - cards, code blocks */
+      --bg:       #1e2030;   --bg-elev:  #252a3a;
+      --ink:      #e4e7ec;   --muted:    #a8b1c2;   --rule: #2f3548;
+      --amber:    #e7c97a;   --teal:     #7fd1c5;
+      --lavender: #c4a7e7;   --sage:     #a3d6a7;
+      --amber-lt: color-mix(in srgb, var(--amber) 18%, var(--bg));
 
-      /* Text tiers */
-      --ink:       #e4e7ec;   /* off-white body (~12:1 on --bg) */
-      --muted:     #a8b1c2;   /* soft slate (~7:1) */
-      --rule:      #2f3548;   /* subtle border */
-
-      /* Semantic colour roles - type determines colour, not section geography */
-      /* amber=labels/headers · teal=action · sage=evidence · lavender=emphasis */
-      --amber:     #e7c97a;   /* labels, headers          - structural announcements */
-      --teal:      #7fd1c5;   /* links, buttons, icons    - action / navigation */
-      --lavender:  #c4a7e7;   /* em emphasis              - conceptual highlights */
-      --sage:      #a3d6a7;   /* evidence borders, circles - verified claims */
-
-      /* Derived tints */
-      --amber-lt:  color-mix(in srgb, var(--amber) 18%, var(--bg));
-
-      /* Fonts */
       --font: 'Inter', system-ui, sans-serif;
       --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
-      /* Type scale */
-      --text-micro:   0.78rem;
-      --text-small:   0.9rem;
-      --text-body:    1rem;
-      --text-title:   clamp(1.5rem, 4vw, 2rem);
+      --text-micro:   0.78rem;  --text-small: 0.9rem;
+      --text-body:    1rem;     --text-title: clamp(1.5rem, 4vw, 2rem);
       --text-display: clamp(2rem, 5vw, 2.75rem);
+      --weight-medium: 600;     --weight-bold: 700;
+      --track-tight: -0.02em;  --track-wide: 0.08em;
 
-      /* Weight */
-      --weight-medium:  600;
-      --weight-bold:    700;
-
-      /* Letter-spacing */
-      --track-tight: -0.02em;
-      --track-wide:   0.08em;
-
-      /* Spacing - 4 stops */
-      --gap-xs: 0.5rem;
-      --gap-sm: 1rem;
-      --gap-md: 1.5rem;
-      --gap-lg: 2rem;
-
-      /* Layout */
-      --max:       760px;
-      --radius:    8px;
-      --radius-sm: 4px;
-      --ease:      0.15s;
+      --gap-xs: 0.5rem;  --gap-sm: 1rem;
+      --gap-md: 1.5rem;  --gap-lg: 2rem;
+      --max: 760px;  --radius: 8px;  --radius-sm: 4px;  --ease: 0.15s;
     }
 
-    /* === Base === */
+    /* ============================================================
+       BASE
+       ============================================================ */
     html { font-size: 17px; scroll-behavior: smooth; }
-    :target { scroll-margin-top: 4.5rem; }
     html, body { overflow-x: clip; }
+    :target { scroll-margin-top: 4.5rem; }
     body {
       background:
         radial-gradient(1100px 520px at 50% -8%, color-mix(in srgb, var(--teal) 7%, var(--bg)) 0%, transparent 60%),
@@ -78,7 +53,6 @@
       background-color: var(--bg);
       color: var(--muted);
       font-family: var(--font);
-      font-size: var(--text-body);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
@@ -86,6 +60,9 @@
     h1 { font-size: var(--text-display); letter-spacing: var(--track-tight); margin-bottom: var(--gap-sm); }
     h2 { font-size: var(--text-title);   letter-spacing: var(--track-tight); margin-bottom: var(--gap-sm); }
     h3 { font-size: var(--text-body);    margin-bottom: var(--gap-xs); }
+    h3 a { color: var(--amber); }
+    h3 a:hover { color: var(--teal); }
+    h3:has(> svg) { display: flex; align-items: center; gap: var(--gap-xs); }
     p  { margin-bottom: var(--gap-xs); }
     p:last-child { margin-bottom: 0; }
     strong { color: var(--ink); font-weight: var(--weight-medium); }
@@ -94,24 +71,36 @@
     a  { color: var(--teal); text-decoration: none; transition: color var(--ease); }
     a:hover { text-decoration: underline; }
     ul, ol { list-style: none; }
-    /* === Hero ===
-       Dek carries the differentiator in plain language beneath the promise H1.
-       Larger than body, muted, held to a comfortable measure. */
-    .hero-dek {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-      line-height: 1.5;
-      color: var(--muted);
-      max-width: 54ch;
-      margin-top: var(--gap-sm);
+    code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      color: var(--amber);
+      background: var(--amber-lt);
+      padding: 0.1em 0.35em;
+      border-radius: var(--radius-sm);
     }
-    /* === Layout === */
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
-    section { padding: var(--gap-lg) 0; }
-    .stack    { display: flex; flex-direction: column; gap: var(--gap-sm); }
-    .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
-    .grid-auto { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
 
-    /* === Labels === */
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .container  { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
+    section     { padding: var(--gap-lg) 0; }
+    .stack      { display: flex; flex-direction: column; gap: var(--gap-sm); }
+    .row        { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
+    .grid-auto  { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
+    .mt-md      { margin-top: var(--gap-md); }
+    .mt-lg      { margin-top: var(--gap-lg); }
+    .center     { text-align: center; }
+    .max-prose  { max-width: 600px; }
+    .small      { font-size: var(--text-small); }
+    .micro      { font-size: var(--text-micro); }
+    .mono       { font-family: var(--mono); color: var(--amber); font-weight: var(--weight-medium); }
+    .hero-dek   { font-size: clamp(1.1rem, 2.5vw, 1.35rem); line-height: 1.5; max-width: 54ch; margin-top: var(--gap-sm); }
+
+    /* ============================================================
+       LABELS  (micro uppercase tracking)
+       Colour variants via modifier classes.
+       ============================================================ */
     .label {
       display: block;
       font-size: var(--text-micro);
@@ -121,37 +110,70 @@
       color: var(--teal);
       margin-bottom: var(--gap-xs);
     }
-    .label-muted { color: var(--muted); }
-    .label-amber { color: var(--amber); }
-    .label-bordered {
-      padding-bottom: var(--gap-xs);
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: var(--gap-sm);
-    }
+    .label-muted    { color: var(--muted); }
+    .label-amber    { color: var(--amber); }
+    .label-bordered { padding-bottom: var(--gap-xs); border-bottom: 1px solid var(--rule); margin-bottom: var(--gap-sm); }
+    a.label:hover   { color: var(--amber); }
+    nav .label      { margin-bottom: 0; }
 
-    /* === Surfaces === */
-    .card {
-      background:
-        linear-gradient(155deg, color-mix(in srgb, var(--bg-elev), #fff 3%) 0%, var(--bg-elev) 55%);
+    /* ============================================================
+       SURFACES  — card pattern driven by --card-accent token.
+       Set --card-accent on an element; the gradient and border tint
+       compute automatically from it. Default accent = transparent
+       (plain card). Override for CTA or lineage variants.
+       ============================================================ */
+    .card, .lineage-card {
+      --card-accent: transparent;
+      background: linear-gradient(155deg, color-mix(in srgb, var(--bg-elev), #fff 3%) 0%, var(--bg-elev) 55%);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       padding: var(--gap-sm) var(--gap-md);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 1px 2px rgba(0,0,0,.18);
     }
-    /* Install CTA - teal (action) accent so the primary action reads as one */
+    /* CTA: teal-washed surface, strong enough to read as the primary action */
     .card-cta {
-      background:
-        linear-gradient(150deg, color-mix(in srgb, var(--teal) 12%, var(--bg-elev)) 0%, var(--bg-elev) 62%);
+      --card-accent: var(--teal);
+      background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 12%, var(--bg-elev)) 0%, var(--bg-elev) 62%);
       border-color: color-mix(in srgb, var(--teal) 30%, var(--rule));
     }
+    /* Lineage card: compact, left-accent bar, tinted gradient.
+       --accent defaults to lavender (conceptual); .is-evidence overrides to sage. */
+    .lineage-card {
+      --accent: var(--lavender);
+      padding: var(--gap-xs) var(--gap-sm);
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(to right, color-mix(in srgb, var(--accent) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
+    }
+    .lineage-card.is-evidence { --accent: var(--sage); }
 
-    /* === Pull quote ===
-       Evidence-section epigraph. Sage accent marks it as a verified-claim frame.
-       A faint sage tint emanates from the accent edge, reinforcing the semantic. */
+    /* Lineage card internals */
+    .lineage-title  { font-size: var(--text-small); font-weight: var(--weight-bold); color: var(--ink); margin: 0 0 var(--gap-xs); }
+    .lineage-claim  { color: var(--ink); font-size: var(--text-small); line-height: 1.5; margin-bottom: 0; }
+    .lineage-meta   { font-family: var(--mono); font-size: var(--text-micro); color: var(--muted); margin-top: calc(var(--gap-xs) / 2); margin-bottom: 0; }
+    .lineage-sources {
+      display: flex; flex-direction: column; gap: calc(var(--gap-xs) / 2);
+      padding-top: var(--gap-xs); border-top: 1px solid var(--rule);
+      margin-top: var(--gap-xs); font-size: var(--text-micro);
+    }
+
+    /* Card footer bars: mono micro muted, bordered-top separator.
+       All three variants share the same base; principle-roots uses gap-sm. */
+    .lineage-applies, .skill-trigger, .principle-roots {
+      font-family: var(--mono); font-size: var(--text-micro); color: var(--muted);
+      padding-top: var(--gap-xs); border-top: 1px solid var(--rule); margin-top: var(--gap-xs);
+    }
+    .principle-roots { margin-top: var(--gap-sm); padding-top: var(--gap-sm); }
+    .lineage-applies b, .principle-roots b { color: var(--amber); font-weight: var(--weight-medium); }
+    .lineage-applies a:hover, .principle-roots a:hover { color: var(--amber); }
+    .skill-trigger b { color: var(--lavender); font-weight: var(--weight-medium); }
+
+    /* ============================================================
+       PULL QUOTE  (blockquote epigraph, sage accent)
+       .pull-quote--sm = compact stacked variant
+       ============================================================ */
     blockquote.pull-quote {
       border-left: 3px solid var(--sage);
-      background:
-        linear-gradient(to right, color-mix(in srgb, var(--sage) 9%, transparent) 0%, transparent 42%);
+      background: linear-gradient(to right, color-mix(in srgb, var(--sage) 9%, transparent) 0%, transparent 42%);
       padding-left: var(--gap-md);
       margin: var(--gap-md) 0;
       font-size: clamp(1.25rem, 3vw, 1.6rem);
@@ -160,257 +182,103 @@
       color: var(--ink);
       letter-spacing: var(--track-tight);
     }
-    blockquote.pull-quote cite {
-      display: block;
-      margin-top: var(--gap-xs);
-      font-size: var(--text-small);
-      font-style: normal;
-      letter-spacing: normal;
-      color: var(--muted);
-    }
-    /* Compact variant for stacked multi-quote lists */
-    blockquote.pull-quote.pull-quote--sm {
-      font-size: var(--text-body);
-      line-height: 1.55;
-      margin: var(--gap-sm) 0;
-      padding-left: var(--gap-sm);
-    }
+    blockquote.pull-quote cite { display: block; margin-top: var(--gap-xs); font-size: var(--text-small); font-style: normal; letter-spacing: normal; color: var(--muted); }
+    blockquote.pull-quote.pull-quote--sm { font-size: var(--text-body); line-height: 1.55; margin: var(--gap-sm) 0; padding-left: var(--gap-sm); }
 
-    /* === Concept icons ===
-       One line-art family for every principle and skill. Sized below the h3
-       line-box (1.2em < 1.25 line-height) so they add zero vertical height.
-       Colour comes from the theme's designated icon role (--teal). */
+    /* ============================================================
+       ICONS  (inline SVG, stroke-only, sized to h3 line-height)
+       ============================================================ */
     .pea-icon {
-      width: 1.2em;
-      height: 1.2em;
-      flex: 0 0 auto;
-      color: var(--teal);
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 1.2em; height: 1.2em; flex: 0 0 auto;
+      color: var(--teal); stroke: currentColor; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
     }
-    h3:has(> svg.pea-icon) { display: flex; align-items: center; gap: var(--gap-xs); }
 
-    /* === Lineage card ===
-       Inverts the default reading order: the synthesis claim leads in ink,
-       sources follow as a chip-row beneath a divider. Accent colour signals
-       the kind of lineage (lavender = conceptual, sage = empirical). */
-    .lineage-card {
-      background:
-        linear-gradient(to right, color-mix(in srgb, var(--lavender) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--lavender);
-      border-radius: var(--radius);
-      padding: var(--gap-xs) var(--gap-sm);
-    }
-    .lineage-card.is-evidence {
-      border-left-color: var(--sage);
-      background:
-        linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
-    }
-    .lineage-title {
-      font-size: var(--text-small);
-      font-weight: var(--weight-bold);
-      color: var(--ink);
-      margin: 0 0 var(--gap-xs);
-    }
-    .lineage-claim {
-      color: var(--ink);
-      font-size: var(--text-small);
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-    .lineage-meta {
-      font-family: var(--mono);
-      font-size: var(--text-micro);
-      color: var(--muted);
-      margin-bottom: 0;
-      margin-top: calc(var(--gap-xs) / 2);
-    }
-    .lineage-sources {
-      display: flex;
-      flex-direction: column;
-      gap: calc(var(--gap-xs) / 2);
-      padding-top: var(--gap-xs);
-      border-top: 1px solid var(--rule);
-      margin-top: var(--gap-xs);
-      font-size: var(--text-micro);
-    }
-    /* Card footer bars: mono micro muted, bordered top. Three variants:
-       lineage-applies + skill-trigger share identical spacing (gap-xs);
-       principle-roots uses gap-sm (heavier separation from body text). */
-    .lineage-applies,
-    .skill-trigger {
-      margin-top: var(--gap-xs);
-      padding-top: var(--gap-xs);
-      border-top: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: var(--text-micro);
-      color: var(--muted);
-    }
-    .lineage-applies b { color: var(--amber); font-weight: var(--weight-medium); }
-    .lineage-applies a:hover { color: var(--amber); }
-    .skill-trigger b { color: var(--lavender); font-weight: var(--weight-medium); }
-    .principle-roots {
-      margin-top: var(--gap-sm);
-      padding-top: var(--gap-sm);
-      border-top: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: var(--text-micro);
-      color: var(--muted);
-    }
-    .principle-roots b { color: var(--amber); font-weight: var(--weight-medium); }
-    .principle-roots a:hover { color: var(--amber); }
-    h3 a { color: var(--amber); }
-    h3 a:hover { color: var(--teal); }
-    a.label:hover { color: var(--amber); }
-
-    /* === Tooltip ===
-       Generic. Add data-tip="content" to any element. Pure CSS, no JS.
-       Optional data-tip-align="right" | "left" pins the tooltip to that
-       edge of the host (use near viewport edges). */
+    /* ============================================================
+       TOOLTIP  (pure CSS, no JS)
+       data-tip="text"  on any element.
+       data-tip-align="right|left"  pins near viewport edges.
+       Alignment driven by --tip-l / --tip-r / --tip-tx locals.
+       ============================================================ */
     [data-tip] { position: relative; display: inline-block; }
     [data-tip]::after {
       content: attr(data-tip);
       position: absolute;
-      left: 50%;
       bottom: calc(100% + var(--gap-sm));
-      transform: translateX(-50%) translateY(var(--gap-xs));
+      left: var(--tip-l, 50%);
+      right: var(--tip-r, auto);
+      transform: translateX(var(--tip-tx, -50%)) translateY(var(--gap-xs));
       background: var(--bg-elev);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 4px 12px rgba(0,0,0,.35);
       padding: var(--gap-xs) var(--gap-sm);
       color: var(--ink);
       font-size: var(--text-small);
-      font-weight: normal;
-      letter-spacing: normal;
-      text-transform: none;
-      line-height: 1.4;
-      white-space: normal;
-      width: max-content;
-      max-width: 18rem;
-      opacity: 0;
-      pointer-events: none;
+      font-weight: normal; letter-spacing: normal; text-transform: none;
+      line-height: 1.4; white-space: normal;
+      width: max-content; max-width: 18rem;
+      opacity: 0; pointer-events: none;
       transition: opacity var(--ease), transform var(--ease);
       z-index: 20;
     }
-    [data-tip]:hover::after,
-    [data-tip]:focus-visible::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+    [data-tip]:hover::after, [data-tip]:focus-visible::after {
+      opacity: 1; transform: translateX(var(--tip-tx, -50%)) translateY(0);
     }
-    [data-tip-align="right"]::after {
-      left: auto;
-      right: 0;
-      transform: translateX(0) translateY(var(--gap-xs));
-    }
-    [data-tip-align="right"]:hover::after,
-    [data-tip-align="right"]:focus-visible::after {
-      transform: translateX(0) translateY(0);
-    }
-    [data-tip-align="left"]::after {
-      left: 0;
-      transform: translateX(0) translateY(var(--gap-xs));
-    }
-    [data-tip-align="left"]:hover::after,
-    [data-tip-align="left"]:focus-visible::after {
-      transform: translateX(0) translateY(0);
-    }
+    [data-tip-align="right"] { --tip-l: auto; --tip-r: 0; --tip-tx: 0; }
+    [data-tip-align="left"]  { --tip-l: 0;    --tip-r: auto; --tip-tx: 0; }
 
-    /* === Chips & buttons === */
+    /* ============================================================
+       CHIPS & BUTTONS
+       ============================================================ */
     .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--gap-xs);
-      font-size: var(--text-micro);
-      padding: 0.2rem 0.6rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-sm);
-      color: var(--muted);
-      background: var(--bg-elev);
+      display: inline-flex; align-items: center; gap: var(--gap-xs);
+      font-size: var(--text-micro); padding: 0.2rem 0.6rem;
+      border: 1px solid var(--rule); border-radius: var(--radius-sm);
+      color: var(--muted); background: var(--bg-elev);
       transition: border-color var(--ease), color var(--ease);
     }
     a.chip { text-decoration: none; }
     a.chip:hover { border-color: var(--teal); color: var(--teal); }
     .chip-lg { padding: 0.35rem 0.85rem; font-size: var(--text-small); background: transparent; }
-    /* Primary CTA button - filled teal (action color) with a subtle gradient,
-       dark ink for contrast. The page's single strongest affordance. */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--gap-xs);
-      padding: 0.5rem 1.1rem;
-      border-radius: var(--radius-sm);
-      font-size: var(--text-small);
-      font-weight: var(--weight-medium);
+      display: inline-flex; align-items: center; gap: var(--gap-xs);
+      padding: 0.5rem 1.1rem; border-radius: var(--radius-sm);
+      font-size: var(--text-small); font-weight: var(--weight-medium);
       color: var(--bg);
-      background:
-        linear-gradient(150deg, color-mix(in srgb, var(--teal), #fff 10%) 0%, var(--teal) 100%);
+      background: linear-gradient(150deg, color-mix(in srgb, var(--teal), #fff 10%) 0%, var(--teal) 100%);
       border: 1px solid color-mix(in srgb, var(--teal), #fff 10%);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 3px rgba(0,0,0,.25);
       transition: filter var(--ease), box-shadow var(--ease);
     }
     a.btn { text-decoration: none; }
-    a.btn:hover { filter: brightness(1.07); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
+    a.btn:hover { filter: brightness(1.07); box-shadow: 0 2px 6px rgba(0,0,0,.3); }
 
-    /* === Text helpers === */
-    .small  { font-size: var(--text-small); }
-    .micro  { font-size: var(--text-micro); }
-    .center { text-align: center; }
-    .max-prose { max-width: 600px; }
-
-    /* === Spacing & flex utilities === */
-    .mt-md  { margin-top: var(--gap-md); }
-    .mt-lg  { margin-top: var(--gap-lg); }
-
-    /* === Mono accent === */
-    .mono { font-family: var(--mono); color: var(--amber); font-weight: var(--weight-medium); }
-    code {
-      font-family: var(--mono);
-      font-size: 0.82em;
-      color: var(--amber);
-      background: var(--amber-lt);
-      padding: 0.1em 0.35em;
-      border-radius: var(--radius-sm);
-    }
-    /* === Nav ===
-       A faint teal-top fade echoes the canvas radial glow the header sits over. */
+    /* ============================================================
+       NAV  (sticky, faint teal glow top edge echoes body radial)
+       ============================================================ */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: var(--gap-sm) var(--gap-md);
       border-bottom: 1px solid var(--rule);
-      position: sticky;
-      top: 0;
-      background:
-        linear-gradient(180deg, color-mix(in srgb, var(--teal) 5%, var(--bg)) 0%, var(--bg) 100%);
+      position: sticky; top: 0;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--teal) 5%, var(--bg)) 0%, var(--bg) 100%);
       z-index: 10;
     }
-    nav .label { margin-bottom: 0; }
     nav ul { display: flex; gap: var(--gap-md); }
     nav ul a { font-size: var(--text-small); color: var(--muted); }
     nav ul a:hover { color: var(--teal); text-decoration: none; }
 
-    /* === Footer === */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     footer { border-top: 1px solid var(--rule); padding: var(--gap-lg) 0; }
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: var(--gap-md);
-    }
-    .footer-bottom {
-      margin-top: var(--gap-md);
-      padding-top: var(--gap-sm);
-      border-top: 1px solid var(--rule);
-    }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--gap-md); }
+    .footer-bottom { margin-top: var(--gap-md); padding-top: var(--gap-sm); border-top: 1px solid var(--rule); }
 
-    /* === Responsive === */
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
     @media (max-width: 540px) {
       nav { padding: var(--gap-xs) var(--gap-sm); }
       nav ul { gap: var(--gap-sm); }
