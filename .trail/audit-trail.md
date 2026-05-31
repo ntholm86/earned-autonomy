@@ -4757,3 +4757,17 @@ Turn 2 (CSS consolidation):
 1. Browser-render the skills section top to confirm the Deming pull-quote reads as a strong opener at this position (not too large/dominating relative to the section heading).
 2. Check if the nav "Trail" label still reads correctly now that it scrolls into the middle of the Skills section - could be renamed to "Skills" with Trail anchor removed, or left as-is.
 3. Consider whether the pull-quote style (large display italic) is the right register for the intro position vs. a more compact variant.
+
+## iter-159 -- 2026-05-31 -- move Deming quote to end of proof block, resize to pull-quote--sm
+
+**Ask:** Move the Deming quote to after "The full record is public and append-only" paragraph; style it as pull-quote--sm (matching the testimonials compact format).
+
+**Intent:** The quote is a payoff, not an opener. The argument builds - 200+ iterations, converged, record is checkable - and then the quote lands: without data you'd just have opinion, we have data. Moving it to the bottom makes it the rhetorical conclusion. Styling to pull-quote--sm matches the other compact quotes on the page and avoids a large display-size block dominating the opening of the skills section.
+
+**Action:** Removed blockquote from top of the div; inserted it after the "full record is public" paragraph; changed class from "pull-quote" to "pull-quote pull-quote--sm".
+
+**Prediction held:** Section now reads: prose argument -> "full record" close -> Deming quote as punctuation -> trail chip -> install CTA.
+
+**Reflection (6a):** The reading order is now: claim, evidence, quote as punctuation. This is the standard structure for evidence-first persuasion. The pull-quote--sm style matches the testimonials section register. Blind spot: not browser-rendered.
+
+**Across-trail evaluation:** No trigger fired.
