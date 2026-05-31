@@ -225,3 +225,54 @@ The destination is no longer primarily a *clarity/polish* problem; it is a *mess
 - Still open (carried, now possibly answerable): iter-84's convergence criterion. This run proposes a candidate answer (inference 4) but does NOT treat it as confirmed â€” the operator adjudicates.
 - Unchanged: "serious and credible, not promotional" still binds. Inference 1 (message over polish) does not license promotional voice; iter-146 must deepen meaning, not add hype.
 
+
+---
+
+## Destination update -- iter-178 -- 2026-05-31
+
+**Arc covered:** iter-147..178 (post-retro-005 through retro-006 close and visual upgrade pass)
+
+### What happened and what it means
+
+**The Intellectual Lineage section was built.** The entire iter-147..173 arc was structural addition -- the most substantial new section since Principles. Three band structure (P1 lineage / P2 lineage / P3+improvement lineage), source quality audited, genealogy clarified (Toyota Kata is Rother 2009, derived from TPS observation, not a TPS component), visual hierarchy corrected (iter-172 settled the label-muted vs. .label taxonomy). The section is architecturally stable.
+
+**retro-006 ran (2026-05-31).** Primary finding: the cold-reader test finally happened (iter-171). External signal confirmed the page communicates what the skills are. The gap it surfaced was usage initiation -- "how to start, cold repo." The First session card (iter-173) addressed this. Whether it resolves the gap is still untested.
+
+**retro-006 closed four of its own candidates in the same session:**
+- iter-174: On Authorship -- Kaikaku added (flagged iter-165, closed immediately post-retro)
+- iter-175: Improve card -- reasoning spine surfaced ("examines the target, challenges the first read, decides, acts")
+- iter-176: Trail gap iter-88..146 -- closed with honest [!REALIZATION] (integrity concern resolved)
+- iter-177: CSS quality pass -- background-attachment:fixed removed (mobile GPU compositing), dead --card-accent removed
+
+**iter-178: animation system.** The operator requested a visual upgrade pass: "high performing vanilla tech subtle animations and gradients for more depth." This is the first time the operator has directed work at the page's *feel* rather than its content or structure. Implemented: scroll-driven card entrances (Chrome/Edge/Safari, @supports-gated), card hover lift, lineage card accent glow, icon scale on h3 hover, chip micro-lift, nav brand underline reveal, pull-quote border brightens, button press. Gradient depth increased across all card surfaces. prefers-reduced-motion kill-switch in place.
+
+### State of the convergence question (iter-84 update)
+
+iter-84 asked: "What would a reader have to say or do after visiting this page for you to feel the page has done its job?" Operator: "I am not sure what done actually looks like."
+
+iter-146 proposed a candidate answer: done = a cold reader *feels* the autonomy+safety duality land -- "I've been trying to solve this, and this names it."
+
+That candidate is still unconfirmed by the operator. What has changed: the page is now significantly more legible. The structural problems (lineage section, First session card, usage gap) have been addressed. The visual quality has been upgraded (iter-178). The remaining open question is whether the *message* lands -- specifically whether the "one move buys both autonomy and safety" claim in Principle #1 is isolated there or lands as the page's spine.
+
+### What the page is now
+
+The current page is:
+- Hero: "Safely delegate complex work to AI and stay accountable." / "Six skills that make an AI's reasoning visible and auditable - so you can delegate the work and still own the result."
+- Skills section above Principles (destination spec met)
+- Improve card: loop reasoning spine present ("examines the target, challenges the first read, decides, acts")
+- Intellectual Lineage section: stable, three-band, source-quality-audited
+- On Authorship: Kaizen, Kaikaku, and Hansei all present
+- First session card: 40-word code-first scannable workflow
+- Animation layer: scroll entrance, hover lift, GPU-composited, motion-safe
+
+### What is still open
+
+- **Convergence criterion** (iter-84): unconfirmed by operator. Candidate: "cold reader feels the autonomy+safety duality land." Still needs operator adjudication.
+- **First session card effectiveness**: the card was written to close the "how to start" reader gap. That gap was identified by real reader feedback. Whether the card closes it is untested.
+- **Mobile verification**: deferred through all of iter-147..178. The Lineage section, First session card, and now the animation system (scroll-driven behavior on touch) have never been verified below --max breakpoint.
+- **Skills section depth** (destination spec, iter-51): Improve is the primary concern -- the destination calls for "loop itself, lineage (Kaizen -> v2 -> v3), and evidence (200+ iterations, two self-rewrites)." The current card surfaces the loop reasoning steps but the lineage and evidence depth are not confirmed present.
+
+### Direction signal from iter-178
+
+The operator's animation request is a new kind of signal. Prior requests were almost entirely content and structure. "Spice up the site" is about experience -- how the page *feels* to navigate, not what it says. This is the first indication that the operator considers the content layer sufficiently stable to invest in the presentation layer. That is a convergence signal, even if the operator has not named it as such.
+
