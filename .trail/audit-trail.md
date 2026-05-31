@@ -5247,3 +5247,19 @@ Finding B (Consolidated code): --card-accent dead variable. The SURFACES comment
    - @media (prefers-reduced-motion: reduce): collapses animation-duration/iteration-count/transition-duration to 0.01ms
 
 **Reflection:** The `translate` / `transform` separation is the key technical insight here. Without it, scroll-driven fill-mode would silently freeze hover interactions. The @supports guard is correct progressive enhancement -- Firefox users see the page without entrance animations, which is still a fully functional experience. Eight interactive effects feel cohesive because they share the same motion vocabulary: short durations (0.15-0.3s), ease curves, GPU properties only.
+
+---
+
+## iter-179 -- 2026-05-31 -- On Authorship: highlight thesis phrase
+
+**Interpretation:** Operator marked "how to delegate real work to an autonomous AI agent and remain structurally accountable for the result" for highlighting. Intent read as: make the cold reader's eye land on this clause specifically. This is the page's foundational problem statement -- the problem no individual principle was written to solve, but which together they solve. Emphasis must serve scannability without changing register.
+
+**Examination:** The phrase sits mid-paragraph, surrounded by historical attribution sentences. A reader skimming On Authorship currently has no visual reason to stop. The clause is the synthesis claim -- the "why this page exists" sentence.
+
+**Challenge:** Two options: `<em>` (lavender, conceptual emphasis per the color system) or `<strong>` (ink, medium weight, fact/assertion). The phrase is a *problem definition*, not a factual assertion. The color system assigns `<em>` to conceptual highlight. Principle #1's pithy quote and the pull-quote both use `<em>`. Lavender is already semantically loaded with "this is the idea the content is organized around." `<strong>` would work visually but fires the wrong semantic signal (assertion vs. framing).
+
+**Decision:** `<em>` wrapping the full phrase including the trailing period. One tag, no CSS change.
+
+**Action:** Wrapped "how to delegate real work to an autonomous AI agent and remain structurally accountable for the result." in `<em>`. No other changes.
+
+**Reflection:** Small change, high-leverage position. The phrase was invisible to skimmers; it is now the visual anchor of the paragraph. The em-dash warning (rule 16) does not apply -- this is a page-scoped rule on new content; the tag wraps existing text.
