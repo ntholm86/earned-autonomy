@@ -4734,3 +4734,26 @@ Turn 2 (CSS consolidation):
 1. Browser-render the foundations section to verify muted/amber/teal contrast reads well on dark background (rule 18 is overdue on this two-iteration visual change).
 2. Check .skill-trigger link colors - the same footer-bar pattern exists in the skills section; if those links are teal at rest in a muted context, they have the same issue.
 3. Declare convergence on link visual weight - if the render looks right, this finding-class can be considered resolved.
+
+## iter-158 -- 2026-05-31 -- consolidate trail section into skills as intro
+
+**Ask:** User confirmed browser render looks right (1). Requested the standalone "Built by the loop it describes" section be consolidated into the skills section as intro text, placed before or after the install card.
+
+**Intent:** The "Built by the loop" content is the credibility proof for the skills. Moving it into Skills as intro establishes PROOF then CTA - the reader understands why these skills are trustworthy before being asked to install them. As a standalone section it was a separate nav destination that structurally suggested equal weight with Skills and Principles, which it does not have - it is evidence for Skills, not a peer section.
+
+**Decision:** Place the content immediately after <h2>The Skills</h2> and before the install card. Drop the <h2>Built by the loop it describes</h2> sub-heading - it becomes intro prose under the section heading. Wrap in <div id="trail" class="mt-md"> so the nav "Trail" link still resolves correctly inside the skills section. Remove the standalone <!-- TRAIL --><div class="container"><section id="trail"> container entirely.
+
+**Prediction:** Skills section reads: heading -> Deming quote -> proof prose -> trail chip -> install CTA -> skill cards. Nav Trail link lands inside skills section (no 404, no layout break). No CSS changes needed. Prediction held - verified in source review.
+
+**Reflection (6a):** The page is now four top-level sections: Principles, Skills, Foundations, and the testimonials block. The trail proof is no longer a peer section - it is the evidence that opens Skills. The destination says "recognition + intrigue within 3 seconds" - the Deming quote + proof prose now immediately follows the Skills heading, which sets the context before the install CTA. Blind spot: did not browser-render post-change to verify scroll/layout; worth confirming the pull-quote's large display size reads well at the top of the skills section rather than as a section epigraph.
+
+**Across-trail evaluation:**
+- Recurring finding-class: not fired.
+- About to declare silence: not fired.
+- Contradicts prior realization: not fired.
+- Operator explicitly asked: not fired.
+
+### Candidate Next Moves
+1. Browser-render the skills section top to confirm the Deming pull-quote reads as a strong opener at this position (not too large/dominating relative to the section heading).
+2. Check if the nav "Trail" label still reads correctly now that it scrolls into the middle of the Skills section - could be renamed to "Skills" with Trail anchor removed, or left as-is.
+3. Consider whether the pull-quote style (large display italic) is the right register for the intro position vs. a more compact variant.
