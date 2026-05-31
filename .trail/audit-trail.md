@@ -4709,3 +4709,28 @@ Turn 2 (CSS consolidation):
 - About to declare silence: not fired.
 - Contradicts prior realization: not fired.
 - Operator explicitly asked: not fired.
+
+## iter-157 -- 2026-05-31 -- mute lineage-applies and principle-roots link rest-state
+
+**Ask:** Continue from iter-156 candidate next move: .lineage-applies a and .principle-roots a links still inherit full teal at rest, creating teal against muted-bar context.
+
+**Examination:** Both footer-bar classes (.lineage-applies, .principle-roots) have color: var(--muted) on the block. Their link children inherited global  { color: var(--teal) }. Hover was already amber via .lineage-applies a:hover, .principle-roots a:hover { color: var(--amber) }. So the only gap was the rest-state: bright teal in an otherwise-muted container.
+
+**Challenge the first read:** Are these links functionally different from citations (iter-156)? Yes - they're internal navigation, not external references. But from the reader's perspective they're optional secondary pointers ("go deeper into the framework"), not primary CTAs. The amber hover already supplies the navigation cue. Full teal at rest in a muted-bar context produces the same visual dominance iter-156 fixed in the citation block.
+
+**Decision:** Add .lineage-applies a, .principle-roots a { color: var(--muted); } before the existing hover rule. One line. Rest-state: muted. Hover: amber (already defined, distinctive from citation hover which is teal). Three-tier link system emerges: teal (primary nav/action) > muted-to-teal (external citations) > muted-to-amber (internal section pointers).
+
+**Prediction:** Applies-in and lineage-roots footers read as fully muted secondary context at rest. Amber on hover distinguishes them from citation links and confirms navigation intent. No change to nav, CTAs, card titles, h3 links anywhere. Prediction held - confirmed in source review.
+
+**Reflection (6a):** The link color system is now intentional at three tiers. The .skill-trigger class shares the footer-bar pattern but its links are not addressed here - it uses color: var(--lavender) for its b element but link color in skill-trigger blocks should be checked in a future run to confirm they don't need the same treatment. Blind spot: still have not browser-rendered post-change (rule 18). The change is color-only; layout is unaffected; but a render would confirm the muted/amber contrast reads well on the dark background.
+
+**Across-trail evaluation:**
+- Recurring finding-class: not fired - this is continuation of a single-iteration concern (link visual weight), not a repeated class across separate concerns.
+- About to declare silence: not fired.
+- Contradicts prior realization: not fired.
+- Operator explicitly asked: not fired.
+
+### Candidate Next Moves
+1. Browser-render the foundations section to verify muted/amber/teal contrast reads well on dark background (rule 18 is overdue on this two-iteration visual change).
+2. Check .skill-trigger link colors - the same footer-bar pattern exists in the skills section; if those links are teal at rest in a muted context, they have the same issue.
+3. Declare convergence on link visual weight - if the render looks right, this finding-class can be considered resolved.
