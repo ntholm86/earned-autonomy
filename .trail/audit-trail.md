@@ -4789,3 +4789,18 @@ Turn 2 (CSS consolidation):
 **Reflection (6a):** The prose is now tighter without losing any substance. P1 builds, P2 describes the method, P3 delivers the convergence conclusion cleanly. P2 remains unchanged - it was not repetitive. Blind spot: not browser-rendered.
 
 **Across-trail evaluation:** No trigger fired.
+
+## iter-161 -- 2026-05-31 -- tighten proof block further, three more cuts
+
+**Ask:** Still too long - shorten without losing depth.
+
+**Cuts:**
+1. P1: removed "each pass improving its own ability" - fully implicit in "aimed at itself, 200+ times".
+2. P2: removed "- an improvement process with enough awareness to examine and rewrite its own definition while understanding what that definition was for" (the elaboration of "the loop itself"). "The target just happened to be the loop itself." now ends the paragraph as a clean full stop - it lands harder alone than embedded in a clause.
+3. P3: "multiple AI models, from different families, each ran the loop and found nothing to improve while the principles still held" compressed to "models from different families each ran the loop and found nothing left to change" - drops the hedging qualifiers without losing the claim.
+
+**What was kept:** The meta-recursive setup, the scale (200+), the lineage arc, the four-beat method description, the punchline sentence, the fixed-point conclusion, the record is checkable. No depth lost.
+
+**Reflection (6a):** The proof block is now ~30% shorter than iter-159 and ~45% shorter than iter-158 original. P2's punchline sentence gains weight from isolation. The depth lives in the structure (meta-loop, lineage, convergence, fixed point) not the word count.
+
+**Across-trail evaluation:** No trigger fired.
