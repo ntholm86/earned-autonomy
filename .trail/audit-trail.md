@@ -4863,3 +4863,24 @@ Turn 2 (CSS consolidation):
 **Candidate next moves:**
 1. Update the Foundations intro text - "Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research" predates the Hansei card; Hansei is now a named entry.
 2. Mobile/narrow-width visual check (retrospect's standing open item).
+
+## iter-165 -- 2026-05-31 -- add Hansei to On Authorship card
+
+**Ask:** "Yes / please continue." iter-164 candidate next move #1: On Authorship card explicitly lists each tradition's origin by name but Hansei is absent - direct inconsistency now that Hansei has its own named card.
+
+**Finding:** On Authorship card: "Kaizen is post-war Japanese manufacturing." Hansei is also from post-war Japanese manufacturing (Toyota Production System). The card names every other tradition in the foundations section and omits Hansei. The intro tagline ("lean manufacturing") is a category description, not an enumeration - it does not need updating. The authorship card is an enumeration and does.
+
+**Change:** Single word change: "Kaizen is" -> "Kaizen and Hansei are". Nothing else touched.
+
+**Prediction:** On Authorship card now names Hansei. A reader checking "is Hansei credited?" finds it here. Prose reads cleanly (the plural "are" is correct). WILL NOT change: any other text.
+
+**Reflection (6a):**
+- *Model-claim:* The On Authorship card is now internally consistent with the lineage section it summarises. This was a factual gap, not a stylistic one.
+- *Blind spot:* Toyota Kata (Mike Rother) is also in the foundations section but not named in the On Authorship card - it's subsumed under "Kaizen" implicitly. This is arguably a similar gap. Left for a future run since the user's direction has been Kaizen/Hansei.
+- *Imagined pushback:* "Kaizen and Hansei are post-war Japanese manufacturing" is accurate but terse. A reader unfamiliar with either may want more. The card's purpose is attribution, not explanation - the cards themselves do the explaining.
+
+**Across-trail evaluation:** No trigger fired.
+
+**Candidate next moves:**
+1. Mobile/narrow-width visual check (retrospect's standing open item; now overdue through five iterations).
+2. Toyota Kata not named in On Authorship card alongside Kaizen/Hansei - same gap pattern.
