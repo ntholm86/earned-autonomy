@@ -4884,3 +4884,32 @@ Turn 2 (CSS consolidation):
 **Candidate next moves:**
 1. Mobile/narrow-width visual check (retrospect's standing open item; now overdue through five iterations).
 2. Toyota Kata not named in On Authorship card alongside Kaizen/Hansei - same gap pattern.
+
+## iter-166 -- 2026-05-31 -- merge Kaizen + Hansei cards into one TPS card
+
+**Ask:** "Yes / please continue." Kaizen, Kaikaku, Hansei should all be in the same article with TPS as the headline. Intellectual lineage is becoming big.
+
+**Intent:** This is a structural consolidation. Two cards covering practices from the same system (TPS) create unnecessary page weight. Merging them reduces the card count by one, makes the TPS family visible as a coherent whole, and brings in Kaikaku (currently a bare Wikipedia link in the proof block with no card) as an equal member.
+
+**Lenses:**
+- *Overburden:* Two separate cards for Kaizen and Hansei both carry the "Toyota Production System" meta label. The reader must mentally connect them.
+- *Inconsistency:* Kaikaku appears in the proof block as an external Wikipedia link with no lineage card. It is a named part of the skill's evolution but invisible in the foundations section.
+- *Purpose:* The foundations section exists to explain why the skills are structured the way they are. The TPS argument - Kaizen + Kaikaku + Hansei = the complete improvement loop - is stronger as a unified statement than as two separate cards.
+
+**Changes:**
+1. Replaced Kaizen article + Hansei article with one merged "Toyota Production System (TPS) - Kaizen, Kaikaku, Hansei" article. id="lineage-kaizen" stays on the article element (all existing #lineage-kaizen links preserved). Added <span id="lineage-hansei"> and <span id="lineage-kaikaku"> inside the card so both anchors still resolve correctly.
+2. Card claim covers all three in sequence: Kaizen (incremental loop), Kaikaku (radical restructuring when increment is not enough), Hansei (reflection before moving on). Combined sources: 2 LEI + 3 Wikipedia + 1 Imai = 6 sources. Applies-in: P3, Improve, Retrospect.
+3. Updated proof block Kaikaku link from external Wikipedia to internal #lineage-kaikaku - consistent with how Kaizen and Hansei link in the same sentence.
+
+**Prediction:** Page has one fewer card in foundations. TPS family reads as a unit. All existing anchor links (#lineage-kaizen, #lineage-hansei) still resolve to the merged card. #lineage-kaikaku is a new working anchor. WILL NOT change: any other card, any other section.
+
+**Reflection (6a):**
+- *Model-claim:* The foundations section now reflects the same structure as the skills: Kaizen/Kaikaku/Hansei are the methodology, not three independent traditions. The page makes a coherent argument.
+- *Blind spot:* Kaikaku now has one source (Wikipedia) vs two for Kaizen and Hansei. Could add an LEI lexicon entry if one exists.
+- *Imagined pushback:* The merged card claim is longer than the old individual claims. Trade-off: three short claims required reading three cards; one medium claim is more scannable as a unit.
+
+**Across-trail evaluation:** No trigger fired.
+
+**Candidate next moves:**
+1. Check lean.org for a Kaikaku lexicon entry - would give Kaikaku the same institutional source depth as Kaizen and Hansei.
+2. Toyota Kata card still names its lineage-applies as P1 and Improve only - now that TPS is a unified card, consider whether Toyota Kata should reference TPS in its claim.
