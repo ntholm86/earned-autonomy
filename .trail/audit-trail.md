@@ -4771,3 +4771,21 @@ Turn 2 (CSS consolidation):
 **Reflection (6a):** The reading order is now: claim, evidence, quote as punctuation. This is the standard structure for evidence-first persuasion. The pull-quote--sm style matches the testimonials section register. Blind spot: not browser-rendered.
 
 **Across-trail evaluation:** No trigger fired.
+
+## iter-160 -- 2026-05-31 -- tighten proof block, remove three repetitions
+
+**Ask:** The proof block (three paragraphs before the Deming quote) was good but repetitive: the same facts stated twice in different registers.
+
+**Repetitions identified:**
+1. P1 "until no model could improve it further" anticipates P3's convergence conclusion - early spoiler of a better-stated point.
+2. P1 "Each version was sharpened by the version before it" - implicit in the evolution story, adds nothing.
+3. P3 abstract + concrete: "the loop is done when independent evaluators find nothing left to change. This skillset reached that point when multiple AI models..." states the principle then immediately restates it as a specific case.
+
+**Changes (surgical - three cuts + one merge):**
+- P1: removed "until no model could improve it further" (period after "ability")
+- P1: removed "Each version was sharpened by the version before it."
+- P3: merged "the loop is done when independent evaluators find nothing left to change. This skillset reached that point when multiple AI models..." into "multiple AI models, from different families, each ran the loop and found nothing to improve while the principles still held." - the concrete instance IS the principle, no need to state both.
+
+**Reflection (6a):** The prose is now tighter without losing any substance. P1 builds, P2 describes the method, P3 delivers the convergence conclusion cleanly. P2 remains unchanged - it was not repetitive. Blind spot: not browser-rendered.
+
+**Across-trail evaluation:** No trigger fired.
