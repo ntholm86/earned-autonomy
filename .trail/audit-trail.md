@@ -5184,3 +5184,31 @@ What the 59 iterations covered (sourced from git log, 2026-05-28):
 **Change:** This entry. No HTML changes.
 
 **Reflect:** Three retrospect cycles of deferral closed by acknowledgment, not by reconstruction. The integrity concern is resolved by naming the gap honestly and citing the real record, not by pretending it can be perfectly reconstructed from memory.
+
+
+---
+
+## iter-177 -- 2026-05-31
+
+**Ask:** Run improve with operator's design lens: Simplicity, Clarity, Consolidated code, Optimized generic CSS, High performing effects, Vanilla tech.
+
+**Intent:** The arc since iter-154 (CSS Kaikaku) has been entirely content and accuracy work. The page has not been read through a code quality lens since before the Lineage section was built. Apply the lens and find what it reveals.
+
+**Examine:**
+
+Purpose lens: page achieves its destination. No purpose gap found this pass.
+
+CSS quality lens -- two findings:
+
+Finding A (High performing effects): ackground-attachment: fixed on ody. Forces the background radial gradient to stay viewport-fixed as the page scrolls. On iOS Safari and older Android browsers, this disables GPU compositing and causes CPU-redrawn scroll repaints -- a known mobile performance regression. The parallax effect is nearly invisible (7% teal, 4% lavender, fades to transparent at 60%). Removing it means the gradient scrolls with the page, which is semantically correct: the glow is a hero-framing device, not a persistent environment.
+
+Finding B (Consolidated code): --card-accent dead variable. The SURFACES comment (lines 120-122) documented an aspirational token-driven card accent system: "Set --card-accent on an element; the gradient and border tint compute automatically from it." This was never implemented. The .card-cta and .lineage-card gradients hardcode their own color values -- they never consume ar(--card-accent). The variable was set in two places, read in zero. Dead code with a misleading documentation promise.
+
+**Challenge:** Is removing ackground-attachment: fixed a visual regression? Check: the gradient fades to transparent at 60% of its 520px height. The page hero is ~300px. By the time you scroll past the hero, the gradient is already gone. The fixed vs scroll difference is imperceptible on desktop and is a performance cost on mobile. Not a regression.
+
+**Change A:** Removed ackground-attachment: fixed from ody background rule.
+**Change B:** Removed --card-accent: transparent from .card, .lineage-card rule and --card-accent: var(--teal) from .card-cta rule. Corrected SURFACES comment to accurately describe what the code actually does.
+
+**Predict:** Zero visual change. Scroll paint performance improved on mobile (GPU compositing restored). CSS is 2 lines shorter; the comment is no longer misleading.
+
+**Reflect:** ackground-attachment: fixed is a common aesthetic habit that carries hidden mobile cost. The --card-accent finding is a documentation-reality mismatch: the comment documented intent rather than fact, and the intent was never implemented. Both survive because they look plausible and don't cause visible bugs.
