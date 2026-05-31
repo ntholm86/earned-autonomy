@@ -5055,3 +5055,25 @@ Uses existing .card + .small + ol pattern. No new CSS. Placed after Install, bef
 **Predict:** KAIZEN/KAIKAKU/HANSEI render teal (--teal: #7fd1c5). "Applies in:" remains amber but is now clearly a footer annotation below a teal section header. All outer grouping labels remain muted - no change to those.
 
 **Reflect:** [!REALIZATION] label-muted should be reserved for grouping/category labels that sit above multiple items (Conceptual traditions, Empirical basis). Labels that are the PRIMARY header inside a content block should use the default .label (teal). The distinction is: organizer-label vs content-header-label. The TPS card exposed this because it is the only card with internal sub-sections.
+
+
+---
+
+## iter-173 — 2026-05-31
+
+**Ask:** "First session" card is bloat - too many words, no scannability, no one will read it.
+
+**Intent:** The card answers the right question (how to start) but in the wrong format. Four paragraphs of explanation when the reader needs four lines to scan. The trigger phrases are the payload; all surrounding prose is noise.
+
+**Change:** Rewrote the four list items to single-line format: code trigger phrase - 4-word purpose. Stripped all explanatory sentences. Replaced closing .small paragraph with .lineage-meta (micro text, muted) since it is a footnote, not body text.
+
+Result:
+1. use the destination skill - set the target. Do this once, on a cold repo.
+2. 	rail everything - add to every prompt. Keeps each run cumulative.
+3. use the improve skill - one change per run. Repeat until it finds nothing.
+4. use the retro skill - arc read. Run after every few improvement iterations.
+Footer: The .trail/ folder is created on first use.
+
+Zero CSS changes. code renders amber on amber-lt (existing token) - trigger phrases are visually primary. Rule 16 enforced: hyphens not em-dashes. Rule 1 enforced: no inline style attribute.
+
+**Reflect:** The code element was already designed to be prominent (amber pill). The old version buried it inside a sentence. The new version leads with it. The card went from 110 words to 40.
