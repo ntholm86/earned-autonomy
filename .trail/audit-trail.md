@@ -5012,3 +5012,27 @@ The TPS-to-Toyota-Kata derivation now reads in the correct direction. All anchor
 **Predict:** No visual change per card; only scan order changes. The P1 cluster becomes tighter (two cards that purely map to P1), and the improvement cluster at the end gains internal coherence (TPS first, its derivative second, Delphi third).
 
 **Reflect:** The reorder surfaces an implicit narrative the section already had but did not express: the page's improvement tradition runs TPS (the practice) - Toyota Kata (the teaching framework) - Delphi (the convergence mechanism). All three were there; now they are in the right sequence.
+
+
+---
+
+## iter-171 — 2026-05-31
+
+**Ask:** User reported that readers find installing the skills easy but "understanding how to exactly use them is harder" - specifically: how to start, when to invoke each skill, and how to get started from a cold repo with no .trail/ folder.
+
+**Intent:** Page gap between "I installed the skills" and "I know what to do first." The skill cards each have trigger phrases but no sequential workflow exists on the page. Three specific unanswered questions: (1) cold repo with no .trail/ - what first? (2) which skill when? (3) what is the session-to-session sequence?
+
+**Examine:** The Install card answers "where to get it." The skill cards answer "what each one does" and "how to trigger it." Nothing answers "in what order do I run them on a fresh project?" The Memory Model card explains the .trail/ structure but not how it gets created.
+
+**Change:** Added a "First session" card between the Install CTA and the skill grid. Four numbered steps:
+1. Cold repo - Destination first (creates .trail/destination.md)
+2. Every session - trail everything (creates/extends .trail/audit-trail.md)
+3. Improvement loop - use the improve skill (repeat until nothing found)
+4. After a few iterations - use the retro skill (creates .trail/retrospect.md)
+Plus one closing line: ".trail/ is created on first use. You do not need to create it."
+
+Uses existing .card + .small + ol pattern. No new CSS. Placed after Install, before the skill grid - the structural position that bridges "I have the files" to "I know the sequence."
+
+**Predict:** Readers who were stuck at first use can now self-unblock without asking the author. The cold-repo question is answered explicitly.
+
+**Reflect:** [!REALIZATION] The page had a dead zone between Install and the skill cards. The skill cards describe what each skill does but not the relationship between them over time. The "First session" card is the missing bridge - it answers the temporal question (what first, what next) that the skill cards deliberately do not address.

@@ -439,6 +439,17 @@
         </p>
       </div>
 
+      <div class="card mt-md">
+        <p class="label label-muted label-bordered">First session</p>
+        <ol class="small">
+          <li><b>Cold repo - no <code>.trail/</code> yet.</b> Write <code>use the destination skill</code>. The agent reads your conversation, states what it thinks you are building, and asks you to confirm or correct. Produces <code>.trail/destination.md</code> - the operator-held target all future runs read first.</li>
+          <li><b>Every session.</b> Add <code>trail everything</code> to your prompt. Trail writes the run to <code>.trail/audit-trail.md</code> - the append-only record that makes each run cumulative instead of repeating yesterday's mistakes.</li>
+          <li><b>Improvement loop.</b> Write <code>use the improve skill</code>. It reads destination, retrospect, and trail - then makes one highest-leverage change. Repeat until it finds nothing.</li>
+          <li><b>After a few iterations.</b> Write <code>use the retro skill</code>. Retrospect reads the full trail and produces <code>.trail/retrospect.md</code> - arc-level orientation and the active rules the agent must follow this run.</li>
+        </ol>
+        <p class="small">The <code>.trail/</code> folder is created by the skills on first use. You do not need to create it.</p>
+      </div>
+
       <div class="grid-auto mt-md">
 
         <div class="card" id="intent">
