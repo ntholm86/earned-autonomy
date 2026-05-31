@@ -4842,3 +4842,24 @@ Turn 2 (CSS consolidation):
 1. Check whether lean.org has a Hansei lexicon entry and add it as a second source to the Hansei card if confirmed - currently only Wikipedia, which is thin for an institutional citation.
 2. Mobile/narrow-width visual check (retrospect's standing open item; the new Hansei card adds content to the foundations section).
 3. Update the "Conceptual traditions" section introduction text - currently the intro paragraph under Foundations says "Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research." - Hansei is now a named card but the intro was written before it existed.
+
+## iter-164 -- 2026-05-31 -- add LEI institutional source to Hansei card
+
+**Ask:** "Better documentation refs / please continue." iter-163 candidate next move #1: Hansei card only has Wikipedia - thin for an institutional citation. Check lean.org for a Hansei lexicon entry.
+
+**Finding:** https://lean.org/lexicon-terms/hansei/ confirmed accessible. LEI definition: "the continuous improvement practice of looking back - a critical part of organizational learning along with kaizen and standardized work. Reflection meetings at project milestones to identify problems, develop countermeasures, and prevent recurrence. Sometimes compared to 'check' in PDCA." Same authority tier as the LEI Kaizen entry already on the Kaizen card.
+
+**Change:** Added LEI Hansei lexicon entry as first source (primary institutional source first, Wikipedia second). Updated Wikipedia tooltip to use the stronger Toyota-specific "no problem is a problem" quote from the article.
+
+**Prediction:** Hansei card now has parity with Kaizen card (one institutional + one Wikipedia source each). WILL NOT change: any other card, any prose.
+
+**Reflection (6a):**
+- *Model-claim:* The lean tradition cards (Kaizen, Hansei, Toyota Kata) now have comparable citation depth. The argument that the Improve skill follows proven industrial methodology can survive a sources-check.
+- *Blind spot:* Mike Rother's Toyota Kata book covers Hansei explicitly - a primary text citation could further strengthen the card if needed.
+- *Imagined pushback:* Two sources is not thin for Hansei. The LEI entry is short but authoritative.
+
+**Across-trail evaluation:** No trigger fired.
+
+**Candidate next moves:**
+1. Update the Foundations intro text - "Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research" predates the Hansei card; Hansei is now a named entry.
+2. Mobile/narrow-width visual check (retrospect's standing open item).
