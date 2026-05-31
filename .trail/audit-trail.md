@@ -4687,3 +4687,25 @@ Turn 2 (CSS consolidation):
 ## iter-155 correction -- 2026-05-31 -- replace dead FDR link
 
 [!REVERSAL] The DST Group URL added in iter-155 was a real 404 for users (fetch tool gave "no content" rather than 404, masking the error). Replaced with confirmed-working source: https://ethw.org/David_Warren - Engineering and Technology History Wiki, maintained by the IEEE History Center. The ETHW entry has the 1954 paper details and ARL Fishermens Bend context. Tooltip updated to reflect the source correctly.
+
+## iter-156 -- 2026-05-31 -- mute lineage source link color at rest
+
+**Ask:** External source links in the lineage cards are visually dominating - when 2-3 bright teal links stack in a .lineage-sources block they pull the eye away from the card's claim and title content.
+
+**Examination:** Global  { color: var(--teal) } at line 71 applies full teal (#7fd1c5) to all links. The .lineage-sources block had no link-color override, so external citation links inherited the same visual weight as navigation, CTAs, and heading links. The density is the problem: a cluster of 3 bright teal lines reads as a band, not as supporting references.
+
+**Decision:** Add .lineage-sources a { color: var(--muted); } + .lineage-sources a:hover { color: var(--teal); }. --muted (#a8b1c2) already means "supporting content" on this page (lineage-meta, card footer bars). Hover restores teal to confirm interactivity. No ad-hoc colors - existing tokens only. Two lines after the .lineage-sources block.
+
+**Prediction:** Source citation links render cool gray at rest; activate to teal on hover. Card titles and claim text visually lead. No layout change. Nav, CTA, principle-roots, inline prose links unaffected.
+
+**Action:** Added 2 lines to CSS block immediately following .lineage-sources definition. No HTML changes. No other CSS touched.
+
+**Outcome vs prediction:** Verified change in source - correct placement, correct tokens. Prediction held.
+
+**Reflection (6a):** The page now has three link tiers: teal (navigation/action), muted-to-teal (external citations), amber-on-hover (internal applies-in anchors). The .lineage-applies a links are still teal at rest; they're less numerous and feel less like a domination problem, but a future run could consider whether they too should default to muted. Blind spot: did not browser-render to verify; rule 18 suggests I should for visual changes. The change is color-only with no layout effect, but a browser check would confirm the muted/hover contrast reads well on the actual dark background.
+
+**Across-trail evaluation:**
+- Recurring finding-class: not fired - this is a new concern (link visual weight), not a repeat of the link/tooltip standardization finding-class (which was tooltip copy and target URL).
+- About to declare silence: not fired.
+- Contradicts prior realization: not fired.
+- Operator explicitly asked: not fired.
