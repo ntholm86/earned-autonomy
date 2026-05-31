@@ -4934,3 +4934,30 @@ Turn 2 (CSS consolidation):
 **Candidate next moves:**
 1. Fetch-verify lean.org/lexicon-terms/toyota-production-system/ - confirm the URL and enrich the tooltip.
 2. On Authorship card now says "Kaizen and Hansei" - should add Kaikaku (iter-165 added Hansei, Kaikaku still missing from that list).
+
+
+---
+
+## iter-168 — 2026-05-31
+
+**Ask:** "Okay we need better specific links to real documentation. understand my intent. use the improve skill."
+
+**Intent:** Source quality audit across the Intellectual Lineage section. Not link standardization (Rule 15 EXHAUSTED) but content: do the links point to specific, primary, institutional sources - or to generic Wikipedia pages?
+
+**Examine:**
+
+Purpose lens: Two specific gaps in the TPS/Toyota cluster:
+1. **Kaikaku sub-section** had only 1 source (Wikipedia). Fetch-verified that lean.org/lexicon-terms/kaikaku/ is live with a full institutional definition: "radical, revolutionary improvement of a value stream to quickly create more value with less waste. Also called breakthrough kaizen."
+2. **Toyota Kata card** third link labeled "Lean Enterprise Institute - the Coaching Kata" but the URL was lean.org/lexicon-terms/kaizen/. Fetch-verified: lean.org/lexicon-terms/toyota-kata/ returns 404 - LEI has no Toyota Kata entry. The label was misleading.
+
+Inconsistency lens: Every other card has 2-3 sources with at least one institutional/primary source. Kaikaku had 1 (Wikipedia only). Asymmetry confirmed.
+
+**Challenge:** Rest of the page audited - Auftragstaktik (US Army PDF), Saltzer/Schroeder (MIT + Cambridge PDFs), Reproducibility (National Academies DOI), Delphi (RAND + 1963 paper), empirical studies (arXiv) are solid. TPS cluster was the weak spot.
+
+**Changes:**
+- index.html: Added lean.org/lexicon-terms/kaikaku/ as first source in Kaikaku sub-section (LEI placed before Wikipedia, consistent with card ordering convention)
+- index.html: Fixed Toyota Kata LEI link label from "Lean Enterprise Institute - the Coaching Kata" to "Kaizen and the Coaching Kata - Lean Enterprise Institute"; updated tooltip to note LEI has no separate Toyota Kata lexicon entry
+
+**Predict:** No visual change - source list order and layout unchanged for all other cards. Kaikaku now has 2 sources (LEI first, Wikipedia second). Toyota Kata label is now accurate.
+
+**Reflect:** [!REALIZATION] lean.org/lexicon-terms/toyota-kata/ is 404. The Coaching Kata is documented by LEI through the Kaizen entry, not a dedicated lexicon term. Any future reference to "the LEI Coaching Kata page" needs to use the Kaizen URL and label it as such. The Toyota Kata book itself (Rother, 2009) remains the primary source.
