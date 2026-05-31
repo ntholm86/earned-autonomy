@@ -5128,3 +5128,30 @@ Zero CSS changes. code renders amber on amber-lt (existing token) - trigger phra
 **Predict:** No visual change. One word added. The authorship card is now consistent with the rest of the page.
 
 **Reflect:** Three-iter candidate, one edit. The deferral was never about difficulty.
+
+
+---
+
+## iter-175 -- 2026-05-31
+
+**Ask:** Proceed from retro-006 candidate #4 -- verify Improve card against iter-51 destination spec.
+
+**Intent:** Destination spec (iter-51) wanted Improve to show: loop steps, lineage, evidence, and be a subsection not a card. Check whether the current card meets this spec or has a genuine gap.
+
+**Examine:**
+- Lineage: covered by section intro text (Kaizen -> Kaizen/Kaikaku/Hansei -> unified). Tick.
+- Evidence: "Applied to itself 200+ times" in the card + section intro coverage. Tick.
+- Subsection vs card: section intro carries the depth; card is the anchor. Partial.
+- Loop steps: MISSING. Card says "Reads the context first - destination, retrospect, trail - acts, and logs it." The word "acts" collapses examine -> challenge -> decide -> act into a black box. A cold reader sees inputs and output but not the reasoning spine that distinguishes this from naive prompting.
+
+**Challenge:** Is the loop-steps gap actually the most important thing? Cold-reader feedback was "how to use them" - First session card addressed that. Loop-steps gap is different: "why is this better than just saying make this better?" That is a Purpose gap, not a usage gap.
+
+**Change:** Surface the reasoning spine in the Improve card second paragraph.
+Before: "acts, and logs it"
+After: "examines the target, challenges the first read, decides, acts, and logs it"
+
+Adds 7 words. Shows the 3 middle steps (examine, challenge, decide) that were invisible inside "acts."
+
+**Predict:** A cold reader now sees the loop has internal structure: read context, examine, challenge the first read, decide, act, log. The methodology is distinguishable from "ask AI to improve."
+
+**Reflect:** The destination spec said "acts" was a placeholder waiting to be filled. iter-80 removed the lineage/evidence from the card but left the loop description underdeveloped. This closes that gap.
