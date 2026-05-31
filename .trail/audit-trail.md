@@ -4961,3 +4961,26 @@ Inconsistency lens: Every other card has 2-3 sources with at least one instituti
 **Predict:** No visual change - source list order and layout unchanged for all other cards. Kaikaku now has 2 sources (LEI first, Wikipedia second). Toyota Kata label is now accurate.
 
 **Reflect:** [!REALIZATION] lean.org/lexicon-terms/toyota-kata/ is 404. The Coaching Kata is documented by LEI through the Kaizen entry, not a dedicated lexicon term. Any future reference to "the LEI Coaching Kata page" needs to use the Kaizen URL and label it as such. The Toyota Kata book itself (Rother, 2009) remains the primary source.
+
+
+---
+
+## iter-169 — 2026-05-31
+
+**Ask:** "the ### Toyota Coaching Kata - is it also directly a part of TPS? understand my intent. use the improve skill."
+
+**Intent:** The user is asking whether the page structure accurately represents the intellectual relationship between Toyota Kata and TPS. The real question is: do the two cards (currently silent peers) correctly show that Toyota Kata is derived FROM observing TPS, not a component OF it?
+
+**Research:** Fetch-verified via Wikipedia. Toyota Kata is Mike Rother's 2009 synthesis - explicitly described as "a means for making the continual improvement process as observed at the Toyota Production System teachable." It is categorized under TPS as derivative work. Kaizen, Hansei, Kaikaku, Just-in-time, Jidoka are the official TPS practices; Toyota Kata is Rother's external teaching framework that encodes those patterns.
+
+**Examine:** The page showed the two cards as silent peers. A cold reader had no way to know Toyota Kata was derived from observing TPS. The intellectual genealogy was invisible.
+
+**Challenge:** Merge the cards? No - distinct authors, dates, purposes. Correct fix is to make the derived-from relationship explicit in the Toyota Kata card.
+
+**Change (single):**
+- Extended Toyota Kata claim with one sentence: "Rother derived the Kata by studying Toyota's improvement routines - it is not a TPS component, but the teaching framework that made the TPS improvement logic portable to other organisations." Added inline cross-link to TPS card (#lineage-kaizen).
+- Updated lineage-meta to append "derived from observing TPS" - states the provenance clearly at a glance.
+
+**Predict:** No visual structure change. Cold reader now sees the relationship immediately on scan. The cross-link creates a navigable connection from Toyota Kata to the TPS card.
+
+**Reflect:** The page now has explicit intellectual genealogy: Toyota Kata (Rother, 2009) derived from TPS observation - TPS is the source, Toyota Kata is the teaching abstraction of it. This is the accurate and honest structure.
