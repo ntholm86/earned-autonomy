@@ -4913,3 +4913,24 @@ Turn 2 (CSS consolidation):
 **Candidate next moves:**
 1. Check lean.org for a Kaikaku lexicon entry - would give Kaikaku the same institutional source depth as Kaizen and Hansei.
 2. Toyota Kata card still names its lineage-applies as P1 and Improve only - now that TPS is a unified card, consider whether Toyota Kata should reference TPS in its claim.
+
+## iter-167 -- 2026-05-31 -- restructure TPS card into three granular sub-sections
+
+**Ask:** Keep full granularity of how each TPS concept is used. TPS as the card header, then Kaizen / Kaikaku / Hansei each with their own label, explanation, links, and Applies-in footer, then TPS-wide sources at the bottom.
+
+**Decision:** One new CSS class: .tps-practice (border-top + padding-top + margin-top matching the lineage-sources rhythm). Three sub-sections inside the existing lineage-card structure. Each sub-section uses: p.label.label-muted as name, p.lineage-claim for explanation, div.lineage-sources for concept-specific links, p.lineage-applies for concept-specific Applies-in. TPS-wide sources (LEI + Wikipedia) added as a shared div.lineage-sources at card bottom.
+
+**Source decisions:** Kaizen: LEI + Wikipedia + Imai (1986). Kaikaku: Wikipedia only (no LEI lexicon entry confirmed). Hansei: LEI + Wikipedia. TPS-wide: LEI lexicon-terms/toyota-production-system/ + Wikipedia TPS.
+
+**Prediction:** Card renders as one coherent block with TPS header, three visually separated sub-sections, and shared footer sources. All anchors (#lineage-kaizen, #lineage-hansei, #lineage-kaikaku) still resolve to the merged article element via existing span ids. WILL NOT change: any other section.
+
+**Reflection (6a):**
+- *Model-claim:* The TPS card now reflects the actual structure of the skills: Kaizen is the loop, Kaikaku is the redesign mode, Hansei is the reflect step - a reader can map each TPS concept directly to a skill behavior.
+- *Blind spot:* lean.org/lexicon-terms/toyota-production-system/ included but not fetch-verified this session. URL follows the confirmed LEI pattern.
+- *Imagined pushback:* Three sub-sections inside one card is the most content-dense card on the page. If it reads as overwhelming, a future run could consider whether Kaikaku (one Wikipedia source, shorter claim) warrants a separate card or could be a note within Kaizen.
+
+**Across-trail evaluation:** No trigger fired.
+
+**Candidate next moves:**
+1. Fetch-verify lean.org/lexicon-terms/toyota-production-system/ - confirm the URL and enrich the tooltip.
+2. On Authorship card now says "Kaizen and Hansei" - should add Kaikaku (iter-165 added Hansei, Kaikaku still missing from that list).

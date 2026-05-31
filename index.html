@@ -170,6 +170,10 @@
     .lineage-applies a:hover, .principle-roots a:hover { color: var(--amber); }
     .skill-trigger b { color: var(--lavender); font-weight: var(--weight-medium); }
 
+    /* TPS sub-section divider — used inside the TPS lineage card to separate
+       Kaizen / Kaikaku / Hansei blocks. Border-top matches lineage-sources rhythm. */
+    .tps-practice { padding-top: var(--gap-xs); border-top: 1px solid var(--rule); margin-top: var(--gap-sm); }
+
     /* ============================================================
        PULL QUOTE  (blockquote epigraph, sage accent)
        .pull-quote--sm = compact stacked variant
@@ -607,18 +611,43 @@
 
           <article class="lineage-card" id="lineage-kaizen">
             <span id="lineage-hansei"></span><span id="lineage-kaikaku"></span>
-            <h3 class="lineage-title">Toyota Production System (TPS) - Kaizen, Kaikaku, Hansei</h3>
-            <p class="lineage-claim">Three interlocking practices - called the secret behind Japan's post-war industrial success. <strong>Kaizen</strong>: continuous small improvements, each standardized before the next begins. The Improve skill follows this structure directly; its natural exit condition - when diverse participants find nothing left to change - is what PEA formalises as <em>Convergence Is Silence</em>. <strong>Kaikaku</strong>: radical restructuring when incremental improvement no longer suffices - the Improve skill's built-in "argue for redesign" mode. <strong>Hansei</strong>: honest self-reflection before moving on; without it, iteration is repetition without learning. In the Improve skill, the Reflect step is the Hansei moment.</p>
-            <p class="lineage-meta">Toyota Production System &middot; Lean Enterprise Institute &middot; Masaaki Imai, <em>Kaizen</em> (1986)</p>
-            <div class="lineage-sources">
-              <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon entry for Kaizen.">Kaizen - Lean Enterprise Institute &#8599;</a>
-              <a href="https://lean.org/lexicon-terms/hansei/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Hansei - the reflection practice of looking back and thinking about how a process can be improved. In the Toyota Production System, reflection meetings are held at project milestones to identify problems, develop countermeasures, and prevent recurrence. A critical part of organizational learning along with kaizen and standardized work.">Hansei - Lean Enterprise Institute &#8599;</a>
-              <a href="https://en.wikipedia.org/wiki/Kaizen#Benefits_and_tradeoffs" target="_blank" rel="noopener" data-tip="Continual aligned small improvements, standardized, yield large results. Wikipedia, Benefits section.">Kaizen - continuous improvement (Wikipedia) &#8599;</a>
-              <a href="https://en.wikipedia.org/wiki/Kaikaku#Kaikaku_vs_kaizen" target="_blank" rel="noopener" data-tip="Kaikaku vs Kaizen: radical system change when incremental improvements are no longer sufficient - contrasted with the day-to-day Kaizen loop. Wikipedia.">Kaikaku - radical restructuring (Wikipedia) &#8599;</a>
-              <a href="https://en.wikipedia.org/wiki/Hansei#Meaning" target="_blank" rel="noopener" data-tip="Hansei: acknowledge one's own mistake and pledge improvement. At Toyota, even successful projects hold a hansei-kai (reflection meeting) - 'no problem is a problem' means one has not evaluated critically enough. Wikipedia.">Hansei - reflective practice in Toyota (Wikipedia) &#8599;</a>
-              <a href="https://archive.org/details/kaizen00masa" target="_blank" rel="noopener" data-tip="Masaaki Imai, Kaizen: The Key to Japan's Competitive Success (1986). The book that introduced the term to the West.">Masaaki Imai, <em>Kaizen</em> (1986) &#8599;</a>
+            <h3 class="lineage-title">Toyota Production System (TPS)</h3>
+            <p class="lineage-meta">Post-war Japan &middot; Toyota Motor Corporation &middot; Lean Enterprise Institute</p>
+
+            <div class="tps-practice">
+              <p class="label label-muted">Kaizen</p>
+              <p class="lineage-claim">Continuous improvement through small, structured increments - each change standardized before the next begins. Called the secret behind Japan's post-war industrial success. The Improve skill follows this structure directly: one highest-leverage change per run, logged and verified, then the loop restarts from the new baseline. Its natural exit condition - when diverse participants find nothing left to change - is what PEA formalises as <em>Convergence Is Silence</em>.</p>
+              <div class="lineage-sources">
+                <a href="https://lean.org/lexicon-terms/kaizen/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon entry for Kaizen.">Kaizen - Lean Enterprise Institute &#8599;</a>
+                <a href="https://en.wikipedia.org/wiki/Kaizen#Benefits_and_tradeoffs" target="_blank" rel="noopener" data-tip="Continual aligned small improvements, standardized, yield large results. Wikipedia, Benefits section.">Kaizen - continuous improvement (Wikipedia) &#8599;</a>
+                <a href="https://archive.org/details/kaizen00masa" target="_blank" rel="noopener" data-tip="Masaaki Imai, Kaizen: The Key to Japan's Competitive Success (1986). The book that introduced the term to the West.">Masaaki Imai, <em>Kaizen</em> (1986) &#8599;</a>
+              </div>
+              <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-3" data-tip="Convergence Is Silence (Principle 3) on this page.">Principle 3 - Convergence Is Silence</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a></p>
             </div>
-            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-3" data-tip="Convergence Is Silence (Principle 3) on this page.">Principle 3 - Convergence Is Silence</a>, <a href="#improve" data-tip="The Improve skill on this page.">Improve skill</a>, <a href="#retrospect" data-tip="The Retrospect skill on this page.">Retrospect skill</a></p>
+
+            <div class="tps-practice">
+              <p class="label label-muted">Kaikaku</p>
+              <p class="lineage-claim">Radical system-level restructuring when incremental improvement is no longer sufficient. Where Kaizen tightens within the current system, Kaikaku changes the system itself. In the Improve skill, this is the built-in "argue for redesign" mode: when the loop determines that incremental fixes cannot reach the destination, it stops and surfaces the structural argument instead of continuing to patch.</p>
+              <div class="lineage-sources">
+                <a href="https://en.wikipedia.org/wiki/Kaikaku#Kaikaku_vs_kaizen" target="_blank" rel="noopener" data-tip="Kaikaku vs Kaizen: radical system change when incremental improvements are no longer sufficient - contrasted with the day-to-day Kaizen loop. Wikipedia.">Kaikaku vs Kaizen - radical restructuring (Wikipedia) &#8599;</a>
+              </div>
+              <p class="lineage-applies"><b>Applies in:</b> <a href="#improve" data-tip="The Improve skill - the argue-for-redesign mode is the Kaikaku moment.">Improve skill</a></p>
+            </div>
+
+            <div class="tps-practice">
+              <p class="label label-muted">Hansei</p>
+              <p class="lineage-claim">Honest self-reflection: before moving on, acknowledge what did not work and why. Without Hansei, iteration is repetition without learning. In the Improve skill, the Reflect step is the Hansei moment - a named blind spot, a falsifiable model-claim, an imagined critical reader pushing back on the findings. In Retrospect, the entire arc is a Hansei at scale.</p>
+              <div class="lineage-sources">
+                <a href="https://lean.org/lexicon-terms/hansei/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Hansei - the reflection practice of looking back and thinking about how a process can be improved. In the Toyota Production System, reflection meetings are held at project milestones to identify problems, develop countermeasures, and prevent recurrence. A critical part of organizational learning along with kaizen and standardized work.">Hansei - Lean Enterprise Institute &#8599;</a>
+                <a href="https://en.wikipedia.org/wiki/Hansei#Meaning" target="_blank" rel="noopener" data-tip="Hansei: acknowledge one's own mistake and pledge improvement. At Toyota, even successful projects hold a hansei-kai (reflection meeting) - 'no problem is a problem' means one has not evaluated critically enough. Wikipedia.">Hansei - reflective practice in Toyota (Wikipedia) &#8599;</a>
+              </div>
+              <p class="lineage-applies"><b>Applies in:</b> <a href="#improve" data-tip="The Improve skill - the Reflect step is the Hansei moment.">Improve skill</a>, <a href="#retrospect" data-tip="The Retrospect skill - arc-level Hansei at scale.">Retrospect skill</a></p>
+            </div>
+
+            <div class="lineage-sources">
+              <a href="https://lean.org/lexicon-terms/toyota-production-system/" target="_blank" rel="noopener" data-tip="Lean Enterprise Institute lexicon: Toyota Production System - the integrated system of Kaizen, standardized work, and continuous improvement that transformed post-war Japanese manufacturing.">Toyota Production System - Lean Enterprise Institute &#8599;</a>
+              <a href="https://en.wikipedia.org/wiki/Toyota_Production_System" target="_blank" rel="noopener" data-tip="Toyota Production System: the manufacturing philosophy developed by Toyota that combines Kaizen, Kaikaku, Hansei, just-in-time, and jidoka into a coherent production system. Wikipedia.">Toyota Production System (Wikipedia) &#8599;</a>
+            </div>
           </article>
 
           <article class="lineage-card">
