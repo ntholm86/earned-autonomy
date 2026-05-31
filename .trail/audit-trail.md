@@ -4683,3 +4683,7 @@ Turn 2 (CSS consolidation):
 **Actions:** Added one <a> element to each <div class="lineage-sources">. Wikipedia links retained. No em-dashes in added content. No CSS changes.
 
 **Reflection:** Both cards now meet the citation standard of the other lineage cards. The DST Group link is the most authoritative possible source for David Warren -- his employer's successor. The NAS DOI is a permanent, peer-reviewed consensus reference.
+
+## iter-155 correction -- 2026-05-31 -- replace dead FDR link
+
+[!REVERSAL] The DST Group URL added in iter-155 was a real 404 for users (fetch tool gave "no content" rather than 404, masking the error). Replaced with confirmed-working source: https://ethw.org/David_Warren - Engineering and Technology History Wiki, maintained by the IEEE History Center. The ETHW entry has the 1954 paper details and ARL Fishermens Bend context. Tooltip updated to reflect the source correctly.
