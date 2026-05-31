@@ -4804,3 +4804,41 @@ Turn 2 (CSS consolidation):
 **Reflection (6a):** The proof block is now ~30% shorter than iter-159 and ~45% shorter than iter-158 original. P2's punchline sentence gains weight from isolation. The depth lives in the structure (meta-loop, lineage, convergence, fixed point) not the word count.
 
 **Across-trail evaluation:** No trigger fired.
+
+## iter-163 -- 2026-05-31 -- surface Kaizen as methodology, add Hansei lineage card
+
+**Ask:** The Kaizen card only covered the convergence exit condition. The user wanted Kaizen also visible as the structured improvement methodology behind the Improve skill (the proven industrial origin that gives it credibility vs. ad-hoc improvement loops other devs build). Also wanted Hansei - the honest self-reflection component - given its own visible presence on the page.
+
+**Intent interpretation:** This is a credibility and differentiation argument. A developer evaluating these skills needs to see WHY they work - the Toyota connection is the answer. Currently: Kaizen card claim = exit condition only. The proof block says "It began as Kaizen" - so Kaizen is the foundational methodology, not just a termination rule. Hansei exists in the proof block as a bare name + Wikipedia link, with no explanation. The page does not make the "proven industrial structure" argument.
+
+**Lenses:**
+- *Inconsistency:* Kaizen card claim says "exit condition"; proof block says "it began as Kaizen". These describe different roles. The card only tells half the story.
+- *Waste:* Hansei is named twice in the proof block but is invisible as a concept - no card, no explanation, no anchor.
+- *Purpose:* A visiting developer should be able to answer "why is this skill structured the way it is?" from the foundations section. Kaizen as methodology is the answer.
+
+**Decision:** Five coherent changes in one operation:
+1. Rewrite Kaizen lineage-claim to cover BOTH the structured improvement methodology ("secret behind Japan's post-war industrial success", one change per run, standardized, loop restarts) AND its exit condition (Convergence Is Silence).
+2. Add Hansei lineage card after Kaizen, before Delphi - explaining it as structured self-reflection, the inward half of the improvement loop, linking to Improve and Retrospect.
+3. Update Kaizen tooltip in Improve skill's derives-from footer to reflect the full role (methodology + exit condition).
+4. Add Hansei to Retrospect card's derives-from footer (Retrospect IS the arc-level Hansei moment).
+5. Update Hansei link in proof block from external Wikipedia to internal anchor #lineage-hansei (consistent with how Kaizen links in the same sentence).
+
+**Prediction:** The Kaizen card will make the "proven industrial credibility" argument visible. A reader will understand why the Improve skill follows a structured loop, not an ad-hoc one. Hansei will be an explained concept with its own anchor. WILL NOT change: principles text, proof block prose, any other sections.
+
+**Verification:** Read back the Kaizen + Hansei card region - correct. Hansei anchor now in the proof block. Retrospect card now derives from Hansei. Improve card Kaizen tooltip updated.
+
+**Reflection (6a):** 
+- *Model-claim:* The page now makes the credibility-through-lineage argument at the methodology level, not just at the tradition-name level. The Kaizen card does actual argumentative work for the first time.
+- *Blind spot:* The Kaizen card's sources include Masaaki Imai's "Kaizen: The Key to Japan's Competitive Success" (1986) - the book where the "secret behind Japan's success" claim originates. The lineage-claim now uses that framing but the connection to Imai is already in the sources. Good.
+- *Imagined pushback:* Hansei only has one source (Wikipedia). A reader wanting primary Toyota sources would find the card thin. The LEI lexicon may have a Hansei entry - worth checking in a future run before adding it.
+
+**Across-trail evaluation:**
+- *Recurring finding-class:* not fired - this is a content/credibility addition, not a structural polish pass.
+- *About to declare silence:* not fired - change made.
+- *Contradicts prior [!REALIZATION]:* not fired.
+- *Operator explicitly asked:* not fired (operator asked for content change, not arc-read).
+
+**Candidate next moves:**
+1. Check whether lean.org has a Hansei lexicon entry and add it as a second source to the Hansei card if confirmed - currently only Wikipedia, which is thin for an institutional citation.
+2. Mobile/narrow-width visual check (retrospect's standing open item; the new Hansei card adds content to the foundations section).
+3. Update the "Conceptual traditions" section introduction text - currently the intro paragraph under Foundations says "Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research." - Hansei is now a named card but the intro was written before it existed.
