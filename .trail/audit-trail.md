@@ -5155,3 +5155,32 @@ Adds 7 words. Shows the 3 middle steps (examine, challenge, decide) that were in
 **Predict:** A cold reader now sees the loop has internal structure: read context, examine, challenge the first read, decide, act, log. The methodology is distinguishable from "ask AI to improve."
 
 **Reflect:** The destination spec said "acts" was a placeholder waiting to be filled. iter-80 removed the lineage/evidence from the card but left the loop description underdeveloped. This closes that gap.
+
+
+---
+
+## iter-176 -- 2026-05-31 -- trail-gap closure iter-88..iter-146
+
+**Ask:** Close the iter-88..iter-146 trail gap. Flagged retro-005, deferred two cycles, retro-006 called it an integrity concern.
+
+**Intent:** The audit-trail.md has no entries between iter-87 (2026-05-28, vision-skill-renamed-destination) and iter-147 (2026-05-31, P2 structural root: Saltzer & Schroeder). The git log shows continuous work in that period. The gap is a trail-logging failure, not a missing-work problem. Close it with one honest [!REALIZATION] summary rather than 59 reconstructed entries.
+
+**[!REALIZATION] Trail gap iter-88..iter-146 -- what happened and why the record is intact:**
+
+The git log at c:\git\pea-website is the primary auditable record for this period. Every commit is timestamped, attributed, and describes its change. The work is not invisible -- it is logged in git, not in audit-trail.md. The two records diverged because the trail-logging discipline was not consistently applied across sessions during this period.
+
+What the 59 iterations covered (sourced from git log, 2026-05-28):
+
+- iter-88..iter-120: Tooltip system built from scratch (iter-111..119), applied to all external links, skill cards, principles. Lineage card design (claim leads, sources beneath, lavender/sage accents). Citation precision pass (upgrade to primary sources with section anchors). Cross-link standardization. Em-dash normalization (all em-dashes replaced with plain hyphens -- this became Rule 16). ARF/Probe cross-links rewired to on-page anchors.
+
+- iter-121..iter-128: Principle-link navigation rewiring (skill cards link to on-page principle cards). Lineage citation precision. Tooltip copy unification (same URL = identical tooltip -- Rule 15 exhausted here). retro-005 arc read. Lineage card spacing (gap-lg, stack-md renamed to stack-lg -- Rule 17).
+
+- iter-129..iter-146: SVG concept-icon set added to all principles and skills (zero added height). Quickstart section dissolved -- invoke triggers moved into skill cards (iter-131). Hero dek rebuilt around self-improvement paradox (iter-132..136). Memory section consolidated into skill cards. To trigger / Derives from lines standardized on all skill cards (iter-138). Install card moved to top of Skills. Gradient depth system added. Lineage card headers added. Skill-card metadata ordering fixed. Principle #1 and #2 copy refined (operator self-edit f0b15f3, backfill entry 5d478da). Principle #1/#2 cards rebuilt to payoff-explicit parity (iter-146).
+
+**Why the git log suffices as the record:** Each commit message names the change. Reversals and operator edits have their own commits (19e8917 revert P1; 5d478da backfill for f0b15f3). The git log is append-only and tamper-evident. For these 59 iterations, the git log IS the Observable Autonomy record.
+
+**Operational lesson:** Trail-logging must happen in the same session as the work. A gap this size accumulates silently across sessions because there is no per-session gate that blocks a commit if audit-trail.md was not updated. This gap will not be backfilled entry-by-entry -- the reconstruction would be fabrication, not record. The git log stands.
+
+**Change:** This entry. No HTML changes.
+
+**Reflect:** Three retrospect cycles of deferral closed by acknowledgment, not by reconstruction. The integrity concern is resolved by naming the gap honestly and citing the real record, not by pretending it can be perfectly reconstructed from memory.
