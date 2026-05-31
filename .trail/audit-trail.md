@@ -5077,3 +5077,37 @@ Footer: The .trail/ folder is created on first use.
 Zero CSS changes. code renders amber on amber-lt (existing token) - trigger phrases are visually primary. Rule 16 enforced: hyphens not em-dashes. Rule 1 enforced: no inline style attribute.
 
 **Reflect:** The code element was already designed to be prominent (amber pill). The old version buried it inside a sentence. The new version leads with it. The card went from 110 words to 40.
+
+
+---
+
+## retro-006 -- 2026-05-31
+
+**Slug:** retro-006
+
+**Scope:** Arc from retro-005 close (iter-128) through iter-173. Central question: did the operator-gate unblock, and what did the arc do with the result?
+
+**Arc-claims written to retrospect.md:**
+
+1. The cold-reader test finally ran -- retro-005's central concern is resolved. Operator gathered real external reader signal: readers find install easy; "understanding how to exactly use them is harder." First external signal since launch.
+
+2. The page's gap has moved from intellectual clarity to usage initiation. The "First session" card (iters 171/173) addresses the temporal workflow question (what first, what next). Whether it resolves the reader gap is still untested.
+
+3. Intellectual Lineage section is architecturally stable. Source quality audited (iter-168), genealogy clarified (iter-169), cards ordered into three bands (iter-170), visual hierarchy corrected (iter-172). One open item: "On Authorship" card still missing Kaikaku.
+
+4. Label taxonomy ambiguity resolved (iter-172 [!REALIZATION]): label-muted = organizer/category; .label (teal) = content-header. System-wide rule now explicit.
+
+5. iter-88..iter-146 trail gap (59 iterations) remains undocumented -- now an integrity concern across three retrospect cycles.
+
+6. Mobile visual verification available since iter-128, still never used. Lineage section layouts unverified below --max.
+
+7. Skills section (destination's primary content) received no direct attention across iter-147..173. Improve card may not meet its destination spec from iter-51.
+
+**Candidate next moves:**
+1. On Authorship -- add Kaikaku (one sentence, flagged iter-165)
+2. Mobile visual check -- Lineage cards and First session card
+3. Close iter-88..iter-146 trail gap
+4. Verify Improve card against destination spec (iter-51)
+5. Confirm First session card closes the reader gap
+
+**Loop-effectiveness finding:** The operator-gate unblocked -- real feedback, real gap identified, addressed in two iterations. Remaining concern: the trail gap is a credibility problem for a page about Observable Autonomy. Three retrospect cycles have not closed it.

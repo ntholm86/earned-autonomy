@@ -1,83 +1,103 @@
 ﻿# retrospect.md — pea-website
 
-_Last updated: 2026-05-28 (run: retro-005)_
+_Last updated: 2026-05-31 (run: retro-006)_
 
 ---
 
 ## Freshness check
 
-No `tools/record.py` in this repo. Arc-claims read directly from `audit-trail.md` (285KB) and `destination.md`.
+No 	ools/record.py in this repo. Arc-claims read directly from udit-trail.md (62 entries) and destination.md. history.md/learning.md are stale derived artifacts; arc-claims formed from the primary trail.
 
-- `python tools/record.py history --write` — NOT AVAILABLE
-- `python tools/record.py learning --write` — NOT AVAILABLE
-- Note: `history.md`/`learning.md` (mtime 16:40) are stale relative to `audit-trail.md` (mtime 20:38); they predate iter-121..128. No derivation tool exists to refresh them. Arc-claims were formed from the primary `audit-trail.md`, not the stale derived artifacts.
-- Gate: PASS (direct trail read; derived artifacts knowingly bypassed, not relied upon)
+- Gate: PASS (direct trail read; derived artifacts not relied upon)
 
 ---
 
 ## Scope statement
 
-First full arc-read since retro-004 (which covered through iter-59). Question: across iter-60..iter-128, has the loop been advancing the destination, or polishing findable surfaces while the destination-critical work stays deferred? Specifically: did the cold-reader test that retro-004 declared "overdue, deferral exhausted" ever execute?
+Read the arc from retro-005's close (covering through iter-128) to the current state (iter-173). Central question: Did the operator-gate unblock? Specifically - did the cold-reader test execute, and what did the arc do with the result?
 
 ---
 
 ## Current claims
 
-**1. The cold-reader test has now been deferred ~20 consecutive times and still has not run. retro-004 declared the structural justification for deferral "exhausted" after iter-59. Fifteen-plus iterations later (iter-60..87, iter-121..128) it remains the standing #1 and remains unexecuted. This is the single most durable fact about the arc.**
+**1. The cold-reader test finally ran. retro-005's central concern is resolved.**
 
-It was first named at iter-29, ranked #1 or #2 in essentially every entry since, and explicitly called "the move, not a candidate" by retro-004. The page is live at https://ntholm86.github.io/earned-autonomy/. The loop has had every structural precondition to gather external reader signal for 60+ iterations and has not. The deferral is no longer *about* the page — it is the loop's defining blind spot.
+After 20+ consecutive deferrals, the operator gathered real external reader signal. Verbatim feedback (iter-171): readers find installing the skills easy; "understanding how to exactly use them is harder" - specifically how to start, when to invoke each skill, cold repo with no .trail/. This is the first external reader signal since the page launched. retro-005 diagnosed the situation as "blocked on operator input"; that block has now lifted.
 
-**2. The reason the cold-reader test keeps being deferred is upstream of the page: there is no operator-confirmed convergence criterion. (destination, iter-84: the operator said "I am not sure what done actually looks like.")** Without a definition of done, the loop optimizes for what is *findable* — de-ai passes, link targets, tooltip copy, dash style, spacing — because those produce a visible change every run. The one thing that would resolve "are we done?" requires two inputs the loop cannot self-generate: an external reader's reaction, and the operator's own statement of the target reaction. Until iter-84's open question is answered, every iteration is exploration-phase polish, not convergence-phase work. This is the deeper claim retro-004 missed by framing the deferral as merely "overdue."
+**2. The page's gap has moved from "intellectual clarity" to "usage initiation."**
 
-**3. The recent arc (iter-121..128) is a textbook comfortable-corner run, and the loop correctly diagnosed it mid-stream.** Citations (121) → in-page anchor wiring (122) → dash normalization (123) → cross-link targeting (124) → tooltip unification (125, 126) → lineage footers (127) → card spacing (128). iter-126 itself declared the link/tooltip finding-class "exhausted" and warned the next run not to keep polishing it; iter-127/128 then moved to adjacent lineage-section polish. Healthy self-awareness, but the trajectory confirms claims 1–2: the loop is doing findable work because destination-critical work is blocked on operator input.
+The cold-reader signal shows the page successfully communicates what the skills are. The standing gap is the temporal workflow: what first, what next. Install closes the technical gap; skill cards close the conceptual gap; the bridge between them was absent. iters 171/173 addressed this with the "First session" card - a 40-word, code-first scannable workflow that answers three specific questions: cold repo start, skill sequence, session-to-session rhythm. The card was iterated twice (110 words -> 40 words, iter-173) before it reached a scannable format. The reader-gap is now addressed on the page; whether it is resolved is still untested.
 
-**4. The loop is structurally honest — this is NOT a confabulation trail.** Reversal/realization density is healthy across the arc: iter-126 carries an explicit [!REVERSAL] of iter-125's "intentional variance" judgment; iter-128 honestly conceded its change was "technically correct, an aesthetic legibility call, not a bug"; iter-121 caught two of its own 404s in post-edit verification and logged them; predictions are stated before action and checked after. The trail records its own misses. Confabulation is not the failure mode here — selective attention is.
+**3. The Intellectual Lineage section is architecturally stable with one known open item.**
 
-**5. A second perpetually-deferred task mirrors the cold-reader pattern at smaller scale: the iter-88..iter-120 trail gap (33 iterations not logged).** Flagged as a Candidate Next Move in every entry from iter-121 through iter-128, never acted on. The loop now has two known-needed tasks it keeps ranking and never executing. The pattern (rank #1/#3, defer, repeat) is the tell, not the specific task.
+The section was built across the recent arc (~iter-147..173) - the most substantial structural addition since the Principles section. Source quality was audited (iter-168), genealogy clarified (iter-169: Toyota Kata is Rother's 2009 teaching framework derived from TPS observation, not a TPS component), cards ordered into three clean bands (iter-170: P1 / P2 / P3+improvement), visual hierarchy corrected (iter-172). One known open item remains: the "On Authorship" card reads "Kaizen and Hansei are post-war Japanese manufacturing" - Kaikaku was named on the page in iter-166 but is still missing from that sentence. Flagged iter-165, still unresolved.
 
-**6. iter-128 performed the first browser render verification since the dark theme (iter-36).** destination still lists "Visual verification not done" and "Mobile viewport untested" as open. iter-128 closed the desktop half (rendered #foundations, confirmed spacing visually) but explicitly left mobile/narrow-width unverified. Visual verification is now a demonstrated capability in this loop, not a theoretical one.
+**4. The label taxonomy ambiguity is resolved and has system-wide implications.**
+
+iter-172 produced a [!REALIZATION] with permanent value: label-muted = organizer/category (sits above multiple items, groups them); .label (teal default) = content-header (primary anchor inside a content block). The TPS card triggered this because it is the only card with internal sub-sections. The distinction was implicit before iter-172; it is now explicit. Any future card with internal sub-sections must follow this rule.
+
+**5. The iter-88..iter-146 trail gap (58+ iterations) remains undocumented and is now an integrity concern.**
+
+retro-005 flagged iter-88..iter-120 as a 33-iteration gap, ranked it candidate next move #2, and it still was not resolved. The gap has grown: the trail jumps from iter-87 to iter-147 with no entries for any iteration in between - 59 iterations. The audit trail is the verifiable record of Observable Autonomy. An undocumented 59-iteration gap that survives three retrospect cycles is no longer just a deferred task - it undermines the arc's own claim to being an auditable record. The longer this stays open, the harder a backfill becomes.
+
+**6. Mobile visual verification has been available since iter-128 and has never been used.**
+
+retro-005 declared it "now cheap (browser render is demonstrated)" and named it candidate next move #3. iter-129..173 produced no mobile check. The Lineage section (iter-147..173) introduced new HTML layouts (.lineage-card, .tps-practice sub-sections, .lineage-title, .lineage-meta) that have never been verified below the --max breakpoint. Live readers have been using the page during this period.
+
+**7. The skills section (destination's primary content) received no direct attention across iter-147..173.**
+
+The entire recent arc was Intellectual Lineage. The destination (iter-51) specifies that Improve should show the loop itself, the lineage (Kaizen -> Kaizen/Kaikaku/Hansei -> unified), and evidence (200+ iterations, two full self-rewrites). iter-80 removed Lineage and Evidence from the Improve card. It is not recorded that this was ever reversed or supplemented. If the destination spec for Improve is still unmet, the section has been unchanged for 90+ iterations while the arc was working around it.
 
 ---
 
 ## What the next runs should test
 
-**Immediate — and this time it is blocked on the operator, not the loop:**
+**1. "On Authorship" Kaikaku fix - one sentence, flagged iter-165, never closed.**
+Embarrassingly small. Do it first. The sentence currently reads "Kaizen and Hansei are post-war Japanese manufacturing." - add Kaikaku.
 
-1. **Resolve iter-84's open question, then run the cold-reader test.** The loop cannot generate either input. The operator must answer: "What would a reader have to say or do after visiting this page for you to feel it has done its job?" Until then, convergence cannot be declared and further polish iterations have sharply diminishing returns. This is the move; everything else is deferral.
+**2. Mobile visual check - Lineage cards and First session card.**
+.lineage-card, .tps-practice, and the new "First session" .card are all unverified below --max. Browser render is a demonstrated capability. Do it before adding more content to the Lineage section.
 
-2. **Formally close the iter-88..iter-120 trail gap.** Either backfill terse entries from the git log, or record one explicit [!REALIZATION] that those micro-iterations were intentionally not logged — so the gap is documented rather than silently carried as a perpetual candidate.
+**3. Formally close the iter-88..iter-146 trail gap.**
+Backfill terse entries from the git log, or append one explicit [!REALIZATION] documenting that those micro-iterations were intentionally not logged. Either action closes the integrity concern. Continued deferral is not acceptable - the gap now spans 59 iterations across three retrospect cycles.
 
-3. **Mobile/narrow-width visual check.** iter-128's named blind spot; destination's standing open item. Now cheap (browser render is demonstrated). The lineage cards went full-width with a 2rem gap — confirm that reads well below the --max breakpoint.
+**4. Verify Improve card against its destination spec (iter-51).**
+Destination says Improve should show: the loop itself (read -> examine -> challenge -> decide -> one change -> verify -> reflect), the lineage (Kaizen -> v2 -> v3 unified), and evidence (200+ iterations, two self-rewrites). Read the current Improve card and confirm whether this spec is met or whether iter-80 left it partially gutted.
+
+**5. Confirm the First session card closes the reader gap.**
+Operator-reported gap: "how to exactly use them." The iter-173 card answers "what first, what next." The remaining question is whether "when to invoke each skill during a live session" is also answered, or whether a second pass is needed. The test is whether a reader who was previously stuck can now self-unblock.
 
 ---
 
 ## Active operational rules
 
-*(Rules 1–14 carried forward from retro-004; rules 15–18 added retro-005. All still apply unless struck.)*
+*(Rules 1-18 carried forward from retro-005; rules 19-20 added retro-006.)*
 
-1. **Never add inline `style=""` attributes.** If a CSS class doesn't exist, create one.
-2. **All CSS changes go through `:root` tokens.** The 2-edit reversal property is the architecture's payoff.
-3. **Before inventing a new CSS class, verify no existing class serves the role.** Accreting bespoke classes is the failure mode that forces future Kaikaku.
-4. **`git add <explicit paths>` — never `git add -A`.** (iter-33 swept an unintended deletion.)
-5. **Append trail files with `Add-Content -Encoding UTF8`. Never `Set-Content`, never `>` redirection.** (iter-37 produced 124 mojibake em-dashes; a Set-Content round-trip corrupted retrospect.md again in retro-005.) Write via a temp UTF-8 file, append with `Add-Content`, then grep for `â€` to confirm clean.
-6. **destination.md updates must be timely** when a [!REVERSAL] fires.
-7. **Trigger a Vision/Destination run when two consecutive design-direction corrections occur.**
-8. **Skills section appears above Principles in scroll order.**
-9. **Skill order: Intent (P1) → Trail (P2) → Improve (P3) → [tier-2 separator] → Destination → Retrospect → Probe.**
-10. **Improve is an expanded subsection (~2× depth), not a card.**
-11. **De-AI pattern 13 is active.** Cut difficulty-announcement frames from headings/opening sentences.
-12. **Labels use `--amber`** (structural announcements). Lavender = conceptual emphasis. (Corrected iter-76.)
-13. **Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use `--amber`/`--amber-lt`** — technical identifiers, not danger signals.
-14. **Skill cards use `div.card` + title-as-link (h3 > a), not whole-card-as-link.**
-15. **[retro-005] The link/tooltip standardization finding-class is EXHAUSTED** (declared iter-126, confirmed by the iter-127/128 drift to adjacent polish). Do not open further link-target or tooltip-copy iterations. In-page links target the specific card (`#principle-N`, `#arf`, `#probe`); standalone links carry role-consistent `data-tip`; inline-prose links carry none (forcing `display:inline-block` breaks wrapping); same URL → identical tooltip.
-16. **[retro-005] The page is hyphen-only.** Em-dashes were removed wholesale in iter-123 by operator preference. New page content must use plain hyphens, never `—` or `&mdash;`. (Trail/retrospect files may still use em-dashes; the rule is page-scoped.)
-17. **[retro-005] Spacing ladder is `--gap-xs/sm/md/lg`; stack classes are `.stack` (sm) and `.stack-lg` (lg).** `.stack-md` was renamed away in iter-128. When changing a token-driven value, rename the class rather than leaving a name/value mismatch.
-18. **[retro-005] Browser render verification is available and expected for visual/layout changes.** iter-128 used the integrated browser to confirm a spacing change. Use it before committing layout-affecting edits; do not rely on source reasoning alone for "does it look right."
+1. Never add inline style="" attributes. If a CSS class doesn't exist, create one.
+2. All CSS changes go through :root tokens.
+3. Before inventing a new CSS class, verify no existing class serves the role.
+4. git add <explicit paths> - never git add -A.
+5. Append trail files with Add-Content -Encoding UTF8. Never Set-Content, never > redirection. Write via a temp UTF-8 file, append with Add-Content, then grep for e to confirm clean.
+6. destination.md updates must be timely when a [!REVERSAL] fires.
+7. Trigger a Vision/Destination run when two consecutive design-direction corrections occur.
+8. Skills section appears above Principles in scroll order.
+9. Skill order: Intent (P1) -> Trail (P2) -> Improve (P3) -> [tier-2 separator] -> Destination -> Retrospect -> Probe.
+10. Improve is an expanded subsection (~2x depth), not a card.
+11. De-AI pattern 13 is active. Cut difficulty-announcement frames from headings/opening sentences.
+12. Labels use --amber (structural announcements). Lavender = conceptual emphasis.
+13. Trail markers ([!DECISION], [!REALIZATION], [!REVERSAL]) use --amber/--amber-lt.
+14. Skill cards use div.card + title-as-link (h3 > a), not whole-card-as-link.
+15. The link/tooltip standardization finding-class is EXHAUSTED (declared iter-126). Do not open further link-target or tooltip-copy iterations.
+16. The page is hyphen-only. Em-dashes were removed wholesale in iter-123. New page content uses plain hyphens, never -- or &mdash;. (Trail/retrospect files may use em-dashes; rule is page-scoped.)
+17. Spacing ladder is --gap-xs/sm/md/lg; stack classes are .stack (sm) and .stack-lg (lg).
+18. Browser render verification is available and expected for visual/layout changes. Use it before committing layout-affecting edits.
+19. [retro-006] label-muted = organizer/category label (sits above multiple items, groups them). .label (teal default) = content-header (primary anchor inside a content block). The TPS card is the canonical example: KAIZEN/KAIKAKU/HANSEI are .label; "Conceptual traditions" above the whole section is .label-muted.
+20. [retro-006] The "On Authorship" sentence pattern ("X and Y are post-war Japanese manufacturing") must include all three TPS concepts when Kaikaku is referenced elsewhere on the page. The sentence currently omits Kaikaku - fix it before adding any further Lineage content.
 
 ---
 
 ## Loop-effectiveness notes
 
-The loop is effective at execution and honest in its record (claim 4), but its attention allocation is the problem (claims 1–3). Across 60+ iterations spanning two retrospects, the highest-ranked move has been gathering external reader signal, and it has never once executed — because it is the one move the loop structurally cannot perform alone, and the operator has not yet supplied the missing inputs (a convergence criterion, a reader).
+The most significant arc-level change since retro-005: the operator-gate unblocked. The loop's defining blind spot (cold-reader signal never gathered) is resolved at the input level. The response was structurally correct - real feedback, real gap identified, addressed in two iterations. This is the loop working as designed.
 
-The kind of finding this loop will structurally miss: anything that requires an input from outside the artifact. It will reliably find and fix every internal inconsistency, every AI-tell, every misaligned token — and it will reliably *not* discover whether the page actually lands with a cold reader, because that signal does not exist inside the file. retro-004 saw the symptom and called it "overdue." retro-005's correction: it is not overdue, it is *blocked* — and naming it as a backlog item the loop should "just do" has been the subtle error, because it lets the operator-dependent precondition stay invisible. The honest status is: **the page is in the exploration phase, the loop has done the findable exploration thoroughly, and convergence is gated on an operator decision that iter-84 surfaced and no run since has resolved.**
+The remaining effectiveness concern is the iter-88..iter-146 gap. Observable Autonomy is the page's stated subject. Carrying a 59-iteration undocumented gap in the page's own audit trail for three retrospect cycles is a credibility problem, not just a housekeeping task. The loop has demonstrated it can prioritize closing gaps (iter-172 closed the label ambiguity gap immediately on discovery). It has also demonstrated it can defer indefinitely when a gap requires retrospection rather than a file edit. The trail gap requires retrospection. That is the pattern.
