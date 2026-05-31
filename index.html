@@ -107,9 +107,7 @@
     /* === Layout === */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap-md); }
     section { padding: var(--gap-lg) 0; }
-    section + section { border-top: 1px solid var(--rule); }
     .stack    { display: flex; flex-direction: column; gap: var(--gap-sm); }
-    .stack-lg { gap: var(--gap-lg); }
     .row      { display: flex; flex-wrap: wrap; gap: var(--gap-xs); align-items: center; }
     .grid-auto { display: grid; grid-template-columns: 1fr; gap: var(--gap-sm); }
 
@@ -124,6 +122,7 @@
       margin-bottom: var(--gap-xs);
     }
     .label-muted { color: var(--muted); }
+    .label-amber { color: var(--amber); }
     .label-bordered {
       padding-bottom: var(--gap-xs);
       border-bottom: 1px solid var(--rule);
@@ -169,6 +168,13 @@
       letter-spacing: normal;
       color: var(--muted);
     }
+    /* Compact variant for stacked multi-quote lists */
+    blockquote.pull-quote.pull-quote--sm {
+      font-size: var(--text-body);
+      line-height: 1.55;
+      margin: var(--gap-sm) 0;
+      padding-left: var(--gap-sm);
+    }
 
     /* === Concept icons ===
        One line-art family for every principle and skill. Sized below the h3
@@ -197,7 +203,7 @@
       border: 1px solid var(--rule);
       border-left: 3px solid var(--lavender);
       border-radius: var(--radius);
-      padding: var(--gap-sm) var(--gap-md);
+      padding: var(--gap-xs) var(--gap-sm);
     }
     .lineage-card.is-evidence {
       border-left-color: var(--sage);
@@ -205,42 +211,37 @@
         linear-gradient(to right, color-mix(in srgb, var(--sage) 7%, var(--bg-elev)) 0%, var(--bg-elev) 45%);
     }
     .lineage-title {
-      font-size: var(--text-body);
+      font-size: var(--text-small);
       font-weight: var(--weight-bold);
       color: var(--ink);
       margin: 0 0 var(--gap-xs);
     }
     .lineage-claim {
       color: var(--ink);
-      font-size: var(--text-body);
-      line-height: 1.55;
-      margin-bottom: var(--gap-xs);
+      font-size: var(--text-small);
+      line-height: 1.5;
+      margin-bottom: 0;
     }
     .lineage-meta {
       font-family: var(--mono);
       font-size: var(--text-micro);
       color: var(--muted);
-      margin-bottom: var(--gap-sm);
+      margin-bottom: 0;
+      margin-top: calc(var(--gap-xs) / 2);
     }
     .lineage-sources {
       display: flex;
       flex-direction: column;
-      gap: var(--gap-xs);
-      padding-top: var(--gap-sm);
+      gap: calc(var(--gap-xs) / 2);
+      padding-top: var(--gap-xs);
       border-top: 1px solid var(--rule);
-      font-size: var(--text-small);
-    }
-    .lineage-applies {
-      margin-top: var(--gap-sm);
-      padding-top: var(--gap-sm);
-      border-top: 1px solid var(--rule);
-      font-family: var(--mono);
+      margin-top: var(--gap-xs);
       font-size: var(--text-micro);
-      color: var(--muted);
     }
-    .lineage-applies b { color: var(--amber); font-weight: var(--weight-medium); }
-    .lineage-applies a { color: var(--teal); }
-    .lineage-applies a:hover { color: var(--amber); }
+    /* Card footer bars: mono micro muted, bordered top. Three variants:
+       lineage-applies + skill-trigger share identical spacing (gap-xs);
+       principle-roots uses gap-sm (heavier separation from body text). */
+    .lineage-applies,
     .skill-trigger {
       margin-top: var(--gap-xs);
       padding-top: var(--gap-xs);
@@ -249,6 +250,8 @@
       font-size: var(--text-micro);
       color: var(--muted);
     }
+    .lineage-applies b { color: var(--amber); font-weight: var(--weight-medium); }
+    .lineage-applies a:hover { color: var(--amber); }
     .skill-trigger b { color: var(--lavender); font-weight: var(--weight-medium); }
     .principle-roots {
       margin-top: var(--gap-sm);
@@ -259,7 +262,6 @@
       color: var(--muted);
     }
     .principle-roots b { color: var(--amber); font-weight: var(--weight-medium); }
-    .principle-roots a { color: var(--teal); }
     .principle-roots a:hover { color: var(--amber); }
     h3 a { color: var(--amber); }
     h3 a:hover { color: var(--teal); }
@@ -413,7 +415,6 @@
       nav { padding: var(--gap-xs) var(--gap-sm); }
       nav ul { gap: var(--gap-sm); }
       .container { padding: 0 var(--gap-sm); }
-      .grid-auto { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -457,9 +458,8 @@
         <div class="card" id="principle-2">
           <h3><svg class="pea-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C5.5 6.5 18.5 6.5 22 12 C18.5 17.5 5.5 17.5 2 12 Z"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg><a href="https://github.com/ntholm86/principles-of-earned-autonomy/blob/main/PRINCIPLES.md#principle-2-observable-autonomy" target="_blank" rel="noopener" data-tip="Read the full Observable Autonomy principle.">Principle #2: Observable Autonomy &#8599;</a></h3>
           <p class="small"><em>&ldquo;The degree of autonomy a system deserves is bounded by the degree of transparency it provides.&rdquo;</em></p>
-          <p class="micro"><cite>Nils Wendelboe Holmager</cite></p>
           <p class="small">All autonomous actions must be auditable or revoked.</p>
-          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-flight-recorder" data-tip="The flight data recorder (&#8220;black box&#8221;) - record everything so any action is reviewable after the fact.">Flight Data Recorder</a>, <a href="#lineage-reproducibility" data-tip="Reproducibility - a result is knowledge only when an independent party can re-derive it from a transparent record.">Reproducibility</a>, <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - stated reasoning diverges from internal reasoning.">Turpin et al. &#8599;</a>, <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - self-correction degrades without external feedback.">Huang et al. &#8599;</a>, <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., 2025 - even reasoning-trained models don&#8217;t reliably narrate their process.">Chen et al. &#8599;</a></p>
+          <p class="principle-roots"><b>Rooted in:</b> <a href="#lineage-saltzer-schroeder" data-tip="Saltzer &amp; Schroeder, 1975 - separation of privilege: the party that acts must not be the sole author of the account of its action.">Saltzer &amp; Schroeder</a>, <a href="#lineage-flight-recorder" data-tip="The flight data recorder (&#8220;black box&#8221;) - record everything so any action is reviewable after the fact.">Flight Data Recorder</a>, <a href="#lineage-reproducibility" data-tip="Reproducibility - a result is knowledge only when an independent party can re-derive it from a transparent record.">Reproducibility</a>, <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener" data-tip="Turpin et al., NeurIPS 2023 - stated reasoning diverges from internal reasoning.">Turpin et al. &#8599;</a>, <a href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" data-tip="Huang et al., ICLR 2024 - self-correction degrades without external feedback.">Huang et al. &#8599;</a>, <a href="https://arxiv.org/abs/2505.05410" target="_blank" rel="noopener" data-tip="Chen et al., 2025 - even reasoning-trained models don&#8217;t reliably narrate their process.">Chen et al. &#8599;</a></p>
         </div>
 
         <div class="card" id="principle-3">
@@ -477,6 +477,37 @@
         <p class="small"><em>Appears only when all three principles hold.</em></p>
         <p class="small">ARF is the signal that measures if the agent is reasoning visibly enough to earn autonomy (Principles of Earned Autonomy). <a href="#probe">Probe</a> is the skill that tests for it.</p>
       </div>
+    </section>
+  </div>
+
+  <!-- INDEPENDENT RESPONSES -->
+  <div class="container">
+    <section id="in-their-words">
+      <h2>What do you get when you combine these principles?</h2>
+      <p class="small">The question, asked cold to AI systems from different model families - no context beyond the three principle statements.</p>
+
+      <blockquote class="pull-quote pull-quote--sm mt-lg">
+        you get a <strong>self&#8209;correcting, evidence&#8209;driven, decentralized decision&#8209;making system that continuously learns, audits itself, and improves through structured dialogue and distributed autonomy</strong>.
+        <cite>Microsoft Copilot (Windows 11) - May 2026</cite>
+      </blockquote>
+
+      <blockquote class="pull-quote pull-quote--sm">
+        a <strong>self-improving, question-driven model of delegated action where authority is separated, learning is continuous, intent is interrogated, and every decision is reproducible and traceable like a black box</strong>.
+        <cite>ChatGPT (GPT-5.4) - May 2026</cite>
+      </blockquote>
+
+      <blockquote class="pull-quote pull-quote--sm">
+        Combining these principles yields a <strong>framework for observable autonomy, where continuous, independent execution is driven by clear intent and questioning, while being structurally constrained by verifiable, immutable audit trails</strong>.
+        <cite>Gemini 3.1 Pro - May 2026</cite>
+      </blockquote>
+
+      <blockquote class="pull-quote pull-quote--sm">
+        A system where <strong>authority is delegated by intent rather than procedure, exercised only through independently verified conditions, continuously improved by structured questioning and small experiments, and made permanently accountable by a tamper-evident record that no single actor can rewrite</strong> - so that truth is what survives replication, not who held the pen.
+        <cite>Claude Sonnet 4.6 - May 2026</cite>
+      </blockquote>
+
+      <!-- Additional AI responses go here as they are collected - one <blockquote class="pull-quote pull-quote--sm"> per model -->
+
     </section>
   </div>
 
@@ -638,9 +669,9 @@
         Military doctrine, lean manufacturing, philosophy, the scientific method, aviation safety, and empirical AI research.
       </p>
 
-      <div class="stack stack-lg mt-md">
+      <div class="stack mt-md">
 
-        <div class="stack stack-lg">
+        <div class="stack">
           <p class="label label-muted label-bordered">Conceptual traditions</p>
 
           <article class="lineage-card">
@@ -676,6 +707,17 @@
               <a href="https://iep.utm.edu/socrates/#SH3a" target="_blank" rel="noopener" data-tip="The elenchus: Socrates tests and refutes through question and answer, never assertion. Internet Encyclopedia of Philosophy, Method section.">The Socratic Method (the elenchus) - Internet Encyclopedia of Philosophy &#8599;</a>
             </div>
             <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-1" data-tip="Commander's Intent (Principle 1) on this page.">Principle 1 - Commander's Intent</a>, <a href="#probe" data-tip="The Probe skill on this page.">Probe skill</a></p>
+          </article>
+
+          <article class="lineage-card">
+            <h3 class="lineage-title" id="lineage-saltzer-schroeder">Saltzer &amp; Schroeder - Separation of Privilege (1975)</h3>
+            <p class="lineage-claim">A mechanism requiring two independent parties is more robust than one that trusts a single key-holder. Observable Autonomy transfers this structure from access control to the epistemic record: the party that acts must not also be the sole author of the account of its action - no single act of self-narration should be sufficient to compromise the integrity of the trail. The principle is theirs; the transfer to an autonomous agent's reasoning record is what PEA adds.</p>
+            <p class="lineage-meta">Jerome H. Saltzer &amp; Michael D. Schroeder &middot; MIT, Proceedings of the IEEE 63(9), 1975</p>
+            <div class="lineage-sources">
+              <a href="https://web.mit.edu/Saltzer/www/publications/protection/" target="_blank" rel="noopener" data-tip="Saltzer's own MIT publications page for 'The Protection of Information in Computer Systems' - the canonical source for the eight design principles including separation of privilege.">The Protection of Information in Computer Systems - MIT (Saltzer) &#8599;</a>
+              <a href="https://www.cl.cam.ac.uk/teaching/1011/R01/75-protection.pdf" target="_blank" rel="noopener" data-tip="Saltzer &amp; Schroeder (1975), 'The Protection of Information in Computer Systems', Proceedings of the IEEE. Page 9: separation of privilege - a mechanism that requires two independent parties is more robust than one that trusts a single key.">The Protection of Information in Computer Systems - original paper, p.9 (Cambridge PDF) &#8599;</a>
+            </div>
+            <p class="lineage-applies"><b>Applies in:</b> <a href="#principle-2" data-tip="Observable Autonomy (Principle 2) on this page.">Principle 2 - Observable Autonomy</a></p>
           </article>
 
           <article class="lineage-card">
@@ -725,7 +767,7 @@
           </article>
         </div>
 
-        <div class="stack stack-lg">
+        <div class="stack">
           <p class="label label-muted label-bordered">Empirical basis</p>
           <p class="small">
             Three peer-reviewed studies establish why behavioral alignment alone cannot substitute for structural constraints,
@@ -761,6 +803,14 @@
         </div>
 
       </div>
+
+      <div class="card mt-lg">
+        <p class="label label-amber label-bordered">On authorship</p>
+        <p class="small">These principles were not invented here. Auftragstaktik is Prussian military doctrine from the 1870s. The Socratic Method is ancient Greek philosophy. The Delphi Method is from RAND in the 1950s. Kaizen is post-war Japanese manufacturing. Separation of privilege is a 1975 computer security principle. The empirical evidence is peer-reviewed AI research from 2023-2025.</p>
+        <p class="small">The contribution is the synthesis: recognizing that these traditions, combined, answer a specific problem that did not exist when any of them were written - how to delegate real work to an autonomous AI agent and remain structurally accountable for the result. No individual principle is new. The problem they jointly solve is.</p>
+        <p class="small">The citations throughout this page are to primary sources. They predate every AI governance framework published since 2020, including this one.</p>
+      </div>
+
     </section>
   </div>
 

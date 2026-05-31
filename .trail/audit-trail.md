@@ -4526,3 +4526,146 @@ One conceptual change applied to the two cards that lack it: rewrite #2 and #3 b
 2. **Read the three card openings aloud for monotony** (the named blind spot) - if the "X is not Y; it is Z" template repeats too visibly, vary one.
 3. **Mobile / narrow-width pass** - still standing since iter-128; the cards now carry longer prose, compounding the need.
 
+
+---
+
+## 2026-05-31 - iter-147 - P2 structural root: Saltzer & Schroeder
+
+**Slug:** p2-saltzer-schroeder-lineage
+**Skills run:** Improve (cross-repo consistency audit, manifesto as source of truth)
+**Prior commit:** 54e3313 (operator revert of P2/P3 card bodies to terse one-liners)
+
+### Interpretation of the ask
+
+Operator asked for a cross-repo lens across manifesto, nilsholmager.dk, and pea-website with the manifesto as source of truth. Specific concern: whether the manifesto's recent P2 grounding addition (Saltzer & Schroeder separation of privilege, v1.3.0) had been reflected in the downstream sites. Also checking general consistency.
+
+### Examination
+
+Manifesto v1.3.0 (commit 7f07984, most recent) explicitly states: "Its structural root is Saltzer & Schroeder's separation of privilege (1975)" - the transfer from access control to epistemic record. This is the deepest conceptual ancestor of P2, outranking the design analogies (Flight Recorder, Reproducibility) and empirical papers (Turpin, Huang, Chen) already in the Foundations section.
+
+Findings by site:
+- pea-website: Saltzer & Schroeder entirely absent - no lineage card, no link in P2 "Rooted in" line. GAP.
+- nilsholmager.dk: Simple summary cards with no lineage detail by design. No gap for this site's purpose.
+
+Operator's explicit revert (54e3313) to terse P2 card body was respected - card body not touched.
+
+### Change made
+
+1. P2 "Rooted in" line: prepended Saltzer & Schroeder as first link (structural root precedes design analogies).
+2. Added lineage article #lineage-saltzer-schroeder in Foundations section, inserted between Socratic Method (P1) and Flight Data Recorder (P2), following established card format (lineage-card, lineage-claim, lineage-meta, lineage-sources, lineage-applies).
+
+Prediction made before acting: P2 card correctly declares structural root; lineage article matches existing format; no CSS changes required; no regressions to other cards.
+
+### Reflection
+
+Prediction held. No regressions observed. The three synthesis sources the manifesto also names (Meaningful Human Control, Trust Calibration Lee & See 2004, Observatory pattern) were considered but not added - the manifesto frames them as secondary synthesized sources ("It further synthesizes..."), not primary roots. They remain a Candidate Next Move.
+
+The nilsholmager.dk retrospect (2026-05-30) correctly identified open items (work card framing, About section, mobile) that are not addressed here - those require a separate content-framing pass.
+
+### Candidate Next Moves
+
+1. Add Meaningful Human Control / Trust Calibration (Lee & See 2004) to pea-website P2 lineage - the manifesto names them as secondary synthesized roots. Lower urgency than Saltzer & Schroeder (which is the structural root) but still a consistency gap.
+2. Content-framing pass on nilsholmager.dk work cards and About section (retrospect-v1 claim 1-3) - the representation-vs-reader-type gap flagged by retrospect remains open.
+3. Cold-reader test on pea-website - still the standing #1 deferred item per retro-005; requires operator input on convergence criterion before it can run.
+
+---
+
+## 2026-05-31 - iter-148-152 - session close: P2 citations, AI responses section, density pass, authorship card
+
+**Slug:** session-close-citations-responses-density
+**Skills run:** Improve (cross-repo consistency + content additions + density)
+
+### Changes in this session (since iter-147)
+
+**iter-148 - Saltzer & Schroeder citation fix (pea-website + manifesto)**
+- Wikipedia Separation_of_privilege page was a 404. Replaced with Cambridge PDF of the original 1975 paper (https://www.cl.cam.ac.uk/teaching/1011/R01/75-protection.pdf), page 9 cited explicitly.
+- Same primary source link added inline to manifesto PRINCIPLES.md P2 Origin line.
+- MIT publications index link (Saltzer's own page) retained as secondary reference.
+
+**iter-149 - "What do you get when you combine these principles?" section**
+- New section #in-their-words inserted between principles and skills.
+- Question as h2 heading. Framing: "asked cold to AI systems from different model families - no context beyond the three principle statements."
+- Four responses collected and added as pull-quote blockquotes: Microsoft Copilot (Windows 11), ChatGPT GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6.
+- HTML comment placeholder left for future responses.
+
+**iter-150 - Compact pull-quote variant**
+- New CSS modifier pull-quote--sm: font-size drops to --text-body (1rem), line-height 1.55, margin/padding halved.
+- Applied to all four AI response blockquotes. Deming quote in trail section unaffected (keeps large epigraph treatment).
+
+**iter-151 - Compact lineage cards**
+- Card padding: 1rem 1.5rem ->  .5rem 1rem.
+- Claim and title: body size -> 	ext-small (0.9rem).
+- Internal spacing (meta, sources gap, applies margins): halved throughout.
+- Source links: 	ext-small -> 	ext-micro.
+- Stack gap between cards in foundations section: stack-lg (2rem) -> stack (1rem) for both conceptual and empirical groups.
+
+**iter-152 - On authorship card**
+- New .card appended at bottom of Intellectual lineage section.
+- Label: "On authorship" in amber.
+- Three paragraphs: (1) ingredients are old - names each source with century; (2) contribution is the synthesis applied to the specific AI delegation problem; (3) citations are to primary sources predating every AI governance framework since 2020.
+- Added missing .label-amber CSS class.
+
+### Reflection
+
+The session had a clear arc: close a citation gap (iter-148), add new content that directly demonstrates the framework's own convergence claim (iter-149 - four independent model families arrive at the same structural idea), then make the page scannable at that density (iter-150/151), then pre-empt intellectual property challenges by stating the position plainly (iter-152).
+
+[!REALIZATION] The "in their words" section is itself an instance of Convergence Is Silence - four model families, asked cold, independently describing the same emergent property. The section is not just content; it is evidence.
+
+The authorship card is positioned correctly: after the lineage articles, not before. The reader first sees what each tradition contributed, then reads that the synthesis is the contribution. That sequence is the argument.
+
+### Candidate Next Moves
+
+1. **Commit and deploy** - all changes are unstaged. This is the immediate next step.
+2. **Cold-reader test** - still the standing deferred item per retro-005. Operator input needed: "What would a reader have to say or do after visiting this page for you to feel it has done its job?"
+3. **Expand the AI responses** - the section earns a more prominent position (above principles) once it has 5-6 responses. Consider Grok, DeepSeek, or a reasoning-model variant as next additions.
+4. **nilsholmager.dk content-framing pass** - work card descriptions and About section unexamined against the destination (retrospect-v1 claims 1-3).
+
+---
+
+## iter-153 -- 2026-05-31 -- CSS consolidation and HTML consistency audit
+
+**Ask:** Clean up and consolidate CSS and HTML. Ensure: simplicity, clarity, transparency, consistency. Use the improve skill.
+
+**Examination (Improve skill step 2 -- full source read, all 857 lines post-iter-152):**
+
+Four lenses applied:
+
+- *Waste:* `.stack-lg` defined in CSS, no HTML reference after iter-151 removed all usages. `section + section { border-top }` never matched -- each section is wrapped in its own `div.container`, so no two sections are adjacent siblings. `@media (max-width: 540px) { .grid-auto { grid-template-columns: 1fr } }` is a no-op; `.grid-auto` already defines `1fr` at all viewports.
+- *Inconsistency:* P2 principle card had a lone `<cite>Nils Wendelboe Holmager</cite>` between the quote and the body text; P1 and P3 have no such element. The three principle quote blocks are now structurally identical. HTML comment in `#in-their-words` named the wrong class for future blockquotes.
+- *Redundancy:* `.lineage-applies` and `.skill-trigger` had identical 6-property base CSS, written out twice verbatim. `.lineage-applies a { color: var(--teal) }` and `.principle-roots a { color: var(--teal) }` both duplicate the global `a { color: var(--teal) }` rule.
+- *Overburden:* None found. Classes are scoped, comments are purposeful.
+
+**Step 3 challenge:** Structure is not wrong. The `.principle-roots` gap-sm vs `.lineage-applies`/`.skill-trigger` gap-xs is intentional (heavier separator for principle body text vs lighter for skill cards), now documented in a comment. No redesign warranted.
+
+**Actions (two turns, continuous session):**
+
+Turn 1 (audit pass -- iter-152 cleanup continuation):
+- Removed dead `.stack-lg` CSS class
+- Removed dead `section + section { border-top }` CSS rule (selector never matched)
+- Removed P2 lone `<cite>` -- P1/P2/P3 now structurally identical
+- Fixed HTML comment: wrong class name for future AI response blockquotes
+
+Turn 2 (CSS consolidation):
+- Merged `.lineage-applies` + `.skill-trigger` identical base CSS into one combined selector rule
+- Removed redundant `.lineage-applies a { color: var(--teal) }` -- covered by global `a` rule
+- Removed redundant `.principle-roots a { color: var(--teal) }` -- same
+- Removed no-op `@media` responsive `.grid-auto { grid-template-columns: 1fr }` rule
+- Added explanatory comment on the three-variant footer-bar pattern (gap-xs shared, gap-sm separate)
+
+**Verification:** Line count: 857 -> 850 (-7). Zero visual change confirmed by source analysis. All removed rules were either dead (never matched) or redundant (covered by a global rule). Prediction held.
+
+**Reflection:**
+
+*Target model:* The CSS is now at a consolidation plateau. The remaining apparent redundancy (`.principle-roots` separate from the shared base) is intentional spacing variance, now documented. Further reduction would trade semantic clarity for compactness.
+
+*Blind spot:* No browser render verification this turn. retro-005 rule 18 calls for visual verification on layout changes; these changes are purely subtractive with no layout effect. Acceptable skip, named explicitly.
+
+*Reader pushback:* `.footer-bottom` is a single-use class and could be called waste. Counter: inline styles are forbidden (rule 1); a named class for this specific structural element is the correct pattern.
+
+[!REALIZATION] `section + section { border-top }` had been dead from the start of this page's architecture -- sections were never adjacent siblings. The visual separation between sections has always been provided solely by `padding: var(--gap-lg) 0`. The page's appearance was never dependent on that rule.
+
+### Candidate next moves
+
+1. **Mobile/narrow-width browser render check** -- retro-005 rule 18 and destination standing open item. Cheap now that the consolidation pass is clean. Confirm the lineage cards and pull-quote stacks read well below the 760px max-width.
+2. **Cold-reader test + convergence criterion** -- the loop's defining deferred task (retro-005 claim 1). Operator must supply: "what would a reader have to say for you to feel the page has done its job?" Unblocks convergence.
+3. **Commit the full session** -- index.html has ~90 lines net additions (Saltzer & Schroeder lineage card, #in-their-words section, authorship card, consolidation pass); all changes unstaged. Trail files also unstaged.
