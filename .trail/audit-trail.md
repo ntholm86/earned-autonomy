@@ -5263,3 +5263,24 @@ Finding B (Consolidated code): --card-accent dead variable. The SURFACES comment
 **Action:** Wrapped "how to delegate real work to an autonomous AI agent and remain structurally accountable for the result." in `<em>`. No other changes.
 
 **Reflection:** Small change, high-leverage position. The phrase was invisible to skimmers; it is now the visual anchor of the paragraph. The em-dash warning (rule 16) does not apply -- this is a page-scoped rule on new content; the tag wraps existing text.
+
+---
+
+## iter-180 -- 2026-05-31 -- move #in-their-words to after Intellectual Lineage
+
+**Interpretation:** The "What do you get when you combine these principles?" section was placed after the Principles section. Operator corrected the framing: the question was asked about the intellectual lineage traditions (Auftragstaktik, Socratic Method, Toyota Kata, etc.) -- not the 3 PEA principles. The section therefore belongs after the Intellectual Lineage and before On Authorship, as the payoff of the lineage section itself.
+
+**Examination:** The section was a standalone container/section block (`<div class="container"><section id="in-their-words">`). On Authorship is the closing element of `#foundations`. Moving the section inside foundations means: (1) the h2 must demote to h3 (sections already have an h2), (2) the outer container/section wrapper is dropped (already inside a container), (3) the description and any text referencing "the three principle statements" must be corrected.
+
+**Challenge:** The Gemini quote says "Combining these principles yields..." -- the word "principles" there refers to its own synthesis language from the AI response, not to PEA Principles. Changing the *question framing* is correct; changing the AI's *answer text* would be editing a quoted response. Only the framing copy is updated.
+
+**Decision:** Two changes: (1) remove from current position (after Principles, before Skills), (2) insert as `<div id="in-their-words" class="mt-lg">` between the last lineage band and On Authorship inside #foundations. Heading updated: "What do you get when you combine these principles?" -> "What do you get when you combine these traditions?" Description updated: "no context beyond the three principle statements" -> "no context beyond the intellectual lineage traditions listed above." h2 -> h3.
+
+**Actions:**
+- Removed `<!-- INDEPENDENT RESPONSES -->` container block from its position between Principles and Skills
+- Inserted equivalent block as `<div id="in-their-words" class="mt-lg">` inside #foundations, right before the On Authorship card
+- Updated heading to "What do you get when you combine these traditions?"
+- Updated description: "three principle statements" -> "intellectual lineage traditions listed above"
+- h2 demoted to h3 (now a subsection of the h2 "Intellectual lineage")
+
+**Reflection:** The section now reads as the intellectual payoff of the Intellectual Lineage section -- "here are the traditions; here is what AI models say you get when you combine them; here is the authorship note on the synthesis." The narrative arc is tighter and the framing is factually correct.
