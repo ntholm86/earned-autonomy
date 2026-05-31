@@ -5036,3 +5036,22 @@ Uses existing .card + .small + ol pattern. No new CSS. Placed after Install, bef
 **Predict:** Readers who were stuck at first use can now self-unblock without asking the author. The cold-repo question is answered explicitly.
 
 **Reflect:** [!REALIZATION] The page had a dead zone between Install and the skill cards. The skill cards describe what each skill does but not the relationship between them over time. The "First session" card is the missing bridge - it answers the temporal question (what first, what next) that the skill cards deliberately do not address.
+
+
+---
+
+## iter-172 — 2026-05-31
+
+**Ask:** TPS card visual hierarchy broken: concept labels (KAIZEN/KAIKAKU/HANSEI) are grey (label-muted), "Applies in:" footnotes are amber. Footer was outweighing headers.
+
+**Intent:** Fix visual hierarchy so concept names lead each sub-section and "Applies in:" follows as a subordinate footnote. Not a colour rotation for its own sake - a semantic correction.
+
+**Examine (Inconsistency lens):** The outer grouping labels ("Conceptual traditions", "Empirical basis", "Memory Model") are correctly label-muted - they are category dividers, not content headers. The TPS sub-section labels (KAIZEN etc.) are structurally different: they are the primary anchor of each tps-practice block, equivalent to a sub-heading. Using label-muted on them was wrong semantic mapping. .label default (teal) is the correct class: structural section header.
+
+**Challenge:** Does teal beat amber in visual weight? On dark bg, amber (#e7c97a) is brighter than teal (#7fd1c5). But teal wins by position - it is the first element in each sub-section block. Eye enters at the top, reads teal header first, body second, amber footnote third. Position + being the entry point gives teal the hierarchy lead.
+
+**Change:** 3 HTML changes only. Removed label-muted from Kaizen, Kaikaku, Hansei labels inside .tps-practice blocks. They now use .label (teal). Zero CSS changes. Zero new classes. Token was already the right one - the mapping was wrong.
+
+**Predict:** KAIZEN/KAIKAKU/HANSEI render teal (--teal: #7fd1c5). "Applies in:" remains amber but is now clearly a footer annotation below a teal section header. All outer grouping labels remain muted - no change to those.
+
+**Reflect:** [!REALIZATION] label-muted should be reserved for grouping/category labels that sit above multiple items (Conceptual traditions, Empirical basis). Labels that are the PRIMARY header inside a content block should use the default .label (teal). The distinction is: organizer-label vs content-header-label. The TPS card exposed this because it is the only card with internal sub-sections.
