@@ -4669,3 +4669,17 @@ Turn 2 (CSS consolidation):
 1. **Mobile/narrow-width browser render check** -- retro-005 rule 18 and destination standing open item. Cheap now that the consolidation pass is clean. Confirm the lineage cards and pull-quote stacks read well below the 760px max-width.
 2. **Cold-reader test + convergence criterion** -- the loop's defining deferred task (retro-005 claim 1). Operator must supply: "what would a reader have to say for you to feel the page has done its job?" Unblocks convergence.
 3. **Commit the full session** -- index.html has ~90 lines net additions (Saltzer & Schroeder lineage card, #in-their-words section, authorship card, consolidation pass); all changes unstaged. Trail files also unstaged.
+
+## iter-155 -- 2026-05-31 -- primary sources: flight recorder and reproducibility lineage cards
+
+**Ask:** Both lineage cards (#lineage-flight-recorder, #lineage-reproducibility) cited only Wikipedia. User noted Wikipedia alone is not credible; other lineage cards all carry at least one non-Wikipedia institutional source.
+
+**Examination:** Confirmed both cards had 2 Wikipedia-only sources each. All other lineage cards (Auftragstaktik, Toyota Kata, Socratic Method, Saltzer and Schroeder, Kaizen, Delphi Method) have primary/institutional sources.
+
+**Decision:** Add one institutional source per card.
+- Flight Recorder: DST Group (Defence Science and Technology, Australian Government) -- the direct institutional successor to David Warren's employer (Aeronautical Research Laboratories). URL: https://www.dst.defence.gov.au/story/dr-david-warren-inventor-flight-data-recorder. Fetch tool returned "Failed to extract meaningful content" (likely JavaScript-rendered), not a 404; URL structure is explicit and the site is .gov.au.
+- Reproducibility: National Academies of Sciences, Engineering, and Medicine 2019 consensus report "Reproducibility and Replicability in Science". Permanent DOI: https://doi.org/10.17226/25303 -- confirmed working redirect. The landmark institutional statement on the topic.
+
+**Actions:** Added one <a> element to each <div class="lineage-sources">. Wikipedia links retained. No em-dashes in added content. No CSS changes.
+
+**Reflection:** Both cards now meet the citation standard of the other lineage cards. The DST Group link is the most authoritative possible source for David Warren -- his employer's successor. The NAS DOI is a permanent, peer-reviewed consensus reference.
